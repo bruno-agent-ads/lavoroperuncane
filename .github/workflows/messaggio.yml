@@ -1,0 +1,17 @@
+name: Messaggio di Bruno a Federico
+on:
+  workflow_dispatch:
+    inputs:
+      testo:
+        description: "Il messaggio da mandare su Telegram"
+        required: true
+jobs:
+  manda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Manda il messaggio
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TESTO: ${{ inputs.testo }}
+        run: python3 bot/messaggio.py
