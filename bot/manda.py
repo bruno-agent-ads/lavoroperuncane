@@ -1,7 +1,11 @@
 # Manda a Federico il video del giorno (coda/AAAA-MM-GG/) e il testo da copiare.
-import datetime, json, os, pathlib, sys, urllib.request, uuid, zoneinfo
+import datetime, json, os, pathlib, re, sys, urllib.request, uuid, zoneinfo
 
-TOKEN = os.environ["TOKEN"]
+# La chiave incollata può avere spazi o testo intorno: prendo solo la parte numeri:lettere.
+_trovata = re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", os.environ["TOKEN"])
+if not _trovata:
+    sys.exit("La chiave TELEGRAM_TOKEN non sembra una chiave di BotFather.")
+TOKEN = _trovata.group(0)
 API = f"https://api.telegram.org/bot{TOKEN}/"
 CHAT_FILE = pathlib.Path("bot/chat_id.txt")
 
