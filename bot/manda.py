@@ -1,8 +1,8 @@
 # Manda a Federico il video del giorno (coda/AAAA-MM-GG/) e il testo da copiare.
 import datetime, json, os, pathlib, re, sys, urllib.request, uuid, zoneinfo
 
-# La chiave incollata può avere spazi o testo intorno: prendo solo la parte numeri:lettere.
-_trovata = re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", os.environ["TOKEN"])
+# La chiave incollata può avere spazi, a capo o testo intorno: prendo solo la parte numeri:lettere.
+_trovata = re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", re.sub(r"\s", "", os.environ["TOKEN"]))
 if not _trovata:
     _t = os.environ["TOKEN"]
     # Solo la forma, mai il contenuto: lunghezza, due punti, spazi, righe.
