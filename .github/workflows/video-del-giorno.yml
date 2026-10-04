@@ -1,0 +1,22 @@
+name: Video del giorno su Telegram
+on:
+  schedule:
+    - cron: "0 7 * * *"   # 9:00 ora italiana (ora legale); 8:00 da fine ottobre
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  manda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Manda il video di oggi
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: python3 bot/manda.py
+      - name: Ricorda la chat di Federico
+        run: |
+          if [ -n "$(git status --porcelain bot/chat_id.txt)" ]; then
+            git config user.name "Bruno"; git config user.email "bruno@lavoroperuncane.it"
+            git add bot/chat_id.txt && git commit -m "Chat di Federico" && git push
+          fi

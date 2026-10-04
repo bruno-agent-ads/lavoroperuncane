@@ -1,0 +1,1287 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Per cani, gatti, conigli, furetti: tesserino col QR da collare e controllo di cosa ha mangiato gratis; libretto, scheda per chi lo tiene e valigia a 2,49 €. I dati restano sul tuo telefono.">
+<meta name="theme-color" content="#0B0614">
+<meta property="og:title" content="L'ufficio del capo">
+<meta property="og:description" content="Per cani, gatti, conigli, furetti: tesserino col QR da collare e controllo di cosa ha mangiato gratis; libretto, scheda per chi lo tiene e valigia a 2,49 €. I dati restano sul tuo telefono.">
+<meta property="og:image" content="https://lavoroperuncane.it/img/og-ufficio.jpg">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://lavoroperuncane.it/ufficio/">
+<meta property="og:url" content="https://lavoroperuncane.it/ufficio/">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Lavoro per un cane">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bruno, il capo, seduto sulla sua sedia">
+<meta name="twitter:card" content="summary_large_image">
+<script data-goatcounter="https://lavoroperuncane.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="icon" href="../img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../img/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ufficio del capo">
+<title>L'ufficio del capo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: app a una colonna larga max 60rem. In alto la scheda del capo (dati usati da tutti gli strumenti), poi le cinque scrivanie a schede. Stesso look scuro e neon del sito. */
+:root{
+  --bg:#0B0614;
+  --paper:rgba(28,16,46,.84);
+  --field:#160C26;
+  --ink:#F5EFFF;
+  --muted:#B9A9DA;
+  --line:rgba(185,169,218,.24);
+  --hot:#FF3DAE;
+  --cyan:#3DE8FF;
+  --sun:#FFB23D;
+  --ok:#5BFFA8;
+  --red:#FF4D5E;
+  --glow:0 0 0 1px rgba(255,61,174,.25),0 0 40px rgba(255,61,174,.16),0 0 80px rgba(61,232,255,.08);
+  --rainbow:linear-gradient(95deg,#FF3DAE 0%,#FFB23D 35%,#C8FF3D 55%,#3DE8FF 80%,#9B5CFF 100%);
+  --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.55 var(--body);margin:0;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+  background:radial-gradient(40% 35% at 10% 5%,rgba(255,61,174,.30),transparent 70%),
+             radial-gradient(35% 30% at 95% 20%,rgba(61,232,255,.22),transparent 70%),
+             radial-gradient(45% 40% at 60% 90%,rgba(155,92,255,.28),transparent 70%);
+  animation:drift 24s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(4%,-3%,0) rotate(6deg)}}
+.wrap{max-width:60rem;margin:0 auto;padding:1.5rem 1rem 4rem;display:flex;flex-direction:column;gap:1.5rem}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(2.3rem,9vw,4rem);font-weight:800;letter-spacing:-.02em}
+h1 em,.rb{font-style:normal;background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:1.5rem;font-weight:800}
+h3{font-size:1.1rem;font-weight:800}
+p{margin:0}
+.eyebrow{font:600 .75rem/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lede{max-width:40rem;font-size:1.08rem}
+.example{display:inline-flex;font:600 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sun);border:1px solid var(--sun);border-radius:999px;padding:.35rem .6rem;align-self:flex-start}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--glow);padding:1.1rem;display:flex;flex-direction:column;gap:1rem;min-width:0;backdrop-filter:blur(8px)}
+.head{display:flex;gap:1rem;align-items:center}
+.avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none;border:3px solid transparent;background:var(--rainbow) border-box;animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.04)}}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem;min-width:0}
+legend{font:600 .75rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:.4rem;padding:0}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:.7rem}
+.f{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.f label,.lbl{font-size:.86rem;color:var(--muted)}
+input[type=text],input[type=tel],input[type=email],input[type=number],input[type=date],input[type=search],select,textarea{font:inherit;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem;width:100%;min-width:0}
+textarea{resize:vertical;min-height:4.2rem}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,.file:focus-within{outline:3px solid var(--cyan);outline-offset:2px}
+.show{display:flex;gap:.45rem;align-items:center;font-size:.8rem;color:var(--muted)}
+.show input,.check input{accent-color:var(--hot);width:1.1rem;height:1.1rem;flex:none}
+.file{position:relative;display:flex;gap:.8rem;align-items:center;border:1.5px dashed var(--line);border-radius:12px;padding:.7rem .8rem;cursor:pointer}
+.file input{position:absolute;opacity:0;width:1px;height:1px}
+.file b{color:var(--hot)}
+.btns{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+button,.btn{font:700 .95rem/1 var(--body);padding:.8rem 1.1rem;border-radius:10px;border:0;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.primary{background:var(--rainbow);color:#140A22}
+.primary:hover{filter:brightness(1.1)}
+.ghost{background:transparent;color:var(--cyan);border:1.5px solid var(--cyan)}
+.ghost:hover{background:var(--cyan);color:#140A22}
+.danger{background:var(--red);color:#fff}
+.link{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;font:400 .85rem var(--body);cursor:pointer}
+.note{font-size:.86rem;color:var(--muted)}
+.msg{font-size:.9rem;color:var(--cyan);min-height:1.2em}
+.privacy{border-left:3px solid var(--ok);padding-left:.8rem;font-size:.9rem}
+
+/* Scrivanie (schede) */
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
+@media (max-width:700px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.paybar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .8rem;text-decoration:none;color:#140A22;background:var(--rainbow);border-radius:14px;padding:.85rem 1rem;font:800 1.05rem/1.2 var(--display);box-shadow:0 0 30px rgba(255,61,174,.35)}
+.paybar small{font:400 .85rem/1.3 var(--body);color:#2A1844}
+.paybar:hover{filter:brightness(1.08)}
+body.unlocked .paybar,body.unlocked .rifugi{display:none}
+.rifugi{font-size:.88rem;color:var(--muted);margin-top:-.8rem;padding:0 .2rem}
+.rifugi ul{margin:.35rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.35rem}
+.rifugi li{background:var(--field);border:1px solid var(--line);border-radius:999px;padding:.3rem .6rem;color:var(--muted);font-size:.82rem}
+.rifugi li b{color:var(--ink)}
+.lock .rifugi{margin:0;text-align:left}
+details.capo>summary{list-style:none;cursor:pointer;display:flex;gap:.8rem;align-items:center}
+details.capo>summary::-webkit-details-marker{display:none}
+details.capo>summary .edit{margin-left:auto;font:700 .85rem/1 var(--body);color:var(--cyan);border:1.5px solid var(--cyan);border-radius:999px;padding:.45rem .7rem;white-space:nowrap}
+details.capo[open]>summary .edit{background:var(--cyan);color:#140A22}
+details.capo .avatar{width:56px;height:56px}
+details.capo[open]>summary{margin-bottom:1rem}
+@media (max-width:700px){h1{font-size:2.2rem}.lede{font-size:.98rem}}
+.tab{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:.7rem .9rem;text-align:left}
+.tab small{font:600 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tab small.free{color:var(--ok)}
+.tab small.pk::before{content:"🔒 nel pacchetto";color:#FFD23D}
+body.unlocked .tab small.pk::before{content:"✓ sbloccato";color:var(--ok)}
+.bundle{margin:-.4rem 0 0;padding:.65rem .9rem;border:1.5px solid #FFD23D;border-radius:12px;background:rgba(255,210,61,.08);font-size:.92rem}
+body.unlocked .bundle{display:none}
+.tab[aria-selected=true]{border-color:transparent;background:linear-gradient(var(--field),var(--field)) padding-box,var(--rainbow) border-box;border:2px solid transparent;box-shadow:0 0 24px rgba(255,61,174,.3)}
+.desk[hidden]{display:none}
+.desk{position:relative}
+
+/* Blocco a pagamento */
+.lock{position:absolute;inset:0;z-index:5;display:flex;align-items:flex-start;justify-content:center;padding:4rem 1rem 1rem;background:rgba(11,6,20,.55);backdrop-filter:blur(5px);border-radius:18px}
+.lock .card{max-width:24rem;background:#140A22;border-radius:16px;padding:1.3rem;display:flex;flex-direction:column;gap:.8rem;box-shadow:0 0 0 2px var(--hot),0 0 50px rgba(255,61,174,.4);text-align:center;align-items:center}
+.price{font:800 2.6rem/1 var(--display)}
+.lock ul{margin:0;padding:0;list-style:none;font-size:.92rem;display:flex;flex-direction:column;gap:.3rem}
+body.unlocked .lock{display:none}
+/* Facile */
+body{font-size:1.125rem;padding-bottom:6.5rem}
+html.big{font-size:118%}
+.note,.src,.privacy{font-size:.95rem}
+.easybar{position:fixed;left:0;right:0;bottom:0;z-index:150;display:grid;grid-template-columns:1fr 2fr 1fr;gap:.5rem;padding:.6rem .7rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(11,6,20,.96);border-top:1.5px solid var(--line);backdrop-filter:blur(8px)}
+.easybar button{border:0;border-radius:14px;font:800 1rem/1.1 var(--body);padding:.75rem .4rem;cursor:pointer;color:var(--ink);background:var(--field);border:1.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:.15rem}
+.easybar button span{font-size:1.35rem;line-height:1}
+.easybar .eb-sos{background:linear-gradient(135deg,#FF4D5E,#FF3DAE);border:0;color:#fff;font-size:1.15rem}
+.start{position:fixed;inset:0;z-index:180;background:rgba(8,4,16,.97);overflow:auto;padding:calc(1.2rem + env(safe-area-inset-top,0px)) 1rem 2rem}
+.start-in{max-width:30rem;margin:0 auto;display:flex;flex-direction:column;gap:.9rem}
+.start h2{font-size:1.9rem;line-height:1.15}
+.start p{margin:0;color:var(--muted)}
+.start .big-choice{display:flex;align-items:center;gap:1rem;text-align:left;padding:1.2rem 1.1rem;border-radius:18px;border:2px solid var(--line);background:var(--field);color:var(--ink);cursor:pointer;font:800 1.3rem/1.2 var(--body)}
+.start .big-choice span{font-size:2.4rem;line-height:1}
+.start .big-choice small{display:block;font:500 1rem/1.35 var(--body);color:var(--muted);margin-top:.25rem}
+.start .big-choice.sos{border-color:var(--red);background:rgba(255,77,94,.14)}
+.start .skip{background:none;border:0;color:var(--cyan);font:700 1.05rem var(--body);text-decoration:underline;cursor:pointer;padding:.8rem;align-self:center}
+.how{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+.how li{display:flex;gap:.7rem;align-items:flex-start;background:var(--field);border:1.5px solid var(--line);border-radius:14px;padding:.75rem .8rem}
+.how li>b{flex:none;width:2rem;height:2rem;border-radius:50%;background:var(--hot);color:#fff;display:grid;place-items:center;font:800 1rem/1 var(--body)}
+.how li>div{display:flex;flex-direction:column;gap:.45rem;min-width:0}
+.how li>div>span{font-weight:700}
+.how .btn{align-self:flex-start}
+.how-h{font:700 .78rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin:0}
+.done-btn{width:100%;justify-content:center;margin-top:.8rem}
+.g-count{font:700 .85rem/1 var(--mono);letter-spacing:.06em;color:var(--muted);margin:0}
+@media print{.easybar,.start{display:none!important}}
+
+/* Guarda come funziona */
+.howto{position:relative;z-index:6;align-self:flex-start;display:inline-flex;gap:.5rem;align-items:center;background:var(--field);color:var(--ink);border:1.5px solid var(--cyan);border-radius:999px;padding:.55rem 1rem;font:700 .92rem/1 var(--body);cursor:pointer}
+.howto b{color:var(--cyan)}
+.howto+.lock{padding-top:4.8rem}
+.vmodal{position:fixed;inset:0;z-index:200;background:rgba(5,2,10,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;padding:1rem}
+.vmodal video{max-height:82vh;max-width:100%;border-radius:16px;box-shadow:0 0 0 2px var(--hot),0 0 40px rgba(255,61,174,.4);background:#000}
+.vmodal button{background:var(--field);color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:.7rem 1.4rem;font:700 1rem var(--body);cursor:pointer}
+
+/* Il tuo pacchetto */
+.pack{display:flex;flex-direction:column;gap:.8rem;background:var(--field);border:1.5px solid var(--line);border-radius:18px;padding:1.2rem;margin:1.5rem 0}
+.pack p{margin:0}
+.nw{white-space:nowrap}
+.pack .code{font:800 1.5rem/1 var(--mono);letter-spacing:.12em;color:var(--ok);background:var(--field);border:1.5px dashed var(--ok);border-radius:12px;padding:.8rem;text-align:center;user-select:all}
+.pack .row,.redeem{display:flex;gap:.5rem;flex-wrap:wrap}
+.pack .row>*{flex:1 1 9rem}
+.redeem input{flex:1 1 10rem;font:700 1.05rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.redeem button{flex:0 0 auto}
+.ios-tip{font-size:.85rem;color:var(--sun)}
+.pk-faq summary{cursor:pointer;font-weight:700;color:var(--cyan)}
+.pk-faq p{margin:.6rem 0 0;font-size:.92rem}
+.no-store{margin:0 0 1rem}
+.pk-msg{font-weight:700;color:var(--ok)}
+.pk-msg.err{color:var(--red)}
+body.unlocked .only-locked{display:none}
+body:not(.unlocked) .only-unlocked{display:none}
+.inst{margin:0 0 1rem}
+.inst-btn{width:100%;justify-content:center;font-size:1rem;padding:.85rem}
+.inst-help{margin-top:.6rem;background:var(--field);border:1.5px solid var(--cyan);border-radius:14px;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.inst-help ol{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:.35rem}
+.inst-help b{color:var(--cyan)}
+html.standalone .inst{display:none}
+
+/* È grave? */
+.sos-btn{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:#fff;background:linear-gradient(135deg,#FF4D5E,#FF3DAE);border-radius:16px;padding:.95rem 1.1rem;box-shadow:0 0 28px rgba(255,77,94,.35);font:800 1.1rem/1.2 var(--display)}
+.sos-btn span{font-size:1.7rem;line-height:1}
+.sos-btn small{display:block;font:400 .85rem/1.3 var(--body);opacity:.92}
+.g-calm{font:800 1.25rem/1.25 var(--display)}
+.g-steps{display:flex;gap:.35rem}.g-steps i{height:6px;flex:1;border-radius:9px;background:var(--line)}.g-steps i.on{background:var(--hot)}
+.g-syms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+.g-sym{display:flex;flex-direction:column;align-items:flex-start;gap:.3rem;text-align:left;font:700 1rem/1.2 var(--body);padding:.85rem .8rem;border-radius:14px;background:var(--field);color:var(--ink);border:1.5px solid var(--line);cursor:pointer;min-height:4.6rem}
+.g-sym .e{font-size:1.5rem;line-height:1}
+.g-sym small{font:600 .64rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#FFD23D}
+.g-sym small.free{color:var(--ok)}
+.g-sym.al{border-color:rgba(255,77,94,.6)}
+.g-q{display:flex;flex-direction:column;gap:.8rem}
+.g-q h3{font-size:1.35rem;line-height:1.2}
+.g-q ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.45rem;font-size:1.02rem;line-height:1.35}
+.g-ans{display:flex;flex-direction:column;gap:.55rem}
+.g-ans .btn{justify-content:center;font-size:1.05rem;padding:1rem;text-align:center}
+.g-ans button{font:800 1.1rem/1.2 var(--body);padding:1rem;border-radius:14px;border:0;cursor:pointer;color:#140A22;background:var(--ok)}
+.g-ans button.yes{background:var(--red);color:#fff}
+.g-ans button.mid{background:var(--sun)}
+.g-ans button.ghost{background:transparent;color:var(--muted);border:1.5px solid var(--line);font-weight:600;font-size:.95rem;padding:.7rem}
+.verdict.v-ok{border-color:var(--ok);background:rgba(91,255,168,.1)}
+.verdict.v-ok .lvl{color:#140A22;background:var(--ok)}
+.g-why{margin:0;padding-left:1.1rem;font-weight:700}
+.g-aid{border-left:4px solid var(--cyan);padding-left:.8rem}
+.g-mine{font-size:.85rem;color:var(--muted)}
+
+.thanks{background:rgba(91,255,168,.12);border:2px solid var(--ok);border-radius:14px;padding:.9rem 1rem;font-weight:700}
+
+/* Tesserino */
+canvas.card{width:100%;height:auto;aspect-ratio:1011/638;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.45),var(--glow);display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1rem}
+.side{display:flex;flex-direction:column;gap:.4rem}
+.side span{font:600 .7rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sos{background:#FFFFFF;color:#14101C;border-radius:18px;padding:1.2rem;display:flex;flex-direction:column;gap:.9rem;max-width:26rem;box-shadow:0 0 0 4px var(--hot),0 0 40px rgba(255,61,174,.35)}
+.sos .tag{align-self:flex-start;font:800 .8rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;background:#E0123F;color:#fff;padding:.45rem .65rem;border-radius:6px}
+.sos h3{font-size:1.9rem}
+.sos .call{display:flex;flex-direction:column;gap:.2rem;background:#14101C;color:#fff;border-radius:12px;padding:.9rem 1rem}
+.sos .call small{font:600 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#C7BDD9}
+.sos .call strong{font:800 1.6rem/1.1 var(--display);word-break:break-word}
+.sos dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:.45rem .9rem}
+.sos dt{font:600 .72rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#6A5F7C}
+.sos dd{margin:0;font-weight:700;word-break:break-word}
+.sos .foot{font-size:.8rem;color:#6A5F7C}
+
+/* Ha mangiato cosa */
+.verdict{border-radius:16px;padding:1.1rem;display:flex;flex-direction:column;gap:.7rem;border:2px solid var(--line)}
+.verdict .lvl{align-self:flex-start;font:800 .85rem/1 var(--display);letter-spacing:.08em;text-transform:uppercase;padding:.5rem .7rem;border-radius:8px;color:#140A22}
+.v-emerg{border-color:var(--red);background:rgba(255,77,94,.12)}
+.v-emerg .lvl{background:var(--red);color:#fff;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,77,94,0)}0%{box-shadow:0 0 0 0 rgba(255,77,94,.6)}}
+.v-danger{border-color:var(--sun);background:rgba(255,178,61,.12)}
+.v-danger .lvl{background:var(--sun)}
+.v-watch{border-color:var(--cyan);background:rgba(61,232,255,.08)}
+.v-watch .lvl{background:var(--cyan)}
+.verdict h3{font-size:1.5rem}
+.always{background:#140A22;border-radius:12px;padding:.8rem .9rem;font-size:.92rem;border-left:4px solid var(--hot)}
+.src{font-size:.8rem;color:var(--muted)}
+.src a{color:var(--cyan)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{font:600 .82rem/1 var(--body);padding:.5rem .7rem;border-radius:999px;background:var(--field);color:var(--ink);border:1px solid var(--line)}
+.chip:hover{border-color:var(--hot)}
+
+/* Libretto */
+.list{display:flex;flex-direction:column;gap:.6rem;margin:0;padding:0;list-style:none}
+.item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.8rem;align-items:center;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:.75rem .85rem}
+.item .ico{font-size:1.4rem}
+.item b{display:block}
+.item span{font-size:.84rem;color:var(--muted)}
+.item .due{display:inline-block;font:600 .75rem/1.2 var(--mono);margin-bottom:.15rem;color:inherit}
+.item .due.late{color:var(--red)}.item .due.soon{color:var(--sun)}.item .due.ok{color:var(--ok)}
+.x{background:none;border:0;color:var(--muted);font-size:1.2rem;padding:.2rem .4rem;cursor:pointer}
+
+/* Scheda dog-sitter */
+.sheet{background:#FFFDF7;color:#1A1424;border-radius:16px;padding:1.2rem;display:flex;flex-direction:column;gap:.8rem;box-shadow:0 0 0 3px var(--cyan)}
+.sheet h3{font-size:1.6rem}
+.sheet dl{margin:0;display:grid;grid-template-columns:minmax(6rem,auto) minmax(0,1fr);gap:.5rem 1rem}
+.sheet dt{font:600 .72rem/1.6 var(--mono);text-transform:uppercase;color:#6A5F7C}
+.sheet dd{margin:0;white-space:pre-wrap;word-break:break-word}
+.sheet .sos-line{background:#E0123F;color:#fff;border-radius:10px;padding:.7rem .8rem;font-weight:700}
+
+/* Valigia */
+.check{display:flex;gap:.6rem;align-items:flex-start;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:.7rem .8rem}
+.check span small{display:block;color:var(--muted);font-size:.82rem}
+.check.must{border-color:var(--hot)}
+.check:has(input:checked) span{opacity:.55;text-decoration:line-through}
+.progress{height:10px;border-radius:999px;background:var(--field);overflow:hidden}
+.progress i{display:block;height:100%;background:var(--rainbow);transition:width .3s}
+
+footer{font:400 .8rem/1.6 var(--mono);color:var(--muted);border-top:1px solid var(--line);padding-top:1rem;display:flex;flex-direction:column;gap:.4rem}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
+
+/* Medaglietta tonda */
+#medal-print-host{display:flex;flex-direction:column;gap:.7rem;align-items:center}
+#medal-print-host[hidden]{display:none}
+.medal-prev{background:#fff;padding:4mm;border-radius:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:4mm;align-items:center;max-width:100%}
+.medal{width:28mm;height:28mm;display:block}
+.medal-prev .big{width:42mm;height:42mm}
+.medal-prev small{color:#6A5F7C;font:600 .7rem/1.3 var(--mono);text-align:center}
+.medal-note{font-size:.9rem;color:var(--muted);text-align:left}
+#medal-sheet{display:none}
+@media print{
+  @page{size:A4;margin:12mm}
+  body.print-medal>*:not(#medal-sheet){display:none!important}
+  body.print-medal #medal-sheet,body.print-medal #medal-sheet *{visibility:visible!important}
+  body.print-medal #medal-sheet{display:grid!important;grid-template-columns:repeat(6,28mm);gap:3mm;position:static}
+}
+@media print{
+  body{background:#fff}body::before,.lock{display:none!important}
+  body *{visibility:hidden}#sitter-print-host,#sitter-print-host *{visibility:visible}
+  #sitter-print-host{position:absolute;left:0;top:0;width:100%}.sheet{box-shadow:none}
+}
+
+/* Vendita */
+.paycard{display:flex;flex-direction:column;gap:.7rem}
+.paycard .pc-h{margin:0;font:800 1.15rem/1.3 var(--body)}
+.paycard .pc-h b{font-size:1.5rem}
+.paycard .pc-l{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem}
+.paycard .pc-go{display:block;text-align:center;font-size:1.15rem;padding:1rem;border-radius:14px}
+.paycard .pc-t{margin:0}
+.paycard details summary{cursor:pointer;color:var(--cyan);font-weight:700;padding:.3rem 0}
+.paycard details form{margin-top:.5rem}
+.g-free{background:rgba(255,77,94,.12);border:1.5px solid rgba(255,77,94,.55);border-radius:14px;padding:.8rem .9rem;margin:.6rem 0}
+.g-free p{margin:0 0 .4rem}
+.g-free ul{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem}
+.g-more{margin:.6rem 0}
+.g-up{margin-top:1rem}
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:.9rem">
+    <span class="eyebrow">Lavoro per un cane · lavoroperuncane.it</span>
+    <h1>L'ufficio <em>del capo</em></h1>
+    <p class="lede">Per il tuo animale col microchip: cane, gatto, coniglio, furetto, chiunque. Due strumenti gratis, quattro a 2,49 € una volta sola. I dati restano sul tuo telefono: non li ricevo io.</p>
+    <span class="example">Dentro ci sono i dati di Bruno come esempio: metti i tuoi</span>
+  </header>
+
+  <div class="inst" id="inst">
+    <button type="button" class="btn ghost inst-btn" id="inst-btn" aria-expanded="false" aria-controls="inst-help">📲 Metti l'icona sul telefono, come un'app</button>
+    <div class="inst-help" id="inst-help" hidden></div>
+  </div>
+  <a class="sos-btn" id="sos-btn" href="#d-grave"><span>🚨</span><div>Sta male? È grave o posso aspettare?<small>Una domanda alla volta: ti dico se correre dal veterinario, chiamarlo entro domani o osservare.</small></div></a>
+  <a class="paybar" id="paybar" href="#d-lib"><span>🔓 Sblocca tutto · 2,49 €</span><small>“È grave?”, libretto, scheda per chi lo tiene e valigia, una volta sola. 1 € va agli animali.</small></a>
+  <div class="rifugi"><p>🪙 Prima di pagare scegli a chi va: ogni acquisto è una moneta d'oro nel suo salvadanaio. A fine mese il più pieno riceve tutto il bonifico.</p><ul><li><b>Qua la Zampa</b> San Quirico</li><li><b>Occhi di Gatto</b> Grosseto</li><li><b>ENPA</b> Valdarno</li></ul></div>
+
+  <!-- Scheda del capo: la usano tutti gli strumenti -->
+  <details class="panel capo" id="capo">
+    <summary>
+      <img class="avatar" id="avatar" alt="Foto del capo">
+      <div style="display:flex;flex-direction:column;gap:.2rem;min-width:0">
+        <span class="eyebrow">Scheda del capo</span>
+        <h2 id="capo-h"><span id="capo-name">Bruno</span></h2>
+      </div>
+      <span class="edit">Metti i tuoi dati</span>
+    </summary>
+    <p class="note" style="margin-bottom:.8rem">Compila una volta: si salva da sola e la usano tutti gli strumenti.</p>
+    <form id="profile" autocomplete="off">
+      <fieldset>
+        <div class="row">
+          <div class="f"><label for="p-pet">Nome</label><input id="p-pet" type="text" maxlength="18"></div>
+          <div class="f"><label for="p-kind">Che animale è</label><select id="p-kind"><option value="cane">Cane</option><option value="gatto">Gatto</option><option value="coniglio">Coniglio</option><option value="furetto">Furetto</option><option value="altro">Altro animale</option></select></div>
+          <div class="f"><label for="p-weight">Peso (kg)</label><input id="p-weight" type="number" min="0.5" max="100" step="0.1" inputmode="decimal"></div>
+        </div>
+        <div class="row">
+          <div class="f"><label for="p-owner">Il tuo nome</label><input id="p-owner" type="text" maxlength="30"></div>
+          <div class="f"><label for="p-phone">Il tuo telefono</label><input id="p-phone" type="tel" maxlength="20"></div>
+          <div class="f"><label for="p-chip">Microchip</label><input id="p-chip" type="text" inputmode="numeric" maxlength="15"></div>
+        </div>
+        <div class="row">
+          <div class="f"><label for="p-vet">Veterinario</label><input id="p-vet" type="text" maxlength="40"></div>
+          <div class="f"><label for="p-vetphone">Telefono del veterinario</label><input id="p-vetphone" type="tel" maxlength="20"></div>
+        </div>
+        <label class="file" for="p-photo"><input id="p-photo" type="file" accept="image/*"><span><b>Cambia la foto</b>. Resta sul tuo telefono.</span></label>
+      </fieldset>
+    </form>
+    <button type="button" class="btn primary done-btn" id="capo-done">✓ Fatto</button>
+  </details>
+
+  <nav class="tabs" role="tablist" aria-label="Strumenti">
+    <button class="tab" role="tab" id="t-tess" aria-controls="d-tess" aria-selected="true">🪪 Il tesserino<small class="free">Gratis</small></button>
+    <button class="tab" role="tab" id="t-eat" aria-controls="d-eat" aria-selected="false">🚨 Ha mangiato qualcosa?<small class="free">Gratis</small></button>
+    <button class="tab" role="tab" id="t-grave" aria-controls="d-grave" aria-selected="false">🚨 È grave?<small class="pk"></small></button>
+    <button class="tab" role="tab" id="t-lib" aria-controls="d-lib" aria-selected="false">💉 Il libretto<small class="pk"></small></button>
+    <button class="tab" role="tab" id="t-sit" aria-controls="d-sit" aria-selected="false">📋 Per chi lo tiene<small class="pk"></small></button>
+    <button class="tab" role="tab" id="t-trip" aria-controls="d-trip" aria-selected="false">🧳 La valigia<small class="pk"></small></button>
+  </nav>
+  <p class="bundle">🔒 È grave? + Libretto col 730 + Per chi lo tiene + Valigia: <b>tutti e 4 insieme 2,49 €</b>, una volta sola.</p>
+
+  <!-- 1. Tesserino -->
+  <section class="desk panel" id="d-tess" role="tabpanel" aria-labelledby="t-tess">
+    <button type="button" class="howto" data-v="tesserino">❓ <b>Aiuto: guarda come si fa</b> · 16 s</button>
+    <div><h2>Il tesserino del capo</h2><p class="note">Davanti fa ridere. Dietro c'è il QR da collare: chi lo trova lo inquadra e vede chi chiamare.</p></div>
+    <p class="how-h">Come si fa</p><ol class="how"><li><b>1</b><div><span>Scrivi il nome dell'animale e il tuo telefono.</span><button type="button" class="btn ghost" data-do="dati">✏️ Scrivi i dati</button></div></li><li><b>2</b><div><span>Guarda il tesserino qui sotto: si aggiorna da solo.</span></div></li><li><b>3</b><div><span>Scaricalo, oppure stampa la medaglietta da attaccare al collare.</span><button type="button" class="btn primary" data-do="dl">⬇️ Scarica il tesserino</button><button type="button" class="btn ghost" data-do="medal">🏷️ Stampa la medaglietta</button></div></li></ol>
+    <div class="cards">
+      <div class="side"><span>Fronte</span><canvas class="card" id="front" width="1011" height="638" role="img" aria-label="Fronte del tesserino"></canvas></div>
+      <div class="side"><span>Retro, da attaccare al collare</span><canvas class="card" id="back" width="1011" height="638" role="img" aria-label="Retro del tesserino con codice QR"></canvas></div>
+    </div>
+    <div class="btns"><button type="button" class="ghost" id="reroll">Cambia ruolo e regola</button><button type="button" class="ghost" id="try">Cosa vede chi lo trova</button><button type="button" class="ghost" id="medal">🏷️ Medaglietta da stampare</button><button type="button" class="ghost" id="brag">Fallo vedere 📲</button><button type="button" class="primary" id="dl">Scarica fronte e retro</button></div>
+    <p class="msg" id="tess-msg" aria-live="polite"></p>
+    <div id="sos-wrap" hidden></div>
+    <div id="medal-print-host" hidden></div>
+    <form id="tess" autocomplete="off">
+      <fieldset>
+        <legend>Cosa c'è dietro il QR</legend>
+        <p class="note">Telefono e nome del capo si mostrano sempre. Il resto lo scegli tu.</p>
+        <div class="row">
+          <label class="show"><input type="checkbox" id="s-owner"> Il tuo nome</label>
+          <label class="show"><input type="checkbox" id="s-chip"> Microchip</label>
+          <label class="show"><input type="checkbox" id="s-vet"> Veterinario</label>
+        </div>
+        <div class="row">
+          <div class="f"><label for="t-allergy">Allergie</label><input id="t-allergy" type="text" maxlength="60"><label class="show"><input type="checkbox" id="s-allergy"> Mostra</label></div>
+          <div class="f"><label for="t-meds">Medicine</label><input id="t-meds" type="text" maxlength="60"><label class="show"><input type="checkbox" id="s-meds"> Mostra</label></div>
+        </div>
+        <div class="f"><label for="t-extra">Nota per chi lo trova</label><input id="t-extra" type="text" maxlength="80"><label class="show"><input type="checkbox" id="s-extra"> Mostra</label></div>
+      </fieldset>
+    </form>
+    <p class="privacy">I dati della scheda stanno dentro il QR stesso: non passano da nessun server. Stampalo largo almeno 3 cm.</p>
+  <p class="note" style="margin-top:1rem">👛 E per te c'è <a href="/tesserino-padrone/">il tesserino del padrone</a>: se ti succede qualcosa fuori casa, dice che a casa c'è un animale da solo e chi chiamare. Gratis.</p></section>
+
+  <!-- 2. Ha mangiato cosa? -->
+  <section class="desk panel" id="d-eat" role="tabpanel" aria-labelledby="t-eat" hidden>
+    <button type="button" class="howto" data-v="mangiato">❓ <b>Aiuto: guarda come si fa</b> · 12 s</button>
+    <div><h2>Ha mangiato qualcosa di strano?</h2><p class="note">Scegli cosa ha mangiato e quanto: ti dico se è pericoloso e cosa fare. Il peso lo prendo dalla scheda del capo.</p></div>
+    <p class="how-h">Come si fa</p><ol class="how"><li><b>1</b><div><span>Scegli cosa ha mangiato.</span></div></li><li><b>2</b><div><span>Scrivi quanto, più o meno.</span></div></li><li><b>3</b><div><span>Leggi il colore: ti dico cosa fare.</span></div></li></ol>
+    <p class="always" id="eat-kind-warn" hidden>Queste indicazioni sono scritte per i cani. Per un gatto o un altro animale chiama subito il veterinario: le soglie sono diverse.</p>
+    <form id="eat" autocomplete="off">
+      <fieldset>
+        <div class="f"><label for="e-what">Cosa ha mangiato</label>
+          <select id="e-what"></select></div>
+        <div class="chips" id="e-quick" aria-label="I più cercati"></div>
+        <div class="row" id="e-qty-row">
+          <div class="f"><label for="e-qty" id="e-qty-lbl">Quanto (grammi)</label><input id="e-qty" type="number" min="0" step="1" inputmode="decimal"><span class="note" id="e-qty-hint"></span></div>
+          <div class="f"><label for="e-weight">Peso del capo (kg)</label><input id="e-weight" type="number" min="0.5" max="100" step="0.1" inputmode="decimal"></div>
+        </div>
+      </fieldset>
+    </form>
+    <div id="verdict" aria-live="polite"></div>
+    <div class="always"><b>Nel dubbio chiama il veterinario.</b> Non farlo vomitare da solo senza averlo sentito: con alcune sostanze peggiora le cose. Se non sai quanto ne ha mangiato, conta il massimo possibile.</div>
+    <div class="btns">
+      <a class="btn danger" id="call-vet" href="#">Chiama il veterinario</a>
+      <a class="btn ghost" target="_blank" rel="noopener" href="/veterinari-notte/">🌙 Veterinari aperti di notte</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/pronto+soccorso+veterinario+h24">Pronto soccorso veterinario vicino</a>
+    </div>
+    <p class="src">Fonti: <a href="https://www.merckvetmanual.com/toxicology/food-hazards" target="_blank" rel="noopener">Merck Veterinary Manual, Food Hazards</a> e <a href="https://www.aspca.org/pet-care/animal-poison-control" target="_blank" rel="noopener">ASPCA Animal Poison Control</a>. Lo strumento non sostituisce il veterinario e non fa diagnosi.</p>
+  </section>
+
+  <!-- 2b. È grave o posso aspettare? -->
+  <section class="desk panel" id="d-grave" role="tabpanel" aria-labelledby="t-grave" hidden>
+    <button type="button" class="howto" data-v="semaforo">❓ <b>Aiuto: guarda come si fa</b> · 24 s</button>
+    <div><h2>È grave o posso aspettare?</h2><p class="note">🔴 Rosso: vai subito. 🟡 Giallo: veterinario entro 24 ore. 🟢 Verde: osserva. Le fonti sono in fondo.</p></div>
+    <div id="g-box" aria-live="polite"></div>
+    <div class="always"><b>Nel dubbio chiama il veterinario.</b> Il semaforo sta sul prudente: se la fonte non è chiara il colore sale, non scende. Non fa diagnosi e non sostituisce la visita.</div>
+    <div class="btns">
+      <a class="btn danger" id="g-call" href="#">Chiama il veterinario</a>
+      <a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/pronto+soccorso+veterinario+h24">Pronto soccorso veterinario vicino</a>
+    </div>
+    <p class="src">Regole: <a href="https://www.merckvetmanual.com/multimedia/table/when-to-see-a-veterinarian" target="_blank" rel="noopener">Merck Veterinary Manual, “When to See a Veterinarian”</a> e le pagine italiane ed europee indicate sotto ogni risposta. Controllate con fonti italiane ed europee (servizi veterinari pubblici, ordine dei veterinari austriaco, associazioni veterinarie inglesi): dove non sono d'accordo vale la più prudente. Avvelenamenti: <a href="https://www.centroantiveleni.org/" target="_blank" rel="noopener">Centro Antiveleni di Milano, 02 66101029</a>, giorno e notte. I colori seguono l'idea del triage dei pronto soccorso veterinari (<a href="https://pubmed.ncbi.nlm.nih.gov/22702436/" target="_blank" rel="noopener">Ruys e altri, 2012</a>).</p>
+  </section>
+
+  <!-- 3. Libretto -->
+  <section class="desk panel" id="d-lib" role="tabpanel" aria-labelledby="t-lib" hidden>
+    <button type="button" class="howto" data-v="libretto">❓ <b>Aiuto: guarda come si fa</b> · 13 s</button>
+    <div class="lock" aria-hidden="false"></div>
+    <div><h2>Il libretto del capo</h2><p class="note">Vaccini, antiparassitario, richiami e visite. Le scadenze finiscono nel calendario del telefono, col promemoria il giorno prima.</p></div>
+    <p class="how-h">Come si fa</p><ol class="how"><li><b>1</b><div><span>Scegli cosa: vaccino, pipetta, visita.</span></div></li><li><b>2</b><div><span>Metti quando l'hai fatto e ogni quanto va rifatto.</span></div></li><li><b>3</b><div><span>Tocca “Aggiungi”, poi “Metti le scadenze nel calendario”.</span></div></li></ol>
+    <ul class="list" id="lib-list"></ul>
+    <form id="lib" autocomplete="off">
+      <fieldset>
+        <legend>Aggiungi</legend>
+        <div class="row">
+          <div class="f"><label for="l-type">Tipo</label><select id="l-type"><option value="vaccino">💉 Vaccino</option><option value="parassiti">🪲 Antiparassitario</option><option value="vermi">🐛 Vermifugo</option><option value="visita">🩺 Visita</option><option value="medicina">💊 Medicina</option><option value="altro">📌 Altro</option></select></div>
+          <div class="f"><label for="l-name">Nome</label><input id="l-name" type="text" maxlength="40" placeholder="Es. antirabbica, pipetta, controllo"></div>
+        </div>
+        <div class="row">
+          <div class="f"><label for="l-done">Fatto il</label><input id="l-done" type="date"></div>
+          <div class="f"><label for="l-every">Da rifare</label><select id="l-every"><option value="0">Una volta sola</option><option value="1">Ogni mese</option><option value="3">Ogni 3 mesi</option><option value="6">Ogni 6 mesi</option><option value="12" selected>Ogni anno</option><option value="36">Ogni 3 anni</option></select></div>
+        </div>
+        <p class="note">Ogni quanto rifarlo lo decide il veterinario: segna quello che ti ha detto lui.</p>
+        <div class="btns"><button type="submit" class="ghost">Aggiungi al libretto</button><button type="button" class="primary" id="ics">Metti le scadenze nel calendario</button></div>
+        <p class="msg" id="lib-msg" aria-live="polite"></p>
+      </fieldset>
+    </form>
+  
+<div class="t730" id="t730">
+<h3 style="margin-top:1.4rem">🧾 Il 730 del capo</h3>
+<p class="note">Segna le spese del veterinario. A maggio ti dico quanto ti torna col 730: il 19% di quello che spendi tra 129,11 € e 550 € in un anno, per persona.
+Contano visite, esami, interventi e medicine, pagati con carta, bancomat o bonifico (le medicine in farmacia anche in contanti). Non contano cibo, toelettatura, accessori.</p>
+<form id="t7" autocomplete="off"><fieldset><legend>Aggiungi una spesa</legend>
+<div class="row"><div class="f"><label for="t7-d">Data</label><input id="t7-d" type="date"></div>
+<div class="f"><label for="t7-e">Euro</label><input id="t7-e" type="text" inputmode="decimal" placeholder="Es. 45,50"></div></div>
+<div class="row"><div class="f"><label for="t7-w">Cosa</label><select id="t7-w"><option value="v">Visita, esami, intervento</option><option value="f">Medicina in farmacia</option></select></div>
+<div class="f"><label for="t7-p">Pagata con</label><select id="t7-p"><option value="1">Carta, bancomat o bonifico</option><option value="0">Contanti</option></select></div></div>
+<div class="btns"><button type="submit" class="ghost">Aggiungi</button><button type="button" class="primary" id="t7-copy">Copia il riepilogo per il CAF</button></div>
+<p class="msg" id="t7-msg" aria-live="polite"></p></fieldset></form>
+<div id="t7-sum"></div><ul class="list" id="t7-list"></ul>
+<p class="note">Tieni le ricevute col tuo codice fiscale. Il cane deve essere iscritto all'anagrafe canina col microchip. Regole dal <a href="https://quifinanza.it/fisco-tasse/modello-730-2026-spese-veterinarie-limite-massimo/975901/" target="_blank" rel="noopener">730/2026</a>: se cambiano, aggiorno io il calcolo.</p>
+<script>
+(function(){var K='ufficio-730-v1',$=function(i){return document.getElementById(i)},L=[];
+try{L=JSON.parse(localStorage.getItem(K)||'[]')}catch(x){}
+function keep(){try{localStorage.setItem(K,JSON.stringify(L))}catch(x){}}
+function eur(n){return n.toFixed(2).replace('.',',')+' €'}
+function ok(s){return s.p==='1'||s.w==='f'}
+function anno(y){var t=0,c=0;L.forEach(function(s){if(s.d.slice(0,4)===y){if(ok(s))t+=s.e;else c+=s.e}});var b=Math.min(t,550);return{t:t,c:c,r:b>129.11?(b-129.11)*0.19:0}}
+function show(){var ys={},now=String(new Date().getFullYear());ys[now]=1;L.forEach(function(s){ys[s.d.slice(0,4)]=1});
+ $('t7-sum').innerHTML=Object.keys(ys).sort().reverse().map(function(y){var a=anno(y);
+  return '<p class="note"><b>'+y+'</b>: spese che contano '+eur(a.t)+'. Col 730 del '+(+y+1)+' te ne tornano circa <b>'+eur(a.r)+'</b>.'+
+  (a.t<=129.11&&a.t>0?' Sotto i 129,11 € non torna niente: continua a segnare.':'')+(a.c?' In contanti '+eur(a.c)+' che non contano.':'')+'</p>'}).join('');
+ $('t7-list').innerHTML=L.slice().sort(function(a,b){return a.d<b.d?1:-1}).map(function(s){return '<li>'+s.d.split('-').reverse().join('/')+' · '+(s.w==='f'?'Farmacia':'Veterinario')+' · '+eur(s.e)+(ok(s)?'':' · contanti')+' <button type="button" class="ghost" data-del="'+L.indexOf(s)+'" aria-label="Togli">✕</button></li>'}).join('')}
+$('t7-d').value=new Date().toISOString().slice(0,10);
+$('t7').addEventListener('submit',function(ev){ev.preventDefault();var n=parseFloat(($('t7-e').value||'').replace(',','.'));
+ if(!(n>0)||!$('t7-d').value){$('t7-msg').textContent='Metti la data e quanto hai speso.';return}
+ L.push({d:$('t7-d').value,e:Math.round(n*100)/100,w:$('t7-w').value,p:$('t7-p').value});keep();$('t7-e').value='';$('t7-msg').textContent='Segnata.';show()});
+$('t7-list').addEventListener('click',function(ev){var i=ev.target.getAttribute('data-del');if(i!=null){L.splice(+i,1);keep();show()}});
+$('t7-copy').addEventListener('click',function(){var y=String(new Date().getFullYear()-(new Date().getMonth()<6?1:0)),a=anno(y);
+ var t='Spese veterinarie '+y+'\n'+L.filter(function(s){return s.d.slice(0,4)===y&&ok(s)}).map(function(s){return s.d.split('-').reverse().join('/')+'  '+(s.w==='f'?'farmacia':'veterinario')+'  '+eur(s.e)}).join('\n')+'\nTotale: '+eur(a.t);
+ var m=$('t7-msg');if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){m.textContent='Copiato: incollalo in un messaggio al CAF.'},function(){m.textContent=t});else m.textContent=t});
+show();})();
+</script>
+</div>
+</section>
+
+  <!-- 4. Dog-sitter -->
+  <section class="desk panel" id="d-sit" role="tabpanel" aria-labelledby="t-sit" hidden>
+    <button type="button" class="howto" data-v="scheda">❓ <b>Aiuto: guarda come si fa</b> · 10 s</button>
+    <div class="lock"></div>
+    <div><h2>La scheda per chi lo tiene</h2><p class="note">Tutto quello che deve sapere chi tiene il capo mentre sei via, su un foglio solo da mandare o stampare.</p></div>
+    <p class="how-h">Come si fa</p><ol class="how"><li><b>1</b><div><span>Scrivi pappa, orari e cosa non deve fare.</span></div></li><li><b>2</b><div><span>Tocca “Manda la scheda”: va su WhatsApp, o la stampi.</span></div></li></ol>
+    <form id="sit" autocomplete="off">
+      <fieldset>
+        <div class="row">
+          <div class="f"><label for="d-food">Pappa e dose</label><textarea id="d-food" maxlength="200"></textarea></div>
+          <div class="f"><label for="d-times">Orari dei pasti</label><textarea id="d-times" maxlength="200"></textarea></div>
+        </div>
+        <div class="row">
+          <div class="f"><label for="d-walk">Passeggiate</label><textarea id="d-walk" maxlength="200"></textarea></div>
+          <div class="f"><label for="d-meds">Medicine</label><textarea id="d-meds" maxlength="200"></textarea></div>
+        </div>
+        <div class="row">
+          <div class="f"><label for="d-habits">Abitudini e manie</label><textarea id="d-habits" maxlength="300"></textarea></div>
+          <div class="f"><label for="d-no">Cosa NON deve fare o mangiare</label><textarea id="d-no" maxlength="300"></textarea></div>
+        </div>
+        <div class="f"><label for="d-extra">Altri numeri utili</label><input id="d-extra" type="text" maxlength="100"></div>
+      </fieldset>
+    </form>
+    <div id="sitter-print-host"><div class="sheet" id="sheet"></div></div>
+    <div class="btns"><button type="button" class="primary" id="share">Manda la scheda</button><button type="button" class="ghost" id="copy">Copia il testo</button><button type="button" class="ghost" id="print">Stampa</button></div>
+    <p class="msg" id="sit-msg" aria-live="polite"></p>
+  </section>
+
+  <!-- 5. Valigia -->
+  <section class="desk panel" id="d-trip" role="tabpanel" aria-labelledby="t-trip" hidden>
+    <button type="button" class="howto" data-v="valigia">❓ <b>Aiuto: guarda come si fa</b> · 12 s</button>
+    <div class="lock"></div>
+    <div><h2>La valigia del capo</h2><p class="note">Dimmi dove andate e come: ti preparo la lista di documenti, regole e cose da portare.</p></div>
+    <p class="how-h">Come si fa</p><ol class="how"><li><b>1</b><div><span>Scegli dove andate e come.</span></div></li><li><b>2</b><div><span>Spunta la lista man mano che prepari.</span></div></li></ol>
+    <form id="trip" autocomplete="off">
+      <fieldset>
+        <div class="row">
+          <div class="f"><label for="v-dest">Dove andate</label><select id="v-dest">
+            <option value="it">In Italia</option>
+            <option value="ue">In un altro paese dell'Unione europea</option>
+            <option value="echi">Finlandia, Irlanda, Malta, Norvegia o Irlanda del Nord</option>
+            <option value="extra">Fuori dall'Unione europea</option></select></div>
+          <div class="f"><label for="v-how">Come</label><select id="v-how">
+            <option value="auto">In auto</option><option value="treno">In treno</option><option value="nave">In traghetto</option><option value="aereo">In aereo</option></select></div>
+        </div>
+      </fieldset>
+    </form>
+    <div class="progress" aria-hidden="true"><i id="v-bar" style="width:0"></i></div>
+    <p class="note" id="v-count"></p>
+    <div class="list" id="v-list"></div>
+    <p class="src">Documenti per l'estero: <a href="https://europa.eu/youreurope/citizens/travel/carry/animal-plant/index_it.htm" target="_blank" rel="noopener">La tua Europa, viaggiare con animali</a> (Regolamento UE 576/2013). Le regole delle compagnie cambiano: controlla sul loro sito prima di partire.</p>
+  </section>
+
+  <section class="card pack" id="pacchetto">
+    <h2>🔐 Il tuo pacchetto</h2>
+    <div class="only-unlocked">
+      <p><b>La tua chiave per riaprire il pacchetto.</b> Fai una foto allo schermo: ti serve se cambi telefono o se il telefono cancella i dati.</p>
+      <div class="code" id="pk-code"></div>
+      <div class="row"><button type="button" class="btn ghost" id="pk-copy">📋 Copia la chiave</button></div>
+    </div>
+    <div class="only-locked">
+      <p>Hai già pagato? Scrivi qui la chiave che ti ho dato dopo il pagamento (tipo CAPO-AB3D-XY).</p>
+      <form class="redeem" data-redeem><input type="text" placeholder="CAPO-XXXX-XX" maxlength="14" autocomplete="off" autocapitalize="characters" aria-label="Chiave del pacchetto"><button type="submit" class="btn primary">Sblocca</button></form>
+    </div>
+    <p>I dati di <b class="pk-name"></b> stanno solo su questo telefono. Salva una copia: se cambi telefono la rimetti in un attimo.</p>
+    <div class="row">
+      <button type="button" class="btn ghost" id="pk-save">💾 Salva una copia</button>
+      <label class="btn ghost" style="text-align:center;cursor:pointer">📂 Rimetti una copia<input type="file" id="pk-load" accept=".json,application/json" hidden></label>
+    </div>
+    <p class="pk-msg" id="pk-msg" role="status"></p>
+    <details class="pk-faq"><summary>Domande veloci</summary>
+      <p><b>Ho pagato ma non vedo la chiave.</b> Riapri questa pagina dallo stesso telefono con cui hai pagato: la chiave è qui sopra. Su iPhone guarda in Safari, non nell'icona.</p>
+      <p><b>Ho perso la chiave.</b> Se hai salvato una copia, rimettila: dentro c'è anche lo sblocco.</p>
+      <p><b>Navigazione privata.</b> Quando chiudi la finestra il telefono cancella tutto. Usa una finestra normale, o salva una copia prima di chiudere.</p>
+      <p><b>Funziona senza rete?</b> Sì, dopo averla aperta una volta con la rete.</p>
+    </details>
+  </section>
+
+  <footer>
+    <span>L'ufficio del capo · fatto da chi lavora per Bruno · San Quirico d'Orcia (SI)</span>
+    <span>Versione completa 2,49 € una volta sola. 1 € va a chi aiuta gli animali, scelto col voto.</span>
+    <a href="/" style="color:inherit">Torna a lavoroperuncane.it</a>
+    <span>Versione del 4 ottobre, ore 22:25</span>
+  </footer>
+</div>
+
+<script src="../js/qrcode.min.js"></script>
+<script>
+(function(){
+  var SITE='https://lavoroperuncane.it/s/';   /* scheda d'emergenza sul sito vero */
+  var KEY='ufficio-del-capo-v1';
+  var $=function(id){return document.getElementById(id)};
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function iso(d){return d.toISOString().slice(0,10)}
+  function addMonths(s,m){var d=new Date(s+'T12:00:00');d.setMonth(d.getMonth()+m);return iso(d)}
+  var today=iso(new Date());
+
+  /* ---------- Stato, salvato solo su questo telefono ---------- */
+  var DEMO={
+    unlocked:false,
+    p:{pet:'Bruno',kind:'cane',weight:'12',owner:'Federico',phone:'333 000 0000',chip:'380260000000000',vet:'Ambulatorio veterinario di esempio',vetphone:'0577 000000',photo:''},
+    t:{allergy:'Nessuna nota',meds:'Nessuna',extra:'Ha paura dei motorini, avvicinati piano.',show:{owner:true,chip:true,vet:true,allergy:true,meds:true,extra:true},role:1,rule:0},
+    lib:[
+      {type:'vaccino',name:'Antirabbica (esempio)',done:addMonths(today,-11),every:12},
+      {type:'parassiti',name:'Pipetta antipulci (esempio)',done:addMonths(today,-1),every:1},
+      {type:'visita',name:'Controllo annuale (esempio)',done:addMonths(today,-13),every:12}
+    ],
+    s:{food:'Crocchette, 1 misurino e mezzo',times:'8:00 e 19:00. Mai fuori orario, anche se fa gli occhi dolci.',walk:'3 giri al giorno, l\'ultimo verso le 22',meds:'Nessuna',habits:'Dorme sul divano. Russa. Abbaia al campanello ma poi si calma.',no:'Niente uva, cioccolato, ossa cotte. Non lasciarlo solo in giardino.',extra:'Vicina di casa (esempio): 333 111 1111'},
+    v:{dest:'ue',how:'auto',done:{}}
+  };
+  var mem=null;
+  function load(){try{var r=localStorage.getItem(KEY);if(r)return JSON.parse(r)}catch(e){}return mem||JSON.parse(JSON.stringify(DEMO))}
+  var S=load();
+  function save(){mem=S;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+  ['p','t','s','v'].forEach(function(k){S[k]=Object.assign({},DEMO[k],S[k]||{})});
+  if(!Array.isArray(S.lib))S.lib=[];
+
+  var SEDIA='../img/bruno-sedia.jpg';
+  var photo=new Image(),hasPhoto=false;
+  function setPhoto(src){photo=new Image();photo.onload=function(){hasPhoto=true;drawCards()};photo.src=src;$('avatar').src=src}
+  setPhoto(S.p.photo||SEDIA);
+
+  /* ---------- Scheda del capo ---------- */
+  var PF=['pet','kind','weight','owner','phone','chip','vet','vetphone'];
+  PF.forEach(function(k){$('p-'+k).value=S.p[k]||''});
+  $('profile').addEventListener('input',function(){
+    PF.forEach(function(k){S.p[k]=$('p-'+k).value.trim()});
+    $('e-weight').value=S.p.weight; save(); refreshAll();
+  });
+  $('p-kind').addEventListener('change',function(){pickRole();drawCards()});
+  $('p-photo').addEventListener('change',function(e){
+    var f=e.target.files&&e.target.files[0]; if(!f)return;
+    var rd=new FileReader(); rd.onload=function(){
+      var im=new Image(); im.onload=function(){   /* rimpicciolisce per starci nella memoria del telefono */
+        var s=Math.min(1,480/Math.max(im.width,im.height)),c=document.createElement('canvas');
+        c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+        S.p.photo=c.toDataURL('image/jpeg',.85); save(); setPhoto(S.p.photo);
+      }; im.src=rd.result;
+    }; rd.readAsDataURL(f);
+  });
+  function name(){return S.p.pet||'il capo'}
+
+  /* ---------- Scrivanie ---------- */
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function openTab(t,scroll){tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);$(b.getAttribute('aria-controls')).hidden=!on});
+    if(scroll&&innerWidth<=700){var d=$(t.getAttribute('aria-controls'));try{d.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){d.scrollIntoView()}}}
+  tabs.forEach(function(b){b.addEventListener('click',function(){openTab(b,true)})});
+  /* Tasto in alto: va dritto al pagamento, oppure al blocco se il pagamento non c'è */
+  var PAY_URL='https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00';   /* Stripe Payment Link, 2,49 € */
+  if(PAY_URL)$('paybar').href=PAY_URL;
+  else $('paybar').addEventListener('click',function(e){e.preventDefault();openTab($('t-lib'),true)});
+
+
+  /* ---------- Il tuo pacchetto: codice di ripristino e copia di sicurezza ---------- */
+  var PKA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  function pkSum(b){var n=0;for(var i=0;i<b.length;i++)n=(n*7+PKA.indexOf(b[i])+i*13)%1024;return PKA[n>>5]+PKA[n&31]}
+  function mkCode(){var b='';for(var i=0;i<4;i++)b+=PKA[Math.floor(Math.random()*32)];return 'CAPO-'+b+'-'+pkSum(b)}
+  function okCode(c){c=String(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'');var m=/^CAPO([A-Z2-9]{4})([A-Z2-9]{2})$/.exec(c);return m&&pkSum(m[1])===m[2]?'CAPO-'+m[1]+'-'+m[2]:''}
+  if(S.unlocked&&!S.code){S.code=mkCode();save()}
+  (function(){try{localStorage.setItem(KEY+'-t','1');localStorage.removeItem(KEY+'-t')}catch(e){
+    var w=document.createElement('p');w.className='always no-store';w.innerHTML='<b>Così il telefono non salva quello che scrivi</b> (forse sei in navigazione privata). Quello che scrivi sparisce quando chiudi: apri la pagina in una finestra normale, o usa “Salva una copia” in fondo.';
+    document.querySelector('.wrap').insertBefore(w,document.querySelector('.wrap').children[1])}})();
+  function pkMsg(t,err){var m=$('pk-msg');m.textContent=t;m.className='pk-msg'+(err?' err':'')}
+  function renderPack(){$('pk-code').textContent=S.code||'';[].forEach.call(document.querySelectorAll('.pk-name'),function(b){b.textContent=name()})}
+  document.addEventListener('submit',function(e){var f=e.target;if(!f.hasAttribute||!f.hasAttribute('data-redeem'))return;e.preventDefault();
+    var c=okCode(f.querySelector('input').value),out=f.parentNode.querySelector('.redeem-msg')||f.parentNode.appendChild(Object.assign(document.createElement('p'),{className:'pk-msg redeem-msg'}));
+    if(!c){out.className='pk-msg err redeem-msg';out.textContent='Chiave sbagliata: controlla le lettere, è tipo CAPO-AB3D-XY.';return}
+    S.unlocked=true;S.code=c;save();applyLock();renderPack();try{grave()}catch(x){}
+    out.className='pk-msg redeem-msg';out.textContent='Fatto, pacchetto sbloccato su questo telefono.';pkMsg('Fatto, pacchetto sbloccato su questo telefono.')});
+  $('pk-copy').addEventListener('click',function(){var c=S.code;(navigator.clipboard?navigator.clipboard.writeText(c):Promise.reject()).then(function(){pkMsg('Chiave copiata. Incollala nelle note o mandatela per messaggio.')},function(){pkMsg('Tieni premuta la chiave per copiarla, o fai una foto allo schermo.')})});
+  $('pk-save').addEventListener('click',function(){
+    var fn='capo-'+(S.p.pet||'animale').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.json',
+      blob=new Blob([JSON.stringify({app:'ufficio-del-capo',v:1,salvato:today,dati:S})],{type:'application/json'}),f;
+    try{f=new File([blob],fn,{type:'application/json'})}catch(e){}
+    if(f&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'Copia di '+name()}).then(function(){pkMsg('Copia salvata.')}).catch(function(){});return}
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;document.body.appendChild(a);a.click();a.remove();
+    pkMsg('Copia scaricata: '+fn+'. Tienila al sicuro, c\'è anche il tuo numero.')});
+  $('pk-load').addEventListener('change',function(e){var f=e.target.files&&e.target.files[0];if(!f)return;var r=new FileReader();
+    r.onload=function(){try{var o=JSON.parse(r.result),d=o&&o.app==='ufficio-del-capo'&&o.dati;if(!d||!d.p)throw 0;
+      if(d.unlocked&&!okCode(d.code))d.unlocked=false;if(S.unlocked&&!d.unlocked){d.unlocked=true;d.code=S.code}
+      S=d;['p','t','s','v'].forEach(function(k){S[k]=Object.assign({},DEMO[k],S[k]||{})});if(!Array.isArray(S.lib))S.lib=[];save();
+      pkMsg('Copia rimessa. Ricarico la pagina…');setTimeout(function(){location.reload()},700)}
+      catch(x){pkMsg('Questo file non è una copia dell\'ufficio del capo.',true)}};r.readAsText(f);e.target.value=''});
+  var iOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  function iosTip(){return iOS?'<p class="ios-tip">📱 Su iPhone: prima metti l\'icona sul telefono (📲 in alto) e paga da lì. L\'icona ha una memoria tutta sua: se dopo il pagamento non la vedi sbloccata, scrivi la chiave che ti do.</p>':''}
+  /* Installa sul telefono: niente store, è il sito che si mette sulla schermata Home */
+  var standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true,bip=null;
+  if(standalone)document.documentElement.classList.add('standalone');
+  addEventListener('beforeinstallprompt',function(e){e.preventDefault();bip=e});
+  addEventListener('appinstalled',function(){$('inst').hidden=true});
+  $('inst-btn').addEventListener('click',function(){
+    if(bip){bip.prompt();bip.userChoice.then(function(){bip=null});return}
+    var h=$('inst-help'),open=h.hidden;h.hidden=!open;this.setAttribute('aria-expanded',open);if(!open)return;
+    h.innerHTML=iOS?'<p><b>Su iPhone, da Safari:</b></p><ol><li>Tocca il tasto <b>Condividi</b> (il quadrato con la freccia in su), in basso.</li><li>Scorri e tocca <b>Aggiungi alla schermata Home</b>, poi <b>Aggiungi</b>.</li></ol><p class="ios-tip">Fallo prima di pagare e paga dall\'icona: lì dentro i dati sono separati da Safari.</p>'
+      :'<p><b>Su Android, da Chrome:</b></p><ol><li>Tocca il menu <b>⋮</b> in alto a destra.</li><li>Tocca <b>Installa app</b> (o <b>Aggiungi a schermata Home</b>).</li></ol>'+
+      '<p class="note">Non serve nessuno store: è questa pagina che diventa un\'icona.</p>'});
+
+  /* ---------- Blocco a pagamento (finto nell'anteprima) ---------- */
+  var LOCK='<div class="card paycard"><p class="pc-h">Tutto il pacchetto: <b class="rb">2,49 €</b>, una volta sola</p>'+
+    '<ul class="pc-l"><li>🚦 «È grave?» per tutti i 14 sintomi</li><li>💉 Libretto: ti ricorda vaccini e antiparassitario</li><li>📋 Scheda per chi lo tiene quando sei via</li><li>🧳 Lista per i viaggi</li></ul>'+
+    (PAY_URL?'<a class="btn primary pc-go" href="'+PAY_URL+'">Sblocca tutto · 2,49 €</a>'+
+      '<p class="note pc-t">Niente abbonamento, niente registrazione. 🐾 1 € va a un rifugio: lo scegli tu prima di pagare.</p>'+iosTip()+
+      '<details><summary>Hai già pagato? Metti la chiave</summary><form class="redeem" data-redeem><input type="text" placeholder="CAPO-XXXX-XX" maxlength="14" autocomplete="off" autocapitalize="characters" aria-label="Codice del pacchetto"><button type="submit" class="btn ghost">Sblocca</button></form></details>'
+     :'<button type="button" class="primary" disabled style="opacity:.6;cursor:default">Il pagamento apre a giorni</button>')+'</div>';
+  [].forEach.call(document.querySelectorAll('.lock'),function(l){l.innerHTML=LOCK});
+  function applyLock(){document.body.classList.toggle('unlocked',!!S.unlocked)}
+  (function(){var q=new URLSearchParams(location.search);if(q.get('sbloccato')==='1'||q.get('session_id')){S.unlocked=true;if(!S.code)S.code=mkCode();save();
+    try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
+    var t=document.createElement('p');t.className='thanks';t.setAttribute('role','status');t.innerHTML='Grazie! Tutto sbloccato, 1 € va agli animali. La tua chiave per riaprirlo è <b class="nw">'+S.code+'</b>. Fai una foto allo schermo: ti serve se cambi telefono'+(iOS?' o se usi l\'icona sul telefono':'')+'. La trovi anche in fondo alla pagina.';
+    document.querySelector('.wrap').insertBefore(t,document.querySelector('.wrap').children[1]);}})();
+  applyLock();
+
+  /* ---------- 1. Tesserino ---------- */
+  var ROLES={
+    cane:['Responsabile Divano','Direttore Crocchette','Capo Ufficio Pisolini','Ispettore Ciotole','Delegato al Riporto','Vigilante del Campanello','Consulente Coccole Senior','Responsabile Qualità Ossi'],
+    gatto:['Direttrice Scatoloni','Capo Ufficio Tastiere','Ispettore Davanzali','Responsabile Pisolini al Sole','Delegato agli Agguati','Consulente Fusa Senior'],
+    coniglio:['Direttore Carote','Capo Ufficio Salti','Ispettore Fieno','Responsabile Orecchie Ritte','Consulente Rosicchiamento Senior'],
+    furetto:['Direttore del Caos','Capo Ufficio Nascondigli','Ispettore Calzini Spariti','Responsabile Tunnel','Delegato alle Capriole'],
+    altro:['Capo di Tutto','Responsabile Spuntini','Direttore Generale del Salotto','Ispettore Coccole']
+  };
+  var RULES=['Le riunioni si fanno sul divano.','Chi apre il frigo deve condividere.','Il postino è sempre sospetto.','Nessuna mail prima della passeggiata.','Le coccole non si rimandano.','Il cuscino migliore spetta al capo.','Si lavora solo dopo lo spuntino.','La ciotola vuota è un’emergenza aziendale.','Il campanello va sempre commentato.','Il pisolino è una riunione strategica.'];
+  var TS=['owner','chip','vet','allergy','meds','extra'];
+  $('t-allergy').value=S.t.allergy;$('t-meds').value=S.t.meds;$('t-extra').value=S.t.extra;
+  TS.forEach(function(k){$('s-'+k).checked=!!S.t.show[k]});
+  $('tess').addEventListener('input',function(){
+    S.t.allergy=$('t-allergy').value.trim();S.t.meds=$('t-meds').value.trim();S.t.extra=$('t-extra').value.trim();
+    TS.forEach(function(k){S.t.show[k]=$('s-'+k).checked}); save(); drawCards();
+  });
+  function pickRole(){var l=ROLES[S.p.kind]||ROLES.altro;S.t.role=Math.floor(Math.random()*l.length);S.t.rule=Math.floor(Math.random()*RULES.length);save()}
+  $('reroll').addEventListener('click',function(){pickRole();drawCards()});
+
+  function payload(){
+    var on=function(k){return !!S.t.show[k]},p=S.p,t=S.t;
+    return ['1',p.pet,on('owner')?p.owner:'',p.phone,on('chip')?p.chip:'',on('vet')?p.vet:'',on('vet')?p.vetphone:'',
+      on('allergy')?t.allergy:'',on('meds')?t.meds:'',on('extra')?t.extra:''].map(function(s){return encodeURIComponent(s||'')}).join('~');
+  }
+  function decode(s){var a=s.split('~').map(function(x){try{return decodeURIComponent(x)}catch(e){return x}});
+    return {pet:a[1],owner:a[2],phone:a[3],chip:a[4],vet:a[5],vetphone:a[6],allergy:a[7],meds:a[8],extra:a[9]}}
+
+  function rr(x,a,b,w,h,r){x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath()}
+  function wrap(x,text,maxW){var words=text.split(' '),lines=[],cur='';words.forEach(function(w){var t=cur?cur+' '+w:w;if(x.measureText(t).width>maxW&&cur){lines.push(cur);cur=w}else cur=t});if(cur)lines.push(cur);return lines}
+  function fit(x,text,font,size,maxW){do{x.font=font.replace('%',size)}while(x.measureText(text).width>maxW&&(size-=2)>20);return size}
+  function bg(x,w,h){
+    var g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,'#1B0B2E');g.addColorStop(1,'#0B0614');x.fillStyle=g;rr(x,0,0,w,h,36);x.fill();
+    [[120,80,260,'rgba(255,61,174,.35)'],[w-80,140,240,'rgba(61,232,255,.25)'],[w*0.6,h-40,300,'rgba(155,92,255,.30)']].forEach(function(b){var r=x.createRadialGradient(b[0],b[1],0,b[0],b[1],b[2]);r.addColorStop(0,b[3]);r.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=r;x.fillRect(0,0,w,h)});
+    var rb=x.createLinearGradient(0,0,w,0);['#FF3DAE','#FFB23D','#C8FF3D','#3DE8FF','#9B5CFF'].forEach(function(c,i){rb.addColorStop(i/4,c)});
+    x.lineWidth=10;x.strokeStyle=rb;rr(x,5,5,w-10,h-10,32);x.stroke();return rb;
+  }
+  function drawFront(){
+    var c=$('front'),x=c.getContext('2d'),W=c.width,H=c.height;x.clearRect(0,0,W,H);var rb=bg(x,W,H);
+    x.fillStyle='#FF3DAE';x.font='600 26px "IBM Plex Mono", monospace';x.fillText('TESSERINO DEL CAPO',60,82);
+    var cx=215,cy=345,R=150;x.save();x.beginPath();x.arc(cx,cy,R,0,Math.PI*2);x.clip();
+    if(hasPhoto){var s=Math.max(2*R/photo.width,2*R/photo.height),w=photo.width*s,h=photo.height*s;x.drawImage(photo,cx-w/2,cy-h/2.4,w,h)}else{x.fillStyle='#2A1844';x.fillRect(cx-R,cy-R,2*R,2*R)}
+    x.restore();x.lineWidth=8;x.strokeStyle=rb;x.beginPath();x.arc(cx,cy,R+4,0,Math.PI*2);x.stroke();
+    var X=410,maxW=W-X-60,nm=S.p.pet||'Il capo',list=ROLES[S.p.kind]||ROLES.altro,role=list[S.t.role%list.length];
+    var lab=function(t,y){x.fillStyle='#B9A9DA';x.font='600 22px "IBM Plex Mono", monospace';x.fillText(t,X,y)};
+    lab('NOME',200);x.fillStyle='#F5EFFF';fit(x,nm,'800 %px "Bricolage Grotesque", sans-serif',78,maxW);x.fillText(nm,X,270);
+    lab('RUOLO',325);x.fillStyle='#3DE8FF';fit(x,role,'800 %px "Bricolage Grotesque", sans-serif',40,maxW);x.fillText(role,X,368);
+    lab('REGOLA D’UFFICIO',420);x.fillStyle='#F5EFFF';x.font='italic 400 30px "Atkinson Hyperlegible", sans-serif';
+    wrap(x,'“'+RULES[S.t.rule%RULES.length]+'”',maxW-20).slice(0,2).forEach(function(l,i){x.fillText(l,X,460+i*38)});
+    x.fillStyle='#B9A9DA';x.font='400 20px "IBM Plex Mono", monospace';x.fillText('fatto da chi lavora per Bruno · lavoroperuncane.it',60,H-44);
+    x.save();x.translate(W-170,92);x.rotate(-0.16);x.strokeStyle=x.fillStyle='#5BFFA8';x.lineWidth=5;rr(x,-120,-34,240,68,10);x.stroke();
+    x.font='800 34px "Bricolage Grotesque", sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('APPROVATO',0,2);x.restore();
+  }
+  function drawBack(){
+    var c=$('back'),x=c.getContext('2d'),W=c.width,H=c.height;x.clearRect(0,0,W,H);bg(x,W,H);
+    var url=SITE+'#'+payload(),size=400,ox=60,oy=(H-size)/2-10;x.fillStyle='#FFFFFF';rr(x,ox,oy,size,size,20);x.fill();
+    if(window.qrcode){var q=qrcode(0,'L');q.addData(url);q.make();var n=q.getModuleCount(),pad=22,cell=(size-2*pad)/n;x.fillStyle='#120A1E';
+      for(var r=0;r<n;r++)for(var k=0;k<n;k++)if(q.isDark(r,k))x.fillRect(ox+pad+k*cell,oy+pad+r*cell,Math.ceil(cell),Math.ceil(cell));}
+    else{x.fillStyle='#120A1E';x.font='600 24px "IBM Plex Mono", monospace';x.fillText('QR non disponibile',ox+70,oy+size/2)}
+    var X=ox+size+50,maxW=W-X-50;
+    x.fillStyle='#FF3DAE';x.font='600 24px "IBM Plex Mono", monospace';x.fillText('SE MI TROVI',X,150);
+    x.fillStyle='#F5EFFF';var nm='Sono '+name();fit(x,nm,'800 %px "Bricolage Grotesque", sans-serif',60,maxW);x.fillText(nm,X,215);
+    x.font='400 30px "Atkinson Hyperlegible", sans-serif';wrap(x,'Inquadra il codice con la fotocamera: vedi subito chi chiamare.',maxW).forEach(function(l,i){x.fillText(l,X,270+i*40)});
+    if(S.t.show.chip&&S.p.chip){x.fillStyle='#B9A9DA';x.font='600 20px "IBM Plex Mono", monospace';x.fillText('MICROCHIP',X,430);x.fillStyle='#3DE8FF';x.font='600 30px "IBM Plex Mono", monospace';x.fillText(S.p.chip,X,470)}
+    x.fillStyle='#B9A9DA';x.font='400 20px "IBM Plex Mono", monospace';x.fillText('fatto da chi lavora per Bruno · lavoroperuncane.it',60,H-44);
+  }
+  function renderSos(){
+    var d=decode(payload()),rows='';function add(k,v){if(v)rows+='<dt>'+k+'</dt><dd>'+esc(v)+'</dd>'}
+    add('Microchip',d.chip);add('Veterinario',(d.vet||'')+(d.vetphone?' · '+d.vetphone:''));add('Allergie',d.allergy);add('Medicine',d.meds);add('Nota',d.extra);
+    $('sos-wrap').innerHTML='<p class="note" style="margin-bottom:.6rem">Questo vede chi inquadra il QR, letto dallo stesso codice che hai sul retro.</p><div class="sos"><span class="tag">Mi sono perso</span><h3>Ciao, sono '+esc(d.pet||'un capo')+'</h3><div class="call"><small>Chiama '+(d.owner?esc(d.owner):'il mio umano')+'</small><strong>'+esc(d.phone||'numero non inserito')+'</strong></div>'+(rows?'<dl>'+rows+'</dl>':'')+'<p class="foot">Tienimi al sicuro finché non arriva. Grazie da parte del capo.</p></div>';
+  }
+  function drawCards(){drawFront();drawBack();if(!$('sos-wrap').hidden)renderSos()}
+  $('try').addEventListener('click',function(){var w=$('sos-wrap');w.hidden=!w.hidden;if(!w.hidden)renderSos();this.textContent=w.hidden?'Cosa vede chi lo trova':'Nascondi la scheda'});
+  function download(blob,fn){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;document.body.appendChild(a);a.click();a.remove()}
+  var PREVIEW_MSG='';
+  $('dl').addEventListener('click',function(){
+    try{[['front','fronte'],['back','retro']].forEach(function(p){$(p[0]).toBlob(function(b){download(b,'tesserino-'+name().toLowerCase()+'-'+p[1]+'.png')})})}catch(e){}
+    $('tess-msg').textContent='Scarico i due file da stampare.'+PREVIEW_MSG;
+  });
+
+  /* ---------- Medaglietta tonda da stampare: 24 per foglio, QR con solo nome e telefono ---------- */
+  function medal(cls){
+    var url=SITE+'#'+['1',S.p.pet,'',S.p.phone].map(function(v){return encodeURIComponent(v||'')}).join('~'),qr='';
+    if(window.qrcode){var q=qrcode(0,'M');q.addData(url);q.make();var n=q.getModuleCount(),m=16/n,d='';
+      for(var r=0;r<n;r++)for(var k=0;k<n;k++)if(q.isDark(r,k))d+='M'+(6+k*m).toFixed(3)+' '+(6.2+r*m).toFixed(3)+'h'+m.toFixed(3)+'v'+m.toFixed(3)+'h-'+m.toFixed(3)+'z';
+      qr='<path d="'+d+'" fill="#120A1E" shape-rendering="crispEdges"/>'}
+    return '<svg class="medal'+(cls?' '+cls:'')+'" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13.8" fill="#fff" stroke="#999" stroke-width=".2" stroke-dasharray=".8 .6"/>'+
+      '<circle cx="14" cy="3.3" r="1.3" fill="none" stroke="#120A1E" stroke-width=".25"/>'+qr+
+      '<text x="14" y="25.2" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="800" font-size="2.4" fill="#120A1E">'+esc(name()).slice(0,14)+'</text></svg>';
+  }
+  $('medal').addEventListener('click',function(){
+    var h=$('medal-print-host');
+    if(!S.p.phone){$('tess-msg').textContent='Prima metti il tuo telefono nella scheda del capo: è quello che vede chi lo trova.';return}
+    h.innerHTML='<div class="medal-prev">'+medal('big')+'<div>'+medal()+'<small><br>2,8 cm</small></div></div><p class="medal-note">Tonda da 2,8 cm, come le medagliette di plastica: 24 per foglio A4. Per stare così piccolo il QR porta solo nome e telefono, il resto resta sul tesserino grande. Ritagliala, fai il buco in alto e proteggila col nastro adesivo largo. Prima di appenderla provala con la fotocamera.</p>';
+    h.hidden=false;
+    var sh=$('medal-sheet');if(!sh){sh=document.createElement('div');sh.id='medal-sheet';document.body.appendChild(sh)}
+    sh.innerHTML=new Array(25).join(medal());document.body.classList.add('print-medal');
+    $('tess-msg').textContent='Si apre la stampa. Dal telefono puoi anche salvarla come PDF e stamparla dopo.';
+    setTimeout(function(){try{window.print()}catch(e){}},300);
+  });
+  addEventListener('afterprint',function(){document.body.classList.remove('print-medal')});
+  $('print').addEventListener('click',function(){document.body.classList.remove('print-medal')},true);
+
+  /* ---------- 2. Ha mangiato cosa? (soglie solo dove la fonte le dà) ---------- */
+  var MERCK='https://www.merckvetmanual.com/toxicology/food-hazards/';
+  var SRC={
+    choc:['Merck Veterinary Manual, cioccolato',MERCK+'chocolate-toxicosis-in-animals'],
+    grape:['Merck Veterinary Manual, uva e uvetta',MERCK+'grape-raisin-and-tamarind-vitis-spp-tamarindus-spp-toxicosis-in-dogs'],
+    xyl:['Merck Veterinary Manual, xilitolo',MERCK+'xylitol-toxicosis-in-dogs'],
+    allium:['Merck Veterinary Manual, cipolla e aglio',MERCK+'garlic-and-onion-allium-spp-toxicosis-in-animals'],
+    mac:['Merck Veterinary Manual, macadamia',MERCK+'macadamia-nut-toxicosis-in-dogs'],
+    dough:['Merck Veterinary Manual, impasto crudo',MERCK+'bread-dough-toxicosis-in-animals'],
+    food:['ASPCA, cibi da evitare','https://www.aspca.org/pet-care/animal-poison-control/people-foods-avoid-feeding-your-pets'],
+    plant:['ASPCA, piante tossiche','https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants'],
+    apcc:['ASPCA Animal Poison Control','https://www.aspca.org/pet-care/animal-poison-control']
+  };
+  /* mode: choc (mg di teobromina per g), ratio (g/kg oltre cui la fonte ha visto sintomi), now (subito dal veterinario), watch (tienilo d'occhio) */
+  var FOODS=[
+    {id:'cfond',n:'Cioccolato fondente',m:'choc',mg:5.6,src:'choc',hint:'Una tavoletta intera pesa di solito 100 g.'},
+    {id:'clatte',n:'Cioccolato al latte',m:'choc',mg:2.3,src:'choc',hint:'Una tavoletta intera pesa di solito 100 g.'},
+    {id:'cacao',n:'Cacao amaro in polvere',m:'choc',mg:28.5,src:'choc',hint:'Un cucchiaino raso è circa 5 g.'},
+    {id:'cbianco',n:'Cioccolato bianco',m:'choc',mg:0.04,src:'choc',hint:'Una tavoletta intera pesa di solito 100 g.'},
+    {id:'uva',n:'Uva o uvetta',m:'now',src:'grape',t:'Uva e uvetta possono danneggiare i reni, e quanto è tossico cambia da chicco a chicco: per questo anche pochi chicchi vanno trattati. Il manuale veterinario consiglia di intervenire subito, anche se il cane sta bene.'},
+    {id:'panettone',n:'Panettone o dolci con uvetta',m:'now',src:'grape',t:'Il problema è l\'uvetta: anche pochi chicchi possono danneggiare i reni. Va trattato subito, anche se il cane sta bene.'},
+    {id:'xyl',n:'Gomme o caramelle senza zucchero (xilitolo)',m:'now',src:'xyl',t:'Lo xilitolo fa crollare lo zucchero nel sangue e ad alte dosi danneggia il fegato. Quanto ce n\'è in una gomma cambia da marca a marca, quindi non si può calcolare: si chiama subito.'},
+    {id:'cipolla',n:'Cipolla cruda',m:'ratio',lim:15,src:'allium',hint:'Una cipolla media pesa circa 150 g.',t:'La cipolla rovina i globuli rossi. Nei casi descritti i sintomi sono comparsi da 15 g per kg di peso in su, ma il danno può arrivare anche giorni dopo.'},
+    {id:'aglio',n:'Aglio',m:'ratio',lim:3,src:'allium',hint:'Uno spicchio pesa circa 3-5 g.',t:'L\'aglio è da 3 a 5 volte più tossico della cipolla. Ho preso il caso peggiore: sintomi possibili da circa 3 g per kg di peso.'},
+    {id:'mac',n:'Noci di macadamia',m:'ratio',lim:2.4,src:'mac',hint:'Una noce sgusciata pesa circa 2-3 g.',t:'Le macadamia danno debolezza, tremori, vomito e febbre. Nei casi descritti i sintomi sono comparsi da 2,4 g per kg di peso.'},
+    {id:'impasto',n:'Impasto crudo con lievito',m:'now',src:'dough',t:'L\'impasto cresce nello stomaco, può gonfiarlo e farlo girare, e il lievito produce alcol. È un\'emergenza.'},
+    {id:'alcol',n:'Alcol (vino, birra, liquori)',m:'now',src:'food',t:'L\'alcol nei cani dà vomito, barcollamento, problemi a respirare, fino al coma.'},
+    {id:'caffe',n:'Caffè, capsule o bevande energetiche',m:'now',src:'food',t:'La caffeina accelera il cuore e può dare tremori e convulsioni. La quantità nei prodotti cambia troppo per calcolarla.'},
+    {id:'farmaci',n:'Medicine per umani (antidolorifici e altre)',m:'now',src:'apcc',t:'Le medicine per umani sono tra gli avvelenamenti più comuni. Tieni in mano la scatola quando chiami: serve sapere nome e dose.'},
+    {id:'topicida',n:'Veleno per topi o lumache',m:'now',src:'apcc',t:'I veleni per topi e lumache sono emergenze vere, anche se il cane sembra stare bene. Porta la confezione dal veterinario.'},
+    {id:'antigelo',n:'Antigelo o liquidi dell\'auto',m:'now',src:'apcc',t:'L\'antigelo è dolce e ai cani piace, ma danneggia i reni in poche ore. Corri.'},
+    {id:'oleandro',n:'Oleandro',m:'now',src:'plant',t:'L\'oleandro è velenoso per il cuore, tutta la pianta.'},
+    {id:'cycas',n:'Cycas (palma sago)',m:'now',src:'plant',t:'La cycas, soprattutto i semi, è molto tossica per il fegato.'},
+    {id:'ossa',n:'Ossa cotte',m:'watch',src:'apcc',t:'Le ossa cotte si scheggiano e possono ferire o bloccare l\'intestino. Chiama il veterinario se vomita, ha la pancia dura, non fa i bisogni o è abbattuto.'},
+    {id:'stella',n:'Stella di Natale',m:'watch',src:'plant',t:'Di solito irrita bocca e stomaco, con bava o vomito, e raramente è grave. Chiama se i sintomi non passano.'},
+    {id:'avocado',n:'Avocado',m:'watch',src:'food',t:'Per i cani la polpa di solito non è un grosso problema; il pericolo vero è il nocciolo, che può bloccare l\'intestino.'},
+    {id:'altro',n:'Altro, non è in lista',m:'unknown',src:'apcc'}
+  ];
+  var QUICK=['clatte','uva','panettone','xyl','cipolla'];
+  $('e-what').innerHTML=FOODS.map(function(f){return '<option value="'+f.id+'">'+esc(f.n)+'</option>'}).join('');
+  $('e-quick').innerHTML=QUICK.map(function(id){var f=FOODS.filter(function(x){return x.id===id})[0];return '<button type="button" class="chip" data-id="'+id+'">'+esc(f.n.split(' (')[0])+'</button>'}).join('');
+  $('e-quick').addEventListener('click',function(e){var id=e.target.getAttribute('data-id');if(id){$('e-what').value=id;eat()}});
+  $('e-weight').value=S.p.weight;
+  $('eat').addEventListener('input',eat);$('e-what').addEventListener('change',function(){$('e-qty').value='';eat()});
+  function num(v){v=parseFloat(String(v).replace(',','.'));return isFinite(v)&&v>0?v:0}
+  function fmt(v){return v.toLocaleString('it-IT',{maximumFractionDigits:v<10?1:0})}
+  function eat(){
+    var f=FOODS.filter(function(x){return x.id===$('e-what').value})[0],kg=num($('e-weight').value),g=num($('e-qty').value);
+    var needQty=f.m==='choc'||f.m==='ratio';
+    $('e-qty-row').querySelector('.f').hidden=!needQty;$('e-qty-hint').textContent=f.hint||'';
+    $('eat-kind-warn').hidden=S.p.kind==='cane';
+    var lvl,cls,title,body='',nm=esc(name());
+    if(f.m==='now'){lvl='Emergenza';cls='v-emerg';title='Chiama subito il veterinario';body=f.t}
+    else if(f.m==='watch'){lvl='Attenzione';cls='v-watch';title='Tienilo d\'occhio';body=f.t}
+    else if(f.m==='unknown'){lvl='Non lo so';cls='v-danger';title='Non è nella mia lista: chiama il veterinario';body='Non invento risposte. Chiama il veterinario e digli cosa ha mangiato, quanto e quando.'}
+    else if(!kg||!g){$('verdict').innerHTML='<p class="note">Metti '+(!g?'quanto ne ha mangiato':'')+(!g&&!kg?' e ':'')+(!kg?'il peso del capo':'')+' e ti rispondo.</p>';return}
+    else if(f.m==='choc'){
+      var dose=g*f.mg/kg;
+      body='Sono circa <b>'+fmt(dose)+' mg di teobromina per kg</b> di peso per '+nm+'. Il manuale veterinario indica sintomi lievi (vomito, diarrea, sete) da 20 mg/kg, problemi al cuore da 40-50 mg/kg e convulsioni da 60 mg/kg.';
+      if(dose>=40){lvl='Emergenza';cls='v-emerg';title='Chiama subito il veterinario'}
+      else if(dose>=20){lvl='Pericoloso';cls='v-danger';title='Chiama il veterinario adesso'}
+      else if(dose>=15){lvl='Al limite';cls='v-danger';title='Chiama il veterinario adesso';body+=' Siete vicini alla prima soglia, e quanta teobromina c\'è cambia da marca a marca.'}
+      else{lvl='Sotto la soglia';cls='v-watch';title='Sotto la soglia dei primi sintomi';body+=' Tienilo d\'occhio per 24 ore e chiama se vomita, è agitato, trema o beve tantissimo.'}
+    } else {
+      var r=g/kg;body=f.t+' Per '+nm+' sono circa <b>'+fmt(r)+' g per kg</b>.';
+      if(r>=f.lim){lvl='Pericoloso';cls='v-danger';title='Chiama il veterinario adesso'}
+      else if(r>=f.lim*.75){lvl='Al limite';cls='v-danger';title='Chiama il veterinario adesso';body+=' Siete vicini alla quantità che ha dato sintomi.'}
+      else{lvl='Sotto la soglia';cls='v-watch';title='Sotto la quantità dei casi descritti';body+=' Chiama comunque il veterinario per sapere cosa controllare, soprattutto se ne mangia anche nei prossimi giorni.'}
+    }
+    var s=SRC[f.src];
+    $('verdict').innerHTML='<div class="verdict '+cls+'"><span class="lvl">'+lvl+'</span><h3>'+title+'</h3><p>'+body+'</p><p class="src">Fonte: <a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a></p></div>';
+  }
+  function vetLink(){var n=gVet().replace(/[^\d+]/g,''),a=$('call-vet');a.href=n?'tel:'+n:'#';a.textContent=n?'📞 Chiama il veterinario ('+gVet()+')':'Metti il numero del veterinario nella scheda'}
+
+  /* ---------- 2b. È grave o posso aspettare? Semaforo, una domanda alla volta ---------- */
+  var MV='https://www.merckvetmanual.com/';
+  var GS={
+    tab:['Merck, “When to See a Veterinarian”',MV+'multimedia/table/when-to-see-a-veterinarian'],
+    emer:['Merck, “What to Do in a Dog or Cat Emergency”',MV+'special-pet-topics/emergencies/what-to-do-in-a-dog-or-cat-emergency'],
+    evalu:['Merck, “Evaluation and Initial Treatment of Dog and Cat Emergencies”',MV+'special-pet-topics/emergencies/evaluation-and-initial-treatment-of-dog-and-cat-emergencies'],
+    tri:['Merck, “Initial Triage and Resuscitation of Small Animal Emergency Patients”',MV+'emergency-medicine-and-critical-care/evaluation-and-initial-treatment-of-small-animal-emergency-patients/initial-triage-and-resuscitation-of-small-animal-emergency-patients'],
+    vom:['Merck, “Vomiting in Dogs”',MV+'dog-owners/digestive-disorders-of-dogs/vomiting-in-dogs'],
+    gi:['Merck, “Disorders of the Stomach and Intestines in Dogs”',MV+'dog-owners/digestive-disorders-of-dogs/disorders-of-the-stomach-and-intestines-in-dogs'],
+    gdv:['Merck, “Gastric Dilation and Volvulus in Small Animals”',MV+'digestive-system/surgical-problems-of-the-gastrointestinal-tract-in-small-animals/gastric-dilation-and-volvulus-in-small-animals'],
+    uo:['Merck, “Urethral Obstruction in Small Animals”',MV+'urinary-system/urolithiasis-in-small-animals/urethral-obstruction-in-small-animals'],
+    anal:['Merck, “Toxicoses From Human Analgesics in Animals”',MV+'toxicology/toxicoses-from-human-analgesics/toxicoses-from-human-analgesics-in-animals'],
+    rab:['Merck, “Digestive Disorders of Rabbits”',MV+'all-other-pets/rabbits/digestive-disorders-of-rabbits'],
+    cav:['Centro Antiveleni di Milano, Ospedale Niguarda','https://www.centroantiveleni.org/'],
+    izsve:['IZS delle Venezie, “Avvelenamenti”','https://www.izsvenezie.it/documenti/comunicazione/materiale-editoriale/1-comunicazione-scientifica/appunti-scienza/avvelenamenti.pdf'],
+    ats:['ATS Val Padana, Dip. Veterinario, “Caldo e animali d\'affezione”','https://www.ats-valpadana.it/documents/1654672/62133841/Caldo+e+animali+d%27affezione+-+11.07.2023.pdf/11575a84-5d8f-59c9-6c21-586f29875a55'],
+    tak:['Ordine dei veterinari austriaco, “Notdienst Kleintiere”','https://www.tieraerztekammer.at/fileadmin/daten/Oeffentlicher_Bereich/Medien_und_Kommunikation/Infofolder/Infofolder_Notdienst-Kleintiere_2023.pdf'],
+    pheat:['PDSA, “Heatstroke in dogs”','https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/conditions/heatstroke-in-dogs'],
+    rheat:['RSPCA, “Dog heatstroke”','https://rspca.org.uk/adviceandwelfare/pets/dogs/health/heatstroke'],
+    plimp:['PDSA, “Limping and stiffness in dogs”','https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/limping-and-stiffness-in-dogs'],
+    pvomd:['PDSA, “Vomiting in dogs”','https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/vomiting-in-dogs'],
+    pvomc:['PDSA, “Vomiting in cats”','https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/vomiting-in-cats'],
+    prab:['PDSA, “My rabbit isn\'t eating”','https://pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/my-rabbit-isn-t-eating-properly'],
+    pcatb:['PDSA, “Breathing problems in cats”','https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/breathing-problems-in-cats'],
+    pblock:['PDSA, “Blocked bladder in cats”','https://pdsa.org.uk/pet-help-and-advice/pet-health-hub/conditions/blocked-bladder-in-cats'],
+    peye:['PDSA, “Painful eye in dogs”','https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/painful-eyeeye-held-closed-in-dogs'],
+    bcat:['Blue Cross, “Basic first aid for cats”','https://www.bluecross.org.uk/advice/cat/health-and-injuries/basic-first-aid-for-cats'],
+    bdog:['Blue Cross, “Basic first aid for dogs”','https://www.bluecross.org.uk/advice/dog/basic-first-aid-for-dogs'],
+    bbloat:['Blue Cross, “Bloat in dogs”','https://www.bluecross.org.uk/advice/dog/health-and-injuries/bloat-in-dogs']
+  };
+  /* Prima domanda per tutti: segni che la tabella Merck mette sotto "subito" */
+  var G_BASE=['Gengive o lingua bluastre o bianche','Fa fatica a respirare o respira a bocca aperta (un gatto che ansima)','È abbattutissimo, quasi non reagisce','Barcolla o non riesce a stare in piedi','Ha un dolore forte o che non passa','Può aver mangiato veleno, medicine o qualcosa di tossico'];
+  /* always = rosso senza domande · min = mai verde · dur = chiede da quanto · d24 = cosa succede oltre 24 ore · dog = pagina scritta per i cani */
+  var SYM=[
+    {id:'zoppica',e:'🦴',n:'Zoppica',free:1,dur:1,src:['tab','plimp','bdog','anal'],
+      red:['Non appoggia la zampa, o zoppica forte di colpo','La zampa è storta, penzola o non riesce a muoverla','Ha segni di morso o una ferita profonda'],
+      yel:['Un\'articolazione è gonfia'],
+      g:'Zoppica poco, appoggia la zampa e va avanti da meno di un giorno. Il manuale mette la visita entro 24 ore quando la zoppia dura più di un giorno: per ora tienilo tranquillo e osservalo. Non dargli antidolorifici per umani: il manuale dice che è un errore frequente e può avvelenarlo.',
+      w:'Diventa giallo se domani zoppica ancora. Diventa rosso se smette di appoggiare la zampa o sente un dolore forte.'},
+    {id:'vomito',e:'🤮',n:'Vomita',dur:1,dog:1,src:['vom','pvomd','pvomc','gdv','tab'],
+      red:['Prova a vomitare ma non esce niente, oppure ha la pancia gonfia','C\'è sangue o ci sono puntini neri nel vomito','È un cucciolo o è molto anziano, e ha vomitato più di una volta'],
+      yel:['Vomita più di una o due volte al giorno','Ha anche febbre o debolezza'],
+      g:'Il manuale dice che un vomito breve od occasionale di solito non è legato ad altri problemi. Lascia sempre l\'acqua a disposizione: il manuale dice di non toglierla mai.',
+      w:'Diventa giallo se vomita più di due volte oggi o se domani vomita ancora. Diventa rosso se compare uno dei segni della prima domanda.',
+      note:'Sangue o puntini neri nel vomito, e cuccioli o anziani che vomitano più volte, le fonti li mettono tra le cose da far vedere al veterinario: li ho messi sul rosso per prudenza.'},
+    {id:'diarrea',e:'💩',n:'Diarrea',dur:1,min:1,src:['tab','gi'],
+      red:['Ha sangue, odore molto cattivo o non riesce a trattenerla','Feci nere e dense, come catrame','Si sforza ma non riesce a farla'],
+      yel:[],
+      minT:'Anche feci molli senza sangue, dolore o sforzo il manuale le mette tra le cose da far vedere entro 24 ore.'},
+    {id:'nonmangia',e:'🍽️',n:'Non mangia o non beve',dur:1,d24:'red',min:1,src:['tab','rab','prab'],
+      rabbit:'Un coniglio che smette di mangiare o fa meno palline è un\'emergenza: il suo intestino si può fermare in poche ore. Chiama subito il veterinario.',
+      durQ:'Da quanto non mangia o non beve?',d24T:'Non mangiare o non bere per 24 ore il manuale lo mette tra i segni per cui andare subito.',
+      red:[],yel:['Beve molto più del solito','Dorme più del solito e non vuole giocare'],
+      minT:'Anche poco appetito senza altri segni il manuale lo mette tra le cose da far vedere entro 24 ore.'},
+    {id:'respiro',e:'😮‍💨',n:'Tossisce o respira male',dur:1,src:['tab','evalu','pcatb','emer'],
+      red:['Sta soffocando o ha qualcosa in gola'],
+      yel:['Tossisce o starnutisce di continuo'],
+      g:'Qualche colpo di tosse o starnuto isolato, e respira normalmente. Il manuale mette la visita entro 24 ore quando tosse o starnuti sono continui.',
+      w:'Diventa giallo se continua. Diventa rosso al primo segno di fatica a respirare, bocca aperta o gengive bluastre.',
+      aid:'Se sta soffocando: il manuale dice di dare colpi decisi tra le scapole o compressioni sul torace, e intanto partire.'},
+    {id:'pipi',e:'🚽',n:'Problemi con la pipì',min:1,src:['tab','tri','uo','pblock'],
+      red:['Si sforza ma non esce niente','È un gatto maschio e fa fatica a fare pipì','C\'è sangue nella pipì o sembra fargli male'],
+      yel:['Beve molto più del solito'],
+      minT:'Per prudenza qui il verde non c\'è: i problemi di pipì falli vedere entro 24 ore anche se non vedi altro.',
+      note:'Nel gatto maschio un blocco della pipì diventa pericoloso per la vita in un giorno e mezzo o due, dice il manuale.'},
+    {id:'pancia',e:'🎈',n:'Pancia gonfia, conati a vuoto',always:1,src:['gdv','gi','bbloat','tri'],
+      t:'Pancia gonfia, conati senza vomito, bava e irrequietezza sono i segni della torsione dello stomaco, che il manuale chiama emergenza da vita o morte. Colpisce soprattutto i cani grandi dal torace profondo. Più passano le ore, meno possibilità ci sono: parti adesso.'},
+    {id:'convulsioni',e:'⚡',n:'Convulsioni o barcolla',always:1,src:['tab','evalu','tri'],
+      t:'Convulsioni, barcollare e problemi a camminare sono nella lista “subito dal veterinario” del manuale.',
+      aid:'Guarda l\'orologio: il veterinario ti chiederà quanto è durata.'},
+    {id:'caldo',e:'🥵',n:'Colpo di calore',always:1,src:['ats','emer','pheat','rheat','evalu'],
+      t:'Pelle caldissima, ansimare veloce, bava, vomito, movimenti scoordinati, collasso: il colpo di calore è da trattare subito. Non serve misurare la febbre: se lo sospetti, è rosso. Vai anche se sembra riprendersi. Rischiano di più cuccioli, anziani, animali grassi e musi schiacciati come bulldog e persiani.',
+      aid:'Prima raffredda, poi parti, e continua in macchina. Portalo all\'ombra o al fresco. Bagnalo con acqua del rubinetto, soprattutto collo, ascelle, inguine e pancia. Niente ghiaccio e niente acqua ghiacciata. Non coprirlo con asciugamani bagnati: trattengono il caldo. Mettili sotto di lui. Non costringerlo a bere.'},
+    {id:'colpo',e:'🚗',n:'Investito o caduto dall\'alto',always:1,src:['evalu','bcat','tak'],
+      t:'Un incidente stradale o una caduta dall\'alto vanno fatti vedere subito, anche se sembra stare bene: dentro possono esserci danni che ancora non si vedono.',
+      aid:'Spostalo il meno possibile: fallo scivolare su una coperta o una tavola e tienilo al caldo. Se morde per il dolore, coprigli la testa con un asciugamano.'},
+    {id:'veleno',e:'☠️',n:'Ha mangiato veleno, medicine o un oggetto',always:1,free:1,src:['cav','izsve','bdog','tak'],
+      t:'Veleno, topicida, lumachicida, medicine, piante o un oggetto ingoiato: le fonti dicono di chiamare subito. Anche poche ore possono fare la differenza.',
+      aid:'Chiama il veterinario o il Centro Antiveleni di Milano, 02 66101029, aperto giorno e notte, che risponde anche per gli animali. Non farlo vomitare da solo senza averli sentiti. Porta con te la confezione o il foglietto, o una foto della pianta. Se è un cibo e sai quanto, prova anche “Ha mangiato qualcosa?” qui nell\'app.'},
+    {id:'ferita',e:'🩸',n:'Ferita o sangue',min:1,src:['tab','emer','bdog','evalu'],
+      red:['Sanguina tanto o il sangue non si ferma','Ferita da punta su pancia o torace','Ha segni di morso','È un\'ustione','Si vede l\'osso'],
+      yel:['Perde sangue dal naso senza motivo'],
+      minT:'Per una ferita piccola non ho una fonte che dica che puoi aspettare: per prudenza falla vedere entro domani.',
+      aid:'Se sanguina, il manuale dice: premi forte sulla ferita con il palmo, poi una benda ferma ma non troppo stretta.'},
+    {id:'occhio',e:'👁️',n:'Occhio',min:1,src:['tab','emer','peye','bcat','tak'],
+      red:['L\'occhio è ferito o ha preso un colpo','Tiene l\'occhio chiuso o sembra fargli male'],
+      yel:['Occhio velato o sembra non vedere','Strizza l\'occhio o lo sbatte più del solito','Esce una secrezione'],
+      minT:'I problemi agli occhi il manuale li mette almeno tra le cose da far vedere entro 24 ore.'},
+    {id:'giu',e:'😶',n:'È giù, non è lui',min:1,src:['tab'],
+      red:[],
+      yel:['Dorme più del solito e non vuole giocare','Ha cambiato comportamento all\'improvviso','Beve molto più del solito','Ha preso o perso peso di colpo'],
+      minT:'Se non è lui e non sai dire perché, per prudenza chiama il veterinario entro domani.'}
+  ];
+  var G={s:null,i:0,yel:[],why:[],hist:[]};
+  function gSym(){return SYM.filter(function(x){return x.id===G.s})[0]}
+  function gLocked(s){return !S.unlocked&&!s.free}
+  function gOther(){return S.p.kind&&S.p.kind!=='cane'&&S.p.kind!=='gatto'}
+  function gNoGreen(s){return s.min||G.yel.length||gOther()||(s.dog&&S.p.kind==='gatto')}
+  function gPlan(s){var p=['base'];if(s.red.length)p.push('red');if(s.dur)p.push('dur');if(s.yel.length)p.push('yel');p.push('frag');return p}
+  function gVet(){return S.p.vetphone&&S.p.vetphone!=='0577 000000'?S.p.vetphone:''}  /* il numero d'esempio non si chiama */
+  function gCall(){var v=gVet(),n=v.replace(/[^\d+]/g,''),a=$('g-call');a.href=n?'tel:'+n:'#';a.textContent=n?'📞 Chiama il veterinario ('+v+')':'Metti il numero del veterinario nella scheda'}
+  function gNow(s){var v=gVet(),n=v.replace(/[^\d+]/g,''),h='<div class="g-ans">';
+    if(s.id==='veleno')h+='<a class="btn danger" href="tel:+390266101029">📞 Centro Antiveleni 02 66101029</a>';
+    h+=n?'<a class="btn danger" href="tel:'+n+'">📞 Chiama il veterinario ('+esc(v)+')</a>':'';
+    return h+'<a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/pronto+soccorso+veterinario+h24">🗺️ Pronto soccorso veterinario vicino</a></div>'}
+  function gStart(){G={s:null,i:0,yel:[],why:[],hist:[]};
+    $('g-box').innerHTML='<p class="g-calm">Va bene, respira. Ti guido io, una domanda alla volta.</p><h3 style="font-size:1.15rem;margin-top:.6rem">Cosa vedi in '+esc(name())+'?</h3><div class="g-syms">'+
+      SYM.map(function(s){return '<button type="button" class="g-sym'+(s.always?' al':'')+'" data-id="'+s.id+'"><span class="e">'+s.e+'</span>'+esc(s.n)+(S.unlocked?'':s.free?'<small class="free">gratis</small>':'<small>🔒 pacchetto</small>')+'</button>'}).join('')+'</div>'+
+      (gOther()?'<p class="always">Le pagine del manuale sono scritte per cani e gatti. Per un '+esc(S.p.kind==='altro'?'altro animale':S.p.kind)+' il semaforo non scende mai sul verde: nel dubbio chiama il veterinario.</p>':'');gCall()}
+  function gAsk(){var s=gSym(),p=gPlan(s),k=p[G.i],h='',bar='<div class="g-steps">'+p.map(function(x,j){return '<i'+(j<=G.i?' class="on"':'')+'></i>'}).join('')+'</div><p class="g-count">Domanda '+(G.i+1)+' di '+p.length+'</p>';
+    if(k==='frag'&&gNoGreen(s)){G.dogOnly=!s.min&&!G.yel.length&&!gOther();return gEnd('yel')}
+    if(k===undefined)return gEnd('green');
+    if(k==='base')h='<h3>Prima le cose più importanti. Vedi almeno uno di questi?</h3><ul>'+G_BASE.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul>'+gYN();
+    else if(k==='red')h='<h3>E uno di questi?</h3><ul>'+s.red.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul>'+gYN();
+    else if(k==='yel')h='<h3>Ultima cosa su quello che vedi: c\'è uno di questi?</h3><ul>'+s.yel.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul>'+gYN();
+    else if(k==='dur')h='<h3>'+esc(s.durQ||'Da quanto va avanti?')+'</h3><div class="g-ans"><button type="button" data-a="lt">Meno di 24 ore</button><button type="button" class="mid" data-a="gt">Più di 24 ore</button><button type="button" class="mid" data-a="ns">Non lo so</button></div>';
+    else if(k==='frag')h='<h3>È un cucciolo, è molto anziano o ha già una malattia?</h3><div class="g-ans"><button type="button" class="mid" data-a="y">Sì</button><button type="button" data-a="n">No</button></div>';
+    $('g-box').innerHTML='<p class="g-calm">'+s.e+' '+esc(s.n)+'</p>'+bar+'<div class="g-q" data-k="'+k+'">'+h+'<div class="g-ans"><button type="button" class="ghost" data-a="back">← Indietro</button></div></div>';
+    try{$('g-box').scrollIntoView({block:'start'})}catch(e){}}
+  function gYN(){return '<div class="g-ans"><button type="button" class="yes" data-a="y">Sì, almeno uno</button><button type="button" data-a="n">No, nessuno</button></div>'}
+  function gEnd(c){var s=gSym(),lvl,cls,title,body='',mine='';
+    if(c==='red'){lvl='Rosso';cls='v-emerg';title='Vai subito dal veterinario';body=s.always?s.t:(G.why[0]||'Quello che vedi è nella lista dei segni per cui il manuale dice di andare subito, senza aspettare di vedere come va.');if(s.note)mine=s.note}
+    else if(c==='yel'){lvl='Giallo';cls='v-danger';title='Veterinario entro 24 ore';
+      body=G.yel.length?'Non è da pronto soccorso adesso, ma per il manuale va visto entro un giorno. Chiama oggi e prendi appuntamento.':(G.frag?'Per un adulto sano sarebbe verde. Per un cucciolo, un anziano o un animale già malato salgo di un colore.':gOther()?'Per un coniglio, un furetto o un altro animale il manuale che uso non dà tempi: chiama il veterinario entro domani.':s.minT);
+      if(G.frag)mine='Salire di colore per cuccioli, anziani e animali malati è una scelta di prudenza nostra, non una regola del manuale.';
+      if(G.dogOnly)body='La pagina del manuale su questo sintomo è scritta per i cani: per un gatto non scendo sul verde. Chiama il veterinario entro domani.';
+      body+=' Se compare uno dei segni della prima domanda diventa rosso.'}
+    else{lvl='Verde';cls='v-ok';title='Per ora osserva';body=s.g+' <b>'+s.w+'</b>'}
+    var h='<div class="verdict '+cls+'"><span class="lvl">'+lvl+'</span><h3>'+title+'</h3><p>'+(c==='green'?body:esc(body))+'</p>';
+    if(c==='red')h+=gNow(s);
+    if(s.aid&&c==='red')h+='<p class="g-aid">'+esc(s.aid)+'</p>';
+    if(mine)h+='<p class="g-mine">'+esc(mine)+'</p>';
+    h+='<p class="src">Fonti: '+s.src.map(function(k){return '<a href="'+GS[k][1]+'" target="_blank" rel="noopener">'+GS[k][0]+'</a>'}).join(' · ')+'</p></div>'+
+      '<div class="g-ans"><button type="button" class="ghost" data-a="restart">↺ Ricomincia</button></div>';
+    if(!S.unlocked&&PAY_URL&&c!=='red')h+='<div class="card g-up"><p style="margin:0 0 .6rem"><b>Ti è servito?</b> Così funziona per tutti i 14 sintomi: vomito, diarrea, respiro, caldo… Nel pacchetto ci sono anche libretto, scheda per chi lo tiene e lista per i viaggi.</p><a class="btn primary pc-go" href="'+PAY_URL+'" style="display:block;text-align:center">Sblocca tutto · 2,49 €</a><p class="note" style="margin:.5rem 0 0">Una volta sola. 🐾 1 € va a un rifugio.</p></div>';$('g-box').innerHTML=h;gCall();try{$('g-box').scrollIntoView({block:'start'})}catch(e){}}
+  $('g-box').addEventListener('click',function(e){
+    var sb=e.target.closest('.g-sym');
+    if(sb){var s=SYM.filter(function(x){return x.id===sb.getAttribute('data-id')})[0];G={s:s.id,i:0,yel:[],why:[],hist:[]};
+      if(gLocked(s)){$('g-box').innerHTML='<p class="g-calm">'+s.e+' '+esc(s.n)+'</p>'+((s.red&&s.red.length)?'<div class="g-free"><p><b>🔴 Questo te lo dico gratis.</b> Se vedi anche una sola di queste cose, non aspettare: chiama subito il veterinario.</p><ul>'+s.red.map(function(r){return '<li>'+esc(r)+'</li>'}).join('')+'</ul></div><p class="g-more">Se non vedi niente di questo, ti faccio qualche domanda e ti dico se puoi aspettare e cosa fare a casa. È nel pacchetto:</p>':'')+LOCK+'<p class="note">“Zoppica” e “Ha mangiato veleno” sono gratis: provalo per vedere come funziona.</p><div class="g-ans"><button type="button" class="ghost" data-a="restart">← Torna ai sintomi</button></div>';return}
+      if(s.rabbit&&S.p.kind==='coniglio'){G.why=[s.rabbit];return gEnd('red')}
+      if(s.always)return gEnd('red');return gAsk()}
+    var b=e.target.closest('[data-a]');if(!b)return;var a=b.getAttribute('data-a');
+    if(a==='restart')return gStart();
+    var s=gSym(),q=e.target.closest('.g-q'),k=q&&q.getAttribute('data-k');
+    if(a==='back'){var h=G.hist.pop();if(!h)return gStart();G.i=h.i;G.yel=h.yel;return gAsk()}
+    G.hist.push({i:G.i,yel:G.yel.slice()});
+    if((k==='base'||k==='red')&&a==='y')return gEnd('red');
+    if(k==='dur'){if(a==='gt'){if(s.d24==='red'){G.why=[s.d24T];return gEnd('red')}G.yel.push('Va avanti da più di 24 ore')}
+      if(a==='ns')G.yel.push('Non sai da quanto va avanti: per prudenza conta come più di 24 ore')}
+    if(k==='yel'&&a==='y')G.yel.push('segno da 24 ore');
+    if(k==='frag'&&a==='y'){G.frag=1;return gEnd('yel')}
+    G.i++;gAsk()});
+  function grave(){gStart()}
+  $('sos-btn').addEventListener('click',function(e){e.preventDefault();openTab($('t-grave'),false);var d=$('d-grave');try{d.scrollIntoView({behavior:'smooth',block:'start'})}catch(x){d.scrollIntoView()}});
+
+  /* ---------- 3. Libretto ---------- */
+  var ICO={vaccino:'💉',parassiti:'🪲',vermi:'🐛',visita:'🩺',medicina:'💊',altro:'📌'};
+  $('l-done').value=today;
+  function nextOf(e){return +e.every?addMonths(e.done,+e.every):''}
+  function days(d){return Math.round((new Date(d+'T12:00:00')-new Date(today+'T12:00:00'))/864e5)}
+  function renderLib(){
+    var L=S.lib.map(function(e,i){return {e:e,i:i,next:nextOf(e)}}).sort(function(a,b){return (a.next||'9')<(b.next||'9')?-1:1});
+    $('lib-list').innerHTML=L.length?L.map(function(o){
+      var d=o.next?days(o.next):null,due='Fatto',c='ok';
+      if(d!==null){if(d<0){due='Scaduto da '+(-d)+(d===-1?' giorno':' giorni');c='late'}else if(d===0){due='Oggi';c='late'}else{due='Tra '+d+(d===1?' giorno':' giorni');c=d<=14?'soon':'ok'}}
+      var dd=function(s){return new Date(s+'T12:00:00').toLocaleDateString('it-IT',{day:'numeric',month:'short',year:'numeric'})};
+      return '<li class="item"><span class="ico" aria-hidden="true">'+(ICO[o.e.type]||'📌')+'</span><div><span class="due '+c+'">'+due+'</span><b>'+esc(o.e.name)+'</b><span>Fatto il '+dd(o.e.done)+(o.next?' · prossimo '+dd(o.next):'')+'</span></div><button type="button" class="x" data-i="'+o.i+'" aria-label="Togli '+esc(o.e.name)+'">×</button></li>';
+    }).join(''):'<li class="note">Il libretto è vuoto. Aggiungi il primo vaccino qui sotto.</li>';
+  }
+  $('lib-list').addEventListener('click',function(e){var i=e.target.getAttribute('data-i');if(i!==null){S.lib.splice(+i,1);save();renderLib()}});
+  $('lib').addEventListener('submit',function(e){e.preventDefault();
+    var n=$('l-name').value.trim()||$('l-type').selectedOptions[0].text.replace(/^\S+\s/,'');
+    S.lib.push({type:$('l-type').value,name:n,done:$('l-done').value||today,every:+$('l-every').value});
+    $('l-name').value='';save();renderLib();$('lib-msg').textContent='Aggiunto: '+n+'.';
+  });
+  $('ics').addEventListener('click',function(){
+    var ev=S.lib.filter(function(e){return nextOf(e)}),stamp=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+    if(!ev.length){$('lib-msg').textContent='Non c\'è nessuna scadenza da mettere nel calendario.';return}
+    var t=function(s){return s.replace(/[\\;,]/g,function(c){return '\\'+c})};
+    var out=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//lavoroperuncane.it//Ufficio del capo//IT','CALSCALE:GREGORIAN'];
+    ev.forEach(function(e,i){var d=nextOf(e).replace(/-/g,''),end=addMonths(nextOf(e),0);var dn=new Date(end+'T12:00:00');dn.setDate(dn.getDate()+1);
+      out.push('BEGIN:VEVENT','UID:'+d+'-'+i+'@lavoroperuncane.it','DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+d,'DTEND;VALUE=DATE:'+iso(dn).replace(/-/g,''),
+        'SUMMARY:'+t(name()+': '+e.name),'DESCRIPTION:'+t('Dal libretto del capo. Veterinario: '+(S.p.vet||'')+' '+(S.p.vetphone||'')),
+        'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+t(name()+': '+e.name+' domani'),'TRIGGER:-PT12H','END:VALARM','END:VEVENT')});
+    out.push('END:VCALENDAR');
+    try{download(new Blob([out.join('\r\n')],{type:'text/calendar'}),'libretto-'+name().toLowerCase()+'.ics')}catch(e){}
+    $('lib-msg').textContent=ev.length+(ev.length===1?' scadenza pronta':' scadenze pronte')+': apri il file e il telefono le aggiunge al calendario, col promemoria il giorno prima.'+PREVIEW_MSG;
+  });
+
+  /* ---------- 4. Dog-sitter ---------- */
+  var SF=['food','times','walk','meds','habits','no','extra'],SL={food:'Pappa',times:'Orari',walk:'Passeggiate',meds:'Medicine',habits:'Abitudini',no:'Da non fare',extra:'Altri numeri'};
+  SF.forEach(function(k){$('d-'+k).value=S.s[k]||''});
+  $('sit').addEventListener('input',function(){SF.forEach(function(k){S.s[k]=$('d-'+k).value.trim()});save();renderSheet()});
+  function sheetText(){
+    var L=['🐶 '+name().toUpperCase()+': ISTRUZIONI PER CHI MI TIENE',''];
+    SF.forEach(function(k){if(S.s[k])L.push(SL[k]+': '+S.s[k])});
+    L.push('','🚨 EMERGENZA');if(S.p.phone)L.push((S.p.owner||'Padrone')+': '+S.p.phone);if(S.p.vetphone)L.push('Veterinario'+(S.p.vet?' ('+S.p.vet+')':'')+': '+S.p.vetphone);if(S.p.chip)L.push('Microchip: '+S.p.chip);
+    L.push('','Fatto con L\'ufficio del capo · lavoroperuncane.it');return L.join('\n');
+  }
+  function renderSheet(){
+    var rows=SF.filter(function(k){return S.s[k]}).map(function(k){return '<dt>'+SL[k]+'</dt><dd>'+esc(S.s[k])+'</dd>'}).join('');
+    var em=[];if(S.p.phone)em.push(esc(S.p.owner||'Padrone')+': '+esc(S.p.phone));if(S.p.vetphone)em.push('Veterinario: '+esc(S.p.vetphone));if(S.p.chip)em.push('Microchip: '+esc(S.p.chip));
+    $('sheet').innerHTML='<span class="eyebrow" style="color:#6A5F7C">Istruzioni per chi mi tiene</span><h3>Sono '+esc(name())+'</h3>'+(S.p.weight?'<p>Peso '+esc(S.p.weight)+' kg</p>':'')+'<dl>'+rows+'</dl>'+(em.length?'<div class="sos-line">🚨 '+em.join(' · ')+'</div>':'');
+  }
+  $('copy').addEventListener('click',function(){var m=$('sit-msg');
+    try{navigator.clipboard.writeText(sheetText()).then(function(){m.textContent='Copiato: incollalo su WhatsApp.'},function(){m.textContent='Non riesco a copiare in questa anteprima.'})}catch(e){m.textContent='Non riesco a copiare in questa anteprima.'}});
+  $('share').addEventListener('click',function(){var m=$('sit-msg');
+    if(navigator.share){navigator.share({title:'Istruzioni per '+name(),text:sheetText()}).catch(function(){})}
+    else{location.href='https://wa.me/?text='+encodeURIComponent(sheetText());m.textContent='Apro WhatsApp con la scheda.'}});
+  $('print').addEventListener('click',function(){try{window.print()}catch(e){}});
+
+  /* ---------- 5. Valigia ---------- */
+  function tripItems(dest,how){
+    var I=[],add=function(id,t,sub,must){I.push({id:id,t:t,sub:sub||'',must:!!must})};
+    add('chip','Microchip registrato all\'anagrafe','Controlla che il numero e il tuo telefono siano giusti.',true);
+    if(dest==='it'){add('libretto','Libretto sanitario con le vaccinazioni','Non è sempre obbligatorio, ma alberghi, pensioni e traghetti lo chiedono spesso.')}
+    else{
+      add('pass','Passaporto europeo per animali','Lo rilascia la ASL veterinaria. Senza, non si passa.',true);
+      add('rabbia','Vaccino antirabbia valido, segnato sul passaporto','Il primo vaccino vale per viaggiare solo dopo 21 giorni: fallo per tempo.',true);
+    }
+    if(dest==='echi')add('echi','Trattamento contro l\'echinococco','Va fatto dal veterinario tra 1 e 5 giorni (24-120 ore) prima di entrare, e segnato sul passaporto.',true);
+    if(dest==='extra'){add('extra1','Regole del paese di arrivo','Ogni paese ha le sue: chiedi alla ASL veterinaria o al consolato almeno un mese prima.',true);
+      add('extra2','Regole per rientrare in Italia','Da alcuni paesi serve un esame del sangue per la rabbia, e i risultati richiedono tempo.',true)}
+    if(how==='auto'){add('auto1','Trasportino, rete divisoria o cintura per cani','Il Codice della strada (art. 169) vuole che l\'animale non ti disturbi alla guida.',true);
+      add('auto2','Soste ogni 2 ore con acqua','E mai lasciarlo in macchina al sole, neanche per cinque minuti.')}
+    if(how==='treno'){add('treno','Museruola, guinzaglio e biglietto del cane','Le regole cambiano tra treni regionali e alta velocità: controlla sul sito della compagnia.',true)}
+    if(how==='nave'){add('nave','Prenota il posto del cane','Canile di bordo, cabina per animali o ponte: dipende dalla compagnia, e i posti finiscono.',true);add('nave2','Museruola per le zone comuni','Quasi sempre richiesta a bordo.')}
+    if(how==='aereo'){add('aereo','Chiedi alla compagnia prima di comprare il biglietto','Di solito in cabina vanno solo animali piccoli nel trasportino, con limiti di peso decisi dalla compagnia.',true);add('aereo2','Trasportino approvato dalla compagnia','Misure e materiali li decide lei.')}
+    add('tess','Tesserino del capo col QR al collare','Se si perde in un posto nuovo, chi lo trova sa chi chiamare.');
+    add('foto','Una foto recente sul telefono','Serve se devi cercarlo o fare denuncia di smarrimento.');
+    add('cibo','La sua pappa abituale, per tutti i giorni più due','Cambiare cibo in viaggio è il modo più veloce per avere problemi di pancia.');
+    add('ciotole','Ciotola, acqua e sacchetti');add('guinz','Guinzaglio di scorta');add('coperta','La sua coperta o un gioco che sa di casa');
+    add('med','Le sue medicine e l\'antiparassitario','In vacanza zanzare e zecche cambiano.');
+    add('vet','Numero di un veterinario dove andate','Cercalo prima di partire, non quando serve.');
+    return I;
+  }
+  $('v-dest').value=S.v.dest;$('v-how').value=S.v.how;
+  $('trip').addEventListener('change',function(){S.v.dest=$('v-dest').value;S.v.how=$('v-how').value;save();renderTrip()});
+  function renderTrip(){
+    var I=tripItems(S.v.dest,S.v.how),done=I.filter(function(i){return S.v.done[i.id]}).length;
+    $('v-list').innerHTML=I.map(function(i){return '<label class="check'+(i.must?' must':'')+'"><input type="checkbox" data-v="'+i.id+'"'+(S.v.done[i.id]?' checked':'')+'><span>'+(i.must?'<b>'+esc(i.t)+'</b>':esc(i.t))+(i.sub?'<small>'+esc(i.sub)+'</small>':'')+'</span></label>'}).join('');
+    $('v-bar').style.width=Math.round(done/I.length*100)+'%';
+    $('v-count').textContent=done+' su '+I.length+' pronti. Quelli col bordo rosa sono obbligatori.';
+  }
+  $('v-list').addEventListener('change',function(e){var id=e.target.getAttribute('data-v');if(id){S.v.done[id]=e.target.checked;save();renderTrip()}});
+
+  function refreshAll(){$('capo-name').textContent=name();renderPack();gCall();drawCards();eat();vetLink();renderLib();renderSheet()}
+  var go=function(){refreshAll();renderTrip();grave()};
+  go();
+  if(document.fonts&&document.fonts.load)Promise.all([document.fonts.load('800 40px "Bricolage Grotesque"'),document.fonts.load('600 20px "IBM Plex Mono"'),document.fonts.load('italic 400 30px "Atkinson Hyperlegible"')]).then(drawCards,drawCards);
+})();
+if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});
+</script>
+<style>
+.pick{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(6,3,12,.72);backdrop-filter:blur(6px);padding:1rem}
+.pick[hidden]{display:none}
+.pick-card{width:100%;max-width:26rem;background:#140A22;color:#F5EFFF;border-radius:20px;padding:1.2rem;display:flex;flex-direction:column;gap:.8rem;box-shadow:0 0 0 2px #FF3DAE,0 0 50px rgba(255,61,174,.45);animation:up .25s ease-out}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
+@media (min-width:640px){.pick{align-items:center}}
+.pick-card h2{margin:0;font:800 1.4rem/1.1 "Bricolage Grotesque","Arial Black",sans-serif}
+.pick-card p{margin:0;font-size:.92rem;color:#B9A9DA}
+.pick-opt{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:#F5EFFF;background:#1F1233;border:1.5px solid rgba(185,169,218,.3);border-radius:14px;padding:.85rem 1rem;font:700 1rem/1.2 "Atkinson Hyperlegible",sans-serif}
+.pick-opt:hover,.pick-opt:focus-visible{border-color:#FFD23D;box-shadow:0 0 18px rgba(255,210,61,.3);outline:none}
+.pick-opt small{display:block;font-weight:400;font-size:.8rem;color:#B9A9DA}
+.pick-opt .emo{font-size:1.5rem}
+.pick-opt .votes{display:block;font:600 .72rem/1.3 ui-monospace,Menlo,monospace;color:#FFD23D;letter-spacing:.04em}
+.pick-opt.lead{border-color:#FFD23D}
+.pick-opt .go{margin-left:auto;color:#FFD23D;font-size:1.2rem}
+.pick-x{align-self:center;background:none;border:0;color:#B9A9DA;font:400 .9rem sans-serif;text-decoration:underline;cursor:pointer;padding:.3rem}
+</style>
+<script src="/js/zampe.js"></script>
+<div class="pick" id="pick" hidden role="dialog" aria-modal="true" aria-labelledby="pick-h">
+  <div class="pick-card">
+    <h2 id="pick-h">A chi va la tua moneta d'oro? 🪙</h2>
+    <p>Scegli a chi va prima di pagare: la tua moneta casca nel suo salvadanaio. A fine mese il più pieno riceve tutto il bonifico.</p>
+    <div id="pick-list"></div>
+    <p style="font-size:.8rem">Poi vai alla pagina di pagamento sicura di Stripe: 2,49 € una volta sola.</p>
+    <button type="button" class="pick-x" id="pick-x">Annulla</button>
+  </div>
+</div>
+<script>
+(function(){
+  var PAY='https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00', box=document.getElementById('pick'), last=null;
+  document.getElementById('pick-list').innerHTML=(window.ZAMPE||[]).map(function(r){
+    return '<a class="pick-opt" data-ref="'+r.ref+'" href="'+PAY+'?client_reference_id='+r.ref+'" style="margin-bottom:.6rem"><span class="emo">'+r.emo+'</span><span>'+r.nome+'<small>'+r.dove+'</small></span><span class="go">→</span></a>'}).join('');
+  function open(){last=document.activeElement;box.hidden=false;box.querySelector('.pick-opt').focus()}
+  function close(){box.hidden=true;if(last)last.focus()}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="'+PAY+'"]');
+    if(a&&!a.classList.contains('pick-opt')){e.preventDefault();open()}
+  });
+  document.getElementById('pick-x').addEventListener('click',close);
+  box.addEventListener('click',function(e){if(e.target===box)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)close()});
+})();
+
+/* crescita: condivide solo il FRONTE del tesserino (il retro ha il numero di telefono) */
+(function(){var b=document.getElementById('brag'),c=document.getElementById('front'),m=document.getElementById('tess-msg');if(!b||!c)return;
+  var TXT='Il mio capo ha il tesserino ufficiale 😎 Fallo gratis anche al tuo: https://lavoroperuncane.it/ufficio/ @lavoroperuncane #tesserinodelcapo';
+  b.addEventListener('click',function(){c.toBlob(function(blob){
+    var f;try{f=new File([blob],'tesserino-fronte.png',{type:'image/png'})}catch(e){}
+    if(f&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],text:TXT}).catch(function(){});return}
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='tesserino-fronte.png';document.body.appendChild(a);a.click();a.remove();
+    if(m)m.textContent='Ho scaricato il fronte: mettilo nelle storie e tagga @lavoroperuncane. Il retro tienilo per te, c\'è il tuo numero.';
+  },'image/png')});
+})();
+
+/* crescita: conta i clic che contano (GoatCounter), per vedere dove si perde la gente */
+(function(){function ev(n){try{window.goatcounter&&window.goatcounter.count({path:n,event:true})}catch(e){}}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a,button');if(!a)return;
+    if(a.href&&a.href.indexOf('buy.stripe.com')>-1)ev('clic-paga');else if(a.id==='dl')ev('scarica-tesserino');else if(a.id==='brag')ev('condividi-tesserino')});
+  var dl=document.getElementById('dl'),m=document.getElementById('tess-msg');
+  if(dl&&m&&!document.body.classList.contains('unlocked'))dl.addEventListener('click',function(){setTimeout(function(){
+    m.innerHTML='Fatto, stampali e attacca il retro al collare. Già che ci sei: col <b>libretto</b> ti ricordo vaccini e antiparassitario, 2,49 € una volta sola e 1 € va al rifugio.'},50)});
+})();
+</script>
+
+<script>
+(function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.howto');if(!b)return;
+  var v=b.getAttribute('data-v'),m=document.createElement('div');m.className='vmodal';m.setAttribute('role','dialog');m.setAttribute('aria-label','Come funziona');
+  m.innerHTML='<video poster="../video/'+v+'_poster.jpg" controls autoplay muted playsinline preload="none"><source src="../video/'+v+'.mp4" type="video/mp4"><source src="../video/'+v+'.webm" type="video/webm"></video><button type="button">✕ Chiudi</button>';
+  function close(){m.remove();b.focus()}
+  m.addEventListener('click',function(x){if(x.target===m||x.target.tagName==='BUTTON')close()});
+  document.addEventListener('keydown',function k(x){if(x.key==='Escape'){close();document.removeEventListener('keydown',k)}});
+  document.body.appendChild(m);var vd=m.querySelector('video');vd.play&&vd.play().catch(function(){});m.querySelector('button').focus()})})();
+</script>
+<div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="start-h" hidden>
+  <div class="start-in">
+    <h2 id="start-h">Ciao! Cosa vuoi fare?</h2>
+    <p>Tocca una delle tre cose. Puoi tornare qui quando vuoi col tasto 🏠 in basso.</p>
+    <button type="button" class="big-choice sos" data-go="grave"><span>🚨</span><div>Il mio animale sta male<small>Ti dico se è grave, una domanda alla volta. Zoppia e veleno gratis</small></div></button>
+    <button type="button" class="big-choice" data-go="tess"><span>🪪</span><div>Fare il tesserino col QR<small>Gratis. Se si perde, chi lo trova ti chiama</small></div></button>
+    <button type="button" class="big-choice" data-go="schede"><span>📋</span><div>Le schede del mio animale<small>Vaccini, chi lo tiene quando parti, viaggi. 2,49 € una volta sola</small></div></button>
+    <button type="button" class="skip" data-go="close">Guardo da solo</button>
+  </div>
+</div>
+<nav class="easybar" aria-label="Sempre a portata di mano">
+  <button type="button" id="eb-home"><span>🏠</span>Inizio</button>
+  <button type="button" class="eb-sos" id="eb-sos"><span>🚨</span>Emergenza</button>
+  <button type="button" id="eb-big" aria-pressed="false"><span>A+</span>Testo</button>
+</nav>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},K='ufficio-facile',st={};
+  try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+  function keep(){try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}}
+  function tab(id,panel){var t=$(id);if(t)t.click();var d=$(panel);setTimeout(function(){try{d.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){d.scrollIntoView()}},60)}
+  function sos(){$('sos-btn').click()}
+  var start=$('start');
+  function openStart(){start.hidden=false;document.body.style.overflow='hidden';start.querySelector('.big-choice').focus()}
+  function closeStart(){start.hidden=true;document.body.style.overflow='';st.seen=1;keep()}
+  start.addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(!b)return;var g=b.getAttribute('data-go');closeStart();
+    if(g==='grave')sos();else if(g==='tess')tab('t-tess','d-tess');else if(g==='schede')tab('t-lib','d-lib')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!start.hidden)closeStart()});
+  if(/sbloccato=1|session_id/.test(location.search)){st.seen=1;keep()}
+  if(!st.seen)openStart();
+  $('eb-home').addEventListener('click',openStart);
+  $('eb-sos').addEventListener('click',sos);
+  function big(on){document.documentElement.classList.toggle('big',on);$('eb-big').setAttribute('aria-pressed',on);$('eb-big').lastChild.textContent=on?'Normale':'Testo'}
+  big(!!st.big);$('eb-big').addEventListener('click',function(){st.big=!st.big;keep();big(st.big)});
+  /* bottoni dei passi */
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-do]');if(!b)return;var d=b.getAttribute('data-do');
+    if(d==='dati'){var c=$('capo');c.open=true;
+      /* se dentro c'è ancora l'esempio di Bruno, lo tolgo: così non tocca cancellarlo a mano */
+      if($('p-phone').value==='333 000 0000'){['p-pet','p-weight','p-owner','p-phone','p-chip','p-vet','p-vetphone'].forEach(function(i){$(i).value=''});$('profile').dispatchEvent(new Event('input',{bubbles:true}))}
+      c.scrollIntoView({block:'start'});setTimeout(function(){$('p-pet').focus()},300)}
+    else if(d==='dl')$('dl').click();else if(d==='medal')$('medal').click()});
+  /* "Fatto" nella scheda del capo: chiude e torna al tesserino */
+  $('capo-done').addEventListener('click',function(){var c=$('capo');c.open=false;var d=document.querySelector('.desk.panel:not([hidden])')||$('d-tess');d.scrollIntoView({block:'start'})});
+})();
+</script>
+</html>
+<script>
+/* vendita: dove si fermano prima di pagare (GoatCounter) */
+(function(){function ev(n){try{window.goatcounter&&window.goatcounter.count({path:n,event:true})}catch(e){}}
+  document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.g-sym,[data-go]');if(!t)return;
+    if(t.classList.contains('g-sym')){if(!document.body.classList.contains('unlocked'))ev('sintomo-'+t.getAttribute('data-id'))}
+    else ev('inizio-'+t.getAttribute('data-go'))});
+})();
+
+/* extra: apri "Ha mangiato qualcosa?" dal link di una pagina cibo */
+(function(){if(location.hash!=='#mangiato')return;var c=new URLSearchParams(location.search).get('cibo'),w=document.getElementById('e-what');try{var st=document.getElementById('start');if(st&&!st.hidden){st.hidden=true;document.body.style.overflow=''}}catch(x){}var t=document.getElementById('t-eat');if(t)t.click();if(c&&w&&w.querySelector('option[value="'+c+'"]')){w.value=c;w.dispatchEvent(new Event('change',{bubbles:true}))}setTimeout(function(){var d=document.getElementById('d-eat');d&&d.scrollIntoView()},80)})();
+</script>

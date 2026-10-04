@@ -1,0 +1,1 @@
+Una cartella per giorno: coda/AAAA-MM-GG/ con un .mp4 e testo.txt
