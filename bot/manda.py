@@ -4,6 +4,10 @@ import datetime, json, os, pathlib, re, sys, urllib.request, uuid, zoneinfo
 # La chiave incollata può avere spazi o testo intorno: prendo solo la parte numeri:lettere.
 _trovata = re.search(r"\d{6,}:[A-Za-z0-9_-]{30,}", os.environ["TOKEN"])
 if not _trovata:
+    _t = os.environ["TOKEN"]
+    # Solo la forma, mai il contenuto: lunghezza, due punti, spazi, righe.
+    print(f"forma: lunghezza={len(_t)} due_punti={_t.count(':')} spazi={_t.count(' ')} "
+          f"righe={_t.count(chr(10)) + 1} cifre={sum(c.isdigit() for c in _t)}")
     sys.exit("La chiave TELEGRAM_TOKEN non sembra una chiave di BotFather.")
 TOKEN = _trovata.group(0)
 API = f"https://api.telegram.org/bot{TOKEN}/"
