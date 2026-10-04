@@ -48,8 +48,13 @@ if not cartella.exists():
     sys.exit(0)
 testo = (cartella / "testo.txt").read_text().strip() if (cartella / "testo.txt").exists() else ""
 video = next(iter(sorted(cartella.glob("*.mp4"))), None)
-chiama("sendMessage", {"chat_id": cid, "text": f"🐶 Video del {oggi}. Salvalo, pubblicalo su TikTok e incolla il testo qui sotto."})
+testo_ig = (cartella / "testo_ig.txt").read_text().strip() if (cartella / "testo_ig.txt").exists() else ""
+chiama("sendMessage", {"chat_id": cid, "text": f"🐶 Video del {oggi}. Tieni premuto il video e salvalo, poi pubblicalo. I testi da copiare sono qui sotto."})
 if video:
     chiama("sendVideo", {"chat_id": cid, "supports_streaming": "true"}, file=video)
 if testo:
+    chiama("sendMessage", {"chat_id": cid, "text": "👇 Testo per TikTok"})
     chiama("sendMessage", {"chat_id": cid, "text": testo})
+if testo_ig:
+    chiama("sendMessage", {"chat_id": cid, "text": "👇 Testo per Instagram e Facebook"})
+    chiama("sendMessage", {"chat_id": cid, "text": testo_ig})
