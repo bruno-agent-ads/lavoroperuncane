@@ -27,7 +27,7 @@ for u in aggiornamenti:
     if m.get("photo"): testo += " [foto]"
     if m.get("video"): testo += " [video]"
     if m.get("voice"): testo += " [vocale]"
-    if testo.strip():
+    if testo.strip() and not testo.startswith("/start"):
         messaggi.append({"quando": datetime.datetime.fromtimestamp(m["date"], datetime.timezone.utc).isoformat(),
                          "testo": testo.strip()})
 offset_file.write_text(str(offset))
