@@ -1,0 +1,24 @@
+name: Leggi i messaggi di Federico
+on:
+  schedule:
+    - cron: "*/30 6-21 * * *"   # ogni mezz'ora dalle 8 alle 23 circa
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency: posta
+jobs:
+  leggi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Leggi e cifra
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: python3 bot/leggi.py
+      - name: Salva
+        run: |
+          git add bot/offset.txt posta 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git config user.name "Bruno"; git config user.email "bruno@lavoroperuncane.it"
+            git commit -m "Posta da Federico" && git pull --rebase -q && git push
+          fi
