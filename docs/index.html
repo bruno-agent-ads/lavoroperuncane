@@ -521,15 +521,9 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
   <section aria-labelledby="t-regalo">
     <span class="eyebrow">Avvisami</span>
     <h2 id="t-regalo">Quando esce il prossimo</h2>
-    <p>Ti scrivo solo quando c'è uno strumento nuovo.</p>
-    <form id="regalo" name="regalo" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/ufficio/">
-      <input type="hidden" name="form-name" value="regalo">
-      <p hidden><label>Non compilare: <input name="bot-field"></label></p>
-      <label class="sr" for="email">La tua email</label>
-      <input id="email" name="email" type="email" required placeholder="la-tua@email.it" autocomplete="email">
-      <button type="submit">Avvisami</button>
-      <p class="form-msg" id="form-msg" aria-live="polite"></p>
-    </form>
+    <p>Niente email: niente spam.</p>
+    <p>Seguimi: il nuovo strumento lo annuncio lì, ogni giorno c'è un video.</p>
+    <p><a class="shop-btn" href="https://www.instagram.com/lavoroperuncane/" rel="noopener">Instagram</a> <a class="shop-btn ghost" href="https://www.tiktok.com/@lavoroperuncane" rel="noopener">TikTok</a></p>
   </section>
 
   <section aria-labelledby="t-regole">
@@ -694,7 +688,7 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
   show(realPct); if(api) api.start();
 
   var f=document.getElementById('regalo'), msg=document.getElementById('form-msg');
-  f.addEventListener('submit',function(e){
+  if(f) f.addEventListener('submit',function(e){
     e.preventDefault();
     var btn=f.querySelector('button'); btn.disabled=true; msg.textContent='Un attimo…';
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
