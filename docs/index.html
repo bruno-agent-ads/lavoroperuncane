@@ -339,6 +339,11 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
 .hero2 .shop-btn.big{display:block;text-align:center;font-size:1.2rem;padding:1.1rem 1rem;border-radius:14px;margin-top:.2rem}
 .hero2 .patto{margin:0;font-size:1.08rem;line-height:1.45;text-align:center;background:rgba(255,61,174,.12);border:1.5px solid rgba(255,61,174,.45);border-radius:14px;padding:.75rem .8rem}
 .hero2 .shop-btn.big2{display:block;text-align:center;font-size:1.05rem;padding:.9rem 1rem;border-radius:14px;margin-top:-.3rem}
+.subito{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:1rem 0 .2rem}
+.subito a{display:flex;align-items:center;gap:.5rem;text-decoration:none;background:rgba(61,232,255,.10);border:1.5px solid rgba(61,232,255,.45);border-radius:14px;padding:.75rem .7rem;font-weight:700;line-height:1.2;font-size:.98rem}
+.subito a span{font-size:1.5rem}
+.subito a.notte{grid-column:1/-1;background:rgba(255,61,174,.16);border-color:rgba(255,61,174,.6);font-size:1.08rem}
+.subito-t{display:block;text-align:center;margin-top:1.1rem;font:600 .75rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 </style>
 
 <canvas id="tunnel" aria-hidden="true"></canvas>
@@ -352,6 +357,14 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
       <p>Se si perde, se sta male, ogni giorno.<br>E 1 € di ogni acquisto va a un rifugio. 🐾</p>
       <a class="shop-btn big" href="/ufficio/">Inizia gratis →</a>
     </div>
+    <span class="subito-t">Serve adesso · gratis</span>
+    <nav class="subito" aria-label="Aiuto subito, gratis">
+      <a class="notte" href="/veterinari-notte/"><span>🌙</span>Veterinario aperto di notte vicino a te</a>
+      <a href="/smarrito/"><span>🐾</span>Perso o trovato un animale</a>
+      <a href="/puo-mangiarlo/"><span>🍇</span>Può mangiarlo?</a>
+      <a href="/quanto-costa/"><span>💶</span>Quanto costa il veterinario</a>
+      <a href="/animale-morto/"><span>🕊️</span>È morto il mio animale</a>
+    </nav>
     <ul class="cosa">
       <li><span>🪪</span><span><b>Se si perde</b><i class="free">GRATIS</i><br>Il tesserino col QR al collare: chi lo trova ti chiama.</span></li>
       <li><span>🚦</span><span><b>Se sta male</b><br>«È grave?»: ti dico se correre dal veterinario. Per cani e gatti.</span></li>
