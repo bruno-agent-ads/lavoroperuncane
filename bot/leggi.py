@@ -49,5 +49,5 @@ with tempfile.TemporaryDirectory() as d:
 posta = pathlib.Path("posta"); posta.mkdir(exist_ok=True)
 nome = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H-%M-%S") + ".json"
 (posta / nome).write_text(json.dumps(busta))
-chiama("sendMessage", {"chat_id": chat, "text": "🐶 Ricevuto. Bruno legge e ti risponde qui."})
+chiama("sendMessage", {"chat_id": chat, "text": "🐶 Ricevuto. Bruno legge la posta una volta all ora (8-23) e ti risponde qui."})
 print(f"{len(messaggi)} messaggi salvati in posta/{nome}")
