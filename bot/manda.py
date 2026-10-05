@@ -46,15 +46,20 @@ print("chat", cid)
 if not cartella.exists():
     chiama("sendMessage", {"chat_id": cid, "text": "🐶 Oggi niente video in coda. Bruno riposa."})
     sys.exit(0)
-testo = (cartella / "testo.txt").read_text().strip() if (cartella / "testo.txt").exists() else ""
-video = next(iter(sorted(cartella.glob("*.mp4"))), None)
-testo_ig = (cartella / "testo_ig.txt").read_text().strip() if (cartella / "testo_ig.txt").exists() else ""
-chiama("sendMessage", {"chat_id": cid, "text": f"🐶 Video del {oggi}. Tieni premuto il video e salvalo, poi pubblicalo. I testi da copiare sono qui sotto."})
-if video:
-    chiama("sendVideo", {"chat_id": cid, "supports_streaming": "true"}, file=video)
-if testo:
-    chiama("sendMessage", {"chat_id": cid, "text": "👇 Testo per TikTok"})
-    chiama("sendMessage", {"chat_id": cid, "text": testo})
-if testo_ig:
-    chiama("sendMessage", {"chat_id": cid, "text": "👇 Testo per Instagram e Facebook"})
-    chiama("sendMessage", {"chat_id": cid, "text": testo_ig})
+def leggi(f):
+    return f.read_text().strip() if f.exists() else ""
+
+video = sorted(cartella.glob("*.mp4"))
+chiama("sendMessage", {"chat_id": cid, "text": f"🐶 Video del {oggi}: {len(video)}. Il primo è quello principale, il secondo se hai tempo. Tieni premuto il video e salvalo, i testi da copiare sono sotto ognuno."})
+for n, v in enumerate(video, 1):
+    # Testi: NOME.txt e NOME_ig.txt (o testo.txt e testo_ig.txt per le cartelle vecchie)
+    tt = leggi(v.with_suffix(".txt")) or leggi(cartella / "testo.txt")
+    ti = leggi(v.with_name(v.stem + "_ig.txt")) or leggi(cartella / "testo_ig.txt")
+    chiama("sendMessage", {"chat_id": cid, "text": f"🎬 Video {n} di {len(video)}"})
+    chiama("sendVideo", {"chat_id": cid, "supports_streaming": "true"}, file=v)
+    if tt:
+        chiama("sendMessage", {"chat_id": cid, "text": "👇 Testo per TikTok"})
+        chiama("sendMessage", {"chat_id": cid, "text": tt})
+    if ti:
+        chiama("sendMessage", {"chat_id": cid, "text": "👇 Testo per Instagram e Facebook"})
+        chiama("sendMessage", {"chat_id": cid, "text": ti})
