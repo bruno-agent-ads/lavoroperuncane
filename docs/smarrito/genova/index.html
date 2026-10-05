@@ -61,7 +61,25 @@ footer{margin-top:2.5rem;font-size:.85rem;color:var(--muted)}
 ol.steps{padding-left:1.3rem;margin:.4rem 0}ol.steps li{margin:.55rem 0}
 .miss{border:1.5px dashed var(--line);border-radius:16px;padding:.9rem 1rem;margin:.8rem 0;color:var(--muted)}
 .miss b{color:var(--ink)}
-</style>
+
+.paid{border:1.5px solid var(--sun);border-radius:16px;padding:1rem;margin:1.2rem 0}
+.paid h2{margin-top:0}.paid .lock{color:var(--sun);font-weight:700}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+textarea.msg{font-size:.95rem}
+#poster,#strappo{display:none}
+.av{background:#fff;color:#14101C;border-radius:20px;padding:1.2rem;box-shadow:0 0 0 4px #E0123F}
+.av .tg{display:inline-block;font:800 .85rem/1 system-ui;letter-spacing:.1em;background:#E0123F;color:#fff;padding:.5rem .7rem;border-radius:6px}
+.av h1{color:#14101C;margin:.6rem 0 .3rem}.av p{margin:.3rem 0}.av .btn.call{margin-top:.8rem}
+@media print{body{background:#fff}.w>*{display:none!important}
+ body.p-poster #poster,body.p-strappo #strappo{display:flex!important;flex-direction:column;align-items:center;text-align:center;color:#000;font-family:Arial,sans-serif;gap:4mm}
+ #poster .ph{font:900 26mm/1 "Arial Black",Arial,sans-serif;color:#E0123F}#poster img,#strappo img{max-width:180mm;max-height:110mm;object-fit:contain}
+ #poster .pn,#strappo .pn{font:900 16mm/1.1 Arial,sans-serif}#poster .pd,#strappo .pd{font:400 7mm/1.3 Arial,sans-serif}
+ #poster .pt{font:400 8mm/1.2 Arial,sans-serif;margin-top:4mm}#poster .pt b{font:900 16mm/1.1 Arial,sans-serif}#poster .pf{font-size:5mm}
+ #strappo .ph{font:900 20mm/1 "Arial Black",Arial,sans-serif;color:#E0123F}#strappo img{max-height:85mm}
+ #strappo .tabs{display:flex;width:186mm;border-top:1px dashed #000;margin-top:4mm}
+ #strappo .tabs div{flex:1;height:55mm;border-left:1px dashed #000;writing-mode:vertical-rl;transform:rotate(180deg);font:700 4.2mm/1.2 Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:1mm}
+ @page{size:A4;margin:10mm}}
+body.unlocked .only-locked{display:none}body:not(.unlocked) .only-unlocked{display:none}</style>
 </head>
 <body>
 <div class="w">
@@ -83,7 +101,7 @@ ol.steps{padding-left:1.3rem;margin:.4rem 0}ol.steps li{margin:.55rem 0}
 <li><b>Chiama Polizia Locale, servizio veterinario ASL e canile</b> (i numeri sono qui sotto). Un animale trovato per strada di solito passa da loro: lascia nome, telefono, numero di microchip e una descrizione.</li>
 <li><b>Denuncia lo smarrimento.</b> Per il cane la legge della tua regione chiede di denunciare lo smarrimento entro <b>7 giorni</b> (<a href="https://www.izs.it/IZS/Engine/RAServeFile.php/f/pdf_normativa/Iuvene_normativa_regionale_animali_affezione/Liguria/lig_lr_23_2000.pdf" target="_blank" rel="noopener nofollow">fonte</a>). Si fa al Comune o al servizio veterinario ASL: chiedi a loro come, e fallo anche prima. Così chi legge il microchip sa che lo stai cercando.</li>
 <li><b>Controlla che nell'anagrafe ci sia il tuo numero di telefono giusto.</b> Se hai cambiato numero, chiedi al veterinario o all'ASL di aggiornarlo.</li>
-<li><b>Fai il cartello</b> con foto e telefono, attaccalo nella zona e mandalo nei gruppi del paese. <a href="/smarrito/cartello/">Fallo qui in un minuto</a>.</li>
+<li><b>Fai l'avviso</b> con foto e telefono: il cartello da attaccare nella zona e l'immagine da mandare nei gruppi del paese. <a href="/smarrito/cartello/">Fallo qui in un minuto</a>.</li>
 <li><b>Avvisa i veterinari della zona</b>: chi trova un animale ferito lo porta lì.</li>
 </ol>
 <a class="btn" target="_blank" rel="noopener nofollow" href="https://anagrafecanina.vetinfo.it/j6_siraaf/?p_reg_codice=060#/servizi-online/ricerca-animale">🔎 Cerca un microchip nell'anagrafe nazionale</a><a class="btn" target="_blank" rel="noopener nofollow" href="https://anagrafecanina.vetinfo.it/">🏛️ Anagrafe degli animali della Liguria</a>
@@ -97,7 +115,7 @@ ol.steps{padding-left:1.3rem;margin:.4rem 0}ol.steps li{margin:.55rem 0}
 </ol>
 <div class="warn"><b>Hai investito un animale?</b> Il Codice della strada (art. 189, comma 9-bis) obbliga a fermarsi e a far arrivare i soccorsi. Chi non lo fa rischia da 421 a 1.691 €. <a href="https://aci.gov.it/codice-della-strada/art-189/" target="_blank" rel="noopener nofollow">Testo</a></div>
 <a class="btn" href="/veterinari-notte/genova/">🌙 Veterinari aperti di notte a Genova</a>
-<a class="btn" href="/smarrito/cartello/">📄 Fai il cartello “Cercasi” da stampare</a>
+<a class="btn" href="/smarrito/cartello/">📣 Fai l'avviso “Cercasi”: cartello, WhatsApp, link</a>
 <div class="cta"><b>Non è ancora successo?</b> Fai adesso il <a href="/ufficio/">tesserino col QR, gratis</a>: chi trova il tuo animale lo inquadra e ti chiama in un tocco.
 I dati restano nel tuo telefono e nel QR, non sul sito.</div>
 <h2>Altre province in Liguria</h2><ul class="cities"><li><a href="/smarrito/imperia/">Imperia</a></li><li><a href="/smarrito/la-spezia/">La Spezia</a></li><li><a href="/smarrito/savona/">Savona</a></li></ul>

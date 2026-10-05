@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cartello cane smarrito da stampare gratis: “Cercasi” con foto</title>
-<meta name="description" content="Fai in un minuto il cartello per il cane o il gatto smarrito: foto, nome, telefono. Foglio A4 da stampare o PDF da mandare. Gratis, la foto non esce dal telefono.">
+<title>Cane smarrito: cartello “Cercasi” gratis da stampare e da mandare su WhatsApp</title>
+<meta name="description" content="Fai in un minuto l&#x27;avviso per il cane o il gatto smarrito: cartello A4, immagine per WhatsApp e link da condividere. Gratis, la foto non esce dal telefono.">
 <meta name="theme-color" content="#0B0614">
 <link rel="canonical" href="https://lavoroperuncane.it/smarrito/cartello/">
-<meta property="og:title" content="Cartello cane smarrito da stampare gratis: “Cercasi” con foto">
-<meta property="og:description" content="Fai in un minuto il cartello per il cane o il gatto smarrito: foto, nome, telefono. Foglio A4 da stampare o PDF da mandare. Gratis, la foto non esce dal telefono.">
+<meta property="og:title" content="Cane smarrito: cartello “Cercasi” gratis da stampare e da mandare su WhatsApp">
+<meta property="og:description" content="Fai in un minuto l&#x27;avviso per il cane o il gatto smarrito: cartello A4, immagine per WhatsApp e link da condividere. Gratis, la foto non esce dal telefono.">
 <meta property="og:url" content="https://lavoroperuncane.it/smarrito/cartello/">
 <meta property="og:image" content="https://lavoroperuncane.it/img/og.jpg">
 <meta property="og:type" content="website">
@@ -59,33 +59,112 @@ footer{margin-top:2.5rem;font-size:.85rem;color:var(--muted)}
 ol.steps{padding-left:1.3rem;margin:.4rem 0}ol.steps li{margin:.55rem 0}
 .miss{border:1.5px dashed var(--line);border-radius:16px;padding:.9rem 1rem;margin:.8rem 0;color:var(--muted)}
 .miss b{color:var(--ink)}
-</style>
+
+.paid{border:1.5px solid var(--sun);border-radius:16px;padding:1rem;margin:1.2rem 0}
+.paid h2{margin-top:0}.paid .lock{color:var(--sun);font-weight:700}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+textarea.msg{font-size:.95rem}
+#poster,#strappo{display:none}
+.av{background:#fff;color:#14101C;border-radius:20px;padding:1.2rem;box-shadow:0 0 0 4px #E0123F}
+.av .tg{display:inline-block;font:800 .85rem/1 system-ui;letter-spacing:.1em;background:#E0123F;color:#fff;padding:.5rem .7rem;border-radius:6px}
+.av h1{color:#14101C;margin:.6rem 0 .3rem}.av p{margin:.3rem 0}.av .btn.call{margin-top:.8rem}
+@media print{body{background:#fff}.w>*{display:none!important}
+ body.p-poster #poster,body.p-strappo #strappo{display:flex!important;flex-direction:column;align-items:center;text-align:center;color:#000;font-family:Arial,sans-serif;gap:4mm}
+ #poster .ph{font:900 26mm/1 "Arial Black",Arial,sans-serif;color:#E0123F}#poster img,#strappo img{max-width:180mm;max-height:110mm;object-fit:contain}
+ #poster .pn,#strappo .pn{font:900 16mm/1.1 Arial,sans-serif}#poster .pd,#strappo .pd{font:400 7mm/1.3 Arial,sans-serif}
+ #poster .pt{font:400 8mm/1.2 Arial,sans-serif;margin-top:4mm}#poster .pt b{font:900 16mm/1.1 Arial,sans-serif}#poster .pf{font-size:5mm}
+ #strappo .ph{font:900 20mm/1 "Arial Black",Arial,sans-serif;color:#E0123F}#strappo img{max-height:85mm}
+ #strappo .tabs{display:flex;width:186mm;border-top:1px dashed #000;margin-top:4mm}
+ #strappo .tabs div{flex:1;height:55mm;border-left:1px dashed #000;writing-mode:vertical-rl;transform:rotate(180deg);font:700 4.2mm/1.2 Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:1mm}
+ @page{size:A4;margin:10mm}}
+body.unlocked .only-locked{display:none}body:not(.unlocked) .only-unlocked{display:none}</style>
 </head>
 <body>
 <div class="w">
 <a class="top" href="/"><img src="/img/bruno-sedia.jpg" alt="">Lavoro per un cane</a>
-<h1>Il cartello “Cercasi”</h1>
-<p class="lead">Metti foto, nome e telefono: esce un foglio A4 da stampare o da mandare nei gruppi. La foto resta nel tuo telefono, il sito non la vede.</p>
+<h1>L'avviso “Cercasi”</h1>
+<p class="lead">Compila una volta sola: esce il cartello da stampare, l'immagine da mandare su WhatsApp e il link da girare nei gruppi.
+La foto resta nel tuo telefono, il sito non la vede.</p>
 <label for="c-foto">Foto</label><input id="c-foto" type="file" accept="image/*">
 <label for="c-tipo">È un</label><select id="c-tipo"><option>CANE</option><option>GATTO</option><option>ANIMALE</option></select>
 <label for="c-nome">Nome</label><input id="c-nome" maxlength="30" placeholder="Bruno">
+<label for="c-prov">Provincia</label><select id="c-prov"><option value="">Scegli</option></select>
 <label for="c-dove">Dove e quando l'hai perso</label><input id="c-dove" maxlength="80" placeholder="Via Roma, sabato sera">
 <label for="c-segni">Come riconoscerlo</label><input id="c-segni" maxlength="120" placeholder="Marrone, collare rosso, ha paura dei rumori">
 <label for="c-tel">Il tuo telefono</label><input id="c-tel" type="tel" maxlength="20">
-<button class="btn call" id="c-go" type="button" style="width:100%;cursor:pointer">🖨️ Stampa o salva in PDF</button>
-<p class="note">Dal telefono: premi il bottone e scegli “Salva come PDF” per mandarlo su WhatsApp.</p>
-<div id="poster" aria-hidden="true"><div class="ph">CERCASI <span id="p-tipo">CANE</span></div><img id="p-img" alt=""><div class="pn" id="p-nome"></div>
-<div class="pd" id="p-dove"></div><div class="pd" id="p-segni"></div><div class="pt">Se lo vedi chiama<br><b id="p-tel"></b></div><div class="pf">Non inseguirlo: chiama e dimmi dov'è.</div></div>
-<style>#poster{display:none}
-@media print{body{background:#fff}.w>*:not(#poster){display:none!important}#poster{display:flex!important;flex-direction:column;align-items:center;text-align:center;color:#000;font-family:Arial,sans-serif;gap:4mm}
-#poster .ph{font:900 26mm/1 "Arial Black",Arial,sans-serif;color:#E0123F}#poster img{max-width:180mm;max-height:120mm;object-fit:contain}
-#poster .pn{font:900 16mm/1.1 Arial,sans-serif}#poster .pd{font:400 7mm/1.3 Arial,sans-serif}#poster .pt{font:400 8mm/1.2 Arial,sans-serif;margin-top:4mm}
-#poster .pt b{font:900 16mm/1.1 Arial,sans-serif}#poster .pf{font-size:5mm}@page{size:A4;margin:12mm}}</style>
-<script>(function(){var $=function(i){return document.getElementById(i)};
-$('c-foto').addEventListener('change',function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){$('p-img').src=r.result};r.readAsDataURL(f)});
-$('c-go').addEventListener('click',function(){$('p-tipo').textContent=$('c-tipo').value;$('p-nome').textContent=$('c-nome').value;
-$('p-dove').textContent=$('c-dove').value;$('p-segni').textContent=$('c-segni').value;$('p-tel').textContent=$('c-tel').value;window.print()})})();</script>
-<p class="note"><a href="/smarrito/">Chi chiamare nella tua provincia</a></p>
+<h2>Gratis</h2>
+<button class="btn call" id="b-share" type="button" style="width:100%;cursor:pointer">📲 Manda l'immagine su WhatsApp</button>
+<button class="btn" id="b-link" type="button" style="width:100%;cursor:pointer">🔗 Condividi il link dell'avviso</button>
+<button class="btn" id="b-print" type="button" style="width:100%;cursor:pointer">🖨️ Stampa il cartello A4 (o salva in PDF)</button>
+<p class="note" id="c-msg" role="status"></p>
+<a class="btn" id="b-prov" href="/smarrito/" hidden>📞 Chi chiamare nella tua provincia</a>
+<div class="paid"><h2>Il piano di ricerca <small class="lock only-locked">🔒 nel pacchetto</small></h2>
+<p>I primi giorni contano. Il piano ti dice cosa fare e quando, e ti dà il materiale pronto.</p>
+<ul><li><b>Volantino a strappo</b>: le linguette col tuo numero si staccano, così chi lo vede se lo porta via.</li>
+<li><b>Promemoria nel calendario</b>: chiamate ai canili, giro dei cartelli e la scadenza della denuncia della tua regione.</li>
+<li><b>Messaggi pronti</b> per i gruppi del paese, i veterinari e il canile. Li copi e li mandi.</li></ul>
+<div class="only-locked"><a class="btn call" href="https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00">Sblocca il piano · 2,49 € una volta</a>
+<p class="note">È lo stesso pacchetto dell'app (libretto, “È grave?”, valigia…). 🐾 1 € va a un rifugio. Dopo il pagamento torna qui: è già sbloccato.</p></div>
+<div class="only-unlocked">
+<div class="row2"><button class="btn" id="b-strappo" type="button" style="cursor:pointer">✂️ Volantino a strappo</button>
+<button class="btn" id="b-ics" type="button" style="cursor:pointer">📅 Promemoria</button></div>
+<label for="m-gruppi">Per i gruppi WhatsApp e Facebook</label><textarea class="msg" id="m-gruppi" rows="5" readonly></textarea>
+<label for="m-vet">Per i veterinari della zona</label><textarea class="msg" id="m-vet" rows="4" readonly></textarea>
+<label for="m-canile">Per il canile</label><textarea class="msg" id="m-canile" rows="4" readonly></textarea>
+<p class="note">Tocca un messaggio per copiarlo.</p></div></div>
+<div id="poster" aria-hidden="true"><div class="ph">CERCASI <span class="x-tipo"></span></div><img class="x-img" alt=""><div class="pn x-nome"></div>
+<div class="pd x-dove"></div><div class="pd x-segni"></div><div class="pt">Se lo vedi chiama<br><b class="x-tel"></b></div><div class="pf">Non inseguirlo: chiama e dimmi dov'è.</div></div>
+<div id="strappo" aria-hidden="true"><div class="ph">CERCASI <span class="x-tipo"></span></div><img class="x-img" alt=""><div class="pn x-nome"></div>
+<div class="pd x-dove"></div><div class="pd x-segni"></div><div class="tabs"></div></div>
+<p class="note"><a href="/smarrito/">Cosa fare e chi chiamare, provincia per provincia</a></p>
+<script>(function(){var P=[{"s": "AG", "c": "Agrigento", "slug": "agrigento", "r": "Sicilia", "g": 10}, {"s": "AL", "c": "Alessandria", "slug": "alessandria", "r": "Piemonte", "g": 3}, {"s": "AN", "c": "Ancona", "slug": "ancona", "r": "Marche", "g": 2}, {"s": "AO", "c": "Aosta", "slug": "aosta", "r": "Valle d'Aosta", "g": 5}, {"s": "AR", "c": "Arezzo", "slug": "arezzo", "r": "Toscana", "g": 3}, {"s": "AP", "c": "Ascoli Piceno", "slug": "ascoli-piceno", "r": "Marche", "g": 2}, {"s": "AT", "c": "Asti", "slug": "asti", "r": "Piemonte", "g": 3}, {"s": "AV", "c": "Avellino", "slug": "avellino", "r": "Campania", "g": null}, {"s": "BA", "c": "Bari", "slug": "bari", "r": "Puglia", "g": 2}, {"s": "BT", "c": "Barletta-Andria-Trani", "slug": "barletta-andria-trani", "r": "Puglia", "g": 2}, {"s": "BL", "c": "Belluno", "slug": "belluno", "r": "Veneto", "g": 15}, {"s": "BN", "c": "Benevento", "slug": "benevento", "r": "Campania", "g": null}, {"s": "BG", "c": "Bergamo", "slug": "bergamo", "r": "Lombardia", "g": null}, {"s": "BI", "c": "Biella", "slug": "biella", "r": "Piemonte", "g": 3}, {"s": "BO", "c": "Bologna", "slug": "bologna", "r": "Emilia-Romagna", "g": 3}, {"s": "BZ", "c": "Bolzano", "slug": "bolzano", "r": "Trentino-Alto Adige", "g": null}, {"s": "BS", "c": "Brescia", "slug": "brescia", "r": "Lombardia", "g": null}, {"s": "BR", "c": "Brindisi", "slug": "brindisi", "r": "Puglia", "g": 2}, {"s": "CA", "c": "Cagliari", "slug": "cagliari", "r": "Sardegna", "g": 7}, {"s": "CL", "c": "Caltanissetta", "slug": "caltanissetta", "r": "Sicilia", "g": 10}, {"s": "CB", "c": "Campobasso", "slug": "campobasso", "r": "Molise", "g": null}, {"s": "CE", "c": "Caserta", "slug": "caserta", "r": "Campania", "g": null}, {"s": "CT", "c": "Catania", "slug": "catania", "r": "Sicilia", "g": 10}, {"s": "CZ", "c": "Catanzaro", "slug": "catanzaro", "r": "Calabria", "g": null}, {"s": "CH", "c": "Chieti", "slug": "chieti", "r": "Abruzzo", "g": 5}, {"s": "CO", "c": "Como", "slug": "como", "r": "Lombardia", "g": null}, {"s": "CS", "c": "Cosenza", "slug": "cosenza", "r": "Calabria", "g": null}, {"s": "CR", "c": "Cremona", "slug": "cremona", "r": "Lombardia", "g": null}, {"s": "KR", "c": "Crotone", "slug": "crotone", "r": "Calabria", "g": null}, {"s": "CN", "c": "Cuneo", "slug": "cuneo", "r": "Piemonte", "g": 3}, {"s": "EN", "c": "Enna", "slug": "enna", "r": "Sicilia", "g": 10}, {"s": "FM", "c": "Fermo", "slug": "fermo", "r": "Marche", "g": 2}, {"s": "FE", "c": "Ferrara", "slug": "ferrara", "r": "Emilia-Romagna", "g": 3}, {"s": "FI", "c": "Firenze", "slug": "firenze", "r": "Toscana", "g": 3}, {"s": "FG", "c": "Foggia", "slug": "foggia", "r": "Puglia", "g": 2}, {"s": "FC", "c": "Forlì-Cesena", "slug": "forli-cesena", "r": "Emilia-Romagna", "g": 3}, {"s": "FR", "c": "Frosinone", "slug": "frosinone", "r": "Lazio", "g": null}, {"s": "GE", "c": "Genova", "slug": "genova", "r": "Liguria", "g": 7}, {"s": "GO", "c": "Gorizia", "slug": "gorizia", "r": "Friuli-Venezia Giulia", "g": 5}, {"s": "GR", "c": "Grosseto", "slug": "grosseto", "r": "Toscana", "g": 3}, {"s": "IM", "c": "Imperia", "slug": "imperia", "r": "Liguria", "g": 7}, {"s": "IS", "c": "Isernia", "slug": "isernia", "r": "Molise", "g": null}, {"s": "AQ", "c": "L'Aquila", "slug": "l-aquila", "r": "Abruzzo", "g": 5}, {"s": "SP", "c": "La Spezia", "slug": "la-spezia", "r": "Liguria", "g": 7}, {"s": "LT", "c": "Latina", "slug": "latina", "r": "Lazio", "g": null}, {"s": "LE", "c": "Lecce", "slug": "lecce", "r": "Puglia", "g": 2}, {"s": "LC", "c": "Lecco", "slug": "lecco", "r": "Lombardia", "g": null}, {"s": "LI", "c": "Livorno", "slug": "livorno", "r": "Toscana", "g": 3}, {"s": "LO", "c": "Lodi", "slug": "lodi", "r": "Lombardia", "g": null}, {"s": "LU", "c": "Lucca", "slug": "lucca", "r": "Toscana", "g": 3}, {"s": "MC", "c": "Macerata", "slug": "macerata", "r": "Marche", "g": 2}, {"s": "MN", "c": "Mantova", "slug": "mantova", "r": "Lombardia", "g": null}, {"s": "MS", "c": "Massa-Carrara", "slug": "massa-carrara", "r": "Toscana", "g": 3}, {"s": "MT", "c": "Matera", "slug": "matera", "r": "Basilicata", "g": 5}, {"s": "ME", "c": "Messina", "slug": "messina", "r": "Sicilia", "g": 10}, {"s": "MI", "c": "Milano", "slug": "milano", "r": "Lombardia", "g": null}, {"s": "MO", "c": "Modena", "slug": "modena", "r": "Emilia-Romagna", "g": 3}, {"s": "MB", "c": "Monza e Brianza", "slug": "monza-e-brianza", "r": "Lombardia", "g": null}, {"s": "NA", "c": "Napoli", "slug": "napoli", "r": "Campania", "g": null}, {"s": "NO", "c": "Novara", "slug": "novara", "r": "Piemonte", "g": 3}, {"s": "NU", "c": "Nuoro", "slug": "nuoro", "r": "Sardegna", "g": 7}, {"s": "OR", "c": "Oristano", "slug": "oristano", "r": "Sardegna", "g": 7}, {"s": "PD", "c": "Padova", "slug": "padova", "r": "Veneto", "g": 15}, {"s": "PA", "c": "Palermo", "slug": "palermo", "r": "Sicilia", "g": 10}, {"s": "PR", "c": "Parma", "slug": "parma", "r": "Emilia-Romagna", "g": 3}, {"s": "PV", "c": "Pavia", "slug": "pavia", "r": "Lombardia", "g": null}, {"s": "PG", "c": "Perugia", "slug": "perugia", "r": "Umbria", "g": null}, {"s": "PU", "c": "Pesaro e Urbino", "slug": "pesaro-e-urbino", "r": "Marche", "g": 2}, {"s": "PE", "c": "Pescara", "slug": "pescara", "r": "Abruzzo", "g": 5}, {"s": "PC", "c": "Piacenza", "slug": "piacenza", "r": "Emilia-Romagna", "g": 3}, {"s": "PI", "c": "Pisa", "slug": "pisa", "r": "Toscana", "g": 3}, {"s": "PT", "c": "Pistoia", "slug": "pistoia", "r": "Toscana", "g": 3}, {"s": "PN", "c": "Pordenone", "slug": "pordenone", "r": "Friuli-Venezia Giulia", "g": 5}, {"s": "PZ", "c": "Potenza", "slug": "potenza", "r": "Basilicata", "g": 5}, {"s": "PO", "c": "Prato", "slug": "prato", "r": "Toscana", "g": 3}, {"s": "RG", "c": "Ragusa", "slug": "ragusa", "r": "Sicilia", "g": 10}, {"s": "RA", "c": "Ravenna", "slug": "ravenna", "r": "Emilia-Romagna", "g": 3}, {"s": "RC", "c": "Reggio Calabria", "slug": "reggio-calabria", "r": "Calabria", "g": null}, {"s": "RE", "c": "Reggio Emilia", "slug": "reggio-emilia", "r": "Emilia-Romagna", "g": 3}, {"s": "RI", "c": "Rieti", "slug": "rieti", "r": "Lazio", "g": null}, {"s": "RN", "c": "Rimini", "slug": "rimini", "r": "Emilia-Romagna", "g": 3}, {"s": "RM", "c": "Roma", "slug": "roma", "r": "Lazio", "g": null}, {"s": "RO", "c": "Rovigo", "slug": "rovigo", "r": "Veneto", "g": 15}, {"s": "SA", "c": "Salerno", "slug": "salerno", "r": "Campania", "g": null}, {"s": "SS", "c": "Sassari", "slug": "sassari", "r": "Sardegna", "g": 7}, {"s": "SV", "c": "Savona", "slug": "savona", "r": "Liguria", "g": 7}, {"s": "SI", "c": "Siena", "slug": "siena", "r": "Toscana", "g": 3}, {"s": "SR", "c": "Siracusa", "slug": "siracusa", "r": "Sicilia", "g": 10}, {"s": "SO", "c": "Sondrio", "slug": "sondrio", "r": "Lombardia", "g": null}, {"s": "SU", "c": "Sud Sardegna", "slug": "sud-sardegna", "r": "Sardegna", "g": 7}, {"s": "TA", "c": "Taranto", "slug": "taranto", "r": "Puglia", "g": 2}, {"s": "TE", "c": "Teramo", "slug": "teramo", "r": "Abruzzo", "g": 5}, {"s": "TR", "c": "Terni", "slug": "terni", "r": "Umbria", "g": null}, {"s": "TO", "c": "Torino", "slug": "torino", "r": "Piemonte", "g": 3}, {"s": "TP", "c": "Trapani", "slug": "trapani", "r": "Sicilia", "g": 10}, {"s": "TN", "c": "Trento", "slug": "trento", "r": "Trentino-Alto Adige", "g": null}, {"s": "TV", "c": "Treviso", "slug": "treviso", "r": "Veneto", "g": 15}, {"s": "TS", "c": "Trieste", "slug": "trieste", "r": "Friuli-Venezia Giulia", "g": 5}, {"s": "UD", "c": "Udine", "slug": "udine", "r": "Friuli-Venezia Giulia", "g": 5}, {"s": "VA", "c": "Varese", "slug": "varese", "r": "Lombardia", "g": null}, {"s": "VE", "c": "Venezia", "slug": "venezia", "r": "Veneto", "g": 15}, {"s": "VB", "c": "Verbano-Cusio-Ossola", "slug": "verbano-cusio-ossola", "r": "Piemonte", "g": 3}, {"s": "VC", "c": "Vercelli", "slug": "vercelli", "r": "Piemonte", "g": 3}, {"s": "VR", "c": "Verona", "slug": "verona", "r": "Veneto", "g": 15}, {"s": "VV", "c": "Vibo Valentia", "slug": "vibo-valentia", "r": "Calabria", "g": null}, {"s": "VI", "c": "Vicenza", "slug": "vicenza", "r": "Veneto", "g": 15}, {"s": "VT", "c": "Viterbo", "slug": "viterbo", "r": "Lazio", "g": null}],$=function(i){return document.getElementById(i)},img=null,S={};
+try{S=JSON.parse(localStorage.getItem('ufficio-del-capo-v1')||'{}')}catch(x){}
+document.body.classList.toggle('unlocked',!!S.unlocked);
+P.forEach(function(p){var o=document.createElement('option');o.value=p.s;o.textContent=p.c;$('c-prov').appendChild(o)});
+function v(){var p=P.filter(function(x){return x.s===$('c-prov').value})[0]||null;
+ return {t:$('c-tipo').value,n:$('c-nome').value.trim(),d:$('c-dove').value.trim(),g:$('c-segni').value.trim(),tel:$('c-tel').value.trim(),p:p}}
+function msg(t){$('c-msg').textContent=t}
+function ok(d){if(!d.tel){msg('Metti il tuo telefono: senza, nessuno ti può chiamare.');$('c-tel').focus();return false}return true}
+$('c-foto').addEventListener('change',function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var i=new Image();i.onload=function(){img=i};i.src=r.result;
+ [].forEach.call(document.querySelectorAll('.x-img'),function(x){x.src=r.result})};r.readAsDataURL(f)});
+function fill(d){[['x-tipo',d.t],['x-nome',d.n],['x-dove',d.d],['x-segni',d.g],['x-tel',d.tel]].forEach(function(a){[].forEach.call(document.querySelectorAll('.'+a[0]),function(x){x.textContent=a[1]})});
+ var b=$('b-prov');if(d.p){b.href='/smarrito/'+d.p.slug+'/';b.textContent='📞 Chi chiamare a '+d.p.c;b.hidden=false}
+ var t='CERCASI '+d.t+(d.n?' '+d.n.toUpperCase():'')+'\n'+(d.d?'Perso: '+d.d+'\n':'')+(d.g?'Come riconoscerlo: '+d.g+'\n':'')+'Se lo vedi chiama '+d.tel+'. Non inseguirlo: chiama e di\' dov\'è.\nCondividi, grazie.';
+ $('m-gruppi').value=t;
+ $('m-vet').value='Buongiorno, ho perso '+(d.t==='GATTO'?'il mio gatto':d.t==='CANE'?'il mio cane':'il mio animale')+(d.n?' '+d.n:'')+(d.d?' ('+d.d+')':'')+'. '+(d.g?d.g+'. ':'')+'Se ve lo portano o lo vedete, mi chiamate al '+d.tel+'? Grazie.';
+ $('m-canile').value='Buongiorno, cerco '+(d.t==='GATTO'?'il mio gatto':d.t==='CANE'?'il mio cane':'il mio animale')+(d.n?' '+d.n:'')+', perso '+(d.d||'da poco')+'. '+(d.g?d.g+'. ':'')+'È arrivato da voi? Il mio numero è '+d.tel+'. Richiamo nei prossimi giorni, grazie.'}
+['c-tipo','c-nome','c-prov','c-dove','c-segni','c-tel'].forEach(function(i){$(i).addEventListener('input',function(){fill(v())})});fill(v());
+function wrap(c,t,x,y,w,lh){var ws=t.split(' '),l='';ws.forEach(function(s){var q=l?l+' '+s:s;if(c.measureText(q).width>w&&l){c.fillText(l,x,y);y+=lh;l=s}else l=q});if(l)c.fillText(l,x,y);return y+lh}
+function poster(d,cb){var W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;var g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,W,H);
+ g.fillStyle='#E0123F';g.fillRect(0,0,W,170);g.fillStyle='#fff';g.textAlign='center';g.font='900 96px Arial Black, Arial, sans-serif';g.fillText('CERCASI '+d.t,W/2,125);
+ var y=200;if(img){var r=Math.min(980/img.width,560/img.height),w=img.width*r,h=img.height*r;g.drawImage(img,(W-w)/2,y,w,h);y+=h+30}else y+=20;
+ g.fillStyle='#14101C';if(d.n){g.font='900 88px Arial, sans-serif';g.fillText(d.n.toUpperCase(),W/2,y+70);y+=110}
+ g.font='400 40px Arial, sans-serif';if(d.d)y=wrap(g,d.d,W/2,y+20,960,50);if(d.g)y=wrap(g,d.g,W/2,y,960,50);
+ g.fillStyle='#E0123F';g.fillRect(0,H-260,W,260);g.fillStyle='#fff';g.font='400 44px Arial, sans-serif';g.fillText('Se lo vedi chiama',W/2,H-180);
+ g.font='900 92px Arial, sans-serif';g.fillText(d.tel,W/2,H-80);g.font='400 26px Arial, sans-serif';g.fillText('lavoroperuncane.it/smarrito',W/2,H-25);
+ c.toBlob(cb,'image/png')}
+$('b-share').addEventListener('click',function(){var d=v();if(!ok(d))return;poster(d,function(b){var f=new File([b],'cercasi.png',{type:'image/png'});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],text:$('m-gruppi').value}).catch(function(){})}
+ else{var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='cercasi.png';document.body.appendChild(a);a.click();a.remove();msg('Immagine salvata: mandala dalla galleria.')}})});
+function link(d){return location.origin+'/smarrito/avviso/#'+encodeURIComponent(JSON.stringify({t:d.t,n:d.n,d:d.d,g:d.g,tel:d.tel,p:d.p?d.p.s:''}))}
+$('b-link').addEventListener('click',function(){var d=v();if(!ok(d))return;var u=link(d),t='CERCASI '+d.t+(d.n?' '+d.n:'')+': aiutami a trovarlo';
+ if(navigator.share)navigator.share({text:t,url:u}).catch(function(){});else{try{navigator.clipboard.writeText(u);msg('Link copiato: incollalo nei gruppi.')}catch(x){prompt('Copia il link',u)}}});
+function stampa(cl){document.body.classList.add(cl);window.print();setTimeout(function(){document.body.classList.remove(cl)},500)}
+$('b-print').addEventListener('click',function(){var d=v();if(!ok(d))return;fill(d);stampa('p-poster')});
+$('b-strappo').addEventListener('click',function(){var d=v();if(!ok(d))return;fill(d);var t=document.querySelector('#strappo .tabs');t.innerHTML='';
+ for(var i=0;i<8;i++){var x=document.createElement('div');x.textContent=(d.n||d.t)+' · '+d.tel;t.appendChild(x)}stampa('p-strappo')});
+function ics(d){var now=new Date(),n=(d.n||'').replace(/[,;\\]/g,' '),gg=d.p&&d.p.g,ev=[[0,'Chiama canile, ASL e Polizia Locale','Lascia nome, telefono e numero di microchip. Numeri: lavoroperuncane.it/smarrito/'+(d.p?d.p.slug+'/':'')],
+ [1,'Giro dei veterinari e dei negozi della zona','Lascia il cartello e il messaggio per i veterinari.'],
+ [gg?Math.max(gg-1,0):1,'Fai la denuncia di smarrimento, se non l\'hai già fatta','Al Comune o al servizio veterinario ASL. '+(gg?'In '+d.p.r+' il termine è '+gg+' giorni.':'Chiedi a loro il termine della tua regione.')],
+ [3,'Richiama il canile','Chiedi se è arrivato un animale come '+(n||'il tuo')+'.'],[7,'Rifai il giro dei cartelli','Sostituisci quelli rovinati, aggiungi la zona dove l\'hanno visto.'],
+ [14,'Chiama i canili delle province vicine','A volte finiscono lontano. Elenco: lavoroperuncane.it/smarrito/']];
+ function f(t){return t.getFullYear()+String(t.getMonth()+1).padStart(2,'0')+String(t.getDate()).padStart(2,'0')}
+ var s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Lavoro per un cane//Smarrito//IT\r\n';ev.forEach(function(e,i){var t=new Date(now.getTime()+e[0]*864e5);t.setHours(9,0,0,0);
+ s+='BEGIN:VEVENT\r\nUID:smarrito-'+now.getTime()+'-'+i+'@lavoroperuncane.it\r\nDTSTAMP:'+f(now)+'T000000\r\nDTSTART:'+f(t)+'T090000\r\nDTEND:'+f(t)+'T093000\r\nSUMMARY:🐾 '+e[1]+(n?' ('+n+')':'')+'\r\nDESCRIPTION:'+e[2].replace(/[,;]/g,' ')+'\r\nBEGIN:VALARM\r\nTRIGGER:PT0M\r\nACTION:DISPLAY\r\nDESCRIPTION:'+e[1]+'\r\nEND:VALARM\r\nEND:VEVENT\r\n'});
+ return s+'END:VCALENDAR\r\n'}
+$('b-ics').addEventListener('click',function(){var d=v();if(!ok(d))return;var b=new Blob([ics(d)],{type:'text/calendar'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ricerca.ics';document.body.appendChild(a);a.click();a.remove();msg('Aprilo e aggiungi i promemoria al calendario.')});
+['m-gruppi','m-vet','m-canile'].forEach(function(i){$(i).addEventListener('click',function(){this.select();try{navigator.clipboard.writeText(this.value);msg('Copiato.')}catch(x){}})});
+})();</script>
 <footer>Fatto da Bruno, l'AI di <a href="/">Lavoro per un cane</a>. Gratis per tutti, sempre.<br>
 Non sostituisce il veterinario e non è un servizio di emergenza.<br>
 <a href="/veterinari-notte/">Veterinari aperti di notte</a> · <a href="/puo-mangiarlo/">Il cane può mangiarlo?</a> · <a href="/veterinari-notte/clinica/">Sei una clinica?</a></footer>
