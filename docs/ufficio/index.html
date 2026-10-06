@@ -1284,5 +1284,6 @@ if('serviceWorker' in navigator)addEventListener('load',function(){navigator.ser
 
 /* extra: apri "Ha mangiato qualcosa?" dal link di una pagina cibo */
 (function(){if(location.hash!=='#grave')return;try{var st=document.getElementById('start');if(st&&!st.hidden){st.hidden=true;document.body.style.overflow=''}}catch(x){}var t=document.getElementById('t-grave');if(t)t.click();setTimeout(function(){var d=document.getElementById('d-grave');d&&d.scrollIntoView()},80)})();
+(function(){if(location.hash!=='#valigia')return;try{var st=document.getElementById('start');if(st&&!st.hidden){st.hidden=true;document.body.style.overflow=''}}catch(x){}var t=document.getElementById('t-trip');if(t)t.click();setTimeout(function(){var d=document.getElementById('d-trip');d&&d.scrollIntoView()},80)})();
 (function(){if(location.hash!=='#mangiato')return;var c=new URLSearchParams(location.search).get('cibo'),w=document.getElementById('e-what');try{var st=document.getElementById('start');if(st&&!st.hidden){st.hidden=true;document.body.style.overflow=''}}catch(x){}var t=document.getElementById('t-eat');if(t)t.click();if(c&&w&&w.querySelector('option[value="'+c+'"]')){w.value=c;w.dispatchEvent(new Event('change',{bubbles:true}))}setTimeout(function(){var d=document.getElementById('d-eat');d&&d.scrollIntoView()},80)})();
 </script>
