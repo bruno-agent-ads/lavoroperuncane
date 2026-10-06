@@ -1,0 +1,46 @@
+name: Avvisa Bing e gli altri motori (IndexNow)
+on:
+  push:
+    branches: [main]
+    paths: ['docs/**']
+  workflow_dispatch:
+    inputs:
+      tutte:
+        description: 'Manda tutte le pagine della sitemap'
+        type: boolean
+        default: true
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Manda le pagine cambiate
+        env:
+          TUTTE: ${{ github.event_name == 'workflow_dispatch' && inputs.tutte }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess, urllib.request
+          KEY = '67da899e316ecd2935184e545da4c090'
+          HOST = 'lavoroperuncane.it'
+          tutte = re.findall(r'<loc>([^<]+)</loc>', open('docs/sitemap.xml', encoding='utf-8').read())
+          if os.environ.get('TUTTE') == 'true':
+              urls = tutte
+          else:
+              cambiati = subprocess.run(['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'docs'], capture_output=True, text=True).stdout.split()
+              urls = []
+              for f in cambiati:
+                  if not f.endswith('index.html'):
+                      continue
+                  u = 'https://' + HOST + '/' + f[len('docs/'):-len('index.html')]
+                  if u in tutte:
+                      urls.append(u)
+          print(len(urls), 'pagine')
+          if not urls:
+              raise SystemExit(0)
+          body = json.dumps({'host': HOST, 'key': KEY, 'keyLocation': 'https://' + HOST + '/' + KEY + '.txt', 'urlList': urls}).encode()
+          req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+          with urllib.request.urlopen(req) as r:
+              print('IndexNow:', r.status)
+          PY
