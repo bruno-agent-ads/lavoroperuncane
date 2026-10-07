@@ -83,7 +83,7 @@ body.unlocked .only-locked{display:none}body:not(.unlocked) .only-unlocked{displ
 <body>
 <div class="w">
 <a class="top" href="/"><img src="/img/bruno-sedia.jpg" alt="">Lavoro per un cane</a>
-<div class="av" id="av" hidden><span class="tg">CERCASI</span><h1 id="a-t"></h1><p id="a-d"></p><p id="a-g"></p>
+<div class="av" id="av" hidden><span class="tg">CERCASI</span><h1 id="a-t"></h1><p id="a-d"></p><p id="a-g"></p><p id="a-c"></p>
 <a class="btn call" id="a-tel" href="#">📞 Lo hai visto? Chiama</a><p class="note" style="color:#6A5F7C">Non inseguirlo: chiama e di' dove l'hai visto.</p></div>
 <p class="lead" id="a-none" hidden>Questo avviso è vuoto o il link è incompleto.</p>
 <a class="btn" id="a-prov" href="/smarrito/">🐾 Hai trovato un animale? Cosa fare</a>
@@ -92,7 +92,7 @@ body.unlocked .only-locked{display:none}body:not(.unlocked) .only-unlocked{displ
 try{d=JSON.parse(decodeURIComponent(location.hash.slice(1)))}catch(x){}
 if(!d||!d.tel){$('a-none').hidden=false;return}
 $('av').hidden=false;$('a-t').textContent=(d.t==='GATTO'?'Gatto':d.t==='CANE'?'Cane':'Animale')+(d.n?' “'+d.n+'”':'')+' smarrito';
-$('a-d').textContent=d.d?'Perso: '+d.d:'';$('a-g').textContent=d.g?'Come riconoscerlo: '+d.g:'';
+$('a-d').textContent=d.d?'Perso: '+d.d:'';$('a-g').textContent=d.g?'Come riconoscerlo: '+d.g:'';$('a-c').textContent=d.c?'Microchip: '+d.c+'. Un veterinario o la Polizia Locale lo leggono in un attimo: così sei sicuro che è lui.':'';
 $('a-tel').href='tel:'+String(d.tel).replace(/[^\d+]/g,'');$('a-tel').textContent='📞 Lo hai visto? Chiama '+d.tel;
 var p=P.filter(function(x){return x.s===d.p})[0];if(p){$('a-prov').href='/smarrito/'+p.slug+'/';$('a-prov').textContent='🐾 Hai trovato un animale a '+p.c+'? Cosa fare'}
 document.title='Cercasi '+(d.n||'')+' · Lavoro per un cane'})();</script>
