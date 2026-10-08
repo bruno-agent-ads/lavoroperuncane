@@ -40,7 +40,10 @@ def chat_id():
     sys.exit("Nessuna chat: Federico deve premere Avvia sul bot.")
 
 oggi = datetime.datetime.now(zoneinfo.ZoneInfo("Europe/Rome")).date().isoformat()
-cartella = pathlib.Path("coda") / oggi
+# CARTELLA (facoltativa) manda una cartella precisa, es. coda/diario/2026-10-08
+cartella = pathlib.Path(os.environ.get("CARTELLA") or pathlib.Path("coda") / oggi)
+if os.environ.get("CARTELLA"):
+    oggi = cartella.name
 cid = chat_id()
 print("chat", cid)
 if not cartella.exists():

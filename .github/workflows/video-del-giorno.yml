@@ -2,7 +2,12 @@ name: Video del giorno su Telegram
 on:
   schedule:
     - cron: "0 7 * * *"   # 9:00 ora italiana (ora legale); 8:00 da fine ottobre
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      cartella:
+        description: "Cartella da mandare (vuoto = coda di oggi)"
+        required: false
+        default: ""
 permissions:
   contents: write
 jobs:
@@ -13,6 +18,7 @@ jobs:
       - name: Manda il video di oggi
         env:
           TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CARTELLA: ${{ inputs.cartella }}
         run: python3 bot/manda.py
       - name: Ricorda la chat di Federico
         run: |
