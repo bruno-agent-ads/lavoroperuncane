@@ -44,6 +44,11 @@ oggi = datetime.datetime.now(zoneinfo.ZoneInfo("Europe/Rome")).date().isoformat(
 cartella = pathlib.Path(os.environ.get("CARTELLA") or pathlib.Path("coda") / oggi)
 if os.environ.get("CARTELLA"):
     oggi = cartella.name
+# Giro della sera: solo il diario di oggi, e se non c'è nessun messaggio.
+if os.environ.get("ORARIO") == "0 16 * * *":
+    cartella = pathlib.Path("coda/diario") / oggi
+    if not cartella.exists():
+        sys.exit(0)
 cid = chat_id()
 print("chat", cid)
 if not cartella.exists():
