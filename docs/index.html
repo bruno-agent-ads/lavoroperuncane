@@ -328,6 +328,11 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
 .hero2{gap:1.1rem}
 .hero2 .centro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.9rem;padding:.4rem 0 1.2rem}
 .hero2 .centro img{width:6.5rem;height:6.5rem;border-radius:50%;object-fit:cover;object-position:50% 30%;border:3px solid #FF3DAE;box-shadow:0 0 28px rgba(255,61,174,.45)}
+.hero2 .centro .wag{position:relative;width:11rem;max-width:60%;aspect-ratio:480/629;border-radius:22px;overflow:hidden;border:3px solid #FF3DAE;box-shadow:0 0 28px rgba(255,61,174,.45)}
+.hero2 .centro .wag img{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:0;box-shadow:none;object-fit:cover}
+.hero2 .centro .wag .coda{inset:auto;left:85.79%;top:87.38%;width:41.67%;height:auto;transform:translate(-50%,-50%) rotate(-30deg);animation:scodinzola .42s ease-in-out infinite alternate}
+@keyframes scodinzola{from{transform:translate(-50%,-50%) rotate(-14deg)}to{transform:translate(-50%,-50%) rotate(-48deg)}}
+@media (prefers-reduced-motion:reduce){.hero2 .centro .wag .coda{animation:none}}
 .hero2 .centro small{font-size:.9rem;color:var(--muted);text-wrap:balance}
 .hero2 .centro p{margin:0;font-size:1.2rem;line-height:1.45;text-wrap:balance}
 .hero2 .centro .shop-btn.big{align-self:stretch}
@@ -355,7 +360,7 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
 
   <header class="hero hero2">
     <div class="centro">
-      <img src="img/bruno-sedia.jpg" alt="Bruno, il cane capo">
+      <div class="wag"><img src="img/bruno-tutto.jpg" alt="Bruno, il cane capo, che scodinzola"><img class="coda" src="img/coda.png" alt="" aria-hidden="true"></div>
       <small>Lavoro per un cane · Bruno è il capo 🐾</small>
       <h1>Ti aiuto a prenderti cura del tuo <em>animale</em>.</h1>
       <p>Se si perde, se sta male, ogni giorno.<br>E 1 € di ogni acquisto va a un rifugio. 🐾</p>
