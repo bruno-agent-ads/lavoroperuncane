@@ -169,7 +169,7 @@ const TINTE=[['marrone',0xa8622e],['grigio',0x9d98a6],['nero',0x2e2a33],['bianco
 const ACC=[['collare','📿','Collare',0],['bandana','🧣','Bandana',0],['cappello','🥳','Cappellino',1],['occhiali','🕶️','Occhiali',1],['corona','👑','Corona',1],['ali','🪽','Ali',1]];
 const MIO=(()=>{try{return Object.assign({a:'cane',t:0,n:'',acc:'collare'},JSON.parse(localStorage.getItem('parco-mio')||'{}'))}catch(e){return {a:'cane',t:0,n:'',acc:'collare'}}})();
 function salvaMio(){try{localStorage.setItem('parco-mio',JSON.stringify(MIO))}catch(e){}}
-const LINK_ACC='';/* link Stripe 0,99 €, ritorno su /parco/?comprato=1 */
+const LINK_ACC='https://buy.stripe.com/7sY8wO5hJ0PZc08a0gaZi02';/* link Stripe 0,99 €, ritorno su /parco/?comprato=1 */
 MIO.presi=MIO.presi||['collare','bandana'];
 function preso(k){return MIO.presi.includes(k);}
 if(/comprato=1/.test(location.search)){try{const k=localStorage.getItem('parco-in-acquisto');if(k&&!preso(k)){MIO.presi.push(k);MIO.acc=k;salvaMio();gc('parco-comprato-'+k);}localStorage.removeItem('parco-in-acquisto');history.replaceState(null,'','/parco/');}catch(e){}}
