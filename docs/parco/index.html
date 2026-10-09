@@ -185,7 +185,7 @@ function disegnaAcc(){const box=$('#acc');box.innerHTML='';
 function apriSblocco(k,n){const p=$('#panel');p.className='panel oro';p.hidden=false;
   p.innerHTML='<h2 style="margin:0 0 .4rem">'+n+' 🔒</h2><p style="margin:0 0 .8rem">Lo prendi per sempre a 0,99 €. Metà va davvero a un rifugio.</p><div class="az" style="display:flex;gap:.5rem;flex-wrap:wrap"><button class="paga" id="sbl">Prendilo a 0,99 €</button><button id="nosbl">Non ora</button></div>';
   p.style.zIndex=11;$('#nosbl').onclick=()=>{p.hidden=true;p.style.zIndex='';};
-  $('#sbl').onclick=()=>{gc('parco-compra-'+k);try{localStorage.setItem('parco-in-acquisto',k)}catch(e){}location.href=LINK_ACC+'?client_reference_id=acc-'+k;};}
+  $('#sbl').onclick=()=>{gc('parco-compra-'+k);if(!LINK_ACC){toast('In arrivo a giorni: torna presto!');return;}try{localStorage.setItem('parco-in-acquisto',k)}catch(e){}location.href=LINK_ACC+'?client_reference_id=acc-'+k;};}
 disegnaAcc();
 
 /* accessori in 3D sopra l'animale */

@@ -344,6 +344,15 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
 .hero2 .shop-btn.big{display:block;text-align:center;font-size:1.2rem;padding:1.1rem 1rem;border-radius:14px;margin-top:.2rem}
 .hero2 .patto{margin:0;font-size:1.08rem;line-height:1.45;text-align:center;background:rgba(255,61,174,.12);border:1.5px solid rgba(255,61,174,.45);border-radius:14px;padding:.75rem .8rem}
 .hero2 .shop-btn.big2{display:block;text-align:center;font-size:1.05rem;padding:.9rem 1rem;border-radius:14px;margin-top:-.3rem}
+.tre{display:flex;flex-direction:column;gap:.7rem;align-self:stretch;margin:.4rem 0 .2rem}
+.tre a{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--ink,#fff);font:800 1.3rem/1.2 var(--body);padding:1.15rem 1.1rem;border-radius:18px;border:2px solid;min-height:4.4rem}
+.tre a span{font-size:2rem;flex:none}
+.tre a{text-align:left}
+@media (max-width:600px){.hero2 .centro .wag{width:7.5rem}}
+.tre .t-male{background:rgba(255,77,94,.16);border-color:#FF4D5E}
+.tre .t-perso{background:rgba(61,232,255,.14);border-color:#3DE8FF}
+.tre .t-gioca{background:rgba(198,255,61,.12);border-color:#C6FF3D}
+#subito{scroll-margin-top:1rem}
 .subito{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:1rem 0 .2rem}
 .subito a{display:flex;align-items:center;gap:.5rem;text-decoration:none;background:rgba(61,232,255,.10);border:1.5px solid rgba(61,232,255,.45);border-radius:14px;padding:.75rem .7rem;font-weight:700;line-height:1.2;font-size:.98rem}
 .subito a span{font-size:1.5rem}
@@ -364,13 +373,17 @@ footer{font:400 .82rem/1.6 var(--mono);color:var(--muted);border-top:1px solid v
       <small>Lavoro per un cane · Bruno è il capo 🐾</small>
       <h1>Ti aiuto a prenderti cura del tuo <em>animale</em>.</h1>
       <p>Se si perde, se sta male, ogni giorno.<br>E 1 € di ogni acquisto va a un rifugio. 🐾</p>
-      <a class="shop-btn big" href="/ufficio/">Inizia gratis →</a>
+      <nav class="tre" aria-label="Cosa ti serve?">
+        <a class="t-male" href="#subito" data-goatcounter-click="home-tre-male"><span>🚑</span>Il mio animale sta male</a>
+        <a class="t-perso" href="/smarrito/" data-goatcounter-click="home-tre-perso"><span>🐾</span>Ho perso o trovato un animale</a>
+        <a class="t-gioca" href="/parco/" data-goatcounter-click="home-tre-gioca"><span>🎮</span>Gioca e aiuta un rifugio</a>
+      </nav>
       <a class="cuore" href="#giro" data-goatcounter-click="home-cuore">
         <b>🐾 Ogni acquisto: 1 € a un rifugio che scegliete voi.</b>
         <span>Il <em>40%</em> di quello che paghi. Proponi il rifugio della tua città nei commenti: i più chiesti entrano nel giro. Donati finora: <em>0&nbsp;€</em>, il primo bonifico a fine mese.</span>
       </a>
     </div>
-    <span class="subito-t">Serve adesso · gratis</span>
+    <span class="subito-t" id="subito">Sta male? Scegli qui · gratis</span>
     <nav class="subito" aria-label="Aiuto subito, gratis">
       <a class="notte" href="/veterinari-notte/"><span>🌙</span>Veterinario aperto di notte vicino a te</a>
       <a href="/smarrito/"><span>🐾</span>Perso o trovato un animale</a>
