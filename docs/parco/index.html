@@ -60,7 +60,7 @@ button:disabled{opacity:.4;cursor:default}
 .righe{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;font-variant-numeric:tabular-nums}
 .righe span:nth-child(odd){color:var(--muted)}
 .aiuto{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;color:var(--muted);font-size:.95rem;white-space:nowrap;pointer-events:none}
-.toast{position:fixed;left:50%;top:calc(70px + env(safe-area-inset-top,0px));transform:translateX(-50%);background:var(--lime);color:#120a1c;font-weight:700;padding:.65rem 1.1rem;border-radius:14px;max-width:calc(100% - 32px);text-align:center;z-index:5}
+.toast{position:fixed;left:50%;top:calc(116px + env(safe-area-inset-top,0px));transform:translateX(-50%);background:var(--lime);color:#120a1c;font-weight:700;padding:.65rem 1.1rem;border-radius:14px;max-width:calc(100% - 32px);text-align:center;z-index:5}
 .scelta{position:fixed;inset:0;background:radial-gradient(circle at 20% 0,#3a1240 0,transparent 55%),rgba(11,6,20,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;padding:16px;z-index:10;text-align:center}
 .scelta h1{font:800 clamp(2rem,9vw,3rem)/1 var(--display);margin:0;text-wrap:balance}
 .scelta p{color:var(--muted);margin:0;max-width:30rem}
@@ -70,6 +70,10 @@ button:disabled{opacity:.4;cursor:default}
 .animali button span{font:700 .85rem var(--body)}
 .animali button[aria-pressed="true"]{border-color:var(--pink);background:#3a1240}
 .via{font-size:1.15rem;padding:.9rem 2rem}
+.cura{position:fixed;left:50%;transform:translateX(-50%);top:calc(64px + env(safe-area-inset-top,0px));display:flex;align-items:center;gap:.6rem;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:.35rem .4rem .35rem .9rem;font-size:.95rem;white-space:nowrap;z-index:3}
+.cura b{font-variant-numeric:tabular-nums}
+.cura .basso{color:#FF4D5E}
+.cura button{padding:.45rem .8rem;font-size:.9rem;border-color:var(--lime);color:var(--lime)}
 .scelta{overflow-y:auto;justify-content:flex-start}
 .scelta>:first-child{margin-top:auto}.scelta>:last-child{margin-bottom:auto}
 .crea{display:flex;flex-direction:column;align-items:center;gap:.7rem;width:100%;max-width:30rem}
@@ -99,6 +103,10 @@ button:disabled{opacity:.4;cursor:default}
   </div>
 </div>
 
+<div class="cura" id="cura" hidden>
+  <span title="Pancia">🍖 <b id="c-pa">100%</b></span><span title="Salute">❤️ <b id="c-sa">100%</b></span><span title="Vaccino">💉 <b id="c-va">ok</b></span><span title="Giorni di fila">🔥 <b id="c-se">1</b></span>
+  <button type="button" id="pappa">Dai la pappa</button>
+</div>
 <div class="aiuto" id="aiuto">Tocca il prato per camminare · trova le 3 crocchette</div>
 
 <div class="panel" id="panel" hidden></div>
@@ -205,6 +213,27 @@ function vesti(a,type,acc){
 }
 function creaMio(){const c=TINTE[MIO.t]?TINTE[MIO.t][1]:0xa8622e;const a=makeAnimal(animale,c);const acc=(ACC.find(x=>x[0]===MIO.acc)||ACC[0]);vesti(a,animale,preso(acc[0])?acc[0]:'collare');return a;}
 
+/* ---- l'animale virtuale: pappa, visita, vaccino. Gratis. Non muore mai. ---- */
+const ORA=()=>Date.now(),H=3600e3;
+const CURA=(()=>{try{return Object.assign({pappa:ORA(),visita:ORA(),vaccino:ORA(),serie:1,ultimo:OGGI},JSON.parse(localStorage.getItem('parco-cura')||'{}'))}catch(e){return {pappa:ORA(),visita:ORA(),vaccino:ORA(),serie:1,ultimo:OGGI}}})();
+function salvaCura(){try{localStorage.setItem('parco-cura',JSON.stringify(CURA))}catch(e){}}
+function pancia(){return Math.max(0,Math.round(100-(ORA()-CURA.pappa)/H*100/12));}
+function salute(){return Math.max(0,Math.round(100-(ORA()-CURA.visita)/H*100/48));}
+function vaccinoOk(){return ORA()-CURA.vaccino<7*24*H;}
+function curato(){if(CURA.ultimo===OGGI)return;const ieri=new Date(Date.now()-864e5).toISOString().slice(0,10);CURA.serie=CURA.ultimo===ieri?CURA.serie+1:1;CURA.ultimo=OGGI;salvaCura();}
+function nomeMio(){return MIO.n||'Il tuo animale';}
+function aggiornaCura(){const pa=pancia(),sa=salute(),va=vaccinoOk();
+  $('#c-pa').textContent=pa+'%';$('#c-pa').className=pa<30?'basso':'';$('#c-sa').textContent=sa+'%';$('#c-sa').className=sa<30?'basso':'';
+  $('#c-va').textContent=va?'ok':'da fare';$('#c-va').className=va?'':'basso';$('#c-se').textContent=CURA.serie;
+  $('#pappa').disabled=pa>90;$('#pappa').textContent=pa>90?'È sazio':'Dai la pappa';}
+$('#pappa').addEventListener('click',()=>{CURA.pappa=ORA();curato();salvaCura();aggiornaCura();gc('parco-pappa');
+  if(player){player.userData.festa=1.2;}toast(nomeMio()+' ha mangiato tutto! 🍖');});
+function benvenutoCura(){$('#cura').hidden=false;aggiornaCura();setInterval(aggiornaCura,60e3);
+  const pa=pancia(),sa=salute();
+  if(pa<30)setTimeout(()=>toast(nomeMio()+' ha fame! Tocca "Dai la pappa".'),1500);
+  else if(!vaccinoOk())setTimeout(()=>toast('È ora del vaccino: porta '+nomeMio()+' dal veterinario 💉'),1500);
+  else if(sa<30)setTimeout(()=>toast(nomeMio()+' è un po\' giù: portalo dal veterinario per una visita.'),1500);}
+
 /* anteprima che gira */
 let PV=null;
 function prova(){
@@ -222,7 +251,7 @@ function prova(){
       if(PV.drag==null&&!RED)PV.rot+=dt*.8;if(PV.a){PV.a.rotation.y=PV.rot;animateAnimal(PV.a,Math.sin(t*.7)>.6,dt,t);}r.render(sc,cam);})();}
   if(PV.a)PV.sc.remove(PV.a);PV.a=creaMio();PV.sc.add(PV.a);
 }
-$('#entra').addEventListener('click',async()=>{$('#scelta').hidden=true;$('#panel').hidden=true;await caricaRifugi();start();gc('parco-entra-'+animale);gc('parco-acc-'+MIO.acc);});
+$('#entra').addEventListener('click',async()=>{$('#scelta').hidden=true;$('#panel').hidden=true;await caricaRifugi();start();benvenutoCura();gc('parco-entra-'+animale);gc('parco-acc-'+MIO.acc);});
 $('#amico').addEventListener('click',async()=>{const url=SITO+'/parco/?ref=amico',txt='Entra nel parco di Bruno e aiuta un rifugio, è gratis:';gc('parco-invita');
   try{if(navigator.share){await navigator.share({title:'Il Parco di Bruno',text:txt,url});return}}catch(e){return}
   try{await navigator.clipboard.writeText(txt+' '+url);toast('Link copiato: mandalo a chi ama gli animali.')}catch(e){location.href='https://wa.me/?text='+encodeURIComponent(txt+' '+url)}});
@@ -477,7 +506,7 @@ function loop(){
   else if(target&&(modo==='libero'||modo==='prendi'||modo==='riporta')){mv.subVectors(target,player.position);mv.y=0;if(mv.length()<.25){target=null;mv.set(0,0,0);}else mv.normalize();}
   const moving=mv.lengthSq()>0;
   if(moving){
-    const sp=(animale==='coniglio'?7:6.5)*(modo==='libero'?1:1.6);
+    const sp=(animale==='coniglio'?7:6.5)*(modo==='libero'?1:1.6)*(pancia()<30?.6:1);
     const np=player.position.clone().addScaledVector(mv,sp*dt);
     if(np.length()>PARK-1.2)np.setLength(PARK-1.2);
     if(np.length()<3.6)np.setLength(3.6);
@@ -487,6 +516,7 @@ function loop(){
     const ang=Math.atan2(mv.x,mv.z);let dr=ang-player.rotation.y;dr=Math.atan2(Math.sin(dr),Math.cos(dr));player.rotation.y+=dr*Math.min(1,dt*10);
   }
   animateAnimal(player,moving,dt,t);animateAnimal(bruno,false,dt,t);
+  if(player.userData.festa>0){player.userData.festa-=dt;player.userData.body.position.y=Math.abs(Math.sin(player.userData.festa*12))*.5;}
   passanti.forEach(a=>{const u=a.userData;if(!u.meta||a.position.distanceTo(u.meta)<.4){if(!u.attesa){u.attesa=1+Math.random()*3;}u.attesa-=dt;if(u.attesa<=0){u.attesa=0;const an=Math.random()*6.28,rr=8+Math.random()*(PARK-10);u.meta=new THREE.Vector3(Math.cos(an)*rr,0,Math.sin(an)*rr);}animateAnimal(a,false,dt,t);return;}
     const v=u.meta.clone().sub(a.position);v.y=0;v.normalize();a.position.addScaledVector(v,u.vel*dt);a.rotation.y=Math.atan2(v.x,v.z);animateAnimal(a,true,dt,t);
     if(u.ali)u.ali.forEach((w,i)=>w.rotation.z=(i?-1:1)*(.5+Math.sin(t*8)*.25));});
@@ -591,11 +621,17 @@ function showPanel(){
   if(near===cesta){pannelloPalla();return;}
   if(near===vet){
     p.className='panel';
+    const va=vaccinoOk(),vi=salute()>90;
     p.innerHTML=`<h2>Il veterinario di Bruno</h2>
-      <p>Il tuo animale sta male? Ti aiuto a capire se correre dal veterinario o se puoi aspettare. Non sostituisce il veterinario.</p>
+      <div class="az" style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.3rem 0 .6rem"><button class="dai" id="visita" type="button" ${vi?'disabled':''}>${vi?'Visita fatta, sta benone':'Visita gratis 🩺'}</button>
+      <button class="dai" id="vacc" type="button" ${va?'disabled':''}>${va?'Vaccino a posto ✓':'Fai il vaccino 💉'}</button></div>
+      <p>E il tuo animale vero sta male? Ti aiuto a capire se correre dal veterinario o se puoi aspettare. Non sostituisce il veterinario.</p>
       <a class="lnk paga" href="${SITO}/ufficio/?ref=parco" target="_blank" rel="noopener">È grave? Controlla i sintomi →</a>
       <a class="lnk" href="${SITO}/veterinari-notte/" target="_blank" rel="noopener">Veterinario aperto di notte →</a>
       <a class="lnk" href="${SITO}/puo-mangiarlo/" target="_blank" rel="noopener">Ha mangiato qualcosa di strano? →</a>`;
+    const fatto=m=>{curato();salvaCura();aggiornaCura();if(player)player.userData.festa=1.2;toast(m);near=null;};
+    if(!vi)$('#visita').onclick=()=>{CURA.visita=ORA();gc('parco-visita');fatto(nomeMio()+' sta benone! ❤️');};
+    if(!va)$('#vacc').onclick=()=>{CURA.vaccino=ORA();gc('parco-vaccino');fatto('Vaccino fatto! Quello vero del tuo animale lo segni gratis nel libretto dell\'Ufficio.');};
     return;
   }
   if(near===macchina){
