@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Entra nel parco di Bruno: trova le crocchette, portale alla cuccia del rifugio che vuoi aiutare. Gratis, per qualsiasi animale.">
+<meta name="theme-color" content="#0B0614">
+<meta property="og:title" content="Il Parco di Bruno">
+<meta property="og:description" content="Trova le crocchette e aiuta un rifugio. Gratis, per qualsiasi animale.">
+<meta property="og:url" content="https://lavoroperuncane.it/parco/">
+<meta property="og:image" content="https://lavoroperuncane.it/img/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Lavoro per un cane">
+<link rel="canonical" href="https://lavoroperuncane.it/parco/">
+<script data-goatcounter="https://lavoroperuncane.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<title>Il Parco di Bruno</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: gioco a schermo intero. Barra in alto con le crocchette, pannello in basso quando sei vicino a una cuccia o alla ciotola. Scuro neon come il sito. */
+:root{
+  --bg:#0B0614; --panel:rgba(26,16,41,.92); --ink:#F5EFFF; --muted:#B9A9DA; --line:rgba(185,169,218,.25);
+  --pink:#FF3DAE; --gold:#FFD23D; --lime:#C6FF3D; --cyan:#3DE8FF;
+  --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.form{display:flex;flex-direction:column;gap:.5rem}
+.form input,.form select{font:400 1rem var(--body);padding:.65rem .8rem;border-radius:12px;border:1.5px solid var(--line);background:#120a1c;color:var(--ink);width:100%}
+.form label{font-size:.9rem;color:var(--muted)}
+.libera{border-style:dashed}
+.panel a.lnk{display:block;text-align:center;text-decoration:none;font:700 1rem var(--body);border-radius:14px;padding:.75rem 1rem;border:1.5px solid var(--line);background:#24163a;color:var(--ink)}
+.panel a.lnk.paga{color:#120a1c;border:0;background:linear-gradient(90deg,#ff4fa3,#ffb347,#c6ff3d,#3de8ff,#9b6bff)}
+.forza{height:22px;border-radius:99px;background:#120a1c;border:1.5px solid var(--line);overflow:hidden}
+.forza div{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--lime),var(--gold),var(--pink));border-radius:99px}
+button.lancia{font-size:1.3rem;padding:1rem}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.4 var(--body);overflow:hidden;overscroll-behavior:none}
+#scena{position:fixed;inset:0;touch-action:none}
+#scena canvas{display:block}
+.hud{position:fixed;left:0;right:0;top:0;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 0;display:flex;gap:.6rem;align-items:flex-start;justify-content:space-between;pointer-events:none}
+.pill{pointer-events:auto;background:var(--panel);border:1.5px solid var(--line);border-radius:999px;padding:.45rem .9rem;font-weight:700;display:flex;align-items:center;gap:.4rem;backdrop-filter:blur(6px)}
+.pill.oro{border-color:var(--gold);color:var(--gold);font-size:1.15rem}
+.pill .n{font:800 1.35rem/1 var(--display);font-variant-numeric:tabular-nums}
+.titolo{font:800 1.1rem/1.1 var(--display)}
+.titolo small{display:block;font:700 .7rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+button{font:700 1rem var(--body);border-radius:14px;padding:.75rem 1rem;cursor:pointer;border:1.5px solid var(--line);background:#24163a;color:var(--ink)}
+button:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+button.paga{color:#120a1c;border:0;background:linear-gradient(90deg,#ff4fa3,#ffb347,#c6ff3d,#3de8ff,#9b6bff)}
+button.dai{border-color:var(--lime);color:var(--lime)}
+button:disabled{opacity:.4;cursor:default}
+.panel{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(560px,calc(100% - 32px));background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.6rem;backdrop-filter:blur(8px)}
+.panel h2{font:800 1.35rem/1.1 var(--display);margin:0;text-wrap:balance}
+.panel p{margin:0;color:var(--muted)}
+.panel .az{display:flex;gap:.5rem;flex-wrap:wrap}
+.panel .az button{flex:1 1 9rem}
+.panel.oro{border-color:var(--gold)}
+.big{font:800 2rem/1 var(--display);color:var(--gold);font-variant-numeric:tabular-nums}
+.righe{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;font-variant-numeric:tabular-nums}
+.righe span:nth-child(odd){color:var(--muted)}
+.aiuto{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;color:var(--muted);font-size:.95rem;white-space:nowrap;pointer-events:none}
+.toast{position:fixed;left:50%;top:calc(70px + env(safe-area-inset-top,0px));transform:translateX(-50%);background:var(--lime);color:#120a1c;font-weight:700;padding:.65rem 1.1rem;border-radius:14px;max-width:calc(100% - 32px);text-align:center;z-index:5}
+.scelta{position:fixed;inset:0;background:radial-gradient(circle at 20% 0,#3a1240 0,transparent 55%),rgba(11,6,20,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;padding:16px;z-index:10;text-align:center}
+.scelta h1{font:800 clamp(2rem,9vw,3rem)/1 var(--display);margin:0;text-wrap:balance}
+.scelta p{color:var(--muted);margin:0;max-width:30rem}
+.scelta .bozza{font:700 .75rem var(--body);letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:var(--bg);border-radius:999px;padding:.3rem .8rem}
+.animali{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.animali button{font-size:2.2rem;width:5.4rem;height:5.4rem;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem}
+.animali button span{font:700 .85rem var(--body)}
+.animali button[aria-pressed="true"]{border-color:var(--pink);background:#3a1240}
+.via{font-size:1.15rem;padding:.9rem 2rem}
+@media (max-width:420px){.titolo{display:none}}
+</style>
+</head>
+<body>
+
+<div id="scena" aria-label="Il parco in 3D: tocca il prato per camminare"></div>
+
+<div class="hud">
+  <a class="pill titolo" href="/" style="text-decoration:none;color:inherit"><div><small>lavoroperuncane.it</small>Il Parco di Bruno</div></a>
+  <div style="display:flex;gap:.5rem;pointer-events:auto">
+    <button class="pill" id="amico" type="button">Invita un amico</button>
+    <div class="pill oro" aria-live="polite">🦴 <span class="n" id="mie">0</span></div>
+  </div>
+</div>
+
+<div class="aiuto" id="aiuto">Tocca il prato per camminare · trova le 3 crocchette</div>
+
+<div class="panel" id="panel" hidden></div>
+<div class="toast" id="toast" hidden></div>
+
+<div class="scelta" id="scelta">
+  <span class="bozza">Gratis · nuovo</span>
+  <h1>Il Parco di Bruno</h1>
+  <p>Ogni giorno nel parco ci sono 3 crocchette. Trovale e portale alla cuccia del rifugio che vuoi aiutare.</p>
+  <p>Le cucce sono ancora libere: i rifugi li proponete voi, per qualsiasi animale. Chi a fine mese ha più crocchette vince gli euro della Ciotola d'oro.</p>
+  <p><b style="color:var(--ink)">Con chi entri?</b></p>
+  <div class="animali" role="group" aria-label="Scegli il tuo animale">
+    <button type="button" data-a="cane" aria-pressed="true">🐶<span>Cane</span></button>
+    <button type="button" data-a="gatto" aria-pressed="false">🐱<span>Gatto</span></button>
+    <button type="button" data-a="coniglio" aria-pressed="false">🐰<span>Coniglio</span></button>
+  </div>
+  <button class="paga via" id="entra" type="button">Entra nel parco</button>
+</div>
+
+<script src="/js/three.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const RED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function toast(t){const e=$('#toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,2600)}
+
+/* ---- dati ---- */
+/* Le cucce partono vuote: i rifugi li propone la gente, Bruno li controlla e li aggiunge in rifugi.json.
+   Le crocchette date sono eventi GoatCounter parco-<ref>-x<k> (k crocchette in un colpo): totale = somma k*conteggio. */
+const COLORI=[0xff3dae,0xffb347,0x3de8ff,0xc6ff3d,0x9b6bff,0xffd23d,0xff6b6b,0x6bffb8];
+const RIFUGI=COLORI.map(col=>({n:null,d:'',c:0,col}));
+let EURO_CIOTOLA=2;
+let mie=0, prese=0, animale='cane', tiri=3, extraOggi=0, modo='libero', palla=null, lancio=null;
+const PAGA='https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00', PAGINA_FB='1366651909863293';
+const OGGI=new Date().toISOString().slice(0,10);
+const ST=(()=>{try{const s=JSON.parse(localStorage.getItem('parco')||'{}');return s.g===OGGI?s:{g:OGGI,prese:0,tiri:3,extra:0,mie:0}}catch(e){return {g:OGGI,prese:0,tiri:3,extra:0,mie:0}}})();
+prese=ST.prese;tiri=ST.tiri;extraOggi=ST.extra;mie=ST.mie;
+function salva(){try{localStorage.setItem('parco',JSON.stringify({g:OGGI,prese,tiri,extra:extraOggi,mie}))}catch(e){}}
+function gc(path){try{window.goatcounter&&goatcounter.count&&goatcounter.count({path,title:path,event:true})}catch(e){}}
+async function leggi(path,dal){try{const r=await fetch('https://lavoroperuncane.goatcounter.com/counter/'+encodeURIComponent(path)+'.json?start='+dal+'&end='+domani());if(!r.ok)return 0;const j=await r.json();return parseInt(String(j.count).replace(/\D/g,''))||0}catch(e){return 0}}
+function domani(){const d=new Date();d.setDate(d.getDate()+1);return d.toISOString().slice(0,10)}
+async function caricaRifugi(){
+  try{const j=await (await fetch('/parco/rifugi.json',{cache:'no-cache'})).json();
+    if(typeof j.ciotola==='number')EURO_CIOTOLA=j.ciotola;
+    const dal=OGGI.slice(0,8)+'01';
+    (j.rifugi||[]).slice(0,RIFUGI.length).forEach((x,i)=>{Object.assign(RIFUGI[i],{n:x.nome,d:x.dove,ref:x.ref,c:0});});
+    await Promise.all(RIFUGI.filter(r=>r.ref).map(async r=>{let s=0;for(let k=1;k<=5;k++)s+=k*await leggi('parco-'+r.ref+'-x'+k,dal);r.c=s;}));
+  }catch(e){}
+}
+const PROV=[["agrigento", "Agrigento"], ["alessandria", "Alessandria"], ["ancona", "Ancona"], ["aosta", "Aosta"], ["arezzo", "Arezzo"], ["ascoli-piceno", "Ascoli Piceno"], ["asti", "Asti"], ["avellino", "Avellino"], ["bari", "Bari"], ["barletta-andria-trani", "Barletta-Andria-Trani"], ["belluno", "Belluno"], ["benevento", "Benevento"], ["bergamo", "Bergamo"], ["biella", "Biella"], ["bologna", "Bologna"], ["bolzano", "Bolzano"], ["brescia", "Brescia"], ["brindisi", "Brindisi"], ["cagliari", "Cagliari"], ["caltanissetta", "Caltanissetta"], ["campobasso", "Campobasso"], ["caserta", "Caserta"], ["catania", "Catania"], ["catanzaro", "Catanzaro"], ["chieti", "Chieti"], ["como", "Como"], ["cosenza", "Cosenza"], ["cremona", "Cremona"], ["crotone", "Crotone"], ["cuneo", "Cuneo"], ["enna", "Enna"], ["fermo", "Fermo"], ["ferrara", "Ferrara"], ["firenze", "Firenze"], ["foggia", "Foggia"], ["forli-cesena", "Forlì-Cesena"], ["frosinone", "Frosinone"], ["genova", "Genova"], ["gorizia", "Gorizia"], ["grosseto", "Grosseto"], ["imperia", "Imperia"], ["isernia", "Isernia"], ["l-aquila", "L'Aquila"], ["la-spezia", "La Spezia"], ["latina", "Latina"], ["lecce", "Lecce"], ["lecco", "Lecco"], ["livorno", "Livorno"], ["lodi", "Lodi"], ["lucca", "Lucca"], ["macerata", "Macerata"], ["mantova", "Mantova"], ["massa-carrara", "Massa-Carrara"], ["matera", "Matera"], ["messina", "Messina"], ["milano", "Milano"], ["modena", "Modena"], ["monza-e-brianza", "Monza e Brianza"], ["napoli", "Napoli"], ["novara", "Novara"], ["nuoro", "Nuoro"], ["oristano", "Oristano"], ["padova", "Padova"], ["palermo", "Palermo"], ["parma", "Parma"], ["pavia", "Pavia"], ["perugia", "Perugia"], ["pesaro-e-urbino", "Pesaro e Urbino"], ["pescara", "Pescara"], ["piacenza", "Piacenza"], ["pisa", "Pisa"], ["pistoia", "Pistoia"], ["pordenone", "Pordenone"], ["potenza", "Potenza"], ["prato", "Prato"], ["ragusa", "Ragusa"], ["ravenna", "Ravenna"], ["reggio-calabria", "Reggio Calabria"], ["reggio-emilia", "Reggio Emilia"], ["rieti", "Rieti"], ["rimini", "Rimini"], ["roma", "Roma"], ["rovigo", "Rovigo"], ["salerno", "Salerno"], ["sassari", "Sassari"], ["savona", "Savona"], ["siena", "Siena"], ["siracusa", "Siracusa"], ["sondrio", "Sondrio"], ["sud-sardegna", "Sud Sardegna"], ["taranto", "Taranto"], ["teramo", "Teramo"], ["terni", "Terni"], ["torino", "Torino"], ["trapani", "Trapani"], ["trento", "Trento"], ["treviso", "Treviso"], ["trieste", "Trieste"], ["udine", "Udine"], ["varese", "Varese"], ["venezia", "Venezia"], ["verbano-cusio-ossola", "Verbano-Cusio-Ossola"], ["vercelli", "Vercelli"], ["verona", "Verona"], ["vibo-valentia", "Vibo Valentia"], ["vicenza", "Vicenza"], ["viterbo", "Viterbo"]];
+const SITO='https://lavoroperuncane.it';
+
+/* ---- scelta animale ---- */
+document.querySelectorAll('.animali button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.animali button').forEach(x=>x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true');animale=b.dataset.a;
+}));
+$('#entra').addEventListener('click',async()=>{$('#scelta').hidden=true;await caricaRifugi();start();gc('parco-entra-'+animale);});
+$('#amico').addEventListener('click',async()=>{const url=SITO+'/parco/?ref=amico',txt='Entra nel parco di Bruno e aiuta un rifugio, è gratis:';gc('parco-invita');
+  try{if(navigator.share){await navigator.share({title:'Il Parco di Bruno',text:txt,url});return}}catch(e){return}
+  try{await navigator.clipboard.writeText(txt+' '+url);toast('Link copiato: mandalo a chi ama gli animali.')}catch(e){location.href='https://wa.me/?text='+encodeURIComponent(txt+' '+url)}});
+
+/* ---- scena ---- */
+let vet,macchina,bacheca,cesta,ostacoli=[],guida,R,S,C,player,target=null,clock,cucce=[],kibbles=[],ciotola,bruno,ground,ray=new THREE.Raycaster(),vec=new THREE.Vector2(),keys={};
+const PARK=26;
+
+function skyTex(){const c=document.createElement('canvas');c.width=2;c.height=256;const g=c.getContext('2d');
+  const gr=g.createLinearGradient(0,0,0,256);gr.addColorStop(0,'#160a2a');gr.addColorStop(.55,'#4a1f5c');gr.addColorStop(.8,'#c2507a');gr.addColorStop(1,'#ffb36b');
+  g.fillStyle=gr;g.fillRect(0,0,2,256);const t=new THREE.CanvasTexture(c);return t;}
+
+function signTex(title,sub,col){
+  const c=document.createElement('canvas');c.width=512;c.height=200;const g=c.getContext('2d');
+  g.fillStyle='rgba(20,10,34,.92)';g.beginPath();g.roundRect?g.roundRect(6,6,500,188,36):g.rect(6,6,500,188);g.fill();
+  g.lineWidth=8;g.strokeStyle='#'+col.toString(16).padStart(6,'0');g.stroke();
+  g.fillStyle='#F5EFFF';g.font='800 50px "Bricolage Grotesque", Arial Black, sans-serif';g.textAlign='center';
+  let t=title;while(g.measureText(t).width>460)t=t.slice(0,-2)+'…';g.fillText(t,256,88);
+  g.fillStyle='#FFD23D';g.font='700 46px "Atkinson Hyperlegible", Arial, sans-serif';g.fillText(sub,256,152);
+  const tx=new THREE.CanvasTexture(c);tx.anisotropy=4;return tx;}
+
+function blob(r){const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d');
+  const gr=g.createRadialGradient(32,32,2,32,32,32);gr.addColorStop(0,'rgba(0,0,0,.55)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,64,64);
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(r,r),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthWrite:false}));
+  m.rotation.x=-Math.PI/2;m.position.y=.02;return m;}
+
+function M(col,o={}){return new THREE.MeshStandardMaterial(Object.assign({color:col,roughness:.75,metalness:0,flatShading:true},o));}
+
+function makeAnimal(type,col){
+  const g=new THREE.Group(),body=new THREE.Group();g.add(body);
+  const legs=[],mat=M(col),dark=M(0x2a1a2e),pink=M(0xff9fb8);
+  let tail;
+  if(type==='coniglio'){
+    const b=new THREE.Mesh(new THREE.SphereGeometry(.45,10,8),mat);b.scale.set(1,.9,1.25);b.position.y=.5;body.add(b);
+    const h=new THREE.Mesh(new THREE.SphereGeometry(.3,10,8),mat);h.position.set(0,.85,.45);body.add(h);
+    [-.1,.1].forEach(x=>{const e=new THREE.Mesh(new THREE.BoxGeometry(.1,.55,.06),mat);e.position.set(x,1.25,.4);e.rotation.z=x*1.5;body.add(e);
+      const ei=new THREE.Mesh(new THREE.BoxGeometry(.05,.4,.07),pink);ei.position.copy(e.position);ei.rotation.copy(e.rotation);body.add(ei);});
+    tail=new THREE.Mesh(new THREE.SphereGeometry(.14,8,6),M(0xffffff));tail.position.set(0,.55,-.55);body.add(tail);
+    [[-.2,.35],[.2,.35],[-.22,-.3],[.22,-.3]].forEach(([x,z])=>{const l=new THREE.Mesh(new THREE.BoxGeometry(.14,.25,.22),mat);l.position.set(x,.12,z);body.add(l);legs.push(l);});
+    [-.11,.11].forEach(x=>{const e=new THREE.Mesh(new THREE.SphereGeometry(.05,6,6),dark);e.position.set(x,.92,.72);body.add(e);});
+  } else {
+    const cat=type==='gatto';
+    const b=new THREE.Mesh(new THREE.BoxGeometry(cat?.42:.5,cat?.4:.48,cat?1.0:1.0),mat);b.position.y=.62;body.add(b);
+    const h=new THREE.Mesh(new THREE.BoxGeometry(cat?.44:.5,cat?.4:.44,cat?.38:.44),mat);h.position.set(0,.98,.6);body.add(h);
+    const sn=new THREE.Mesh(new THREE.BoxGeometry(cat?.2:.3,cat?.14:.2,.2),cat?mat:M(0xd9c9d9));sn.position.set(0,.9,.86);body.add(sn);
+    const no=new THREE.Mesh(new THREE.BoxGeometry(.1,.07,.05),cat?pink:dark);no.position.set(0,.96,.97);body.add(no);
+    [-.12,.12].forEach(x=>{const e=new THREE.Mesh(new THREE.SphereGeometry(.05,6,6),dark);e.position.set(x,1.06,.8);body.add(e);});
+    [-.17,.17].forEach(x=>{
+      const e=new THREE.Mesh(new THREE.ConeGeometry(cat?.11:.13,cat?.25:.22,4),cat?mat:pink);
+      if(cat){e.position.set(x,1.28,.55);}else{e.position.set(x*1.5,1.12,.52);e.rotation.z=x>0?-2.2:2.2;}
+      body.add(e);});
+    tail=new THREE.Group();const tm=new THREE.Mesh(new THREE.CylinderGeometry(.05,cat?.06:.07,cat?.75:.45,6),mat);tm.position.y=(cat?.75:.45)/2;tail.add(tm);
+    tail.position.set(0,.75,-.5);tail.rotation.x=cat?-.5:-.9;body.add(tail);
+    [[-.15,.35],[.15,.35],[-.15,-.35],[.15,-.35]].forEach(([x,z])=>{const l=new THREE.Group();const lm=new THREE.Mesh(new THREE.BoxGeometry(.14,.42,.14),mat);lm.position.y=-.21;l.add(lm);l.position.set(x,.42,z);body.add(l);legs.push(l);});
+  }
+  g.add(blob(type==='coniglio'?1.2:1.6));
+  g.userData={legs,tail,body,type,phase:0};
+  return g;
+}
+
+function animateAnimal(a,moving,dt,t){
+  const u=a.userData;u.phase+=dt*(moving?11:0);
+  if(u.type==='coniglio'){u.body.position.y=moving?Math.abs(Math.sin(u.phase*.6))*.35:0;}
+  else u.legs.forEach((l,i)=>l.rotation.x=moving?Math.sin(u.phase+(i%2?Math.PI:0)+(i>1?Math.PI:0))*.6:0);
+  if(u.tail){ if(u.type==='cane')u.tail.rotation.z=Math.sin(t*14)*.6; else if(u.type==='gatto')u.tail.rotation.z=Math.sin(t*2.5)*.3; }
+}
+
+function cucciaSign(r){return r.n?signTex(r.n,'🦴 '+r.c,r.col):signTex('Cuccia libera','proponi un rifugio',0x7d5cc4);}
+function makeCuccia(r,i){
+  const g=new THREE.Group();const wall=M(r.n?r.col:0x4a3a66,{roughness:.6}),roof=M(0x2b1b46);
+  const base=new THREE.Mesh(new THREE.BoxGeometry(2,1.4,1.8),wall);base.position.y=.7;g.add(base);
+  const hole=new THREE.Mesh(new THREE.CircleGeometry(.45,16),M(0x120a1c));hole.position.set(0,.6,.91);g.add(hole);
+  const rf=new THREE.Mesh(new THREE.ConeGeometry(1.65,1,4),roof);rf.position.y=1.9;rf.rotation.y=Math.PI/4;rf.scale.z=.95;g.add(rf);
+  const bowl=new THREE.Mesh(new THREE.CylinderGeometry(.32,.22,.18,14),M(0xffd23d,{metalness:.6,roughness:.3}));bowl.position.set(.75,.09,1.4);g.add(bowl);
+  const glow=new THREE.PointLight(r.col,r.n?.9:0,7);glow.position.set(0,1.2,1.6);g.add(glow);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:cucciaSign(r),depthTest:false}));sp.scale.set(4.4,1.72,1);sp.position.y=3.6;sp.renderOrder=5;g.add(sp);
+  g.add(blob(3.2));
+  const ang=i/RIFUGI.length*Math.PI*2+Math.PI/8, rad=16;
+  g.position.set(Math.cos(ang)*rad,0,Math.sin(ang)*rad);g.lookAt(0,0,0);
+  g.userData={r,sp,base,glow,wall,pulse:0};
+  return g;
+}
+function scaleCuccia(cu){const max=Math.max(1,...RIFUGI.map(r=>r.c));const s=.8+.55*cu.userData.r.c/max;cu.scale.setScalar(s);}
+function occupate(){return RIFUGI.filter(r=>r.n);}
+function rankOf(r){return occupate().sort((a,b)=>b.c-a.c).indexOf(r)+1;}
+
+function makeKibble(){
+  const g=new THREE.Group();
+  const bone=new THREE.Group();const m=M(0xd9a066,{emissive:0x7a4a10,emissiveIntensity:.6});
+  const sh=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.7,8),m);sh.rotation.z=Math.PI/2;bone.add(sh);
+  [-.35,.35].forEach(x=>[-.1,.1].forEach(y=>{const k=new THREE.Mesh(new THREE.SphereGeometry(.13,8,6),m);k.position.set(x,y,0);bone.add(k);}));
+  bone.position.y=.8;g.add(bone);
+  const ring=new THREE.Mesh(new THREE.RingGeometry(.45,.6,24),new THREE.MeshBasicMaterial({color:0xffd23d,transparent:true,opacity:.6,side:THREE.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.y=.03;g.add(ring);
+  g.userData={bone,ring};return g;
+}
+
+function makeTree(x,z,s){
+  const g=new THREE.Group();const tr=new THREE.Mesh(new THREE.CylinderGeometry(.18*s,.25*s,1.4*s,6),M(0x5a3b2a));tr.position.y=.7*s;g.add(tr);
+  const cols=[0x2f7a4f,0x3c8f58,0x276b4a];
+  [[1.5,1.8],[1.15,2.6],[.75,3.3]].forEach(([r,y],i)=>{const c=new THREE.Mesh(new THREE.ConeGeometry(r*s,1.4*s,7),M(cols[i]));c.position.y=y*s;g.add(c);});
+  g.position.set(x,0,z);g.rotation.y=Math.random()*6;return g;}
+
+function makeLamp(x,z){
+  const g=new THREE.Group();const p=new THREE.Mesh(new THREE.CylinderGeometry(.07,.09,3,6),M(0x2b1b46));p.position.y=1.5;g.add(p);
+  const b=new THREE.Mesh(new THREE.SphereGeometry(.28,12,10),new THREE.MeshBasicMaterial({color:0xffe9a8}));b.position.y=3.1;g.add(b);
+  g.position.set(x,0,z);return g;}
+
+function makeBench(x,z,ry){const g=new THREE.Group();const w=M(0x8a5a3c);
+  const s=new THREE.Mesh(new THREE.BoxGeometry(2,.12,.55),w);s.position.y=.5;g.add(s);
+  const b=new THREE.Mesh(new THREE.BoxGeometry(2,.5,.1),w);b.position.set(0,.85,-.25);g.add(b);
+  [-.85,.85].forEach(xx=>{const l=new THREE.Mesh(new THREE.BoxGeometry(.1,.5,.5),M(0x2b1b46));l.position.set(xx,.25,0);g.add(l);});
+  g.position.set(x,0,z);g.rotation.y=ry;return g;}
+
+function cartello(){const c=document.createElement('canvas');c.width=128;c.height=160;const g=c.getContext('2d');
+  g.fillStyle='#fffaf0';g.fillRect(0,0,128,160);g.fillStyle='#e0245e';g.font='800 26px Arial Black,sans-serif';g.textAlign='center';g.fillText('CERCASI',64,32);
+  g.fillStyle='#d8cfc4';g.fillRect(16,42,96,70);g.font='48px sans-serif';g.fillText('🐾',64,96);g.fillStyle='#555';[124,138,150].forEach(y=>g.fillRect(18,y,92,5));
+  return new THREE.CanvasTexture(c);}
+function makeBacheca(x,z){
+  const g=new THREE.Group();const legno=M(0x8a5a3c),scuro=M(0x5a3b2a);
+  [-2.2,2.2].forEach(px=>{const p=new THREE.Mesh(new THREE.BoxGeometry(.25,3.2,.25),scuro);p.position.set(px,1.6,0);g.add(p);});
+  const b=new THREE.Mesh(new THREE.BoxGeometry(4.6,2.4,.18),legno);b.position.y=2;g.add(b);
+  const tetto=new THREE.Mesh(new THREE.BoxGeometry(5,.2,.8),M(0xff3dae));tetto.position.set(0,3.3,0);g.add(tetto);
+  const tx=cartello();[[-1.5,2.1,.1],[-.5,1.9,-.06],[.5,2.15,.08],[1.5,1.95,-.1]].forEach(([px,py,r])=>{const f=new THREE.Mesh(new THREE.PlaneGeometry(.85,1.05),new THREE.MeshBasicMaterial({map:tx}));f.position.set(px,py,.1);f.rotation.z=r;g.add(f);});
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:signTex('Bacheca Cercasi','chi chiamare',0xff3dae),depthTest:false}));sp.scale.set(4.4,1.72,1);sp.position.y=4.8;sp.renderOrder=5;g.add(sp);
+  g.add(blob(5));g.position.set(x,0,z);g.lookAt(0,0,0);ostacoli.push({p:g.position,r:2.6});return g;}
+function makeCesta(x,z){
+  const g=new THREE.Group();
+  const c=new THREE.Mesh(new THREE.CylinderGeometry(.9,.7,.9,14,1,true),M(0xc9a27a,{side:THREE.DoubleSide}));c.position.y=.45;g.add(c);
+  const fondo=new THREE.Mesh(new THREE.CircleGeometry(.7,14),M(0x8a5a3c));fondo.rotation.x=-Math.PI/2;fondo.position.y=.05;g.add(fondo);
+  const pm=M(0xc6ff3d,{emissive:0x5a7a00,emissiveIntensity:.5});[[0,.75,0],[.35,.7,.2],[-.3,.72,-.2],[.1,1,-.1]].forEach(p=>{const s=new THREE.Mesh(new THREE.SphereGeometry(.24,12,10),pm);s.position.set(...p);g.add(s);});
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:signTex('Lancia la pallina','vinci crocchette',0xc6ff3d),depthTest:false}));sp.scale.set(4.4,1.72,1);sp.position.y=2.8;sp.renderOrder=5;g.add(sp);
+  g.add(blob(2.6));g.position.set(x,0,z);ostacoli.push({p:g.position,r:1.3});return g;}
+function makeVet(x,z){
+  const g=new THREE.Group();
+  const muro=new THREE.Mesh(new THREE.BoxGeometry(4,2.6,3.2),M(0xf4efe8));muro.position.y=1.3;g.add(muro);
+  const tetto=new THREE.Mesh(new THREE.ConeGeometry(3.1,1.4,4),M(0x3de8ff));tetto.position.y=3.3;tetto.rotation.y=Math.PI/4;tetto.scale.z=.85;g.add(tetto);
+  const porta=new THREE.Mesh(new THREE.BoxGeometry(1,1.7,.1),M(0x2b1b46));porta.position.set(0,.85,1.62);g.add(porta);
+  const cr=M(0xff3b5c,{emissive:0xff3b5c,emissiveIntensity:.6});
+  const c1=new THREE.Mesh(new THREE.BoxGeometry(.9,.28,.1),cr),c2=new THREE.Mesh(new THREE.BoxGeometry(.28,.9,.1),cr);[c1,c2].forEach(c=>{c.position.set(0,2.15,1.63);g.add(c);});
+  const l=new THREE.PointLight(0x3de8ff,.8,8);l.position.set(0,2,2.5);g.add(l);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:signTex('Il veterinario','è grave?',0x3de8ff),depthTest:false}));sp.scale.set(4.4,1.72,1);sp.position.y=5.2;sp.renderOrder=5;g.add(sp);
+  g.add(blob(5.5));g.position.set(x,0,z);g.lookAt(0,0,0);ostacoli.push({p:g.position,r:2.8});return g;}
+function makeMacchina(x,z){
+  const g=new THREE.Group();
+  const b=new THREE.Mesh(new THREE.BoxGeometry(1.6,2.4,1.1),M(0xff3dae,{roughness:.4}));b.position.y=1.2;g.add(b);
+  const c=document.createElement('canvas');c.width=c.height=128;const x2=c.getContext('2d');x2.fillStyle='#fff';x2.fillRect(0,0,128,128);x2.fillStyle='#120a1c';
+  for(let i=0;i<11;i++)for(let j=0;j<11;j++){if((i<3&&j<3)||(i>7&&j<3)||(i<3&&j>7)||((i*7+j*13)%5<2))x2.fillRect(9+i*10,9+j*10,10,10);}
+  const sc=new THREE.Mesh(new THREE.PlaneGeometry(.9,.9),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c)}));sc.position.set(0,1.6,.56);g.add(sc);
+  const fe=new THREE.Mesh(new THREE.BoxGeometry(.8,.2,.1),M(0x120a1c));fe.position.set(0,.6,.56);g.add(fe);
+  const l=new THREE.PointLight(0xff3dae,.8,6);l.position.set(0,1.6,1.4);g.add(l);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:signTex('Tesserino QR','gratis',0xff3dae),depthTest:false}));sp.scale.set(4.4,1.72,1);sp.position.y=3.8;sp.renderOrder=5;g.add(sp);
+  g.add(blob(3));g.position.set(x,0,z);g.lookAt(0,0,0);ostacoli.push({p:g.position,r:1.4});return g;}
+function makeCiotola(){
+  const g=new THREE.Group();
+  const ped=new THREE.Mesh(new THREE.CylinderGeometry(3,3.4,.5,24),M(0x2b1b46));ped.position.y=.25;g.add(ped);
+  const pts=[];for(let i=0;i<=10;i++){const t=i/10;pts.push(new THREE.Vector2(1.2+1.3*Math.sin(t*Math.PI/2),t*1.4));}
+  const bowl=new THREE.Mesh(new THREE.LatheGeometry(pts,28),new THREE.MeshStandardMaterial({color:0xffd23d,metalness:.85,roughness:.25,side:THREE.DoubleSide,emissive:0x5a3a00,emissiveIntensity:.4}));bowl.position.y=.5;g.add(bowl);
+  const pile=new THREE.Group();const km=M(0xb7743a);
+  for(let i=0;i<70;i++){const k=new THREE.Mesh(new THREE.SphereGeometry(.17,6,5),km);const a=Math.random()*6.28,r=Math.random()*1.9;k.position.set(Math.cos(a)*r,1.6+Math.random()*.25+(1.9-r)*.35,Math.sin(a)*r);pile.add(k);}
+  g.add(pile);
+  const l=new THREE.PointLight(0xffd23d,1.4,14);l.position.y=4;g.add(l);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:signTex('La Ciotola d\'oro',EURO_CIOTOLA+' € · 🦴 '+totale(),0xffd23d),depthTest:false}));sp.scale.set(5,1.95,1);sp.position.y=5.3;sp.renderOrder=5;g.add(sp);
+  g.userData={sp};return g;
+}
+function totale(){return RIFUGI.reduce((s,r)=>s+r.c,0);}
+
+function start(){
+  const box=$('#scena');
+  try{R=new THREE.WebGLRenderer({antialias:true});}catch(e){box.innerHTML='<p style="padding:2rem">Il tuo telefono non riesce a mostrare il 3D.</p>';return;}
+  R.setPixelRatio(Math.min(devicePixelRatio,2));R.outputEncoding=THREE.sRGBEncoding;box.appendChild(R.domElement);
+  S=new THREE.Scene();S.background=skyTex();S.fog=new THREE.Fog(0x4a1f5c,38,80);
+  C=new THREE.PerspectiveCamera(50,1,.1,200);
+  S.add(new THREE.HemisphereLight(0xffc9a0,0x2b1b46,.85));
+  const sun=new THREE.DirectionalLight(0xffb37a,.8);sun.position.set(-30,25,-20);S.add(sun);
+
+  ground=new THREE.Mesh(new THREE.CircleGeometry(PARK+14,64),M(0x3f8a4a,{flatShading:false}));ground.rotation.x=-Math.PI/2;S.add(ground);
+  const path=new THREE.Mesh(new THREE.RingGeometry(10.5,12.5,64),M(0xc9a27a,{flatShading:false}));path.rotation.x=-Math.PI/2;path.position.y=.01;S.add(path);
+  for(let i=0;i<4;i++){const p=new THREE.Mesh(new THREE.PlaneGeometry(2,10),M(0xc9a27a,{flatShading:false}));p.rotation.x=-Math.PI/2;p.rotation.z=i*Math.PI/2+Math.PI/4;p.position.set(Math.cos(i*Math.PI/2+Math.PI/4)*6.5,.012,Math.sin(i*Math.PI/2+Math.PI/4)*6.5);p.rotation.z=-(i*Math.PI/2+Math.PI/4)+Math.PI/2;S.add(p);}
+  /* recinto dello sgambatoio */
+  const postG=new THREE.BoxGeometry(.18,1.3,.18),postM=M(0x8a5a3c);const N=90;
+  const posts=new THREE.InstancedMesh(postG,postM,N);const d=new THREE.Object3D();
+  for(let i=0;i<N;i++){const a=i/N*Math.PI*2;d.position.set(Math.cos(a)*PARK,.65,Math.sin(a)*PARK);d.updateMatrix();posts.setMatrixAt(i,d.matrix);}S.add(posts);
+  [.5,1.05].forEach(y=>{const rail=new THREE.Mesh(new THREE.TorusGeometry(PARK,.05,4,120),postM);rail.rotation.x=Math.PI/2;rail.position.y=y;S.add(rail);});
+  /* cancello */
+  const gate=new THREE.Mesh(new THREE.BoxGeometry(4,.5,.3),M(0xff3dae));gate.position.set(0,2.4,PARK);S.add(gate);
+  [-2,2].forEach(x=>{const p=new THREE.Mesh(new THREE.BoxGeometry(.3,2.6,.3),M(0x2b1b46));p.position.set(x,1.3,PARK);S.add(p);});
+  /* alberi, lampioni, panchine */
+  for(let i=0;i<34;i++){const a=i/34*Math.PI*2+Math.random()*.1,r=PARK+3+Math.random()*7;S.add(makeTree(Math.cos(a)*r,Math.sin(a)*r,1+Math.random()*.6));}
+  [[-7,-18],[19,-6],[-20,8],[8,20],[21,12],[-14,-20]].forEach(([x,z])=>S.add(makeTree(x,z,.8+Math.random()*.4)));
+  for(let i=0;i<6;i++){const a=i/6*Math.PI*2;S.add(makeLamp(Math.cos(a)*9.5,Math.sin(a)*9.5));}
+  for(let i=0;i<4;i++){const a=i/4*Math.PI*2+Math.PI/4;S.add(makeBench(Math.cos(a)*20,Math.sin(a)*20,-a-Math.PI/2));}
+  /* lucciole */
+  const fg=new THREE.BufferGeometry();const fp=[];for(let i=0;i<120;i++)fp.push((Math.random()-.5)*60,.5+Math.random()*4,(Math.random()-.5)*60);
+  fg.setAttribute('position',new THREE.Float32BufferAttribute(fp,3));
+  const ff=new THREE.Points(fg,new THREE.PointsMaterial({color:0xfff2a8,size:.18,transparent:true,opacity:.8}));S.add(ff);
+
+  ciotola=makeCiotola();S.add(ciotola);
+  bacheca=makeBacheca(-12.5,17.5);S.add(bacheca);
+  vet=makeVet(-21,0);S.add(vet);
+  macchina=makeMacchina(21,0);S.add(macchina);
+  cesta=makeCesta(12.5,17.5);S.add(cesta);
+  palla=new THREE.Mesh(new THREE.SphereGeometry(.24,14,10),M(0xc6ff3d,{emissive:0x5a7a00,emissiveIntensity:.6}));palla.visible=false;S.add(palla);
+  RIFUGI.forEach((r,i)=>{const c=makeCuccia(r,i);scaleCuccia(c);cucce.push(c);S.add(c);});
+
+  bruno=makeAnimal('cane',0x9d98a6);bruno.scale.setScalar(1.35);bruno.position.set(3.6,0,3.6);bruno.lookAt(0,0,12);S.add(bruno);
+  const bs=new THREE.Sprite(new THREE.SpriteMaterial({map:signTex('Bruno','il capo del parco',0xff3dae),depthTest:false}));bs.scale.set(3.4,1.33,1);bs.position.set(3.6,2.9,3.6);bs.renderOrder=5;S.add(bs);
+
+  const cols={cane:0xa8622e,gatto:0xe07a2e,coniglio:0xf4efe8};
+  player=makeAnimal(animale,cols[animale]);{const col=new THREE.Mesh(new THREE.TorusGeometry(animale==='coniglio'?.24:.27,.06,6,16),M(0xff3dae,{emissive:0xff3dae,emissiveIntensity:.5}));col.rotation.x=Math.PI/2;col.position.set(0,animale==='coniglio'?.68:.82,animale==='coniglio'?.42:.5);player.userData.body.add(col);}player.position.set(0,0,PARK-3);player.rotation.y=Math.PI;S.add(player);
+
+  spawnKibbles();
+  /* freccia che indica dove andare */
+  guida=new THREE.Group();const fm=new THREE.MeshBasicMaterial({color:0xc6ff3d,transparent:true,opacity:.9,depthTest:false});
+  const fr=new THREE.Mesh(new THREE.ConeGeometry(.35,.8,3),fm);fr.rotation.x=Math.PI/2;fr.position.z=2.1;fr.renderOrder=4;guida.add(fr);
+  guida.position.y=.15;S.add(guida);
+
+  function size(){const w=innerWidth,h=innerHeight;R.setSize(w,h);C.aspect=w/h;C.fov=w<h?62:50;C.updateProjectionMatrix();}
+  size();addEventListener('resize',size);
+
+  let down=false;
+  function pick(e){const r=R.domElement.getBoundingClientRect();vec.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(vec,C);
+    if(modo!=='libero')return;const hit=ray.intersectObject(ground)[0];if(hit){target=hit.point.clone();target.y=0;$('#aiuto').hidden=true;}}
+  R.domElement.addEventListener('pointerdown',e=>{down=true;pick(e);});
+  R.domElement.addEventListener('pointermove',e=>{if(down)pick(e);});
+  addEventListener('pointerup',()=>down=false);
+  addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,select'))return;keys[e.key.toLowerCase()]=true;});
+  addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
+
+  clock=new THREE.Clock();
+  loop();
+}
+
+function spawnKibbles(){
+  const spots=[[-6,-14],[17,4],[-13,12]];
+  spots.forEach(([x,z])=>{const k=makeKibble();k.position.set(x,0,z);kibbles.push(k);S.add(k);});
+  kibbles.forEach((k,i)=>{if(i<prese)k.visible=false;});$('#mie').textContent=mie;
+}
+
+let near=null;
+function loop(){
+  requestAnimationFrame(loop);
+  const dt=Math.min(clock.getDelta(),.05),t=clock.elapsedTime;
+  /* movimento */
+  let mv=new THREE.Vector3();
+  const kx=(keys['arrowright']||keys['d']?1:0)-(keys['arrowleft']||keys['a']?1:0),kz=(keys['arrowdown']||keys['s']?1:0)-(keys['arrowup']||keys['w']?1:0);
+  const tastiOk=modo==='libero'&&(kx||kz);
+  if(tastiOk){mv.set(kx,0,kz).normalize();target=null;$('#aiuto').hidden=true;}
+  else if(target&&(modo==='libero'||modo==='prendi'||modo==='riporta')){mv.subVectors(target,player.position);mv.y=0;if(mv.length()<.25){target=null;mv.set(0,0,0);}else mv.normalize();}
+  const moving=mv.lengthSq()>0;
+  if(moving){
+    const sp=(animale==='coniglio'?7:6.5)*(modo==='libero'?1:1.6);
+    const np=player.position.clone().addScaledVector(mv,sp*dt);
+    if(np.length()>PARK-1.2)np.setLength(PARK-1.2);
+    if(np.length()<3.6)np.setLength(3.6);
+    ostacoli.forEach(o=>{const v=np.clone().sub(o.p);v.y=0;if(v.length()<o.r)np.copy(o.p).addScaledVector(v.normalize(),o.r);});
+    cucce.forEach(c=>{const v=np.clone().sub(c.position);v.y=0;if(v.length()<1.9*c.scale.x)np.copy(c.position).addScaledVector(v.normalize(),1.9*c.scale.x);});
+    player.position.copy(np);
+    const ang=Math.atan2(mv.x,mv.z);let dr=ang-player.rotation.y;dr=Math.atan2(Math.sin(dr),Math.cos(dr));player.rotation.y+=dr*Math.min(1,dt*10);
+  }
+  animateAnimal(player,moving,dt,t);animateAnimal(bruno,false,dt,t);
+  /* camera che segue */
+  const want=new THREE.Vector3(player.position.x,13,player.position.z+12);{const h=Math.hypot(want.x,want.z),L=PARK+1;if(h>L){want.x*=L/h;want.z*=L/h;}}
+  C.position.lerp(want,RED?1:Math.min(1,dt*3));C.lookAt(player.position.x,1,player.position.z);
+  /* crocchette */
+  kibbles.forEach(k=>{if(!k.visible)return;k.userData.bone.rotation.y+=dt*2;k.userData.bone.position.y=.8+Math.sin(t*3)*.15;k.userData.ring.scale.setScalar(1+Math.sin(t*4)*.1);
+    if(k.position.distanceTo(player.position)<1.3){k.visible=false;mie++;prese++;salva();$('#mie').textContent=mie;
+      toast(prese<3?`Crocchetta trovata! Ne mancano ${3-prese}.`:'Hai trovato tutte e 3! Ora portale alla cuccia di un rifugio.');}});
+  /* cucce: luce che pulsa quando ricevono */
+  cucce.forEach(c=>{const u=c.userData;if(u.pulse>0){u.pulse-=dt;u.glow.intensity=.9+u.pulse*3;}});
+  /* vicino a cosa? */
+  let n=null,best=99;
+  cucce.forEach(c=>{const dd=c.position.distanceTo(player.position);if(dd<4.2*c.scale.x&&dd<best){best=dd;n=c;}});
+  if(player.position.length()<6.5)n=ciotola;
+  if(bacheca.position.distanceTo(player.position)<4.3)n=bacheca;
+  if(vet.position.distanceTo(player.position)<4.8)n=vet;
+  if(macchina.position.distanceTo(player.position)<3.4)n=macchina;
+  if(cesta.position.distanceTo(player.position)<3.6)n=cesta;
+  if(modo!=='libero')n=cesta;
+  gioco(dt,t);
+  if(n!==near){near=n;showPanel();}
+  /* guida: verso la crocchetta più vicina, poi verso una cuccia */
+  let goal=null,gd=1e9;
+  kibbles.forEach(k=>{if(k.visible){const dd=k.position.distanceTo(player.position);if(dd<gd){gd=dd;goal=k.position;}}});
+  if(!goal&&mie>0){cucce.forEach(c=>{const dd=c.position.distanceTo(player.position);if(dd<gd){gd=dd;goal=c.position;}});}
+  guida.visible=!!goal&&gd>3&&modo==='libero';
+  if(goal){guida.position.x=player.position.x;guida.position.z=player.position.z;guida.rotation.y=Math.atan2(goal.x-player.position.x,goal.z-player.position.z);guida.children[0].material.opacity=.6+.3*Math.sin(t*5);}
+  R.render(S,C);
+}
+
+function pannelloPalla(){
+  const p=$('#panel');p.hidden=false;p.className='panel';
+  if(modo==='libero'){
+    p.innerHTML=`<h2>Lancia la pallina</h2>
+      <p>Premi LANCIA quando la barra è piena. Se la pallina va oltre 20 metri vinci 1 crocchetta, fino a 2 al giorno.</p>
+      <div class="righe"><span>Tiri rimasti oggi</span><b>${tiri}</b><span>Crocchette vinte oggi</span><b>${extraOggi} su 2</b></div>
+      <button class="paga lancia" id="gioca" type="button" ${tiri?'':'disabled'}>${tiri?'Gioca':'Torna domani per altri 3 tiri'}</button>`;
+    $('#gioca').onclick=()=>{if(!tiri)return;modo='mira';target=null;pannelloPalla();};
+  } else if(modo==='mira'){
+    p.innerHTML=`<h2>Prendi la mira…</h2><div class="forza"><div id="forza"></div></div>
+      <button class="paga lancia" id="lancia" type="button">LANCIA!</button>`;
+    $('#lancia').onclick=()=>{lancia();};
+  } else {
+    p.innerHTML=`<h2>${modo==='vola'?'Vola!':modo==='prendi'?'Corri a prenderla!':'Riportala!'}</h2><p>${lancio?lancio.m+' metri':''}</p>`;
+  }
+}
+function forza(t){return (Math.sin(t*2.8-Math.PI/2)+1)/2;}
+function lancia(){
+  const f=forza(clock.elapsedTime);
+  const dir=new THREE.Vector3(-player.position.x,0,-player.position.z).normalize();
+  const da=player.position.clone();
+  let m=Math.round(6+f*28);
+  const a=da.clone().addScaledVector(dir,m);
+  if(a.length()>PARK-2)a.setLength(PARK-2);
+  if(a.length()<4.5)a.setLength(4.5).add(new THREE.Vector3(dir.z,0,-dir.x).multiplyScalar(5));
+  m=Math.round(a.distanceTo(da));
+  lancio={da,a,m,t:0,dur:.6+m*.03,h:1.5+m*.25};
+  tiri--;salva();modo='vola';palla.visible=true;palla.position.copy(da);pannelloPalla();
+}
+function gioco(dt,t){
+  if(modo==='mira'){const b=$('#forza');if(b)b.style.width=Math.round(forza(t)*100)+'%';return;}
+  if(modo==='vola'){
+    lancio.t+=dt;const k=Math.min(1,lancio.t/lancio.dur);
+    palla.position.lerpVectors(lancio.da,lancio.a,k);palla.position.y=.3+Math.sin(k*Math.PI)*lancio.h;
+    if(k>=1){modo='prendi';target=lancio.a.clone();pannelloPalla();}
+    return;
+  }
+  if(modo==='prendi'){
+    lancio.tp=(lancio.tp||0)+dt;
+    if(player.position.distanceTo(lancio.a)<1.2||lancio.tp>6){lancio.tp=0;palla.visible=true;modo='riporta';target=lancio.da.clone();pannelloPalla();}
+    return;
+  }
+  if(modo==='riporta'){
+    const testa=new THREE.Vector3(0,animale==='coniglio'?.95:1.0,animale==='coniglio'?.75:.95).applyMatrix4(player.matrixWorld);palla.position.copy(testa);
+    lancio.tp=(lancio.tp||0)+dt;
+    if(player.position.distanceTo(lancio.da)<1.2||lancio.tp>6){
+      palla.visible=false;modo='libero';target=null;
+      let msg=`Lancio da ${lancio.m} metri!`;
+      if(lancio.m>=20&&extraOggi<2){extraOggi++;mie++;salva();$('#mie').textContent=mie;msg+=' Hai vinto 1 crocchetta!';}
+      else if(lancio.m>=20)msg+=' Oggi hai già vinto le 2 crocchette.';
+      else msg+=' Ci vogliono 20 metri per vincere.';
+      toast(msg);lancio=null;pannelloPalla();
+    }
+  }
+}
+function showPanel(){
+  const p=$('#panel');
+  if(!near){p.hidden=true;return;}
+  p.hidden=false;$('#aiuto').hidden=true;
+  if(near===bacheca){
+    p.className='panel';
+    p.innerHTML=`<h2>La bacheca dei Cercasi</h2>
+      <p>Hai perso o trovato un animale? Scegli la provincia: trovi canile, ASL, Comune e i numeri da chiamare.</p>
+      <div class="form"><label for="pv">La tua provincia</label><select id="pv">${PROV.map(([s,n])=>`<option value="${s}"${s==='siena'?' selected':''}>${n}</option>`).join('')}</select></div>
+      <a class="lnk paga" id="vaiprov" href="${SITO}/smarrito/siena/" target="_blank" rel="noopener">Chi chiamare nella mia provincia →</a>
+      <a class="lnk" href="${SITO}/smarrito/cartello/" target="_blank" rel="noopener">Fai il tuo avviso Cercasi gratis →</a>`;
+    $('#pv').onchange=e=>{$('#vaiprov').href=`${SITO}/smarrito/${e.target.value}/`;};
+    return;
+  }
+  if(near===cesta){pannelloPalla();return;}
+  if(near===vet){
+    p.className='panel';
+    p.innerHTML=`<h2>Il veterinario di Bruno</h2>
+      <p>Il tuo animale sta male? Ti aiuto a capire se correre dal veterinario o se puoi aspettare. Non sostituisce il veterinario.</p>
+      <a class="lnk paga" href="${SITO}/ufficio/?ref=parco" target="_blank" rel="noopener">È grave? Controlla i sintomi →</a>
+      <a class="lnk" href="${SITO}/veterinari-notte/" target="_blank" rel="noopener">Veterinario aperto di notte →</a>
+      <a class="lnk" href="${SITO}/puo-mangiarlo/" target="_blank" rel="noopener">Ha mangiato qualcosa di strano? →</a>`;
+    return;
+  }
+  if(near===macchina){
+    p.className='panel';
+    p.innerHTML=`<h2>La macchinetta del tesserino</h2>
+      <p>Fai gratis il tesserino col QR da attaccare al collare. Se si perde, chi lo trova lo inquadra con il telefono e vede subito il tuo numero.</p>
+      <a class="lnk paga" href="${SITO}/ufficio/?ref=parco" target="_blank" rel="noopener">Fai il tesserino gratis →</a>`;
+    return;
+  }
+  if(near===ciotola){
+    const occ=occupate().sort((a,b)=>b.c-a.c);
+    p.className='panel oro';
+    p.innerHTML=`<h2>La Ciotola d'oro</h2>
+      <div class="big">${EURO_CIOTOLA} € dentro</div>
+      <p>A fine mese vanno al rifugio con più crocchette, con bonifico e ricevuta pubblicata. Ogni pacchetto da 2,49 € aggiunge 1 €.</p>
+      <div class="righe"><span>Crocchette date</span><b>🦴 ${totale()}</b><span>Rifugi proposti</span><b>${occ.length} su ${RIFUGI.length} cucce</b><span>Primo adesso</span><b>${occ[0]&&occ[0].c?occ[0].n:'nessuno, tocca a te'}</b></div>`;
+    return;
+  }
+  const r=near.userData.r;
+  if(!r.n){
+    p.className='panel libera';
+    p.innerHTML=`<h2>Cuccia libera</h2>
+      <p>Proponi un rifugio che merita, per qualsiasi animale.</p>
+      <form class="form" id="prop">
+        <label for="pn">Nome del rifugio</label><input id="pn" required maxlength="40" placeholder="Es. Rifugio Le Code Felici">
+        <label for="pc">Città</label><input id="pc" required maxlength="30" placeholder="Es. Siena">
+        <label for="pa">Animali</label><select id="pa"><option>cani e gatti</option><option>cavalli</option><option>asini</option><option>animali da fattoria</option><option>animali selvatici</option><option>altri animali</option></select>
+        <button class="paga" type="submit">Proponi il rifugio</button>
+      </form>`;
+    $('#prop').onsubmit=e=>{e.preventDefault();
+      const msg=`Propongo un rifugio per il Parco di Bruno: ${$('#pn').value.trim()} (${$('#pc').value.trim()}, ${$('#pa').value})`;
+      gc('parco-proposta');
+      toast('Si apre Messenger: invia il messaggio a Bruno. Lui controlla il rifugio e accende la cuccia.');
+      setTimeout(()=>{location.href='https://m.me/'+PAGINA_FB+'?text='+encodeURIComponent(msg)},900);};
+    return;
+  }
+  p.className='panel';
+  p.innerHTML=`<h2>${r.n}</h2><p>${r.d}</p>
+    <div class="righe"><span>Crocchette ricevute</span><b>🦴 ${r.c}</b><span>Posto in classifica</span><b>${rankOf(r)}°</b></div>
+    <div class="az"><button class="dai" id="dai" type="button" ${mie?'':'disabled'}>${mie?`Dai ${mie>1?'le tue '+mie+' crocchette':'1 crocchetta'}`:(prese>=3?'Domani altre 3 crocchette':'Prima trova le crocchette')}</button>
+    <button class="paga" id="spingi" type="button">Spingi · 2,49 €</button></div>
+    <p style="font-size:.85rem;margin:.5rem 0 0">Con il pacchetto di Bruno da 2,49 €, 1 € va davvero a questo rifugio.</p>`;
+  $('#dai').onclick=()=>{if(!mie)return;r.c+=mie;const dati=Math.min(mie,5);gc('parco-'+r.ref+'-x'+dati);mie=0;salva();$('#mie').textContent=0;
+    near.userData.pulse=1;cucce.forEach(scaleCuccia);near.userData.sp.material.map=cucciaSign(r);
+    ciotola.userData.sp.material.map=signTex('La Ciotola d\'oro',EURO_CIOTOLA+' € · 🦴 '+totale(),0xffd23d);
+    toast(`${dati} crocchett${dati>1?'e':'a'} a ${r.n}! Ora è ${rankOf(r)}° in classifica.`);showPanel();};
+  $('#spingi').onclick=()=>{gc('parco-spingi-'+r.ref);location.href=PAGA+'?client_reference_id='+encodeURIComponent(r.ref);};
+}
+</script>
+</body>
+</html>
