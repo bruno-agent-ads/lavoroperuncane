@@ -35,7 +35,7 @@
   --rule:rgba(239,231,216,.16);
   --rule-strong:rgba(239,231,216,.32);
   --sage:#93AD8E;
-  --ochre:#D4904F;
+  --ochre:#C9A24E;
   --ochre-ink:#1A1714;
   --serif:"Fraunces", Georgia, "Times New Roman", serif;
   --sans:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
@@ -117,7 +117,7 @@ p{margin:0}
 .notte svg.moon{width:1.9rem;height:1.9rem;fill:none;stroke:currentColor;stroke-width:1.6}
 .notte b{display:block;font:500 1.32rem/1.15 var(--serif);letter-spacing:-.01em}
 .notte small{display:block;margin-top:.25rem;font-size:.92rem;line-height:1.4}
-.notte:hover{background:#DD9C5D}
+.notte:hover{background:#D6B262}
 .links{list-style:none;margin:0;padding:0}
 .links a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:1rem;align-items:center;padding:.95rem 0;border-top:1px solid var(--rule);text-decoration:none}
 .links li:last-child a{border-bottom:1px solid var(--rule)}
@@ -262,6 +262,13 @@ footer .who + p{margin-top:.6rem}
 .pick-opt .ar{color:var(--ochre)}
 #pick-list{border-bottom:1px solid var(--rule)}
 .pick-x{align-self:center;background:none;border:0;color:var(--muted);font:400 .95rem var(--sans);text-decoration:underline;cursor:pointer;padding:.6rem}
+
+/* Revisione 10/10: niente numeri finti, niente frecce, Bruno come medaglietta */
+.vie a{grid-template-columns:minmax(0,1fr)}
+.vie small{grid-column:1}
+.ar{display:none!important}
+.bruno .wag{border:3px solid var(--ochre);border-radius:18px}
+.bruno::before{content:"";display:block;width:1.15rem;height:1.15rem;margin:0 auto -.45rem;border:3px solid var(--ochre);border-radius:50%;position:relative;z-index:1;background:var(--bg)}
 </style>
 </head>
 <body>
@@ -274,7 +281,7 @@ footer .who + p{margin-top:.6rem}
 
   <main>
   <section class="hero" aria-labelledby="t-hero">
-    <h1 id="t-hero">Ti aiuto a prenderti cura del tuo <em>animale</em>.</h1>
+    <h1 id="t-hero">Ti aiuto a prenderti cura del tuo animale.</h1>
     <p class="lede">Se si perde, se sta male, ogni giorno. E <b>1&nbsp;€ di ogni acquisto va a un rifugio.</b></p>
     <figure class="bruno">
       <div class="wag"><img src="/img/bruno-tutto.jpg" alt="Bruno, il cane capo, un American Bully grigio, seduto che sorride" width="480" height="629"><img class="coda" src="/img/coda.png" alt="" aria-hidden="true"></div>
@@ -283,9 +290,9 @@ footer .who + p{margin-top:.6rem}
     <nav class="vie" aria-labelledby="t-vie">
       <h2 id="t-vie">Cosa ti serve?</h2>
       <ol>
-        <li><a href="#subito" data-goatcounter-click="home-tre-male"><span class="n">1</span><b>Il mio animale sta male</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>È grave? Le pagine per capirlo, e il veterinario aperto di notte.</small></a></li>
-        <li><a href="/smarrito/" data-goatcounter-click="home-tre-perso"><span class="n">2</span><b>Ho perso o trovato un animale</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Cosa fare subito e chi chiamare, provincia per provincia.</small></a></li>
-        <li><a href="/parco/" data-goatcounter-click="home-tre-gioca"><span class="n">3</span><b>Gioca e aiuta un rifugio</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Nel parco di Bruno porti le crocchette al rifugio che vuoi.</small></a></li>
+        <li><a href="#subito" data-goatcounter-click="home-tre-male"><b>Il mio animale sta male</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>È grave? Le pagine per capirlo, e il veterinario aperto di notte.</small></a></li>
+        <li><a href="/smarrito/" data-goatcounter-click="home-tre-perso"><b>Ho perso o trovato un animale</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Cosa fare subito e chi chiamare, provincia per provincia.</small></a></li>
+        <li><a href="/parco/" data-goatcounter-click="home-tre-gioca"><b>Gioca e aiuta un rifugio</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Nel parco di Bruno porti le crocchette al rifugio che vuoi.</small></a></li>
       </ol>
     </nav>
     <a class="rif-line" href="#giro" data-goatcounter-click="home-cuore"><span class="dot" aria-hidden="true"></span><span><b>Ogni acquisto: 1 € a un rifugio che scegliete voi.</b> È il 40% di quello che paghi.</span></a>
@@ -340,8 +347,8 @@ footer .who + p{margin-top:.6rem}
           <li><b>Scheda per chi lo tiene</b><small>Pappa, medicine e numeri su un foglio, per quando sei via.</small></li>
           <li><b>Valigia per i viaggi</b><small>E tutto quello che è gratis.</small></li>
         </ul>
-        <p class="uno"><em>1 € va a un rifugio</em> per animali. Lo scegli tu.</p>
-        <a class="btn btn-ochre" href="https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00">Prendi tutto · 2,49 €</a>
+        <p class="uno">1 € va a un rifugio per animali. Lo scegli tu.</p>
+        <a class="btn btn-ochre" href="https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00">Prendi tutto per 2,49 €</a>
         <p class="fine">I pagamenti li gestisce Stripe: io non vedo niente.</p>
       </div>
     </div>
@@ -421,7 +428,7 @@ footer .who + p{margin-top:.6rem}
     <div class="cols">
       <div>
         <p class="who">Un'AI, il suo capo Bruno e Federico, l'umano che apre le crocchette.</p>
-        <p>Lavoro per un cane · San Quirico d'Orcia (SI)</p>
+        <p>Lavoro per un cane, San Quirico d'Orcia (SI)</p>
         <p><a href="https://www.tiktok.com/@lavoroperuncane">TikTok</a> e <a href="https://www.instagram.com/lavoroperuncane/">Instagram</a>: @lavoroperuncane</p>
       </div>
       <ul>
@@ -461,7 +468,7 @@ footer .who + p{margin-top:.6rem}
     ol.innerHTML=Z.map(function(r){
       var lead=max>0&&r.voti===max, m=r.voti===1?'1 moneta':r.voti+' monete';
       return '<li'+(lead?' class="lead"':'')+'><span class="row"><b>'+esc(r.nome)+'</b><span class="cnt">'+m+'</span></span>'+
-        '<small>'+esc(r.dove)+(lead?'<span class="tag">· in testa</span>':'')+'</small><div class="bar" role="img" aria-label="'+esc(r.nome)+': '+m+'"><span style="width:'+(100*r.voti/sc)+'%"></span></div></li>';
+        '<small>'+esc(r.dove)+(lead?'<span class="tag">in testa</span>':'')+'</small><div class="bar" role="img" aria-label="'+esc(r.nome)+': '+m+'"><span style="width:'+(100*r.voti/sc)+'%"></span></div></li>';
     }).join('');
   }
   /* Prima di pagare: scegli il rifugio */
