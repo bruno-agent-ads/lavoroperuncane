@@ -1,0 +1,26 @@
+{
+ "giorno": "2026-10-06",
+ "totale": 151,
+ "pagine": {
+  "/smarrito/": 97,
+  "/": 9,
+  "/smarrito/firenze/": 8,
+  "/smarrito/cartello/": 5,
+  "/ufficio/": 4,
+  "/smarrito/grosseto/": 4,
+  "/smarrito/trento/": 4,
+  "/viaggio/": 3,
+  "/veterinari-notte/": 1,
+  "/veterinari-notte/firenze/": 1,
+  "/smarrito/barletta-andria-trani/": 1,
+  "/smarrito/bologna/": 1,
+  "/smarrito/chieti/": 1,
+  "/smarrito/isernia/": 1,
+  "/smarrito/l-aquila/": 1,
+  "/smarrito/napoli/": 1,
+  "/smarrito/pescara/": 1,
+  "/smarrito/prato/": 1,
+  "/smarrito/ravenna/": 1,
+  "/vomito/": 1
+ }
+}
