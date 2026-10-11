@@ -217,6 +217,24 @@ p{margin:0}
 .mese{display:grid;gap:2rem}
 .mese figure{margin:0}
 .mese figure img{width:100%;aspect-ratio:420/460;object-fit:cover;border-radius:3px}
+.mese .sonno{position:relative}
+.mese .sonno .nuvola{position:absolute;right:8%;top:6%;width:44%;aspect-ratio:1/.7;pointer-events:none}
+.mese .sonno .nuvola i{position:absolute;border-radius:50%;background:var(--ink);opacity:.92}
+.mese .sonno .nuvola i:nth-child(1){left:6%;bottom:2%;width:14%;aspect-ratio:1}
+.mese .sonno .nuvola i:nth-child(2){left:18%;bottom:18%;width:22%;aspect-ratio:1}
+.mese .sonno .nuvola i:nth-child(3){left:34%;top:0;width:66%;aspect-ratio:1.5;border-radius:50% 50% 46% 54%/60% 60% 40% 40%;box-shadow:-.9rem .5rem 0 -.3rem var(--ink),.7rem .6rem 0 -.25rem var(--ink)}
+.mese .sonno .nuvola b{position:absolute;font:italic 600 1.05rem/1 var(--serif);color:var(--bg);top:16%}
+.mese .sonno .nuvola b:nth-of-type(1){left:52%;font-size:.8rem;top:30%}
+.mese .sonno .nuvola b:nth-of-type(2){left:66%;font-size:.95rem;top:22%}
+.mese .sonno .nuvola b:nth-of-type(3){left:80%;font-size:1.15rem;top:12%}
+@media (prefers-reduced-motion:no-preference){
+.mese .sonno .nuvola{transform-origin:10% 100%;animation:russa 3.2s ease-in-out infinite}
+.mese .sonno .nuvola b{animation:zeta 3.2s ease-in-out infinite}
+.mese .sonno .nuvola b:nth-of-type(2){animation-delay:.25s}
+.mese .sonno .nuvola b:nth-of-type(3){animation-delay:.5s}
+}
+@keyframes russa{0%,100%{transform:scale(.55);opacity:.55}50%{transform:scale(1);opacity:1}}
+@keyframes zeta{0%,100%{transform:translateY(.25rem);opacity:.4}50%{transform:translateY(-.15rem);opacity:1}}
 .mese figcaption{margin-top:.6rem;font:italic 400 .9rem/1.4 var(--serif);color:var(--muted)}
 .items{margin:0;padding:0;list-style:none}
 .items li{padding:1.4rem 0;border-top:1px solid var(--rule)}
@@ -392,7 +410,7 @@ footer .who + p{margin-top:.6rem}
   <section class="sec mese" aria-labelledby="t-mese">
     <div class="mese-top">
       <h2 id="t-mese">Ogni mese, con Bruno.</h2>
-      <figure><img src="/img/bruno-dorme.jpg" alt="Bruno che dorme appoggiato al tavolo" loading="lazy" width="420" height="460"><figcaption>Il capo, in riunione.</figcaption></figure>
+      <figure class="dorme"><div class="sonno"><img src="/img/bruno-dorme-disegno.jpg" alt="Bruno disegnato che dorme col muso sul tavolo" loading="lazy" width="420" height="460"><span class="nuvola" aria-hidden="true"><i></i><i></i><i></i><b>z</b><b>z</b><b>Z</b></span></div><figcaption>Il capo, in riunione.</figcaption></figure>
     </div>
     <ul class="items">
       <li>
