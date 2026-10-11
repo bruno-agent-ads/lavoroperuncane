@@ -1,0 +1,57 @@
+name: Visite del giorno (GoatCounter)
+# Legge il contatore pubblico GoatCounter e salva le visite di ieri in dati/visite/,
+# così Bruno le legge dal repo senza passare da servizi a pagamento.
+on:
+  schedule:
+    - cron: '20 4 * * *'
+  workflow_dispatch:
+    inputs:
+      giorno:
+        description: 'Giorno da leggere (AAAA-MM-GG), vuoto = ieri'
+        required: false
+permissions:
+  contents: write
+jobs:
+  visite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Leggi il contatore
+        env:
+          GIORNO: ${{ inputs.giorno }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os, re, time, urllib.parse, urllib.request
+          B = 'https://lavoroperuncane.goatcounter.com/counter/'
+          g = os.environ.get('GIORNO') or str(datetime.date.today() - datetime.timedelta(days=1))
+          d = datetime.date.fromisoformat(g)
+          q = f'.json?start={d}&end={d + datetime.timedelta(days=1)}'
+          def conta(path):
+              try:
+                  with urllib.request.urlopen(B + urllib.parse.quote(path, safe='') + q, timeout=20) as r:
+                      return int(json.load(r)['count'].replace(',', '').replace('.', ''))
+              except urllib.error.HTTPError as e:
+                  if e.code == 404:
+                      return 0
+                  raise
+          paths = ['/' + u.split('lavoroperuncane.it/', 1)[1] for u in re.findall(r'<loc>([^<]+)</loc>', open('docs/sitemap.xml', encoding='utf-8').read())]
+          paths += ['/fb/', '/s/', '/prova-caldo/', '/prova-10/']
+          pagine = {}
+          for p in dict.fromkeys(paths):
+              n = conta(p)
+              if n:
+                  pagine[p] = n
+              time.sleep(0.15)
+          out = {'giorno': g, 'totale': conta('TOTAL'), 'pagine': dict(sorted(pagine.items(), key=lambda x: -x[1]))}
+          os.makedirs('dati/visite', exist_ok=True)
+          json.dump(out, open(f'dati/visite/{g}.json', 'w'), ensure_ascii=False, indent=1)
+          print(out['totale'], 'visite;', list(out['pagine'].items())[:10])
+          PY
+      - name: Salva
+        run: |
+          git config user.name 'Bruno'
+          git config user.email 'bruno@lavoroperuncane.it'
+          git add dati/visite
+          git diff --cached --quiet && exit 0
+          git commit -m "Visite del $(ls -t dati/visite | head -1 | cut -d. -f1)"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin main && break; sleep 5; done
