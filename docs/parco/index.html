@@ -115,7 +115,7 @@ button:disabled{opacity:.4;cursor:default}
 <div class="scelta" id="scelta">
   <span class="bozza">Gratis · nuovo</span>
   <h1>Il Parco di Bruno</h1>
-  <p>Crea il tuo animale, trova le 3 crocchette del giorno e portale alla cuccia del rifugio che vuoi aiutare. Chi a fine mese ha più crocchette vince gli euro della Ciotola d'oro.</p>
+  <p>Crea il tuo animale, trova le 3 crocchette del giorno e portale alla cuccia del rifugio che vuoi aiutare. Chi a fine mese ha più crocchette vince gli euro della Ciotola d'oro. E ogni settimana chi porta più crocchette vince il pacchetto completo di Bruno in regalo.</p>
   <div class="crea">
   <div id="anteprima" aria-label="Il tuo animale in 3D, trascina per girarlo"></div>
   <div class="animali" role="group" aria-label="Scegli il tuo animale">
@@ -152,6 +152,11 @@ const OGGI=new Date().toISOString().slice(0,10);
 const ST=(()=>{try{const s=JSON.parse(localStorage.getItem('parco')||'{}');return s.g===OGGI?s:{g:OGGI,prese:0,tiri:3,extra:0,mie:0}}catch(e){return {g:OGGI,prese:0,tiri:3,extra:0,mie:0}}})();
 prese=ST.prese;tiri=ST.tiri;extraOggi=ST.extra;mie=ST.mie;
 function salva(){try{localStorage.setItem('parco',JSON.stringify({g:OGGI,prese,tiri,extra:extraOggi,mie}))}catch(e){}}
+/* Gara della settimana: chi porta più crocchette ai rifugi da lunedì a domenica vince il pacchetto completo in regalo */
+const SETT=(()=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+3-((d.getDay()+6)%7));const g=new Date(d.getFullYear(),0,4);return d.getFullYear()+'-'+String(1+Math.round(((d-g)/864e5-3+((g.getDay()+6)%7))/7)).padStart(2,'0')})();
+const GARA=(()=>{try{const g=JSON.parse(localStorage.getItem('parco-gara')||'{}');return g.w===SETT?g:{w:SETT,c:0}}catch(e){return {w:SETT,c:0}}})();
+function salvaGara(){try{localStorage.setItem('parco-gara',JSON.stringify(GARA))}catch(e){}}
+function codiceGara(n){let h=7;for(const ch of GARA.w+'|'+n+'|'+GARA.c)h=(h*31+ch.charCodeAt(0))%1048573;return h.toString(36).toUpperCase().padStart(4,'0')}
 function gc(path){try{window.goatcounter&&goatcounter.count&&goatcounter.count({path,title:path,event:true})}catch(e){}}
 async function leggi(path,dal){try{const r=await fetch('https://lavoroperuncane.goatcounter.com/counter/'+encodeURIComponent(path)+'.json?start='+dal+'&end='+domani());if(!r.ok)return 0;const j=await r.json();return parseInt(String(j.count).replace(/\D/g,''))||0}catch(e){return 0}}
 function domani(){const d=new Date();d.setDate(d.getDate()+1);return d.toISOString().slice(0,10)}
@@ -647,7 +652,12 @@ function showPanel(){
     p.innerHTML=`<h2>La Ciotola d'oro</h2>
       <div class="big">${EURO_CIOTOLA} € dentro</div>
       <p>A fine mese vanno al rifugio con più crocchette, con bonifico e ricevuta pubblicata. Ogni pacchetto da 2,49 € aggiunge 1 €.</p>
-      <div class="righe"><span>Crocchette date</span><b>🦴 ${totale()}</b><span>Rifugi proposti</span><b>${occ.length} su ${RIFUGI.length} cucce</b><span>Primo adesso</span><b>${occ[0]&&occ[0].c?occ[0].n:'nessuno, tocca a te'}</b></div>`;
+      <div class="righe"><span>Crocchette date</span><b>🦴 ${totale()}</b><span>Rifugi proposti</span><b>${occ.length} su ${RIFUGI.length} cucce</b><span>Primo adesso</span><b>${occ[0]&&occ[0].c?occ[0].n:'nessuno, tocca a te'}</b></div>
+      <h2 style="margin-top:1rem">La gara della settimana</h2>
+      <p>Chi da lunedì a domenica porta più crocchette ai rifugi vince il pacchetto completo di Bruno in regalo. A pari crocchette si fa un'estrazione. Il vincitore lo diciamo nella puntata della domenica.</p>
+      <div class="righe"><span>Le tue crocchette questa settimana</span><b>🦴 ${GARA.c}</b></div>
+      ${GARA.c?`<p style="font-size:.92rem">Domenica sera manda il tuo punteggio a Bruno su Instagram. Copia questo e incollalo nel messaggio:</p><p><b id="garatxt">Gara del Parco ${GARA.w}: ${(MIO.n||'il mio animale')}, ${GARA.c} crocchette, codice ${codiceGara(MIO.n||'')}</b></p><button class="paga" id="garamanda" type="button">Copia e scrivi a Bruno</button>`:'<p style="font-size:.92rem">Trova le crocchette e portale a una cuccia per entrare in gara.</p>'}`;
+    const gm=$('#garamanda');if(gm)gm.onclick=()=>{gc('parco-gara-manda');const t=$('#garatxt').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(()=>{}).finally(()=>{location.href='https://ig.me/m/lavoroperuncane'})};
     return;
   }
   const r=near.userData.r;
@@ -674,7 +684,7 @@ function showPanel(){
     <div class="az"><button class="dai" id="dai" type="button" ${mie?'':'disabled'}>${mie?`Dai ${mie>1?'le tue '+mie+' crocchette':'1 crocchetta'}`:(prese>=3?'Domani altre 3 crocchette':'Prima trova le crocchette')}</button>
     <button class="paga" id="spingi" type="button">Spingi · 2,49 €</button></div>
     <p style="font-size:.85rem;margin:.5rem 0 0">Con il pacchetto di Bruno da 2,49 €, 1 € va davvero a questo rifugio.</p>`;
-  $('#dai').onclick=()=>{if(!mie)return;r.c+=mie;const dati=Math.min(mie,5);gc('parco-'+r.ref+'-x'+dati);mie=0;salva();$('#mie').textContent=0;
+  $('#dai').onclick=()=>{if(!mie)return;r.c+=mie;const dati=Math.min(mie,5);gc('parco-'+r.ref+'-x'+dati);GARA.c+=dati;salvaGara();mie=0;salva();$('#mie').textContent=0;
     near.userData.pulse=1;cucce.forEach(scaleCuccia);near.userData.sp.material.map=cucciaSign(r);
     ciotola.userData.sp.material.map=signTex('La Ciotola d\'oro',EURO_CIOTOLA+' € · 🦴 '+totale(),0xffd23d);
     toast(`${dati} crocchett${dati>1?'e':'a'} a ${r.n}! Ora è ${rankOf(r)}° in classifica.`);showPanel();};
