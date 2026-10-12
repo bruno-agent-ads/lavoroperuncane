@@ -1,0 +1,24 @@
+{
+ "giorno": "2026-10-11",
+ "totale": 142,
+ "pagine": {
+  "/fb/": 95,
+  "/smarrito/bari/": 14,
+  "/smarrito/": 5,
+  "/smarrito/brescia/": 4,
+  "/bocconi-avvelenati/": 3,
+  "/": 2,
+  "/ufficio/": 2,
+  "/smarrito/bergamo/": 2,
+  "/smarrito/siena/": 2,
+  "/tesserino-padrone/": 1,
+  "/smarrito/cartello/": 1,
+  "/smarrito/firenze/": 1,
+  "/smarrito/lecce/": 1,
+  "/quanto-costa/ecografia/": 1,
+  "/vomito/": 1,
+  "home-app-gratis": 1,
+  "home-tre-male": 1,
+  "smarrito-chip": 1
+ }
+}
