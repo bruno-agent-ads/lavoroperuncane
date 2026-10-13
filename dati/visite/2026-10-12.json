@@ -1,0 +1,23 @@
+{
+ "giorno": "2026-10-12",
+ "totale": 76,
+ "pagine": {
+  "/smarrito/brescia/": 37,
+  "/ufficio/": 5,
+  "/": 4,
+  "/puo-mangiarlo/": 3,
+  "/quanto-costa/": 3,
+  "/puo-mangiarlo/caffe-capsule-o-bevande-energetiche/": 2,
+  "/smarrito/": 2,
+  "/smarrito/cartello/": 2,
+  "/smarrito/siena/": 2,
+  "/veterinari-notte/brescia/": 1,
+  "/tesserino-padrone/": 1,
+  "/smarrito/bari/": 1,
+  "/smarrito/bergamo/": 1,
+  "/cane-si-gratta/": 1,
+  "amz-trappola": 1,
+  "home-app-gratis": 1,
+  "whatsapp": 1
+ }
+}
