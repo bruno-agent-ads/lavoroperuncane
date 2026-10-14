@@ -1,0 +1,17 @@
+{
+ "giorno": "2026-10-13",
+ "totale": 48,
+ "pagine": {
+  "/smarrito/brescia/": 11,
+  "/": 4,
+  "/vomito/giallo/": 3,
+  "/diarrea/": 3,
+  "/gatto-vomita/": 3,
+  "/ufficio/": 2,
+  "/bocconi-avvelenati/": 2,
+  "/smarrito/cartello/": 1,
+  "home-tre-male": 1,
+  "smarrito-avviso": 1,
+  "whatsapp": 1
+ }
+}
