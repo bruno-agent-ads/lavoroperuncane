@@ -26,14 +26,23 @@ jobs:
           g = os.environ.get('GIORNO') or str(datetime.date.today() - datetime.timedelta(days=1))
           d = datetime.date.fromisoformat(g)
           q = f'.json?start={d}&end={d + datetime.timedelta(days=1)}'
+          errori = []
           def conta(path):
-              try:
-                  with urllib.request.urlopen(B + urllib.parse.quote(path, safe='') + q, timeout=20) as r:
-                      return int(json.load(r)['count'].replace(',', '').replace('.', ''))
-              except urllib.error.HTTPError as e:
-                  if e.code == 404:
-                      return 0
-                  raise
+              # 404 = nessuna visita; 429/5xx o rete: riprova con attesa, poi salta il percorso
+              for prova in range(4):
+                  try:
+                      with urllib.request.urlopen(B + urllib.parse.quote(path, safe='') + q, timeout=20) as r:
+                          return int(json.load(r)['count'].replace(',', '').replace('.', '').replace('\u202f', '').replace(' ', ''))
+                  except urllib.error.HTTPError as e:
+                      if e.code == 404:
+                          return 0
+                      err = f'HTTP {e.code}'
+                  except Exception as e:
+                      err = repr(e)
+                  time.sleep(5 * (prova + 1))
+              print('SALTATO', path, err)
+              errori.append(path)
+              return 0
           paths = ['/' + u.split('lavoroperuncane.it/', 1)[1] for u in re.findall(r'<loc>([^<]+)</loc>', open('docs/sitemap.xml', encoding='utf-8').read())]
           paths += ['/fb/', '/s/', '/prova-caldo/', '/prova-10/']
           import glob
@@ -46,8 +55,10 @@ jobs:
               n = conta(p)
               if n:
                   pagine[p] = n
-              time.sleep(0.15)
+              time.sleep(0.3)
           out = {'giorno': g, 'totale': conta('TOTAL'), 'pagine': dict(sorted(pagine.items(), key=lambda x: -x[1]))}
+          if errori:
+              out['saltati'] = errori
           os.makedirs('dati/visite', exist_ok=True)
           json.dump(out, open(f'dati/visite/{g}.json', 'w'), ensure_ascii=False, indent=1)
           print(out['totale'], 'visite;', list(out['pagine'].items())[:10])
