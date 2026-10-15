@@ -42,12 +42,12 @@ jobs:
                   time.sleep(30 * (prova + 1))  # GoatCounter chiude la connessione se lo si interroga troppo in fretta
               print('SALTATO', path, err)
               errori.append(path)
-              if path == 'TOTAL' or len(errori) >= 15:
+              if path == 'TOTAL':
                   # contatore irraggiungibile: lascia l'errore nel repo (i log non sono leggibili) e fermati
                   os.makedirs('dati/visite', exist_ok=True)
                   open(f'dati/visite/errore-{g}.txt', 'w').write(f'{path}: {err}\n')
                   raise SystemExit(0)
-              return 0
+              return None
           paths = ['/' + u.split('lavoroperuncane.it/', 1)[1] for u in re.findall(r'<loc>([^<]+)</loc>', open('docs/sitemap.xml', encoding='utf-8').read())]
           paths += ['/fb/', '/s/', '/prova-caldo/', '/prova-10/']
           import glob
@@ -55,14 +55,23 @@ jobs:
           for f in glob.glob('docs/**/*.html', recursive=True):
               eventi.update(re.findall(r'data-goatcounter-click="([^"]+)"', open(f, encoding='utf-8').read()))
           paths += sorted(eventi)  # clic sui bottoni (Amazon, pacchetto, crocchetta)
+          # prima i clic e le pagine che hanno già avuto visite: se GoatCounter chiude, i dati utili sono già presi
+          visti = set()
+          for f in glob.glob('dati/visite/2*.json'):
+              visti.update(json.load(open(f)).get('pagine', {}))
+          paths = sorted(dict.fromkeys(paths), key=lambda p: (p not in eventi, p not in visti))
           totale = conta('TOTAL')
           pagine = {}
-          for p in dict.fromkeys(paths):
+          for p in paths:
               n = conta(p)
+              if n is None and len(errori) >= 5:
+                  break  # troppi rifiuti di fila: salva quello che c'è
               if n:
                   pagine[p] = n
-              time.sleep(1)
+              time.sleep(3)
           out = {'giorno': g, 'totale': totale, 'pagine': dict(sorted(pagine.items(), key=lambda x: -x[1]))}
+          if len(errori) >= 5:
+              out['incompleto'] = True
           if errori:
               out['saltati'] = errori
           os.makedirs('dati/visite', exist_ok=True)
