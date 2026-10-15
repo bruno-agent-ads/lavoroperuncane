@@ -1,0 +1,18 @@
+{
+ "giorno": "2026-10-14",
+ "totale": 46,
+ "pagine": {
+  "/smarrito/treviso/": 23,
+  "/smarrito/brescia/": 6,
+  "/smarrito/bari/": 4,
+  "smarrito-chip": 3,
+  "/ufficio/": 2,
+  "/cane-si-gratta/": 2,
+  "whatsapp": 1,
+  "crocchetta": 1,
+  "/smarrito/": 1
+ },
+ "saltati": [
+  "amz-nm-fontanella"
+ ]
+}
