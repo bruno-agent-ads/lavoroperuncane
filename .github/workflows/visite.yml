@@ -39,10 +39,10 @@ jobs:
                       err = f'HTTP {e.code}'
                   except Exception as e:
                       err = repr(e)
-                  time.sleep(5 * (prova + 1))
+                  time.sleep(30 * (prova + 1))  # GoatCounter chiude la connessione se lo si interroga troppo in fretta
               print('SALTATO', path, err)
               errori.append(path)
-              if path == 'TOTAL' or len(errori) >= 5:
+              if path == 'TOTAL' or len(errori) >= 15:
                   # contatore irraggiungibile: lascia l'errore nel repo (i log non sono leggibili) e fermati
                   os.makedirs('dati/visite', exist_ok=True)
                   open(f'dati/visite/errore-{g}.txt', 'w').write(f'{path}: {err}\n')
@@ -61,7 +61,7 @@ jobs:
               n = conta(p)
               if n:
                   pagine[p] = n
-              time.sleep(0.3)
+              time.sleep(1)
           out = {'giorno': g, 'totale': totale, 'pagine': dict(sorted(pagine.items(), key=lambda x: -x[1]))}
           if errori:
               out['saltati'] = errori
