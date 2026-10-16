@@ -84,6 +84,7 @@ body.unlocked .only-locked{display:none}body:not(.unlocked) .only-unlocked{displ
 <div class="w">
 <a class="top" href="/"><img src="/img/bruno-sedia.jpg" alt="">Lavoro per un cane</a>
 <h1>L'avviso “Cercasi”</h1>
+<div id="fbiab" style="display:none;background:#F2C14E;color:#1A1714;padding:12px 14px;border-radius:10px;margin:10px 0;font-weight:700">Sei dentro Facebook o Instagram: da qui il cartello potrebbe non salvarsi. Tocca i tre puntini ⋯ in alto a destra e scegli «Apri nel browser».</div>
 <p class="lead">Compila una volta sola: esce il cartello da stampare, l'immagine da mandare su WhatsApp e il link da girare nei gruppi.
 La foto resta nel tuo telefono, il sito non la vede.</p>
 <label for="c-foto">Foto</label><input id="c-foto" type="file" accept="image/*">
@@ -96,6 +97,7 @@ La foto resta nel tuo telefono, il sito non la vede.</p>
 <label for="c-tel">Il tuo telefono</label><input id="c-tel" type="tel" maxlength="20">
 <h2>Gratis</h2>
 <button class="btn call" id="b-share" type="button" data-goatcounter-click="cartello-whatsapp" style="width:100%;cursor:pointer">📲 Manda l'immagine su WhatsApp</button>
+<img id="c-out" alt="Il tuo cartello" style="display:none;width:100%;margin:10px 0;border-radius:10px">
 <button class="btn" id="b-link" type="button" data-goatcounter-click="cartello-link" style="width:100%;cursor:pointer">🔗 Condividi il link dell'avviso</button>
 <button class="btn" id="b-print" type="button" data-goatcounter-click="cartello-stampa" style="width:100%;cursor:pointer">🖨️ Stampa il cartello A4 (o salva in PDF)</button>
 <p class="note" id="c-msg" role="status"></p>
@@ -147,7 +149,8 @@ function poster(d,cb){var W=1080,H=1350,c=document.createElement('canvas');c.wid
  c.toBlob(cb,'image/png')}
 $('b-share').addEventListener('click',function(){var d=v();if(!ok(d))return;poster(d,function(b){var f=new File([b],'cercasi.png',{type:'image/png'});
  if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],text:$('m-gruppi').value}).catch(function(){})}
- else{var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='cercasi.png';document.body.appendChild(a);a.click();a.remove();msg('Immagine salvata: mandala dalla galleria.')}})});
+ else{var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='cercasi.png';document.body.appendChild(a);a.click();a.remove();var im=$('c-out');if(im){im.src=a.href;im.style.display='block'}msg('Se non si è salvata, tieni premuto sull’immagine qui sotto e scegli Salva.')}})});
+if(/FBAN|FBAV|FB_IAB|Instagram/.test(navigator.userAgent))$('fbiab').style.display='block';
 function link(d){return location.origin+'/smarrito/avviso/#'+encodeURIComponent(JSON.stringify({t:d.t,n:d.n,d:d.d,g:d.g,c:d.c,tel:d.tel,p:d.p?d.p.s:''}))}
 $('b-link').addEventListener('click',function(){var d=v();if(!ok(d))return;var u=link(d),t='CERCASI '+d.t+(d.n?' '+d.n:'')+': aiutami a trovarlo';
  if(navigator.share)navigator.share({text:t,url:u}).catch(function(){});else{try{navigator.clipboard.writeText(u);msg('Link copiato: incollalo nei gruppi.')}catch(x){prompt('Copia il link',u)}}});
