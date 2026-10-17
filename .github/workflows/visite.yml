@@ -51,6 +51,8 @@ jobs:
           paths = ['/' + u.split('lavoroperuncane.it/', 1)[1] for u in re.findall(r'<loc>([^<]+)</loc>', open('docs/sitemap.xml', encoding='utf-8').read())]
           paths += ['/fb/', '/s/', '/prova-caldo/', '/prova-10/']
           import glob
+          # anche le pagine fuori dalla sitemap (noindex): il 15-16/10 il totale era ~140 ma le pagine contate ~40
+          paths += sorted('/' + f[len('docs/'):-len('index.html')] for f in glob.glob('docs/**/index.html', recursive=True))
           eventi = set()
           for f in glob.glob('docs/**/*.html', recursive=True):
               eventi.update(re.findall(r'data-goatcounter-click="([^"]+)"', open(f, encoding='utf-8').read()))
