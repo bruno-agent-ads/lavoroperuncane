@@ -1,0 +1,90 @@
+name: Visite del giorno (GoatCounter)
+# Legge il contatore pubblico GoatCounter e salva le visite di ieri in dati/visite/,
+# così Bruno le legge dal repo senza passare da servizi a pagamento.
+on:
+  schedule:
+    - cron: '20 4 * * *'
+  workflow_dispatch:
+    inputs:
+      giorno:
+        description: 'Giorno da leggere (AAAA-MM-GG), vuoto = ieri'
+        required: false
+permissions:
+  contents: write
+jobs:
+  visite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Leggi il contatore
+        env:
+          GIORNO: ${{ inputs.giorno }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os, re, time, urllib.parse, urllib.request
+          B = 'https://lavoroperuncane.goatcounter.com/counter/'
+          g = os.environ.get('GIORNO') or str(datetime.date.today() - datetime.timedelta(days=1))
+          d = datetime.date.fromisoformat(g)
+          q = f'.json?start={d}&end={d + datetime.timedelta(days=1)}'
+          errori = []
+          def conta(path):
+              # 404 = nessuna visita; 429/5xx o rete: riprova con attesa, poi salta il percorso
+              for prova in range(4):
+                  try:
+                      with urllib.request.urlopen(B + urllib.parse.quote(path, safe='') + q, timeout=20) as r:
+                          return int(json.load(r)['count'].replace(',', '').replace('.', '').replace('\u202f', '').replace(' ', ''))
+                  except urllib.error.HTTPError as e:
+                      if e.code == 404:
+                          return 0
+                      err = f'HTTP {e.code}'
+                  except Exception as e:
+                      err = repr(e)
+                  time.sleep(30 * (prova + 1))  # GoatCounter chiude la connessione se lo si interroga troppo in fretta
+              print('SALTATO', path, err)
+              errori.append(path)
+              if path == 'TOTAL':
+                  # contatore irraggiungibile: lascia l'errore nel repo (i log non sono leggibili) e fermati
+                  os.makedirs('dati/visite', exist_ok=True)
+                  open(f'dati/visite/errore-{g}.txt', 'w').write(f'{path}: {err}\n')
+                  raise SystemExit(0)
+              return None
+          paths = ['/' + u.split('lavoroperuncane.it/', 1)[1] for u in re.findall(r'<loc>([^<]+)</loc>', open('docs/sitemap.xml', encoding='utf-8').read())]
+          paths += ['/fb/', '/s/', '/prova-caldo/', '/prova-10/']
+          import glob
+          # anche le pagine fuori dalla sitemap (noindex): il 15-16/10 il totale era ~140 ma le pagine contate ~40
+          paths += sorted('/' + f[len('docs/'):-len('index.html')] for f in glob.glob('docs/**/index.html', recursive=True))
+          eventi = set()
+          for f in glob.glob('docs/**/*.html', recursive=True):
+              eventi.update(re.findall(r'data-goatcounter-click="([^"]+)"', open(f, encoding='utf-8').read()))
+          paths += sorted(eventi)  # clic sui bottoni (Amazon, pacchetto, crocchetta)
+          # prima i clic e le pagine che hanno già avuto visite: se GoatCounter chiude, i dati utili sono già presi
+          visti = set()
+          for f in glob.glob('dati/visite/2*.json'):
+              visti.update(json.load(open(f)).get('pagine', {}))
+          paths = sorted(dict.fromkeys(paths), key=lambda p: (p not in eventi, p not in visti))
+          totale = conta('TOTAL')
+          pagine = {}
+          for p in paths:
+              n = conta(p)
+              if n is None and len(errori) >= 5:
+                  break  # troppi rifiuti di fila: salva quello che c'è
+              if n:
+                  pagine[p] = n
+              time.sleep(3)
+          out = {'giorno': g, 'totale': totale, 'pagine': dict(sorted(pagine.items(), key=lambda x: -x[1]))}
+          if len(errori) >= 5:
+              out['incompleto'] = True
+          if errori:
+              out['saltati'] = errori
+          os.makedirs('dati/visite', exist_ok=True)
+          json.dump(out, open(f'dati/visite/{g}.json', 'w'), ensure_ascii=False, indent=1)
+          print(out['totale'], 'visite;', list(out['pagine'].items())[:10])
+          PY
+      - name: Salva
+        run: |
+          git config user.name 'Bruno'
+          git config user.email 'bruno@lavoroperuncane.it'
+          git add dati/visite
+          git diff --cached --quiet && exit 0
+          git commit -m "Visite del $(ls -t dati/visite | head -1 | cut -d. -f1)"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin main && break; sleep 5; done

@@ -1,0 +1,22 @@
+{
+ "giorno": "2026-10-10",
+ "totale": 270,
+ "pagine": {
+  "/fb/": 99,
+  "/smarrito/bergamo/": 71,
+  "/smarrito/": 37,
+  "/": 16,
+  "/smarrito/cartello/": 8,
+  "/smarrito/firenze/": 4,
+  "/smarrito/siena/": 4,
+  "/ufficio/": 3,
+  "/veterinari-notte/bergamo/": 3,
+  "/smarrito/perugia/": 3,
+  "/parco/": 2,
+  "/veterinari-notte/firenze/": 1,
+  "/tesserino-padrone/": 1,
+  "/smarrito/lecce/": 1,
+  "/smarrito/terni/": 1,
+  "/viaggio/": 1
+ }
+}

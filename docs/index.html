@@ -10,11 +10,11 @@
 {"@type":"Organization","@id":"https://lavoroperuncane.it/#org","name":"Lavoro per un cane","url":"https://lavoroperuncane.it/","logo":"https://lavoroperuncane.it/img/icon-192.png","sameAs":["https://www.instagram.com/lavoroperuncane/","https://www.tiktok.com/@lavoroperuncane","https://www.facebook.com/1366651909863293"]}
 ]}
 </script>
-<meta name="description" content="Per chi vuole bene al suo animale: tesserino col QR gratis se si perde, «È grave?» se sta male. Tutto a 2,49 €, e 1 € va a un rifugio.">
+<meta name="description" content="Per chi vuole bene al suo animale: tesserino col QR gratis se si perde, «È grave?» se sta male, il veterinario aperto di notte. Tutto gratis.">
 <meta name="theme-color" content="#1A1714">
 <meta property="og:title" content="Lavoro per un cane">
-<meta property="og:description" content="Per chi vuole bene al suo animale: tesserino col QR gratis se si perde, «È grave?» se sta male. Tutto a 2,49 €, e 1 € va a un rifugio.">
-<meta property="og:image" content="https://lavoroperuncane.it/img/og.jpg">
+<meta property="og:description" content="Per chi vuole bene al suo animale: tesserino col QR gratis se si perde, «È grave?» se sta male, il veterinario aperto di notte. Tutto gratis.">
+<meta property="og:image" content="https://lavoroperuncane.it/img/og-2.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lavoroperuncane.it/">
 <meta property="og:locale" content="it_IT">
@@ -27,9 +27,7 @@
 <link rel="icon" href="/img/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="/img/icon-192.png">
 <script data-goatcounter="https://lavoroperuncane.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="/fonts/caldo-600.css">
 <style>
 :root{
   --bg:#1A1714;
@@ -217,6 +215,24 @@ p{margin:0}
 .mese{display:grid;gap:2rem}
 .mese figure{margin:0}
 .mese figure img{width:100%;aspect-ratio:420/460;object-fit:cover;border-radius:3px}
+.mese .sonno{position:relative}
+.mese .sonno .nuvola{position:absolute;right:8%;top:6%;width:44%;aspect-ratio:1/.7;pointer-events:none}
+.mese .sonno .nuvola i{position:absolute;border-radius:50%;background:var(--ink);opacity:.92}
+.mese .sonno .nuvola i:nth-child(1){left:6%;bottom:2%;width:14%;aspect-ratio:1}
+.mese .sonno .nuvola i:nth-child(2){left:18%;bottom:18%;width:22%;aspect-ratio:1}
+.mese .sonno .nuvola i:nth-child(3){left:34%;top:0;width:66%;aspect-ratio:1.5;border-radius:50% 50% 46% 54%/60% 60% 40% 40%;box-shadow:-.9rem .5rem 0 -.3rem var(--ink),.7rem .6rem 0 -.25rem var(--ink)}
+.mese .sonno .nuvola b{position:absolute;font:italic 600 1.05rem/1 var(--serif);color:var(--bg);top:16%}
+.mese .sonno .nuvola b:nth-of-type(1){left:52%;font-size:.8rem;top:30%}
+.mese .sonno .nuvola b:nth-of-type(2){left:66%;font-size:.95rem;top:22%}
+.mese .sonno .nuvola b:nth-of-type(3){left:80%;font-size:1.15rem;top:12%}
+@media (prefers-reduced-motion:no-preference){
+.mese .sonno .nuvola{transform-origin:10% 100%;animation:russa 3.2s ease-in-out infinite}
+.mese .sonno .nuvola b{animation:zeta 3.2s ease-in-out infinite}
+.mese .sonno .nuvola b:nth-of-type(2){animation-delay:.25s}
+.mese .sonno .nuvola b:nth-of-type(3){animation-delay:.5s}
+}
+@keyframes russa{0%,100%{transform:scale(.55);opacity:.55}50%{transform:scale(1);opacity:1}}
+@keyframes zeta{0%,100%{transform:translateY(.25rem);opacity:.4}50%{transform:translateY(-.15rem);opacity:1}}
 .mese figcaption{margin-top:.6rem;font:italic 400 .9rem/1.4 var(--serif);color:var(--muted)}
 .items{margin:0;padding:0;list-style:none}
 .items li{padding:1.4rem 0;border-top:1px solid var(--rule)}
@@ -287,7 +303,7 @@ footer .who + p{margin-top:.6rem}
   <main>
   <section class="hero" aria-labelledby="t-hero">
     <h1 id="t-hero">Ti aiuto a prenderti cura del tuo animale.</h1>
-    <p class="lede">Se si perde, se sta male, ogni giorno. E <b>1&nbsp;€ di ogni acquisto va a un rifugio.</b></p>
+    <p class="lede">Se si perde, se sta male, ogni giorno. <b>Tutto gratis.</b></p>
     <figure class="bruno">
       <div class="wag"><img src="/img/bruno-tutto.jpg" alt="Bruno, il cane capo, un American Bully grigio, seduto che sorride" width="480" height="629"><img class="coda" src="/img/coda.png" alt="" aria-hidden="true"></div>
       <figcaption>Bruno, il capo.<span class="long"> American Bully micro exotic. Lavora quando si sveglia; ha un solo dipendente.</span></figcaption>
@@ -297,10 +313,10 @@ footer .who + p{margin-top:.6rem}
       <ol>
         <li><a href="#subito" data-goatcounter-click="home-tre-male"><b>Il mio animale sta male</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>È grave? Le pagine per capirlo, e il veterinario aperto di notte.</small></a></li>
         <li><a href="/smarrito/" data-goatcounter-click="home-tre-perso"><b>Ho perso o trovato un animale</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Cosa fare subito e chi chiamare, provincia per provincia.</small></a></li>
-        <li><a href="/parco/" data-goatcounter-click="home-tre-gioca"><b>Gioca e aiuta un rifugio</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Nel parco di Bruno porti le crocchette al rifugio che vuoi.</small></a></li>
+        <li><a href="/veterinari-notte/" data-goatcounter-click="home-tre-notte"><b>Mi serve un veterinario adesso</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Chi è aperto di notte e nei festivi, provincia per provincia.</small></a></li>
       </ol>
     </nav>
-    <a class="rif-line" href="#giro" data-goatcounter-click="home-cuore"><span class="dot" aria-hidden="true"></span><span><b>Ogni acquisto: 1 € a un rifugio che scegliete voi.</b> È il 40% di quello che paghi.</span></a>
+    <a class="rif-line" href="#giro" data-goatcounter-click="home-cuore"><span class="dot" aria-hidden="true"></span><span><b>Una crocchetta per Bruno: metà tiene il sito, metà va al rifugio più votato.</b> Metti tu quanto vuoi.</span></a>
   </section>
   </main>
 </div>
@@ -308,7 +324,7 @@ footer .who + p{margin-top:.6rem}
 <section class="band" id="subito" aria-labelledby="t-subito">
   <div class="wrap sec subito-grid">
     <div class="subito-head">
-      <h2 id="t-subito">Sta male? Comincia da qui.</h2>
+      <h2 id="t-subito">Cosa sta facendo il tuo animale?</h2>
       <p class="intro">Pagine gratis, senza registrarti. Scritte semplici, con le fonti.</p>
       <a class="notte" href="/veterinari-notte/" data-goatcounter-click="home-subito-notte">
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
@@ -317,13 +333,19 @@ footer .who + p{margin-top:.6rem}
       </a>
     </div>
     <ul class="links">
-      <li><a href="/vomito/"><span><b>Vomita: è grave?</b><small>Dal colore capisci quanto è urgente.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/vomito/"><span><b>Il cane vomita: è grave?</b><small>Dal colore capisci quanto è urgente.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/gatto-vomita/"><span><b>Il gatto vomita</b><small>Boli di pelo o qualcosa di serio: i segnali rossi.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/diarrea/"><span><b>Ha la diarrea</b><small>Quanto aspettare e cosa dargli.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/trema/"><span><b>Perché trema?</b><small>Freddo, paura o qualcosa di serio.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/cane-si-gratta/"><span><b>Si gratta sempre</b><small>Pulci, allergia o qualcos'altro.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/cane-tossisce/"><span><b>Tossisce</b><small>Tosse dei canili, trachea o qualcosa in gola.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/non-mangia/"><span><b>Non mangia</b><small>Cane o gatto: quanto puoi aspettare.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      <li><a href="/non-fa-la-cacca/"><span><b>Non fa la cacca</b><small>Quanto aspettare e quando è un blocco.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li><a href="/puo-mangiarlo/"><span><b>Può mangiarlo?</b><small>Uva, cioccolato, cipolla: quanto ne basta, sul suo peso.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li><a href="/bocconi-avvelenati/"><span><b>Bocconi avvelenati</b><small>Cosa fare subito, i sintomi, le segnalazioni.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li><a href="/smarrito/"><span><b>Perso o trovato un animale</b><small>I passi da fare e i numeri della tua provincia.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li><a href="/rubato/"><span><b>Mi hanno rubato l'animale</b><small>Denuncia, anagrafe e il foglio da stampare.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li><a href="/quanto-costa/"><span><b>Quanto costa il veterinario</b><small>Prezzi indicativi, e quanto ti torna col 730.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/aree-cani/"><span><b>Aree cani vicino a te</b><small>Le aree di sgambamento, la più vicina.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li><a href="/viaggio/"><span><b>In viaggio con l'animale</b><small>Treno, aereo, traghetto: regole e prezzi.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li><a href="/tesserino-padrone/"><span><b>Il tesserino del padrone</b><small>Nel portafoglio: se ti succede qualcosa, sanno che a casa c'è lui.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
       <li class="quiet"><a href="/animale-morto/"><span><b>È morto il mio animale</b><small>Le prime ore, la cremazione, l'anagrafe. Con calma.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
@@ -344,55 +366,51 @@ footer .who + p{margin-top:.6rem}
       <p style="margin-top:1.4rem"><a class="btn btn-line" href="/ufficio/" data-goatcounter-click="home-app-gratis">Apri l'app gratis <svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
 
       <div class="pack" aria-labelledby="t-pack">
-        <h3 id="t-pack" class="sr">Il pacchetto completo</h3>
-        <div class="price"><strong>2,49 €</strong><span>tutto insieme, una volta sola</span></div>
+        <h3 id="t-pack" class="sr">Tutto gratis</h3>
+        <div class="price"><strong>Gratis</strong><span>tutto, senza registrarti</span></div>
         <ul>
           <li><b>È grave o posso aspettare?</b><small>Ti dico se correre dal veterinario. Per cani e gatti.</small></li>
           <li><b>Libretto vaccini</b><small>Vaccini e antiparassitari, col promemoria.</small></li>
           <li><b>Scheda per chi lo tiene</b><small>Pappa, medicine e numeri su un foglio, per quando sei via.</small></li>
-          <li><b>Valigia per i viaggi</b><small>E tutto quello che è gratis.</small></li>
+          <li><b>Valigia per i viaggi</b><small>Cosa portare e i documenti per l'estero.</small></li>
         </ul>
-        <p class="uno">1 € va a un rifugio per animali. Lo scegli tu.</p>
-        <a class="btn btn-ochre" href="https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00">Prendi tutto per 2,49 €</a>
-        <p class="fine">I pagamenti li gestisce Stripe: io non vedo niente.</p>
+        <a class="btn btn-ochre" href="/ufficio/" data-goatcounter-click="home-pack-gratis">Apri tutto gratis</a>
+        <p class="fine">I dati restano sul tuo telefono: io non vedo niente.</p>
       </div>
     </div>
     <div class="phones" aria-label="Schermate dell'app">
-      <figure class="p1"><div class="scr"><img src="/img/app-tesserino.jpg" alt="Schermata del tesserino col QR" loading="lazy" width="780" height="1646"></div><figcaption>Il tesserino, fronte e retro.</figcaption></figure>
-      <figure class="p2"><div class="scr"><img src="/img/app-libretto.jpg" alt="Schermata del libretto dei vaccini" loading="lazy" width="780" height="1646"></div><figcaption>Il libretto dei vaccini.</figcaption></figure>
+      <figure class="p1"><div class="scr"><img src="/img/app-tesserino-caldo.jpg" alt="Tesserino gratis per cane e gatto con QR da collare: fronte con nome e foto, retro con microchip e contatti" loading="lazy" width="780" height="1340"></div><figcaption>Il tesserino, fronte e retro.</figcaption></figure>
+      <figure class="p2"><div class="scr"><img src="/img/app-libretto-caldo.jpg" alt="Libretto online dei vaccini e degli antiparassitari del cane con le scadenze e il promemoria" loading="lazy" width="780" height="1340"></div><figcaption>Il libretto dei vaccini.</figcaption></figure>
     </div>
   </section>
 
   <section class="sec rifugi" id="giro" aria-labelledby="t-giro">
     <div class="txt">
-      <h2 id="t-giro">Dove va il tuo euro.</h2>
-      <p class="intro">Ogni acquisto è una moneta nel salvadanaio del rifugio che scegli. A fine mese il più pieno riceve il bonifico ed esce, e ne entra uno nuovo.</p>
-      <p class="muted" style="margin-top:1.2rem">Riceve chi aiuta gli animali: un rifugio, un'associazione, chi chiede una mano per capre o cavalli. Si comincia dalla Toscana, tre province alla volta; poi un'altra regione, e un'altra ancora.</p>
-      <p style="margin-top:1rem">Proponi il rifugio della tua città nei commenti su <a href="https://www.tiktok.com/@lavoroperuncane" rel="noopener">TikTok</a>: i nomi più proposti entrano nel giro.</p>
+      <h2 id="t-giro">Una crocchetta per Bruno.</h2>
+      <p class="intro">Il sito è gratis per tutti. Se ti è stato utile, metti tu quanto vuoi: metà tiene il sito online, metà va al rifugio più votato del mese.</p>
+      <p class="muted" style="margin-top:1.2rem">In più al rifugio va il 10% di quello che guadagniamo con Amazon e i partner. La votazione apre il 1° novembre: a fine mese scrivo qui quanto è andato e a chi, con la ricevuta.</p>
+      <p style="margin-top:1rem">Proponi il rifugio della tua città nei commenti su <a href="https://www.tiktok.com/@lavoroperuncane" rel="noopener">TikTok</a>: i nomi più proposti entrano nella votazione.</p>
       <div class="conto" id="conto">
         <h3>Il conto di ottobre</h3>
         <dl>
-          <dt>Obiettivo del mese</dt><dd>109 €</dd>
-          <dt>Incassato</dt><dd>4,98 €</dd>
-          <dt>Spese<small>Anche la pubblicità, pagata da Federico</small></dt><dd>0,68 €</dd>
-          <dt>Donato ai rifugi</dt><dd>2 €</dd>
+          <dt>Incassato<small>Il 14 ottobre è arrivata la prima crocchetta da una persona che non conosciamo: 3 €. Grazie, davvero.</small></dt><dd>7,98 €</dd>
+          <dt>Spese<small>Pubblicità Facebook 10 €, TikTok 8,47 €, commissioni Stripe 1,03 €. La pubblicità la paga Federico.</small></dt><dd>19,50 €</dd>
+          <dt>Donato ai rifugi<small>1 € per ogni pacchetto venduto finora. Più 1,50 € (metà della crocchetta del 14 ottobre) che va al rifugio votato a novembre.</small></dt><dd>2 €</dd>
         </dl>
-        <div class="meter" role="img" aria-label="Incassati 4,98 euro su 109"><span style="width:4.57%;background:var(--sage)"></span></div>
-        <p class="key"><span><i style="background:var(--sage)"></i>Incassato, su 109 €</span></p>
-        <p class="note">Numeri veri, aggiornati a mano ogni sera. Ultimo: 3 ottobre 2026, ore 01:40.</p>
+        <p class="note">Numeri veri, presi da Stripe e aggiornati a mano. Ultimo: 15 ottobre 2026.</p>
       </div>
     </div>
     <div>
-      <h3 style="font-size:1.5rem;margin-bottom:1rem">I salvadanai del mese</h3>
-      <ol class="race" id="race"><li><span class="row"><b>Qua la Zampa onlus</b></span><small>San Quirico d'Orcia (SI)</small></li></ol>
-      <p style="margin-top:1.2rem;color:var(--muted);font-size:.95rem">Scegli il rifugio prima di pagare: la tua moneta finisce nel suo salvadanaio.</p>
+      <h3 style="font-size:1.5rem;margin-bottom:1rem">Offri una crocchetta</h3>
+      <p style="color:var(--muted);margin-bottom:1.2rem">Scegli tu quanto. Pagamento sicuro con Stripe: io non vedo niente.</p>
+      <a class="btn btn-ochre" href="https://donate.stripe.com/bJe6oGfWn8ir4xG5K0aZi05" target="_blank" rel="noopener" data-goatcounter-click="crocchetta">🐾 Offri una crocchetta a Bruno</a>
     </div>
   </section>
 
   <section class="sec mese" aria-labelledby="t-mese">
     <div class="mese-top">
       <h2 id="t-mese">Ogni mese, con Bruno.</h2>
-      <figure><img src="/img/bruno-dorme.jpg" alt="Bruno che dorme appoggiato al tavolo" loading="lazy" width="420" height="460"><figcaption>Il capo, in riunione.</figcaption></figure>
+      <figure class="dorme"><div class="sonno"><img src="/img/bruno-dorme-disegno.jpg" alt="Bruno disegnato che dorme col muso sul tavolo" loading="lazy" width="420" height="460"><span class="nuvola" aria-hidden="true"><i></i><i></i><i></i><b>z</b><b>z</b><b>Z</b></span></div><figcaption>Il capo, in riunione.</figcaption></figure>
     </div>
     <ul class="items">
       <li>
@@ -445,20 +463,12 @@ footer .who + p{margin-top:.6rem}
         <li><a href="/quanto-costa/">Quanto costa il veterinario?</a></li>
         <li><a href="/viaggio/">Viaggio con l'animale</a></li>
         <li><a href="/ufficio/">L'ufficio del capo</a></li>
+        <li><a href="/spesa/">La spesa per il tuo animale</a></li>
       </ul>
     </div>
-  </footer>
+  <p class="privacy"><a href="/privacy/">Privacy e cookie</a></p></footer>
 </div>
 
-<div class="pick" id="pick" hidden role="dialog" aria-modal="true" aria-labelledby="pick-h">
-  <div class="pick-card">
-    <h2 id="pick-h">A chi va il tuo euro?</h2>
-    <p>Scegli prima di pagare: la tua moneta finisce nel suo salvadanaio. A fine mese il più pieno riceve tutto il bonifico.</p>
-    <div id="pick-list"></div>
-    <p style="font-size:.88rem">Poi vai alla pagina di pagamento sicura di Stripe: 2,49 € una volta sola.</p>
-    <button type="button" class="pick-x" id="pick-x">Annulla</button>
-  </div>
-</div>
 
 <script src="/js/zampe.js"></script>
 <script>
@@ -476,25 +486,11 @@ footer .who + p{margin-top:.6rem}
         '<small>'+esc(r.dove)+(lead?'<span class="tag">in testa</span>':'')+'</small><div class="bar" role="img" aria-label="'+esc(r.nome)+': '+m+'"><span style="width:'+(100*r.voti/sc)+'%"></span></div></li>';
     }).join('');
   }
-  /* Prima di pagare: scegli il rifugio */
-  var PAY='https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00', box=document.getElementById('pick'), last=null;
-  if(!Z.length) return;
-  document.getElementById('pick-list').innerHTML=Z.map(function(r){
-    return '<a class="pick-opt" data-ref="'+esc(r.ref)+'" href="'+PAY+'?client_reference_id='+encodeURIComponent(r.ref)+'"><span><b>'+esc(r.nome)+'</b><small>'+esc(r.dove)+'</small></span>'+ar+'</a>'}).join('');
-  function open(){last=document.activeElement;box.hidden=false;box.querySelector('.pick-opt').focus()}
-  function close(){box.hidden=true;if(last)last.focus()}
-  document.addEventListener('click',function(e){
-    var a=e.target.closest&&e.target.closest('a[href^="'+PAY+'"]');
-    if(a&&!a.classList.contains('pick-opt')){e.preventDefault();open()}
-  });
-  document.getElementById('pick-x').addEventListener('click',close);
-  box.addEventListener('click',function(e){if(e.target===box)close()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)close()});
 })();
 /* conta i clic verso l'app e verso il pagamento (GoatCounter) */
 (function(){function ev(n){try{window.goatcounter&&window.goatcounter.count({path:n,event:true})}catch(e){}}
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a||!a.href)return;
-    if(a.href.indexOf('buy.stripe.com')>-1)ev(a.classList.contains('pick-opt')?'home-sceglie-rifugio':'home-clic-paga');
+    if(a.href.indexOf('stripe.com')>-1)ev('home-clic-crocchetta');
     else if(/\/ufficio\/?$/.test(a.pathname))ev('home-apre-app')});
 })();
 </script>

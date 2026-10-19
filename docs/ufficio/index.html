@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Per cani, gatti, conigli, furetti: tesserino col QR da collare e controllo di cosa ha mangiato gratis; libretto, scheda per chi lo tiene e valigia a 2,49 €. I dati restano sul tuo telefono.">
+<meta name="description" content="Per cani, gatti, conigli, furetti: tesserino col QR da collare e controllo di cosa ha mangiato gratis; libretto, scheda per chi lo tiene e valigia, tutto gratis. I dati restano sul tuo telefono.">
 <meta name="theme-color" content="#1A1714">
 <meta property="og:title" content="L'ufficio del capo">
-<meta property="og:description" content="Per cani, gatti, conigli, furetti: tesserino col QR da collare e controllo di cosa ha mangiato gratis; libretto, scheda per chi lo tiene e valigia a 2,49 €. I dati restano sul tuo telefono.">
-<meta property="og:image" content="https://lavoroperuncane.it/img/og-ufficio.jpg">
+<meta property="og:description" content="Per cani, gatti, conigli, furetti: tesserino col QR da collare e controllo di cosa ha mangiato gratis; libretto, scheda per chi lo tiene e valigia, tutto gratis. I dati restano sul tuo telefono.">
+<meta property="og:image" content="https://lavoroperuncane.it/img/og-2.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://lavoroperuncane.it/ufficio/">
 <meta property="og:url" content="https://lavoroperuncane.it/ufficio/">
@@ -24,9 +24,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ufficio del capo">
 <title>L'ufficio del capo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="/fonts/caldo.css">
 <style>
 /* Layout: app a una colonna larga max 60rem. In alto la scheda del capo (dati usati da tutti gli strumenti), poi le cinque scrivanie a schede. Stesso look scuro e neon del sito. */
 :root{
@@ -120,7 +118,7 @@ details.capo[open]>summary{margin-bottom:1rem}
 .tab small{font:600 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .tab small.free{color:var(--ok)}
 .tab small.pk::before{content:"🔒 nel pacchetto";color:#D6B262}
-body.unlocked .tab small.pk::before{content:"✓ sbloccato";color:var(--ok)}
+body.unlocked .tab small.pk::before{content:"✓ gratis";color:var(--ok)}
 .bundle{margin:-.4rem 0 0;padding:.65rem .9rem;border:1.5px solid #D6B262;border-radius:12px;background:rgba(214,178,98,.08);font-size:.92rem}
 body.unlocked .bundle{display:none}
 .tab[aria-selected=true]{border-color:transparent;background:linear-gradient(var(--field),var(--field)) padding-box,var(--rainbow) border-box;border:2px solid transparent;box-shadow:0 0 24px rgba(201,162,78,.3)}
@@ -326,7 +324,7 @@ footer{font:400 .8rem/1.6 var(--mono);color:var(--muted);border-top:1px solid va
   <header style="display:flex;flex-direction:column;gap:.9rem">
     <span class="eyebrow">Lavoro per un cane · lavoroperuncane.it</span>
     <h1>L'ufficio <em>del capo</em></h1>
-    <p class="lede">Per il tuo animale col microchip: cane, gatto, coniglio, furetto, chiunque. Due strumenti gratis, quattro a 2,49 € una volta sola. I dati restano sul tuo telefono: non li ricevo io.</p>
+    <p class="lede">Per il tuo animale col microchip: cane, gatto, coniglio, furetto, chiunque. Tutto gratis, senza registrarti. I dati restano sul tuo telefono: non li ricevo io.</p>
     <span class="example">Dentro ci sono i dati di Bruno come esempio: metti i tuoi</span>
   </header>
 
@@ -568,8 +566,8 @@ show();})();
   </section>
 
   <section class="card pack" id="pacchetto">
-    <h2>🔐 Il tuo pacchetto</h2>
-    <div class="only-unlocked">
+    <h2>💾 I tuoi dati</h2>
+    <div class="only-unlocked" hidden>
       <p><b>La tua chiave per riaprire il pacchetto.</b> Fai una foto allo schermo: ti serve se cambi telefono o se il telefono cancella i dati.</p>
       <div class="code" id="pk-code"></div>
       <div class="row"><button type="button" class="btn ghost" id="pk-copy">📋 Copia la chiave</button></div>
@@ -585,8 +583,6 @@ show();})();
     </div>
     <p class="pk-msg" id="pk-msg" role="status"></p>
     <details class="pk-faq"><summary>Domande veloci</summary>
-      <p><b>Ho pagato ma non vedo la chiave.</b> Riapri questa pagina dallo stesso telefono con cui hai pagato: la chiave è qui sopra. Su iPhone guarda in Safari, non nell'icona.</p>
-      <p><b>Ho perso la chiave.</b> Se hai salvato una copia, rimettila: dentro c'è anche lo sblocco.</p>
       <p><b>Navigazione privata.</b> Quando chiudi la finestra il telefono cancella tutto. Usa una finestra normale, o salva una copia prima di chiudere.</p>
       <p><b>Funziona senza rete?</b> Sì, dopo averla aperta una volta con la rete.</p>
     </details>
@@ -594,10 +590,10 @@ show();})();
 
   <footer>
     <span>L'ufficio del capo · fatto da chi lavora per Bruno · San Quirico d'Orcia (SI)</span>
-    <span>Versione completa 2,49 € una volta sola. 1 € va a chi aiuta gli animali, scelto col voto.</span>
+    <span>Tutto gratis. Se ti è utile, <a href="https://donate.stripe.com/bJe6oGfWn8ir4xG5K0aZi05" style="color:inherit" data-goatcounter-click="crocchetta">offri una crocchetta a Bruno</a>: metà al sito, metà al rifugio più votato.</span>
     <a href="/" style="color:inherit">Torna a lavoroperuncane.it</a>
     <span>Versione del 4 ottobre, ore 22:25</span>
-  </footer>
+  <p class="privacy"><a href="/privacy/">Privacy e cookie</a></p></footer>
 </div>
 
 <script src="../js/qrcode.min.js"></script>
@@ -626,7 +622,7 @@ show();})();
   };
   var mem=null;
   function load(){try{var r=localStorage.getItem(KEY);if(r)return JSON.parse(r)}catch(e){}return mem||JSON.parse(JSON.stringify(DEMO))}
-  var S=load();
+  var S=load();S.unlocked=true; /* 12/10: pacchetto tolto, tutto gratis */
   function save(){mem=S;try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
   ['p','t','s','v'].forEach(function(k){S[k]=Object.assign({},DEMO[k],S[k]||{})});
   if(!Array.isArray(S.lib))S.lib=[];
@@ -662,7 +658,7 @@ show();})();
     if(scroll&&innerWidth<=700){var d=$(t.getAttribute('aria-controls'));try{d.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){d.scrollIntoView()}}}
   tabs.forEach(function(b){b.addEventListener('click',function(){openTab(b,true)})});
   /* Tasto in alto: va dritto al pagamento, oppure al blocco se il pagamento non c'è */
-  var PAY_URL='https://buy.stripe.com/00w28q4dF2Y7ggo7S8aZi00';   /* Stripe Payment Link, 2,49 € */
+  var PAY_URL='';   /* 12/10: pacchetto tolto, tutto gratis */
   if(PAY_URL)$('paybar').href=PAY_URL;
   else $('paybar').addEventListener('click',function(e){e.preventDefault();openTab($('t-lib'),true)});
 
@@ -757,7 +753,7 @@ show();})();
   function wrap(x,text,maxW){var words=text.split(' '),lines=[],cur='';words.forEach(function(w){var t=cur?cur+' '+w:w;if(x.measureText(t).width>maxW&&cur){lines.push(cur);cur=w}else cur=t});if(cur)lines.push(cur);return lines}
   function fit(x,text,font,size,maxW){do{x.font=font.replace('%',size)}while(x.measureText(text).width>maxW&&(size-=2)>20);return size}
   function bg(x,w,h){
-    var g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,'#1B0B2E');g.addColorStop(1,'#1A1714');x.fillStyle=g;rr(x,0,0,w,h,36);x.fill();
+    var g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,'#2A2520');g.addColorStop(1,'#1A1714');x.fillStyle=g;rr(x,0,0,w,h,36);x.fill();
     [[120,80,260,'rgba(201,162,78,.35)'],[w-80,140,240,'rgba(147,173,142,.25)'],[w*0.6,h-40,300,'rgba(147,173,142,.30)']].forEach(function(b){var r=x.createRadialGradient(b[0],b[1],0,b[0],b[1],b[2]);r.addColorStop(0,b[3]);r.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=r;x.fillRect(0,0,w,h)});
     var rb=x.createLinearGradient(0,0,w,0);['#C9A24E','#D6B262','#93AD8E','#93AD8E','#93AD8E'].forEach(function(c,i){rb.addColorStop(i/4,c)});
     x.lineWidth=10;x.strokeStyle=rb;rr(x,5,5,w-10,h-10,32);x.stroke();return rb;
@@ -1215,7 +1211,7 @@ if('serviceWorker' in navigator)addEventListener('load',function(){navigator.ser
     if(a.href&&a.href.indexOf('buy.stripe.com')>-1)ev('clic-paga');else if(a.id==='dl')ev('scarica-tesserino');else if(a.id==='brag')ev('condividi-tesserino')});
   var dl=document.getElementById('dl'),m=document.getElementById('tess-msg');
   if(dl&&m&&!document.body.classList.contains('unlocked'))dl.addEventListener('click',function(){setTimeout(function(){
-    m.innerHTML='Fatto, stampali e attacca il retro al collare. Già che ci sei: col <b>libretto</b> ti ricordo vaccini e antiparassitario, 2,49 € una volta sola e 1 € va al rifugio.'},50)});
+    m.innerHTML='Fatto, stampali e attacca il retro al collare. Già che ci sei: col <b>libretto</b> ti ricordo vaccini e antiparassitario, gratis.'},50)});
 })();
 </script>
 
@@ -1232,9 +1228,9 @@ if('serviceWorker' in navigator)addEventListener('load',function(){navigator.ser
   <div class="start-in">
     <h2 id="start-h">Ciao! Cosa vuoi fare?</h2>
     <p>Tocca una delle tre cose. Puoi tornare qui quando vuoi col tasto 🏠 in basso.</p>
-    <button type="button" class="big-choice sos" data-go="grave"><span>🚨</span><div>Il mio animale sta male<small>Ti dico se è grave, una domanda alla volta. Zoppia e veleno gratis</small></div></button>
+    <button type="button" class="big-choice sos" data-go="grave"><span>🚨</span><div>Il mio animale sta male<small>Ti dico se è grave, una domanda alla volta. Gratis</small></div></button>
     <button type="button" class="big-choice" data-go="tess"><span>🪪</span><div>Fare il tesserino col QR<small>Gratis. Se si perde, chi lo trova ti chiama</small></div></button>
-    <button type="button" class="big-choice" data-go="schede"><span>📋</span><div>Le schede del mio animale<small>Vaccini, chi lo tiene quando parti, viaggi. 2,49 € una volta sola</small></div></button>
+    <button type="button" class="big-choice" data-go="schede"><span>📋</span><div>Le schede del mio animale<small>Vaccini, chi lo tiene quando parti, viaggi. Gratis</small></div></button>
     <button type="button" class="skip" data-go="close">Guardo da solo</button>
   </div>
 </div>
