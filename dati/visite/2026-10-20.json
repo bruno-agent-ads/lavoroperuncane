@@ -1,0 +1,12 @@
+{
+ "giorno": "2026-10-20",
+ "totale": 13,
+ "pagine": {
+  "/gatto-felice/": 5,
+  "/cane-distrugge-casa/": 4,
+  "smarrito-chip": 1,
+  "/smarrito/bologna/": 1,
+  "/smarrito/cuneo/": 1,
+  "/cane-pettorina/": 1
+ }
+}
