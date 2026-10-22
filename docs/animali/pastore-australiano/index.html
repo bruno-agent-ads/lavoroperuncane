@@ -16,6 +16,7 @@
 <meta property="og:site_name" content="Lavoro per un cane">
 <link rel="icon" href="/img/icon-192.png" type="image/png">
 <link rel="stylesheet" href="/fonts/caldo.css">
+<link rel="stylesheet" href="/tema/chiaro.css">
 <script data-goatcounter="https://lavoroperuncane.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lavoro per un cane", "item": "https://lavoroperuncane.it/"}, {"@type": "ListItem", "position": 2, "name": "Animali", "item": "https://lavoroperuncane.it/animali/"}, {"@type": "ListItem", "position": 3, "name": "Cani", "item": "https://lavoroperuncane.it/animali/#cani"}, {"@type": "ListItem", "position": 4, "name": "Pastore Australiano", "item": "https://lavoroperuncane.it/animali/pastore-australiano/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Perché si chiama australiano se è americano?", "acceptedAnswer": {"@type": "Answer", "text": "Probabilmente perché i suoi antenati arrivarono negli Stati Uniti insieme alle pecore importate dall'Australia. La razza però è stata selezionata in America."}}, {"@type": "Question", "name": "Il Pastore Australiano perde molto pelo?", "acceptedAnswer": {"@type": "Answer", "text": "Sì. In primavera e autunno serve la spazzola quasi ogni giorno."}}, {"@type": "Question", "name": "Cosa vuol dire merle?", "acceptedAnswer": {"@type": "Answer", "text": "È il mantello marmorizzato, grigio azzurro o rosso. È bellissimo, ma due genitori merle insieme possono dare cuccioli sordi o ciechi."}}, {"@type": "Question", "name": "Va bene come primo cane?", "acceptedAnswer": {"@type": "Answer", "text": "Solo se hai tempo ogni giorno per farlo muovere e lavorare. Altrimenti è meglio una razza più tranquilla."}}]}</script>
@@ -69,7 +70,7 @@ details[open] summary::after{content:"\2013"}
 details p{margin:.5rem 0 0}
 .simili{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .simili a{text-decoration:none;display:block;background:var(--card);border-radius:10px;overflow:hidden;font-weight:700;font-size:.95rem;line-height:1.25}
-.simili img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.simili img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
 .simili span{display:block;padding:.5rem .55rem .6rem}
 .fine{margin:2.2rem 0 0;padding:1rem 0 0;border-top:1px solid var(--line);color:var(--muted)}
 footer{margin-top:1.4rem;padding:1.2rem 16px 2.2rem;border-top:1px solid var(--line);font-size:.92rem;color:var(--muted)}
@@ -78,12 +79,11 @@ footer p{margin:0 0 .5rem}footer a{color:var(--muted)}
 .chip{display:inline-block;padding:.5rem .85rem;border:1px solid var(--line2);border-radius:99px;text-decoration:none;font-size:.95rem;color:var(--ink);background:transparent;font-family:inherit;cursor:pointer}
 .chip[aria-pressed=true]{background:var(--ochre);border-color:var(--ochre);color:#1A1714;font-weight:700}
 </style>
-<link rel="stylesheet" href="/tema/chiaro.css">
 </head>
 <body>
 <header class="bar"><a class="logo" href="/"><img src="/img/bruno-sedia.jpg" alt="Bruno" width="40" height="40">Lavoro per un cane</a><nav class="crumb" aria-label="Sei qui"><a href="/animali/">Animali</a> / <a href="/animali/#cani">Cani</a></nav></header>
 <main class="w">
-<figure class="hero"><img src="/img/animali/pastore-australiano.webp" alt="Pastore Australiano" width="1200" height="800" fetchpriority="high"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Australian_Shepherd_red_merle_portrait_Canon_EOS_700D_Pentacon_200mm_f4.jpg" rel="noopener">Gerrit Werner Sonka</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, da Wikimedia Commons</figcaption></figure>
+<figure class="hero"><img src="/img/animali/pastore-australiano.webp" alt="Pastore Australiano" width="1200" height="800" fetchpriority="high" style="object-position:30% 45%"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Australian_Shepherd_red_merle_portrait_Canon_EOS_700D_Pentacon_200mm_f4.jpg" rel="noopener">Gerrit Werner Sonka</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, da Wikimedia Commons</figcaption></figure>
 <div class="pad">
 <!-- Fonti: standard FCI n. 342 (maschi 51-58 cm, femmine 46-53 cm); Washington State University, Program in Individualized Medicine (MDR1 frequente nell'Australian Shepherd); OFA (displasia, occhi); UC Davis (merle doppio). HarborRank 22/10/2026: 'pastore australiano' ~110.000 ricerche/mese. -->
 <h1>Pastore Australiano</h1>
@@ -99,8 +99,7 @@ footer p{margin:0 0 .5rem}footer a{color:var(--muted)}
 <h2>Serve un documento?</h2><p>Il cane va identificato con il microchip e iscritto all'anagrafe canina della tua regione. Se lo compri o lo adotti, il passaggio di proprietà va registrato all'anagrafe, tramite la ASL o un ambulatorio abilitato.</p><p>Se arriva da un altro Paese europeo servono microchip, passaporto europeo e vaccino contro la rabbia: per questo un cucciolo non può entrare in Italia prima delle 15 settimane di età.</p>
 <h2>Quando dal veterinario</h2><p>Prima di qualsiasi farmaco o antiparassitario nuovo, digli che è un Pastore Australiano e chiedi del test MDR1. Subito se dopo un farmaco barcolla, sbava o trema. Presto se zoppica o se vedi l'occhio velato.</p><p>Dopo i 7 anni fallo controllare almeno una volta l'anno.</p>
 <h2>Domande frequenti</h2><div><details><summary>Perché si chiama australiano se è americano?</summary><p>Probabilmente perché i suoi antenati arrivarono negli Stati Uniti insieme alle pecore importate dall'Australia. La razza però è stata selezionata in America.</p></details><details><summary>Il Pastore Australiano perde molto pelo?</summary><p>Sì. In primavera e autunno serve la spazzola quasi ogni giorno.</p></details><details><summary>Cosa vuol dire merle?</summary><p>È il mantello marmorizzato, grigio azzurro o rosso. È bellissimo, ma due genitori merle insieme possono dare cuccioli sordi o ciechi.</p></details><details><summary>Va bene come primo cane?</summary><p>Solo se hai tempo ogni giorno per farlo muovere e lavorare. Altrimenti è meglio una razza più tranquilla.</p></details></div>
-<h2>Simili a lui</h2><div class="simili"><a href="/animali/border-collie/"><img src="/img/animali/border-collie.webp" alt="" loading="lazy" width="240" height="240"><span>Border Collie</span></a><a href="/animali/pastore-tedesco/"><img src="/img/animali/pastore-tedesco.webp" alt="" loading="lazy" width="240" height="240"><span>Pastore Tedesco</span></a><a href="/animali/golden-retriever/"><img src="/img/animali/golden-retriever.webp" alt="" loading="lazy" width="240" height="240"><span>Golden Retriever</span></a></div>
-<p class="fine">La scheda non sostituisce il veterinario: nel dubbio, chiamalo.</p>
+<h2>Simili a lui</h2><div class="simili"><a href="/animali/border-collie/"><img src="/img/animali/q/border-collie.webp" alt="" loading="lazy" width="240" height="240"><span>Border Collie</span></a><a href="/animali/pastore-tedesco/"><img src="/img/animali/q/pastore-tedesco.webp" alt="" loading="lazy" width="240" height="240"><span>Pastore Tedesco</span></a><a href="/animali/golden-retriever/"><img src="/img/animali/q/golden-retriever.webp" alt="" loading="lazy" width="240" height="240"><span>Golden Retriever</span></a></div>
 </div>
 </main>
 <div class="w"><footer>
