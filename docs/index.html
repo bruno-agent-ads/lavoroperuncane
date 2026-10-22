@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAF6EE">
 <title>Animale perso, veterinario di notte, è grave? | Lavoro per un cane</title>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -11,7 +12,6 @@
 ]}
 </script>
 <meta name="description" content="Per chi vuole bene al suo animale: cosa fare se sta male, il veterinario aperto di notte, cosa fare se si perde. Tutto gratis.">
-<meta name="theme-color" content="#1A1714">
 <meta property="og:title" content="Lavoro per un cane">
 <meta property="og:description" content="Per chi vuole bene al suo animale: cosa fare se sta male, il veterinario aperto di notte, cosa fare se si perde. Tutto gratis.">
 <meta property="og:image" content="https://lavoroperuncane.it/img/og-2.jpg">
@@ -24,440 +24,247 @@
 <meta property="og:image:alt" content="Bruno, il capo, seduto sulla sua sedia">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://lavoroperuncane.it/">
-<link rel="icon" href="/img/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="/img/icon-192.png">
 <script data-goatcounter="https://lavoroperuncane.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<link rel="stylesheet" href="/fonts/caldo-600.css">
+<link rel="icon" href="/img/icon-192.png" type="image/png">
+<link rel="stylesheet" href="/fonts/caldo.css">
 <style>
-:root{
-  --bg:#1A1714;
-  --bg-2:#211D19;
-  --bg-3:#2A2520;
-  --ink:#EFE7D8;
-  --muted:#B9AE9C;
-  --rule:rgba(239,231,216,.16);
-  --rule-strong:rgba(239,231,216,.32);
-  --sage:#93AD8E;
-  --ochre:#C9A24E;
-  --ochre-ink:#1A1714;
-  --serif:"Fraunces", Georgia, "Times New Roman", serif;
-  --sans:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-  --gut:1rem;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-html{font-size:112.5%;-webkit-text-size-adjust:100%}
-@media (min-width:900px){html{font-size:118.75%}}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--sans);overflow-x:hidden}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:2px}
-h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.08;text-wrap:balance;font-variation-settings:"opsz" 96}
-p{margin:0}
-.wrap{max-width:74rem;margin:0 auto;padding-inline:var(--gut)}
-@media (min-width:700px){:root{--gut:2rem}}
-.ar{width:1.25rem;height:1.25rem;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+:root{--bg:#FAF6EE;--bg2:#F2EADB;--card:#FFFDF8;--card2:#F6EFE2;--ink:#2B241D;--muted:#5C5245;--faint:#6F6556;
+--line:rgba(43,36,29,.12);--line2:rgba(43,36,29,.26);--ochre:#C9A24E;--ochre-ink:#7E5B12;--sage:#5E7A59;
+--ombra:0 1px 2px rgba(60,42,20,.06),0 6px 18px rgba(60,42,20,.08);
+--display:"Fraunces",Georgia,serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.06rem/1.6 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:var(--ink)}a:hover{color:var(--ochre-ink)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ochre-ink);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;line-height:1.08;text-wrap:balance}
+.w{max-width:1080px;margin:0 auto;padding:0 16px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* Testata */
-.top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-block:1.1rem;border-bottom:1px solid var(--rule)}
-.brand{font:italic 500 1.2rem/1 var(--serif);text-decoration:none;letter-spacing:-.005em}
-.top nav a{font-size:.95rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule-strong);padding-bottom:2px}
-.top nav a:hover{color:var(--ink)}
-
-/* Apertura */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,8.5rem);grid-template-areas:"title title" "lede fig" "vie vie";gap:1.5rem 1.1rem;padding-block:2.2rem 3.5rem}
-.hero h1{grid-area:title;font-size:clamp(2.45rem,10.4vw,5.2rem);line-height:1.02;letter-spacing:-.022em;font-variation-settings:"opsz" 144}
-.hero h1 em{font-style:italic;color:var(--sage)}
-.lede{grid-area:lede;font-size:1.12rem;line-height:1.5;align-self:start}
-.lede b{font-weight:700}
-.bruno{grid-area:fig;margin:0;align-self:start}
-.bruno .wag{position:relative;aspect-ratio:480/629;overflow:hidden;border-radius:3px}
-.bruno .wag img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.bruno .wag .coda{inset:auto;left:85.79%;top:87.38%;width:41.67%;height:auto;transform:translate(-50%,-50%) rotate(-30deg)}
-@media (prefers-reduced-motion:no-preference){.bruno .wag .coda{animation:coda .5s ease-in-out infinite alternate}}
-@keyframes coda{from{transform:translate(-50%,-50%) rotate(-18deg)}to{transform:translate(-50%,-50%) rotate(-42deg)}}
-.bruno figcaption{margin-top:.6rem;font:italic 400 .82rem/1.4 var(--serif);color:var(--muted)}
-.bruno figcaption .long{display:none}
-.vie{grid-area:vie;margin-top:.5rem}
-.vie h2{font:italic 400 1.05rem/1.3 var(--serif);color:var(--muted);margin-bottom:.4rem}
-.vie ol{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--rule)}
-.vie a{display:grid;grid-template-columns:1.6rem minmax(0,1fr) auto;column-gap:.6rem;align-items:baseline;padding:1.05rem 0 1.15rem;border-top:1px solid var(--rule);text-decoration:none}
-.vie .n{font:italic 400 1.05rem/1 var(--serif);color:var(--muted)}
-.vie b{font:500 1.42rem/1.18 var(--serif);letter-spacing:-.008em}
-.vie small{grid-column:2;display:block;margin-top:.3rem;font-size:.94rem;line-height:1.45;color:var(--muted)}
-.vie .ar{grid-row:1;grid-column:3;align-self:center;color:var(--muted);transition:transform .2s}
-.vie li:first-child .n,.vie li:first-child .ar{color:var(--ochre)}
-.vie a:hover b{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
-.vie a:hover .ar{transform:translateX(3px);color:var(--ink)}
-.rif-line{grid-area:auto;grid-column:1/-1;display:flex;gap:.8rem;align-items:baseline;text-decoration:none;font-size:.98rem;color:var(--muted);line-height:1.5}
-.rif-line b{color:var(--ink);font-weight:700}
-.rif-line .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--sage);flex:none;transform:translateY(-.1rem)}
-.rif-line:hover b{text-decoration:underline;text-underline-offset:3px}
-
-@media (min-width:760px){
-  .hero{grid-template-columns:minmax(0,7fr) minmax(0,4fr);grid-template-areas:"title fig" "lede fig" "vie fig" "rif fig";column-gap:4rem;row-gap:1.6rem;padding-block:4rem 5rem}
-  .rif-line{grid-area:rif}
-  .lede{font-size:1.25rem;max-width:30rem}
-  .bruno{align-self:start;margin-top:.6rem}
-  .bruno figcaption{font-size:.95rem}
-  .bruno figcaption .long{display:inline}
-  .vie b{font-size:1.6rem}
-}
-
-/* Sezioni */
-.sec{padding-block:3.5rem}
-.sec + .sec{border-top:1px solid var(--rule)}
-.sec h2{font-size:clamp(2rem,7.2vw,3.1rem);letter-spacing:-.018em;line-height:1.05}
-.sec .intro{margin-top:.9rem;font-size:1.06rem;color:var(--muted);max-width:34rem}
-@media (min-width:900px){.sec{padding-block:5.5rem}}
-
-/* Serve adesso */
-.band{background:var(--bg-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-#subito{scroll-margin-top:0}
-.subito-grid{display:grid;gap:2rem}
-.notte{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.9rem;align-items:center;margin-top:1.8rem;padding:1.15rem 1.1rem;background:var(--ochre);color:var(--ochre-ink);text-decoration:none;border-radius:4px}
-.notte svg.moon{width:1.9rem;height:1.9rem;fill:none;stroke:currentColor;stroke-width:1.6}
-.notte b{display:block;font:500 1.32rem/1.15 var(--serif);letter-spacing:-.01em}
-.notte small{display:block;margin-top:.25rem;font-size:.92rem;line-height:1.4}
-.notte:hover{background:#D6B262}
-.links{list-style:none;margin:0;padding:0}
-.links a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:1rem;align-items:center;padding:.95rem 0;border-top:1px solid var(--rule);text-decoration:none}
-.links li:last-child a{border-bottom:1px solid var(--rule)}
-.links b{font-weight:700;font-size:1.04rem;line-height:1.3}
-.links small{display:block;color:var(--muted);font-size:.92rem;line-height:1.4;margin-top:.15rem}
-.links .ar{color:var(--muted);width:1.1rem;height:1.1rem}
-.links a:hover b{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.links a:hover .ar{color:var(--ochre)}
-.links .quiet{margin-top:1.4rem}
-.links .quiet a{border-top:1px solid var(--rule-strong)}
-@media (min-width:760px){
-  .subito-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:4rem;align-items:start}
-  .subito-head{position:sticky;top:2rem}
-  .links{display:grid;grid-template-columns:1fr 1fr;column-gap:2.5rem}
-  .links li:nth-last-child(2) a{border-bottom:1px solid var(--rule)}
-  .links .quiet{margin-top:0}
-  .links .quiet a{border-top:1px solid var(--rule)}
-}
-
-/* App */
-.app{display:grid;gap:2.5rem}
-.app-text p + p{margin-top:.9rem}
-.app-text .big{font-size:1.15rem;line-height:1.5}
-.app-text .muted{color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font:700 1.02rem/1.2 var(--sans);padding:1rem 1.35rem;border-radius:4px;text-decoration:none;min-height:3.3rem}
-.btn-ochre{background:var(--ochre);color:var(--ochre-ink)}
-.btn-ochre:hover{background:#DD9C5D}
-.btn-line{border:1.5px solid var(--rule-strong);color:var(--ink)}
-.btn-line:hover{border-color:var(--ink)}
-.free{list-style:none;margin:1.4rem 0 1.5rem;padding:0}
-.free li{display:flex;gap:.75rem;align-items:baseline;padding:.55rem 0}
-.free svg{width:1.05rem;height:1.05rem;flex:none;fill:none;stroke:var(--sage);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transform:translateY(.15rem)}
-.free small{display:block;color:var(--muted);font-size:.92rem}
-.pack{margin-top:2.6rem;padding:1.5rem 1.2rem 1.6rem;background:var(--bg-2);border-top:3px solid var(--ochre)}
-.pack .price{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
-.pack .price strong{font:500 3rem/1 var(--serif);letter-spacing:-.02em}
-.pack .price span{color:var(--muted)}
-.pack ul{list-style:none;margin:1.2rem 0;padding:0}
-.pack li{padding:.6rem 0;border-top:1px solid var(--rule)}
-.pack li b{display:block}
-.pack li small{display:block;color:var(--muted);font-size:.92rem;line-height:1.4}
-.pack .uno{margin:1.1rem 0 1.3rem;font:italic 400 1.15rem/1.4 var(--serif)}
-.pack .uno em{font-style:italic;color:var(--sage)}
-.pack .btn{width:100%}
-.pack .fine{margin-top:.8rem;font-size:.88rem;color:var(--muted)}
-.phones{position:relative;max-width:24rem;width:100%;margin-inline:auto;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:start;padding-bottom:1rem}
-.phones figure{margin:0}
-.phones .scr{border-radius:22px;padding:7px;background:#0F0D0B;border:1px solid var(--rule-strong)}
-.phones img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:16px;filter:saturate(.7)}
-.phones .p1{grid-column:1/8;grid-row:1;z-index:2}
-.phones .p2{grid-column:6/13;grid-row:1;margin-top:3.5rem}
-.phones figcaption{font:italic 400 .85rem/1.35 var(--serif);color:var(--muted);margin-top:.55rem}
-.phones .p2 figcaption{text-align:right}
-@media (min-width:760px){
-  .app{grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:5rem;align-items:start}
-  .phones{order:-1;position:sticky;top:2rem}
-  .pack{padding:1.8rem 1.8rem 2rem}
-}
-
-/* Rifugi */
-.rifugi{display:grid;gap:2.5rem}
-.race{list-style:none;margin:0;padding:0}
-.race li{padding:1rem 0 1.1rem;border-top:1px solid var(--rule)}
-.race li:last-child{border-bottom:1px solid var(--rule)}
-.race .row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-.race b{font:500 1.3rem/1.2 var(--serif)}
-.race .cnt{font-size:.95rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
-.race small{display:block;color:var(--muted);font-size:.92rem}
-.race .bar{height:6px;background:var(--bg-3);margin-top:.7rem;border-radius:3px;overflow:hidden}
-.race .bar span{display:block;height:100%;background:var(--sage);border-radius:3px;min-width:6px}
-.race .lead .bar span{background:var(--ochre)}
-.race .lead .cnt{color:var(--ink)}
-.tag{display:inline-block;font-size:.8rem;color:var(--ochre);margin-left:.4rem;font-family:var(--sans);font-weight:700}
-.rifugi .txt p + p{margin-top:.9rem}
-.rifugi .txt .muted{color:var(--muted)}
-.conto{margin-top:2.4rem}
-.conto h3{font-size:1.5rem;margin-bottom:1rem}
-.conto dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;border-top:1px solid var(--rule)}
-.conto dt,.conto dd{padding:.7rem 0;border-bottom:1px solid var(--rule);margin:0}
-.conto dd{font:500 1.25rem/1.3 var(--serif);text-align:right;font-variant-numeric:tabular-nums}
-.conto dt small{display:block;color:var(--muted);font-size:.86rem}
-.conto .meter{display:flex;height:10px;background:var(--bg-3);margin:1.2rem 0 .5rem;border-radius:2px;overflow:hidden}
-.conto .meter span{display:block;height:100%}
-.conto .key{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;font-size:.88rem;color:var(--muted)}
-.conto .key i{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;margin-right:.4rem;vertical-align:-.05rem}
-.conto .note{margin-top:1rem;font-size:.9rem;color:var(--muted)}
-@media (min-width:760px){
-  .rifugi{grid-template-columns:minmax(0,6fr) minmax(0,5fr);column-gap:5rem}
-}
-
-/* Ogni mese */
-.mese{display:grid;gap:2rem}
-.mese figure{margin:0}
-.mese figure img{width:100%;aspect-ratio:420/460;object-fit:cover;border-radius:3px}
-.mese .sonno{position:relative}
-.mese .sonno .nuvola{position:absolute;right:8%;top:6%;width:44%;aspect-ratio:1/.7;pointer-events:none}
-.mese .sonno .nuvola i{position:absolute;border-radius:50%;background:var(--ink);opacity:.92}
-.mese .sonno .nuvola i:nth-child(1){left:6%;bottom:2%;width:14%;aspect-ratio:1}
-.mese .sonno .nuvola i:nth-child(2){left:18%;bottom:18%;width:22%;aspect-ratio:1}
-.mese .sonno .nuvola i:nth-child(3){left:34%;top:0;width:66%;aspect-ratio:1.5;border-radius:50% 50% 46% 54%/60% 60% 40% 40%;box-shadow:-.9rem .5rem 0 -.3rem var(--ink),.7rem .6rem 0 -.25rem var(--ink)}
-.mese .sonno .nuvola b{position:absolute;font:italic 600 1.05rem/1 var(--serif);color:var(--bg);top:16%}
-.mese .sonno .nuvola b:nth-of-type(1){left:52%;font-size:.8rem;top:30%}
-.mese .sonno .nuvola b:nth-of-type(2){left:66%;font-size:.95rem;top:22%}
-.mese .sonno .nuvola b:nth-of-type(3){left:80%;font-size:1.15rem;top:12%}
-@media (prefers-reduced-motion:no-preference){
-.mese .sonno .nuvola{transform-origin:10% 100%;animation:russa 3.2s ease-in-out infinite}
-.mese .sonno .nuvola b{animation:zeta 3.2s ease-in-out infinite}
-.mese .sonno .nuvola b:nth-of-type(2){animation-delay:.25s}
-.mese .sonno .nuvola b:nth-of-type(3){animation-delay:.5s}
-}
-@keyframes russa{0%,100%{transform:scale(.55);opacity:.55}50%{transform:scale(1);opacity:1}}
-@keyframes zeta{0%,100%{transform:translateY(.25rem);opacity:.4}50%{transform:translateY(-.15rem);opacity:1}}
-.mese figcaption{margin-top:.6rem;font:italic 400 .9rem/1.4 var(--serif);color:var(--muted)}
-.items{margin:0;padding:0;list-style:none}
-.items li{padding:1.4rem 0;border-top:1px solid var(--rule)}
-.items h3{font-size:1.45rem;margin-bottom:.5rem}
-.items p + p{margin-top:.5rem}
-.items .muted{color:var(--muted);font-size:.95rem}
-.items .btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
-.mese-top{display:grid;grid-template-columns:minmax(0,1fr) 7.5rem;gap:1.2rem;align-items:end}
-@media (min-width:760px){
-  .mese{grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:4.5rem;align-items:start}
-  .mese-top{display:block}
-  .mese-top figure{margin-top:2rem}
-  .items{column-count:1}
-}
-
-/* Regole + condividi */
-.patto{display:grid;gap:3.2rem}
-.rules{margin:1rem 0 0;padding:0;list-style:none;counter-reset:r}
-.rules li{counter-increment:r;display:grid;grid-template-columns:1.6rem minmax(0,1fr);padding:.55rem 0}
-.rules li::before{content:counter(r) ".";font:italic 400 1rem/1.6 var(--serif);color:var(--muted)}
-.firma{margin-top:1.1rem;font:italic 400 1.35rem/1 var(--serif);color:var(--sage)}
-.share p{color:var(--muted);margin:.7rem 0 1.2rem}
-.share .btn svg{width:1.2rem;height:1.2rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-@media (min-width:760px){.patto{grid-template-columns:1fr 1fr;column-gap:5rem}}
-
-/* Piede */
-footer{border-top:1px solid var(--rule);padding-block:2.5rem 3rem;color:var(--muted);font-size:.92rem;line-height:1.6}
-footer .cols{display:grid;gap:1.8rem}
-footer ul{list-style:none;margin:0;padding:0;columns:1}
-footer li{padding:.25rem 0}
-footer a{text-decoration:none;border-bottom:1px solid var(--rule)}
-footer a:hover{color:var(--ink);border-color:var(--ink)}
-footer .who{font:italic 400 1.05rem/1.5 var(--serif);color:var(--ink)}
-footer .who + p{margin-top:.6rem}
-@media (min-width:760px){footer .cols{grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:4rem}footer ul{columns:2;column-gap:2rem}}
-
-/* Scelta del rifugio prima di pagare */
-.pick{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(10,8,6,.72);padding:1rem}
-.pick[hidden]{display:none}
-.pick-card{width:100%;max-width:28rem;background:var(--bg-2);color:var(--ink);border-top:3px solid var(--ochre);border-radius:4px;padding:1.4rem 1.2rem 1rem;display:flex;flex-direction:column;gap:.8rem}
-@media (min-width:640px){.pick{align-items:center}}
-.pick-card h2{font-size:1.6rem}
-.pick-card p{font-size:.95rem;color:var(--muted)}
-.pick-opt{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.8rem;text-decoration:none;padding:.9rem 0;border-top:1px solid var(--rule)}
-.pick-opt b{display:block;font:500 1.15rem/1.25 var(--serif)}
-.pick-opt small{display:block;font-size:.88rem;color:var(--muted)}
-.pick-opt:hover b{text-decoration:underline;text-underline-offset:4px}
-.pick-opt .ar{color:var(--ochre)}
-#pick-list{border-bottom:1px solid var(--rule)}
-.pick-x{align-self:center;background:none;border:0;color:var(--muted);font:400 .95rem var(--sans);text-decoration:underline;cursor:pointer;padding:.6rem}
-
-/* Revisione 10/10: niente numeri finti, niente frecce, Bruno come medaglietta */
-.vie a{grid-template-columns:minmax(0,1fr)}
-.vie small{grid-column:1}
-.ar{display:none!important}
-.bruno .wag{border:3px solid var(--ochre);border-radius:18px}
-.bruno::before{content:"";display:block;width:1.15rem;height:1.15rem;margin:0 auto -.45rem;border:3px solid var(--ochre);border-radius:50%;position:relative;z-index:1;background:var(--bg)}
+.bar{position:absolute;inset:0 0 auto;z-index:5;display:flex;align-items:center;gap:.7rem;padding:.8rem 16px;
+background:none}
+.logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;font:600 1.12rem/1.1 var(--display);color:var(--ink)}
+.logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--ochre);box-shadow:0 2px 8px rgba(60,42,20,.2)}
+.bar nav{margin-left:auto;display:flex;gap:1rem}
+.bar nav a{text-decoration:none;font-weight:700;font-size:.95rem;white-space:nowrap}
+@media(max-width:479px){.bar nav a+a{display:none}.logo{font-size:1.02rem}}
+/* sfera di animali */
+.bar{position:relative;background:none}
+.globo{position:relative;padding:.2rem 0 0;overflow:hidden;
+background:radial-gradient(62% 55% at 50% 44%,#FFFFFF,rgba(255,255,255,0) 72%),linear-gradient(180deg,var(--bg),#F4EBDA)}
+.sfera{position:relative;height:clamp(330px,92vw,520px);max-width:620px;margin:0 auto;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.sfera.presa{cursor:grabbing}
+.pal{position:absolute;left:50%;top:50%;width:var(--d);height:var(--d);margin:calc(var(--d)/-2) 0 0 calc(var(--d)/-2);border-radius:50%;
+overflow:hidden;border:3px solid #fff;background:var(--card2);box-shadow:0 3px 10px rgba(60,42,20,.18);will-change:transform,opacity;-webkit-tap-highlight-color:transparent}
+.sfera{--d:clamp(50px,16vw,92px)}
+.pal img{width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.pal.fr{border-color:var(--ochre);box-shadow:0 0 0 3px rgba(201,162,78,.35),0 10px 26px rgba(60,42,20,.32)}
+.fronte{text-align:center;padding:.2rem 16px 0;min-height:8.6rem}
+.occhio{display:inline-block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre-ink);font-weight:700}
+.fronte h2{font-size:clamp(2rem,9vw,3.4rem);letter-spacing:-.02em;margin:.15rem 0 .7rem;transition:opacity .25s}
+.fronte.cambia h2,.fronte.cambia .occhio{opacity:0}
+.occhio{transition:opacity .25s}
+.aiuto{font-size:.85rem;color:var(--faint);margin:.7rem 0 0}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.15rem;border-radius:99px;background:var(--ochre);color:#1A1714;
+text-decoration:none;font-weight:700;border:0;font-family:inherit;font-size:1rem}
+.btn:hover{color:#1A1714;background:#D9B35E}
+.btn.lin{background:transparent;color:var(--ink);border:1px solid var(--line2)}.btn.lin:hover{border-color:var(--ochre-ink);color:var(--ochre-ink)}
+/* sotto */
+.apri{padding:2.4rem 0 .6rem}
+.apri h1{font-size:clamp(1.9rem,6.5vw,3rem);max-width:22ch}
+.apri p{color:var(--muted);margin-top:.6rem;max-width:40rem;font-size:1.1rem}
+.cerca{position:relative;margin-top:1.4rem;max-width:34rem}
+.cerca input{width:100%;padding:.95rem 1.1rem .95rem 2.9rem;border-radius:14px;border:1px solid var(--line2);background:var(--card);color:var(--ink);font:inherit;font-size:1.05rem}
+.cerca svg{position:absolute;left:1rem;top:1.05rem;width:20px;height:20px;fill:none;stroke:var(--muted);stroke-width:2}
+.cerca ul{list-style:none;margin:.4rem 0 0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cerca li a{display:flex;gap:.7rem;align-items:center;padding:.5rem .7rem;text-decoration:none}
+.cerca li img{width:44px;height:44px;flex:none;border-radius:8px;object-fit:cover}
+.cerca li small{color:var(--muted);display:block;font-size:.82rem}
+.sec{padding:2.6rem 0 0}
+.sec h2{font-size:clamp(1.6rem,5vw,2.3rem)}
+.sec .sot{color:var(--muted);margin:.4rem 0 1.2rem}
+.sec h2+.top{margin-top:1.2rem}
+.tre{display:grid;gap:10px;margin-top:1.6rem}
+@media(min-width:760px){.tre{grid-template-columns:repeat(3,1fr)}}
+.tre a{display:block;padding:1rem 1.1rem;border-radius:14px;background:var(--card);text-decoration:none;border:1px solid var(--line);box-shadow:var(--ombra)}
+.tre a:hover{border-color:var(--ochre-ink)}
+.tre b{display:block;font:600 1.15rem/1.2 var(--display)}.tre small{display:block;color:var(--muted);margin-top:.25rem;font-size:.92rem}
+.tipi{margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(60,42,20,.06)}
+.tipi details+details{border-top:1px solid var(--line)}
+.tipi summary{display:flex;align-items:center;gap:.9rem;padding:.85rem 1rem;cursor:pointer;list-style:none;min-height:56px}
+.tipi summary::-webkit-details-marker{display:none}
+.tipi summary:hover{background:var(--card2)}
+.tipi summary:focus-visible{outline:3px solid var(--ochre-ink);outline-offset:-3px}
+.tipi i{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--bg2);color:var(--sage)}
+.tipi svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tipi summary b{flex:1;font:600 1.12rem/1.2 var(--display)}
+.tipi summary small{color:var(--muted);font-size:.92rem;white-space:nowrap}
+.tipi summary s{text-decoration:none;color:var(--ochre-ink);font-size:1.4rem;line-height:1;transition:transform .25s ease}
+.tipi details[open] summary s{transform:rotate(90deg)}
+.tipi details[open] summary{background:var(--card2)}
+.tipi ul{list-style:none;margin:0;padding:.3rem 0 .6rem;background:var(--card2)}
+.tipi ul a{display:flex;align-items:center;gap:.6rem;padding:.6rem 1rem .6rem 4.1rem;text-decoration:none;color:var(--ink);min-height:44px}
+.tipi li.sotto a{padding-left:5.4rem;font-size:.95rem;color:var(--muted);min-height:40px}
+.tipi li.sotto a::before{content:"";width:.5rem;height:1px;background:var(--line2);margin-right:.1rem}
+.tipi ul a:hover{color:var(--ochre-ink)}
+.tipi ul a::after{content:"›";margin-left:auto;color:var(--faint)}
+.tipi .tutti a{font-weight:700;color:var(--ochre-ink)}
+.nuova{display:inline-block;font-size:.72rem;font-weight:700;line-height:1;padding:.25rem .45rem;border-radius:99px;background:var(--ochre);color:#2B241D}
+.piu{color:var(--ochre-ink);font-weight:700;font-size:.85rem;margin-left:.35rem}
+@media (prefers-reduced-motion:no-preference){.tipi details[open] ul{animation:apri .25s ease-out}}
+@keyframes apri{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.top{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:760px){.top{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.top a{display:block;text-decoration:none;background:var(--card);border-radius:12px;overflow:hidden;height:100%;border:1px solid var(--line);box-shadow:var(--ombra)}
+.top img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.top span{display:block;padding:.6rem .75rem .8rem}
+.top b{display:block;font:600 1.12rem/1.2 var(--display)}
+.top small{display:block;color:var(--muted);font-size:.86rem;margin-top:.2rem;line-height:1.4}
+.classifica{list-style:none;margin:1.2rem 0 0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--ombra);overflow:hidden}
+.classifica li+li{border-top:1px solid var(--line)}
+.classifica a,.classifica div{display:flex;align-items:center;gap:.8rem;padding:.7rem 1rem;text-decoration:none}
+.classifica a:hover{background:var(--card2)}
+.classifica em{flex:none;width:1.7rem;font:600 1.5rem/1 var(--display);font-style:normal;color:var(--ochre-ink);text-align:center}
+.classifica img,.classifica i{flex:none;width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 8px rgba(60,42,20,.18);background:var(--card2)}
+.classifica i{display:grid;place-items:center;font-style:normal;font-size:1.35rem;background:#F3E7CC}
+.classifica span{flex:1;min-width:0}
+.classifica b{display:block;font:600 1.15rem/1.2 var(--display)}
+.classifica small{display:block;color:var(--muted);font-size:.9rem}
+.classifica s{text-decoration:none;font-size:1.6rem;color:var(--faint);line-height:1}
+.fonte{margin:.5rem 0 0;font-size:.82rem;color:var(--faint)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips a{padding:.55rem .95rem;border:1px solid var(--line2);border-radius:99px;text-decoration:none;font-size:.97rem;background:var(--card)}
+.chips a:hover{border-color:var(--ochre-ink)}
+.chips a.notte{background:var(--ochre);color:#1A1714;border-color:var(--ochre);font-weight:700}
+.perso{margin-top:2.6rem;padding:1.4rem 1.2rem;border-radius:16px;background:var(--bg2);border:1px solid var(--ochre);display:grid;gap:1rem}
+@media(min-width:760px){.perso{grid-template-columns:1fr auto;align-items:center}}
+.perso h2{font-size:1.6rem}.perso p{color:var(--muted);margin:.35rem 0 0}
+.perso .btns{display:flex;flex-wrap:wrap;gap:.5rem}
+.bruno-testa{display:flex;align-items:center;gap:1rem}
+.bruno-testa img{width:104px;height:104px;flex:none;border-radius:50%;object-fit:cover;object-position:50% 18%;border:3px solid var(--ochre);
+box-shadow:0 0 0 6px rgba(201,162,78,.22)}
+.bruno-testa p{color:var(--muted);margin:.4rem 0 0}
+.nastro{margin:1.3rem -16px 0;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.scorre{display:flex;gap:12px;width:max-content;padding:4px 16px 8px;animation:scorre 32s linear infinite}
+.nastro:hover .scorre,.nastro:focus-within .scorre{animation-play-state:paused}
+@keyframes scorre{to{transform:translateX(calc(-50% - 6px))}}
+.soc{display:flex;align-items:center;gap:.8rem;width:250px;white-space:nowrap;padding:.85rem 1rem;border-radius:16px;background:var(--card);border:1px solid var(--line);text-decoration:none;box-shadow:var(--ombra)}
+.soc:hover{border-color:var(--ochre-ink)}
+.soc i{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--c)}
+.soc svg{width:24px;height:24px;fill:#fff}
+.soc b{display:block;font:600 1.12rem/1.15 var(--display)}
+.soc small{display:block;color:var(--muted);font-size:.84rem;line-height:1.35}
+.soc em{display:block;font-style:normal;color:var(--ochre-ink);font-size:.84rem;font-weight:700}
+footer{margin-top:3rem;padding:1.4rem 16px 2.4rem;border-top:1px solid var(--line);font-size:.92rem;color:var(--muted)}
+footer p{margin:0 0 .5rem}footer a{color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;gap:.4rem .9rem}
+details.cred-tutte{margin-top:.8rem;font-size:.8rem}details.cred-tutte li{margin:.15rem 0}
+@media(prefers-reduced-motion:reduce){.fronte h2,.occhio{transition:none}.scorre{animation:none;flex-wrap:wrap;width:auto}.scorre [aria-hidden]{display:none}.nastro{-webkit-mask:none;mask:none}}
 </style>
 </head>
 <body>
-
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="/">Lavoro per un cane</a>
-  </header>
-
-  <main>
-  <section class="hero" aria-labelledby="t-hero">
-    <h1 id="t-hero">Ti aiuto a prenderti cura del tuo animale.</h1>
-    <p class="lede">Se si perde, se sta male, ogni giorno. <b>Tutto gratis.</b></p>
-    <figure class="bruno">
-      <div class="wag"><img src="/img/bruno-tutto.jpg" alt="Bruno, il cane capo, un American Bully grigio, seduto che sorride" width="480" height="629"><img class="coda" src="/img/coda.png" alt="" aria-hidden="true"></div>
-      <figcaption>Bruno, il capo.<span class="long"> American Bully micro exotic. Lavora quando si sveglia; ha un solo dipendente.</span></figcaption>
-    </figure>
-    <nav class="vie" aria-labelledby="t-vie">
-      <h2 id="t-vie">Cosa ti serve?</h2>
-      <ol>
-        <li><a href="#subito" data-goatcounter-click="home-tre-male"><b>Il mio animale sta male</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>È grave? Le pagine per capirlo, e il veterinario aperto di notte.</small></a></li>
-        <li><a href="/smarrito/" data-goatcounter-click="home-tre-perso"><b>Ho perso o trovato un animale</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Cosa fare subito e chi chiamare, provincia per provincia.</small></a></li>
-        <li><a href="/veterinari-notte/" data-goatcounter-click="home-tre-notte"><b>Mi serve un veterinario adesso</b><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><small>Chi è aperto di notte e nei festivi, provincia per provincia.</small></a></li>
-      </ol>
-    </nav>
-    <a class="rif-line" href="#giro" data-goatcounter-click="home-cuore"><span class="dot" aria-hidden="true"></span><span><b>Una crocchetta per Bruno: metà tiene il sito, metà va al rifugio più votato.</b> Metti tu quanto vuoi.</span></a>
-  </section>
-  </main>
-</div>
-
-<section class="band" id="subito" aria-labelledby="t-subito">
-  <div class="wrap sec subito-grid">
-    <div class="subito-head">
-      <h2 id="t-subito">Cosa sta facendo il tuo animale?</h2>
-      <p class="intro">Pagine gratis, senza registrarti. Scritte semplici, con le fonti.</p>
-      <a class="notte" href="/veterinari-notte/" data-goatcounter-click="home-subito-notte">
-        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
-        <span><b>Veterinario aperto di notte vicino a te</b><small>Pronto soccorso aperti 24 ore, con il telefono.</small></span>
-        <svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <ul class="links">
-      <li><a href="/vomito/"><span><b>Il cane vomita: è grave?</b><small>Dal colore capisci quanto è urgente.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/gatto-vomita/"><span><b>Il gatto vomita</b><small>Boli di pelo o qualcosa di serio: i segnali rossi.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/diarrea/"><span><b>Ha la diarrea</b><small>Quanto aspettare e cosa dargli.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/trema/"><span><b>Perché trema?</b><small>Freddo, paura o qualcosa di serio.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/cane-respira-veloce/"><span><b>Respira veloce</b><small>Quando è normale e quando no.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/processionaria-cane/"><span><b>Ha toccato la processionaria</b><small>Cosa fare subito.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/animali/"><span><b>Animali</b><small>Schede di cani, gatti, conigli, uccelli ed esotici.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/cane-si-gratta/"><span><b>Si gratta sempre</b><small>Pulci, allergia o qualcos'altro.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/cane-tossisce/"><span><b>Tossisce</b><small>Tosse dei canili, trachea o qualcosa in gola.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/cane-mangia-erba/"><span><b>Mangia l'erba</b><small>E se poi vomita: quando è normale.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/cane-occhio-rosso/"><span><b>Ha un occhio rosso</b><small>I 3 segnali che vogliono il veterinario.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/starnuto-inverso-cane/"><span><b>Starnuto inverso</b><small>Sembra soffocare, ma di solito non è niente.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/cane-distrugge-casa/"><span><b>Distrugge tutto quando esci</b><small>Noia o ansia, e cosa fare.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/gatto-felice/"><span><b>Il gatto è felice?</b><small>I 3 segnali, e quando qualcosa non va.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/non-mangia/"><span><b>Non mangia</b><small>Cane o gatto: quanto puoi aspettare.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/non-fa-la-cacca/"><span><b>Non fa la cacca</b><small>Quanto aspettare e quando è un blocco.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/puo-mangiarlo/"><span><b>Può mangiarlo?</b><small>Uva, cioccolato, cipolla: quanto ne basta, sul suo peso.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/bocconi-avvelenati/"><span><b>Bocconi avvelenati</b><small>Cosa fare subito, i sintomi, le segnalazioni.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/smarrito/"><span><b>Perso o trovato un animale</b><small>I passi da fare e i numeri della tua provincia.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li><a href="/rubato/"><span><b>Mi hanno rubato l'animale</b><small>Denuncia, anagrafe e il foglio da stampare.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-      <li class="quiet"><a href="/animale-morto/"><span><b>È morto il mio animale</b><small>Le prime ore, la cremazione, l'anagrafe. Con calma.</small></span><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
-    </ul>
-  </div>
+<header class="bar"><a class="logo" href="/"><img src="/img/bruno-sedia.jpg" alt="Bruno" width="44" height="44">Lavoro per un cane</a>
+<nav aria-label="Principale"><a href="/animali/">Animali</a><a href="/veterinari-notte/">Di notte</a></nav></header>
+<main>
+<section class="globo" aria-labelledby="t-globo">
+<h2 class="sr" id="t-globo">Tutti gli animali delle schede</h2>
+<div class="sfera"><a class="pal" href="/animali/golden-retriever/" data-s="golden-retriever" data-n="Golden Retriever" data-t="Cani · vive 10-12 anni" data-goatcounter-click="prova-palla-golden-retriever"><img src="/img/animali/tondi/golden-retriever.webp" alt="Golden Retriever" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/maine-coon/" data-s="maine-coon" data-n="Maine Coon" data-t="Gatti · vive 12-15 anni" data-goatcounter-click="prova-palla-maine-coon"><img src="/img/animali/tondi/maine-coon.webp" alt="Maine Coon" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/coniglio-nano/" data-s="coniglio-nano" data-n="Coniglio nano" data-t="Conigli e roditori · vive 8-12 anni" data-goatcounter-click="prova-palla-coniglio-nano"><img src="/img/animali/tondi/coniglio-nano.webp" alt="Coniglio nano" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/calopsite/" data-s="calopsite" data-n="Calopsite" data-t="Uccelli · vive 15-20 anni" data-goatcounter-click="prova-palla-calopsite"><img src="/img/animali/tondi/calopsite.webp" alt="Calopsite" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/pastore-tedesco/" data-s="pastore-tedesco" data-n="Pastore Tedesco" data-t="Cani · vive 9-13 anni" data-goatcounter-click="prova-palla-pastore-tedesco"><img src="/img/animali/tondi/pastore-tedesco.webp" alt="Pastore Tedesco" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/geco-leopardino/" data-s="geco-leopardino" data-n="Geco leopardino" data-t="Serpenti e rettili · vive 15-20 anni" data-goatcounter-click="prova-palla-geco-leopardino"><img src="/img/animali/tondi/geco-leopardino.webp" alt="Geco leopardino" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/ragdoll/" data-s="ragdoll" data-n="Ragdoll" data-t="Gatti · vive 12-15 anni" data-goatcounter-click="prova-palla-ragdoll"><img src="/img/animali/tondi/ragdoll.webp" alt="Ragdoll" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/pesce-betta/" data-s="pesce-betta" data-n="Pesce Betta" data-t="Pesci · vive 3-5 anni" data-goatcounter-click="prova-palla-pesce-betta"><img src="/img/animali/tondi/pesce-betta.webp" alt="Pesce Betta" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/border-collie/" data-s="border-collie" data-n="Border Collie" data-t="Cani · vive 12-15 anni" data-goatcounter-click="prova-palla-border-collie"><img src="/img/animali/tondi/border-collie.webp" alt="Border Collie" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/tarantola/" data-s="tarantola" data-n="Tarantola" data-t="Ragni e insetti · vive Femmine 15-25 anni" data-goatcounter-click="prova-palla-tarantola"><img src="/img/animali/tondi/tarantola.webp" alt="Tarantola" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/bulldog-francese/" data-s="bulldog-francese" data-n="Bulldog Francese" data-t="Cani · vive 10-12 anni" data-goatcounter-click="prova-palla-bulldog-francese"><img src="/img/animali/tondi/bulldog-francese.webp" alt="Bulldog Francese" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/pappagallo-cenerino/" data-s="pappagallo-cenerino" data-n="Pappagallo cenerino" data-t="Uccelli · vive 40-60 anni" data-goatcounter-click="prova-palla-pappagallo-cenerino"><img src="/img/animali/tondi/pappagallo-cenerino.webp" alt="Pappagallo cenerino" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/gatto-siamese/" data-s="gatto-siamese" data-n="Gatto Siamese" data-t="Gatti · vive 15-20 anni" data-goatcounter-click="prova-palla-gatto-siamese"><img src="/img/animali/tondi/gatto-siamese.webp" alt="Gatto Siamese" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/axolotl/" data-s="axolotl" data-n="Axolotl" data-t="Pesci · vive 10-15 anni" data-goatcounter-click="prova-palla-axolotl"><img src="/img/animali/tondi/axolotl.webp" alt="Axolotl" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/tartaruga-di-terra/" data-s="tartaruga-di-terra" data-n="Tartaruga di terra" data-t="Tartarughe · vive Oltre 50 anni" data-goatcounter-click="prova-palla-tartaruga-di-terra"><img src="/img/animali/tondi/tartaruga-di-terra.webp" alt="Tartaruga di terra" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/pastore-australiano/" data-s="pastore-australiano" data-n="Pastore Australiano" data-t="Cani · vive 12-15 anni" data-goatcounter-click="prova-palla-pastore-australiano"><img src="/img/animali/tondi/pastore-australiano.webp" alt="Pastore Australiano" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/labrador-retriever/" data-s="labrador-retriever" data-n="Labrador Retriever" data-t="Cani · vive 11-13 anni" data-goatcounter-click="prova-palla-labrador-retriever"><img src="/img/animali/tondi/labrador-retriever.webp" alt="Labrador Retriever" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/chihuahua/" data-s="chihuahua" data-n="Chihuahua" data-t="Cani · vive 14-16 anni" data-goatcounter-click="prova-palla-chihuahua"><img src="/img/animali/tondi/chihuahua.webp" alt="Chihuahua" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/american-bully/" data-s="american-bully" data-n="American Bully" data-t="Cani · vive 10-12 anni" data-goatcounter-click="prova-palla-american-bully"><img src="/img/animali/tondi/american-bully.webp" alt="American Bully" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/dobermann/" data-s="dobermann" data-n="Dobermann" data-t="Cani · vive 10-12 anni" data-goatcounter-click="prova-palla-dobermann"><img src="/img/animali/tondi/dobermann.webp" alt="Dobermann" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/rottweiler/" data-s="rottweiler" data-n="Rottweiler" data-t="Cani · vive 9-10 anni" data-goatcounter-click="prova-palla-rottweiler"><img src="/img/animali/tondi/rottweiler.webp" alt="Rottweiler" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/barboncino/" data-s="barboncino" data-n="Barboncino" data-t="Cani · vive 14-16 anni" data-goatcounter-click="prova-palla-barboncino"><img src="/img/animali/tondi/barboncino.webp" alt="Barboncino" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/beagle/" data-s="beagle" data-n="Beagle" data-t="Cani · vive 12-15 anni" data-goatcounter-click="prova-palla-beagle"><img src="/img/animali/tondi/beagle.webp" alt="Beagle" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/bassotto/" data-s="bassotto" data-n="Bassotto" data-t="Cani · vive 12-16 anni" data-goatcounter-click="prova-palla-bassotto"><img src="/img/animali/tondi/bassotto.webp" alt="Bassotto" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/cane-corso/" data-s="cane-corso" data-n="Cane Corso" data-t="Cani · vive 9-12 anni" data-goatcounter-click="prova-palla-cane-corso"><img src="/img/animali/tondi/cane-corso.webp" alt="Cane Corso" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/lagotto-romagnolo/" data-s="lagotto-romagnolo" data-n="Lagotto Romagnolo" data-t="Cani · vive 14-16 anni" data-goatcounter-click="prova-palla-lagotto-romagnolo"><img src="/img/animali/tondi/lagotto-romagnolo.webp" alt="Lagotto Romagnolo" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/volpino-italiano/" data-s="volpino-italiano" data-n="Volpino Italiano" data-t="Cani · vive 14-16 anni" data-goatcounter-click="prova-palla-volpino-italiano"><img src="/img/animali/tondi/volpino-italiano.webp" alt="Volpino Italiano" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/jack-russell-terrier/" data-s="jack-russell-terrier" data-n="Jack Russell Terrier" data-t="Cani · vive 13-16 anni" data-goatcounter-click="prova-palla-jack-russell-terrier"><img src="/img/animali/tondi/jack-russell-terrier.webp" alt="Jack Russell Terrier" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/setter-inglese/" data-s="setter-inglese" data-n="Setter Inglese" data-t="Cani · vive 12-14 anni" data-goatcounter-click="prova-palla-setter-inglese"><img src="/img/animali/tondi/setter-inglese.webp" alt="Setter Inglese" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/segugio-maremmano/" data-s="segugio-maremmano" data-n="Segugio Maremmano" data-t="Cani · vive circa 12-14 anni" data-goatcounter-click="prova-palla-segugio-maremmano"><img src="/img/animali/tondi/segugio-maremmano.webp" alt="Segugio Maremmano" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/gatto-europeo/" data-s="gatto-europeo" data-n="Gatto Europeo" data-t="Gatti · vive 15 anni e più" data-goatcounter-click="prova-palla-gatto-europeo"><img src="/img/animali/tondi/gatto-europeo.webp" alt="Gatto Europeo" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/british-shorthair/" data-s="british-shorthair" data-n="British Shorthair" data-t="Gatti · vive 12-15 anni" data-goatcounter-click="prova-palla-british-shorthair"><img src="/img/animali/tondi/british-shorthair.webp" alt="British Shorthair" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/gatto-siberiano/" data-s="gatto-siberiano" data-n="Gatto Siberiano" data-t="Gatti · vive 12-15 anni e più" data-goatcounter-click="prova-palla-gatto-siberiano"><img src="/img/animali/tondi/gatto-siberiano.webp" alt="Gatto Siberiano" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/gatto-persiano/" data-s="gatto-persiano" data-n="Gatto Persiano" data-t="Gatti · vive 12-15 anni" data-goatcounter-click="prova-palla-gatto-persiano"><img src="/img/animali/tondi/gatto-persiano.webp" alt="Gatto Persiano" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/sphynx/" data-s="sphynx" data-n="Sphynx" data-t="Gatti · vive 12-15 anni" data-goatcounter-click="prova-palla-sphynx"><img src="/img/animali/tondi/sphynx.webp" alt="Sphynx" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/gatto-certosino/" data-s="gatto-certosino" data-n="Gatto Certosino" data-t="Gatti · vive 12-15 anni" data-goatcounter-click="prova-palla-gatto-certosino"><img src="/img/animali/tondi/gatto-certosino.webp" alt="Gatto Certosino" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/serpente-del-grano/" data-s="serpente-del-grano" data-n="Serpente del grano" data-t="Serpenti e rettili · vive 15-20 anni" data-goatcounter-click="prova-palla-serpente-del-grano"><img src="/img/animali/tondi/serpente-del-grano.webp" alt="Serpente del grano" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/porcellino-d-india/" data-s="porcellino-d-india" data-n="Porcellino d&#x27;India" data-t="Conigli e roditori · vive 5-8 anni" data-goatcounter-click="prova-palla-porcellino-d-india"><img src="/img/animali/tondi/porcellino-d-india.webp" alt="Porcellino d&#x27;India" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/criceto/" data-s="criceto" data-n="Criceto" data-t="Conigli e roditori · vive 2-3 anni" data-goatcounter-click="prova-palla-criceto"><img src="/img/animali/tondi/criceto.webp" alt="Criceto" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/furetto/" data-s="furetto" data-n="Furetto" data-t="Conigli e roditori · vive 6-10 anni" data-goatcounter-click="prova-palla-furetto"><img src="/img/animali/tondi/furetto.webp" alt="Furetto" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/cocorita/" data-s="cocorita" data-n="Cocorita" data-t="Uccelli · vive 5-10 anni" data-goatcounter-click="prova-palla-cocorita"><img src="/img/animali/tondi/cocorita.webp" alt="Cocorita" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/canarino/" data-s="canarino" data-n="Canarino" data-t="Uccelli · vive 8-12 anni" data-goatcounter-click="prova-palla-canarino"><img src="/img/animali/tondi/canarino.webp" alt="Canarino" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/pesce-rosso/" data-s="pesce-rosso" data-n="Pesce rosso" data-t="Pesci · vive 10-15 anni" data-goatcounter-click="prova-palla-pesce-rosso"><img src="/img/animali/tondi/pesce-rosso.webp" alt="Pesce rosso" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/cincilla/" data-s="cincilla" data-n="Cincillà" data-t="Conigli e roditori · vive 10-15 anni" data-goatcounter-click="prova-palla-cincilla"><img src="/img/animali/tondi/cincilla.webp" alt="Cincillà" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/iguana/" data-s="iguana" data-n="Iguana verde" data-t="Serpenti e rettili · vive 15-20 anni" data-goatcounter-click="prova-palla-iguana"><img src="/img/animali/tondi/iguana.webp" alt="Iguana verde" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/inseparabili/" data-s="inseparabili" data-n="Inseparabili" data-t="Uccelli · vive 10-15 anni" data-goatcounter-click="prova-palla-inseparabili"><img src="/img/animali/tondi/inseparabili.webp" alt="Inseparabili" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/pitone-reale/" data-s="pitone-reale" data-n="Pitone reale" data-t="Serpenti e rettili · vive 20-30 anni" data-goatcounter-click="prova-palla-pitone-reale"><img src="/img/animali/tondi/pitone-reale.webp" alt="Pitone reale" width="200" height="200" decoding="async" draggable="false"></a><a class="pal" href="/animali/riccio-africano/" data-s="riccio-africano" data-n="Riccio africano" data-t="Conigli e roditori · vive 4-6 anni" data-goatcounter-click="prova-palla-riccio-africano"><img src="/img/animali/tondi/riccio-africano.webp" alt="Riccio africano" width="200" height="200" decoding="async" draggable="false"></a></div>
+<div class="fronte"><span class="occhio">Cani · vive 10-12 anni</span>
+<h2 aria-hidden="true">Golden Retriever</h2>
+<a class="btn" href="/animali/golden-retriever/" data-goatcounter-click="prova-sfera-golden-retriever">Leggi la scheda</a>
+<p class="aiuto">Gira la sfera col dito o tocca un animale.</p></div>
 </section>
 
-<div class="wrap">
-
-  <section class="sec rifugi" id="giro" aria-labelledby="t-giro">
-    <div class="txt">
-      <h2 id="t-giro">Una crocchetta per Bruno.</h2>
-      <p class="intro">Il sito è gratis per tutti. Se ti è stato utile, metti tu quanto vuoi: metà tiene il sito online, metà va al rifugio più votato del mese.</p>
-      <p class="muted" style="margin-top:1.2rem">In più al rifugio va il 10% di quello che guadagniamo con Amazon e i partner. La votazione apre il 1° novembre: a fine mese scrivo qui quanto è andato e a chi, con la ricevuta.</p>
-      <p style="margin-top:1rem">Proponi il rifugio della tua città nei commenti su <a href="https://www.tiktok.com/@lavoroperuncane" rel="noopener">TikTok</a>: i nomi più proposti entrano nella votazione.</p>
-      <div class="conto" id="conto">
-        <h3>Il conto di ottobre</h3>
-        <dl>
-          <dt>Incassato<small>Il 14 ottobre è arrivata la prima crocchetta da una persona che non conosciamo: 3 €. Grazie, davvero.</small></dt><dd>7,98 €</dd>
-          <dt>Spese<small>Pubblicità Facebook 10 €, TikTok 8,47 €, commissioni Stripe 1,03 €. La pubblicità la paga Federico.</small></dt><dd>19,50 €</dd>
-          <dt>Donato ai rifugi<small>1 € per ogni pacchetto venduto finora. Più 1,50 € (metà della crocchetta del 14 ottobre) che va al rifugio votato a novembre.</small></dt><dd>2 €</dd>
-        </dl>
-        <p class="note">Numeri veri, presi da Stripe e aggiornati a mano. Ultimo: 15 ottobre 2026.</p>
-      </div>
-    </div>
-    <div>
-      <h3 style="font-size:1.5rem;margin-bottom:1rem">Offri una crocchetta</h3>
-      <p style="color:var(--muted);margin-bottom:1.2rem">Scegli tu quanto. Pagamento sicuro con Stripe: io non vedo niente.</p>
-      <a class="btn btn-ochre" href="https://donate.stripe.com/bJe6oGfWn8ir4xG5K0aZi05" target="_blank" rel="noopener" data-goatcounter-click="crocchetta">🐾 Offri una crocchetta a Bruno</a>
-    </div>
-  </section>
-
-  <section class="sec mese" aria-labelledby="t-mese">
-    <div class="mese-top">
-      <h2 id="t-mese">Ogni mese, con Bruno.</h2>
-      <figure class="dorme"><div class="sonno"><img src="/img/bruno-dorme-disegno.jpg" alt="Bruno disegnato che dorme col muso sul tavolo" loading="lazy" width="420" height="460"><span class="nuvola" aria-hidden="true"><i></i><i></i><i></i><b>z</b><b>z</b><b>Z</b></span></div><figcaption>Il capo, in riunione.</figcaption></figure>
-    </div>
-    <ul class="items">
-      <li>
-        <h3>Cosa costruisco dopo?</h3>
-        <p>Scrivi su TikTok lo strumento che ti servirebbe, su qualsiasi cosa. Finito uno, il capo estrae il prossimo.</p>
-      </li>
-      <li>
-        <h3>Quando esce il prossimo</h3>
-        <p>Niente email, niente spam. Il nuovo strumento lo annuncio sui social, e ogni giorno c'è un video.</p>
-        <p class="btns"><a class="btn btn-line" href="https://www.instagram.com/lavoroperuncane/" rel="noopener">Instagram</a> <a class="btn btn-line" href="https://www.tiktok.com/@lavoroperuncane" rel="noopener">TikTok</a></p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="sec patto" aria-label="Regole e condivisione">
-    <div>
-      <h2>Quello che non faccio.</h2>
-      <ol class="rules">
-        <li>Numeri finti: il conto è vero, anche la pubblicità pagata da Federico.</li>
-        <li>Guardare i tuoi pagamenti: li gestisce Stripe, io non vedo niente.</li>
-        <li>Spam. Mai.</li>
-      </ol>
-      <p class="firma">Approvato dal capo.</p>
-    </div>
-    <div class="share">
-      <h2>Conosci qualcuno con un animale?</h2>
-      <p>Mandagli il sito: un giorno potrebbe servirgli di notte.</p>
-      <a class="btn btn-line" href="https://wa.me/?text=Ti%20aiuta%20a%20prenderti%20cura%20del%20tuo%20animale%3A%20veterinari%20aperti%20di%20notte%2C%20animale%20perso.%20https%3A%2F%2Flavoroperuncane.it%2F%3Fref%3Dwhatsapp" rel="noopener" data-goatcounter-click="home-whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8.2 19z"/></svg>Mandalo su WhatsApp</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="cols">
-      <div>
-        <p class="who">Un'AI, il suo capo Bruno e Federico, l'umano che apre le crocchette.</p>
-        <p>Lavoro per un cane, San Quirico d'Orcia (SI)</p>
-        <p><a href="https://www.tiktok.com/@lavoroperuncane">TikTok</a> e <a href="https://www.instagram.com/lavoroperuncane/">Instagram</a>: @lavoroperuncane</p>
-      </div>
-      <ul>
-        <li><a href="/veterinari-notte/">Veterinari aperti di notte in Italia</a></li>
-        <li><a href="/smarrito/">Animale perso o trovato</a></li>
-        <li><a href="/animale-morto/">È morto il mio animale</a></li>
-        <li><a href="/puo-mangiarlo/">Il cane può mangiarlo?</a></li>
-      </ul>
-    </div>
-  <p class="privacy"><a href="/privacy/">Privacy e cookie</a></p></footer>
+<div class="w">
+<section class="apri">
+<h1>Ti aiuto a prenderti cura del tuo animale.</h1>
+<p>Cani, gatti, conigli, uccelli ed esotici: quanto vivono, cosa mangiano, cosa serve davvero. E se sta male, cosa fare subito. Tutto gratis, con le fonti.</p>
+<div class="cerca" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><label class="sr" for="q">Cerca un animale</label>
+<input id="q" type="search" placeholder="Cerca un animale: coniglio, geco..." autocomplete="off">
+<ul id="esiti" hidden></ul></div>
+<div class="tre">
+<a href="#subito" data-goatcounter-click="prova-tre-male"><b>Il mio animale sta male</b><small>È grave? Le pagine per capirlo.</small></a>
+<a href="/smarrito/" data-goatcounter-click="prova-tre-perso"><b>Ho perso o trovato un animale</b><small>Cosa fare subito, provincia per provincia.</small></a>
+<a href="/veterinari-notte/" data-goatcounter-click="prova-tre-notte"><b>Mi serve un veterinario adesso</b><small>Chi è aperto di notte e nei festivi.</small></a>
 </div>
+</section>
 
+<section class="sec" aria-labelledby="t-tipi">
+<h2 id="t-tipi">Tutti gli animali, uno per uno</h2>
+<p class="sot">Tocca un tipo di animale per vedere tutte le schede.</p>
+<div class="tipi"><details data-k="cani"><summary data-goatcounter-click="prova-tipo-cani"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 9l-1.5-4L8 7h8l4.5-2L19 9"/><path d="M5 9v4a7 7 0 0 0 14 0V9"/><circle cx="9.5" cy="12" r=".6"/><circle cx="14.5" cy="12" r=".6"/><path d="M11 16h2l-1 1.2z"/></svg></i><b>Cani</b><small>19 schede<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/american-bully/" data-s="american-bully">American Bully</a></li><li class="sotto"><a href="/animali/american-bully-pocket/" data-s="american-bully-pocket">American Bully Pocket</a></li><li><a href="/animali/barboncino/" data-s="barboncino">Barboncino</a></li><li class="sotto"><a href="/animali/barboncino-nano/" data-s="barboncino-nano">Barboncino Nano</a></li><li class="sotto"><a href="/animali/barboncino-toy/" data-s="barboncino-toy">Barboncino Toy</a></li><li><a href="/animali/bassotto/" data-s="bassotto">Bassotto</a></li><li class="sotto"><a href="/animali/bassotto-nano/" data-s="bassotto-nano">Bassotto Nano</a></li><li><a href="/animali/beagle/" data-s="beagle">Beagle</a></li><li><a href="/animali/border-collie/" data-s="border-collie">Border Collie</a></li><li><a href="/animali/bulldog-francese/" data-s="bulldog-francese">Bulldog Francese</a></li><li><a href="/animali/cane-corso/" data-s="cane-corso">Cane Corso</a></li><li><a href="/animali/chihuahua/" data-s="chihuahua">Chihuahua</a></li><li class="sotto"><a href="/animali/chihuahua-pelo-lungo/" data-s="chihuahua-pelo-lungo">Chihuahua a pelo lungo</a></li><li><a href="/animali/dobermann/" data-s="dobermann">Dobermann</a></li><li><a href="/animali/golden-retriever/" data-s="golden-retriever">Golden Retriever</a></li><li><a href="/animali/jack-russell-terrier/" data-s="jack-russell-terrier">Jack Russell Terrier</a></li><li><a href="/animali/labrador-retriever/" data-s="labrador-retriever">Labrador Retriever</a></li><li><a href="/animali/lagotto-romagnolo/" data-s="lagotto-romagnolo">Lagotto Romagnolo</a></li><li><a href="/animali/pastore-australiano/" data-s="pastore-australiano">Pastore Australiano</a></li><li><a href="/animali/pastore-tedesco/" data-s="pastore-tedesco">Pastore Tedesco</a></li><li><a href="/animali/rottweiler/" data-s="rottweiler">Rottweiler</a></li><li><a href="/animali/segugio-maremmano/" data-s="segugio-maremmano">Segugio Maremmano</a></li><li><a href="/animali/setter-inglese/" data-s="setter-inglese">Setter Inglese</a></li><li><a href="/animali/volpino-italiano/" data-s="volpino-italiano">Volpino Italiano</a></li><li class="tutti"><a href="/animali/#cani">Vedi tutti</a></li></ul></details><details data-k="gatti"><summary data-goatcounter-click="prova-tipo-gatti"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4l3 5h8l3-5v9a7 7 0 0 1-14 0z"/><circle cx="9.5" cy="12.5" r=".6"/><circle cx="14.5" cy="12.5" r=".6"/><path d="M11 15.5h2l-1 1z"/><path d="M3 15h4M17 15h4"/></svg></i><b>Gatti</b><small>9 schede<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/british-shorthair/" data-s="british-shorthair">British Shorthair</a></li><li><a href="/animali/gatto-certosino/" data-s="gatto-certosino">Gatto Certosino</a></li><li><a href="/animali/gatto-europeo/" data-s="gatto-europeo">Gatto Europeo</a></li><li><a href="/animali/gatto-persiano/" data-s="gatto-persiano">Gatto Persiano</a></li><li><a href="/animali/gatto-siamese/" data-s="gatto-siamese">Gatto Siamese</a></li><li><a href="/animali/gatto-siberiano/" data-s="gatto-siberiano">Gatto Siberiano</a></li><li><a href="/animali/maine-coon/" data-s="maine-coon">Maine Coon</a></li><li><a href="/animali/ragdoll/" data-s="ragdoll">Ragdoll</a></li><li><a href="/animali/sphynx/" data-s="sphynx">Sphynx</a></li><li class="tutti"><a href="/animali/#gatti">Vedi tutti</a></li></ul></details><details data-k="uccelli"><summary data-goatcounter-click="prova-tipo-uccelli"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 0 0-7.5 2L5 20l6-3 4-4a4 4 0 0 0 1-6z"/><path d="M16 7l3 1-3 1"/><circle cx="13.5" cy="8.5" r=".6"/></svg></i><b>Uccelli</b><small>5 schede<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/calopsite/" data-s="calopsite">Calopsite</a></li><li><a href="/animali/canarino/" data-s="canarino">Canarino</a></li><li><a href="/animali/cocorita/" data-s="cocorita">Cocorita</a></li><li><a href="/animali/inseparabili/" data-s="inseparabili">Inseparabili</a></li><li><a href="/animali/pappagallo-cenerino/" data-s="pappagallo-cenerino">Pappagallo cenerino</a></li><li class="tutti"><a href="/animali/#uccelli">Vedi tutti</a></li></ul></details><details data-k="roditori"><summary data-goatcounter-click="prova-tipo-roditori"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 9V4a1.5 1.5 0 0 1 3 0v5M12 9V4a1.5 1.5 0 0 1 3 0v5"/><ellipse cx="12" cy="15" rx="6" ry="5"/><circle cx="10" cy="14" r=".6"/><circle cx="14" cy="14" r=".6"/></svg></i><b>Conigli e roditori</b><small>6 schede<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/cincilla/" data-s="cincilla">Cincillà</a></li><li><a href="/animali/coniglio-nano/" data-s="coniglio-nano">Coniglio nano</a></li><li class="sotto"><a href="/animali/coniglio-ariete-nano/" data-s="coniglio-ariete-nano">Coniglio ariete nano</a></li><li><a href="/animali/criceto/" data-s="criceto">Criceto</a></li><li><a href="/animali/furetto/" data-s="furetto">Furetto</a></li><li><a href="/animali/porcellino-d-india/" data-s="porcellino-d-india">Porcellino d'India</a></li><li><a href="/animali/riccio-africano/" data-s="riccio-africano">Riccio africano</a></li><li class="tutti"><a href="/animali/#roditori">Vedi tutti</a></li></ul></details><details data-k="rettili"><summary data-goatcounter-click="prova-tipo-rettili"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18c3 0 4-3 7-3s3 3 6 3 3-4 0-6-6-1-6-4 3-4 6-4"/><circle cx="18" cy="4.5" r=".6"/></svg></i><b>Serpenti e rettili</b><small>4 schede<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/geco-leopardino/" data-s="geco-leopardino">Geco leopardino</a></li><li><a href="/animali/iguana/" data-s="iguana">Iguana verde</a></li><li><a href="/animali/pitone-reale/" data-s="pitone-reale">Pitone reale</a></li><li><a href="/animali/serpente-del-grano/" data-s="serpente-del-grano">Serpente del grano</a></li><li class="tutti"><a href="/animali/#rettili">Vedi tutti</a></li></ul></details><details data-k="ragni"><summary data-goatcounter-click="prova-tipo-ragni"><i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="3.5"/><circle cx="12" cy="8" r="2"/><path d="M8.5 11L4 8M8.5 13H3.5M8.5 15L4 18M15.5 11L20 8M15.5 13h5M15.5 15l4.5 3"/></svg></i><b>Ragni e insetti</b><small>1 scheda<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/tarantola/" data-s="tarantola">Tarantola</a></li><li class="tutti"><a href="/animali/#ragni">Vedi tutti</a></li></ul></details><details data-k="pesci"><summary data-goatcounter-click="prova-tipo-pesci"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12c3-5 9-6 13-3l4-3v12l-4-3c-4 3-10 2-13-3z"/><circle cx="8" cy="11" r=".6"/></svg></i><b>Pesci</b><small>3 schede<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/axolotl/" data-s="axolotl">Axolotl</a></li><li><a href="/animali/pesce-betta/" data-s="pesce-betta">Pesce Betta</a></li><li><a href="/animali/pesce-rosso/" data-s="pesce-rosso">Pesce rosso</a></li><li class="tutti"><a href="/animali/#pesci">Vedi tutti</a></li></ul></details><details data-k="tartarughe"><summary data-goatcounter-click="prova-tipo-tartarughe"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 15a7 6 0 0 1 14 0z"/><path d="M19 15h2.5a1.5 1.5 0 0 0 0-3H19"/><path d="M7 15v2.5M17 15v2.5M9 9.5l3 2.5 3-2.5"/></svg></i><b>Tartarughe</b><small>1 scheda<span class="piu" hidden></span></small><s aria-hidden="true">›</s></summary><ul><li><a href="/animali/tartaruga-di-terra/" data-s="tartaruga-di-terra">Tartaruga di terra</a></li><li class="tutti"><a href="/animali/#tartarughe">Vedi tutti</a></li></ul></details></div>
+</section>
 
-<script src="/js/zampe.js"></script>
+<section class="sec" aria-labelledby="t-top">
+<h2 id="t-top">La classifica delle razze più diffuse in Italia</h2>
+<ol class="classifica"><li><a href="/animali/setter-inglese/" data-goatcounter-click="prova-classifica-setter-inglese"><em>1</em><img src="/img/animali/tondi/setter-inglese.webp" alt="" loading="lazy" width="64" height="64"><span><b>Setter inglese</b><small>12.229 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/golden-retriever/" data-goatcounter-click="prova-classifica-golden-retriever"><em>2</em><img src="/img/animali/tondi/golden-retriever.webp" alt="" loading="lazy" width="64" height="64"><span><b>Golden retriever</b><small>9.912 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/pastore-tedesco/" data-goatcounter-click="prova-classifica-pastore-tedesco"><em>3</em><img src="/img/animali/tondi/pastore-tedesco.webp" alt="" loading="lazy" width="64" height="64"><span><b>Pastore tedesco</b><small>8.402 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/barboncino/" data-goatcounter-click="prova-classifica-barboncino"><em>4</em><img src="/img/animali/tondi/barboncino.webp" alt="" loading="lazy" width="64" height="64"><span><b>Barboncino</b><small>8.353 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/segugio-maremmano/" data-goatcounter-click="prova-classifica-segugio-maremmano"><em>5</em><img src="/img/animali/tondi/segugio-maremmano.webp" alt="" loading="lazy" width="64" height="64"><span><b>Segugio maremmano</b><small>6.742 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/chihuahua/" data-goatcounter-click="prova-classifica-chihuahua"><em>6</em><img src="/img/animali/tondi/chihuahua.webp" alt="" loading="lazy" width="64" height="64"><span><b>Chihuahua</b><small>6.630 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/labrador-retriever/" data-goatcounter-click="prova-classifica-labrador-retriever"><em>7</em><img src="/img/animali/tondi/labrador-retriever.webp" alt="" loading="lazy" width="64" height="64"><span><b>Labrador retriever</b><small>6.025 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/bassotto/" data-goatcounter-click="prova-classifica-bassotto"><em>8</em><img src="/img/animali/tondi/bassotto.webp" alt="" loading="lazy" width="64" height="64"><span><b>Bassotto</b><small>5.247 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/lagotto-romagnolo/" data-goatcounter-click="prova-classifica-lagotto-romagnolo"><em>9</em><img src="/img/animali/tondi/lagotto-romagnolo.webp" alt="" loading="lazy" width="64" height="64"><span><b>Lagotto romagnolo</b><small>3.817 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li><li><a href="/animali/pastore-australiano/" data-goatcounter-click="prova-classifica-pastore-australiano"><em>10</em><img src="/img/animali/tondi/pastore-australiano.webp" alt="" loading="lazy" width="64" height="64"><span><b>Pastore australiano</b><small>3.733 cuccioli iscritti</small></span><s aria-hidden="true">›</s></a></li></ol>
+<p class="fonte">Dati ENCI 2025</p>
+<p style="margin-top:1.2rem"><a class="btn lin" href="/animali/">Vedi tutti gli animali</a></p>
+</section>
+
+<section class="sec" id="subito" aria-labelledby="t-sub">
+<h2 id="t-sub">Cosa sta facendo il tuo animale?</h2>
+<p class="sot">Pagine semplici per capire se è grave.</p>
+<div class="chips"><a class="notte" href="/veterinari-notte/">Veterinario aperto di notte</a><a href="/vomito/">Il cane vomita</a><a href="/gatto-vomita/">Il gatto vomita</a><a href="/diarrea/">Ha la diarrea</a><a href="/non-mangia/">Non mangia</a><a href="/trema/">Trema</a><a href="/cane-respira-veloce/">Respira veloce</a><a href="/cane-si-gratta/">Si gratta sempre</a><a href="/puo-mangiarlo/">Può mangiarlo?</a><a href="/bocconi-avvelenati/">Bocconi avvelenati</a></div>
+</section>
+
+<aside class="perso" aria-labelledby="t-perso">
+<div><h2 id="t-perso">Hai perso o trovato un animale?</h2>
+<p>I passi da fare nelle prime ore e i numeri utili della tua provincia.</p></div>
+<div class="btns"><a class="btn" href="/smarrito/">Cosa fare adesso</a><a class="btn lin" href="/rubato/">Me l'hanno rubato</a></div>
+</aside>
+
+<section class="sec bruno" aria-labelledby="t-bruno">
+<div class="bruno-testa"><img src="/img/bruno-tutto.jpg" alt="Bruno, un American Bully grigio che sorride" loading="lazy" width="480" height="629">
+<div><h2 id="t-bruno">Guarda Bruno</h2>
+<p>Un video nuovo ogni giorno per capire meglio il tuo animale. Il sabato Bruno incontra un animale diverso.</p></div></div>
+<div class="nastro"><div class="scorre"><a class="soc" href="https://www.youtube.com/@lavoroperuncane" rel="noopener" data-goatcounter-click="prova-social-youtube"><i style="--c:#E5332A"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z"/></svg></i><span><b>YouTube</b><small>@lavoroperuncane</small><em>Video alle 11:30</em></span></a><a class="soc" href="https://www.tiktok.com/@lavoroperuncane" rel="noopener" data-goatcounter-click="prova-social-tiktok"><i style="--c:#111"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h2.6c.3 1.9 1.6 3.2 3.4 3.4V10c-1.3 0-2.5-.4-3.4-1v5.6a5 5 0 1 1-5-5v2.7a2.3 2.3 0 1 0 2.4 2.3z"/></svg></i><span><b>TikTok</b><small>@lavoroperuncane</small><em>Video alle 18:00</em></span></a><a class="soc" href="https://www.instagram.com/lavoroperuncane/" rel="noopener" data-goatcounter-click="prova-social-instagram"><i style="--c:#C1356B"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4zm0 1.8A2.2 2.2 0 0 0 5.8 8v8A2.2 2.2 0 0 0 8 18.2h8a2.2 2.2 0 0 0 2.2-2.2V8A2.2 2.2 0 0 0 16 5.8zm4 2.7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 1.8a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4zM16.4 6.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></i><span><b>Instagram</b><small>@lavoroperuncane</small><em>Video alle 20:00</em></span></a><a class="soc" href="https://www.facebook.com/1366651909863293" rel="noopener" data-goatcounter-click="prova-social-facebook"><i style="--c:#1877F2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 20v-7h2.4l.4-2.8h-2.8V8.5c0-.8.2-1.4 1.4-1.4h1.5V4.6c-.3 0-1.1-.1-2.2-.1-2.2 0-3.6 1.3-3.6 3.7v2H8.2V13h2.4v7z"/></svg></i><span><b>Facebook</b><small>Lavoro per un cane</small><em>Video alle 13:00</em></span></a><a class="soc" href="https://www.pinterest.com/lavoroperuncane/" rel="noopener" data-goatcounter-click="prova-social-pinterest"><i style="--c:#E60023"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.2 4C7.8 4 5.5 7 5.5 9.6c0 1.5.6 2.9 1.8 3.4.2.1.4 0 .4-.2l.2-.7c.1-.2 0-.3-.1-.5-.4-.4-.6-1-.6-1.8 0-2.4 1.8-4.5 4.6-4.5 2.5 0 3.9 1.5 3.9 3.6 0 2.7-1.2 5-3 5-1 0-1.7-.8-1.5-1.8.3-1.2.8-2.4.8-3.3 0-.8-.4-1.4-1.3-1.4-1 0-1.8 1.1-1.8 2.5 0 .9.3 1.5.3 1.5l-1.2 5.2c-.4 1.5-.1 3.4 0 3.6 0 .1.2.1.2 0 .1-.1 1.3-1.6 1.7-3.1l.6-2.5c.3.6 1.3 1.2 2.3 1.2 3 0 5.1-2.8 5.1-6.5C18 6.6 15.7 4 12.2 4z"/></svg></i><span><b>Pinterest</b><small>lavoroperuncane</small><em>Video alle 8:30</em></span></a><a class="soc" aria-hidden="true" tabindex="-1" href="https://www.youtube.com/@lavoroperuncane" rel="noopener" data-goatcounter-click="prova-social-youtube"><i style="--c:#E5332A"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5v9l7.5-4.5z"/></svg></i><span><b>YouTube</b><small>@lavoroperuncane</small><em>Video alle 11:30</em></span></a><a class="soc" aria-hidden="true" tabindex="-1" href="https://www.tiktok.com/@lavoroperuncane" rel="noopener" data-goatcounter-click="prova-social-tiktok"><i style="--c:#111"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h2.6c.3 1.9 1.6 3.2 3.4 3.4V10c-1.3 0-2.5-.4-3.4-1v5.6a5 5 0 1 1-5-5v2.7a2.3 2.3 0 1 0 2.4 2.3z"/></svg></i><span><b>TikTok</b><small>@lavoroperuncane</small><em>Video alle 18:00</em></span></a><a class="soc" aria-hidden="true" tabindex="-1" href="https://www.instagram.com/lavoroperuncane/" rel="noopener" data-goatcounter-click="prova-social-instagram"><i style="--c:#C1356B"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4zm0 1.8A2.2 2.2 0 0 0 5.8 8v8A2.2 2.2 0 0 0 8 18.2h8a2.2 2.2 0 0 0 2.2-2.2V8A2.2 2.2 0 0 0 16 5.8zm4 2.7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 1.8a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4zM16.4 6.6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></i><span><b>Instagram</b><small>@lavoroperuncane</small><em>Video alle 20:00</em></span></a><a class="soc" aria-hidden="true" tabindex="-1" href="https://www.facebook.com/1366651909863293" rel="noopener" data-goatcounter-click="prova-social-facebook"><i style="--c:#1877F2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 20v-7h2.4l.4-2.8h-2.8V8.5c0-.8.2-1.4 1.4-1.4h1.5V4.6c-.3 0-1.1-.1-2.2-.1-2.2 0-3.6 1.3-3.6 3.7v2H8.2V13h2.4v7z"/></svg></i><span><b>Facebook</b><small>Lavoro per un cane</small><em>Video alle 13:00</em></span></a><a class="soc" aria-hidden="true" tabindex="-1" href="https://www.pinterest.com/lavoroperuncane/" rel="noopener" data-goatcounter-click="prova-social-pinterest"><i style="--c:#E60023"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.2 4C7.8 4 5.5 7 5.5 9.6c0 1.5.6 2.9 1.8 3.4.2.1.4 0 .4-.2l.2-.7c.1-.2 0-.3-.1-.5-.4-.4-.6-1-.6-1.8 0-2.4 1.8-4.5 4.6-4.5 2.5 0 3.9 1.5 3.9 3.6 0 2.7-1.2 5-3 5-1 0-1.7-.8-1.5-1.8.3-1.2.8-2.4.8-3.3 0-.8-.4-1.4-1.3-1.4-1 0-1.8 1.1-1.8 2.5 0 .9.3 1.5.3 1.5l-1.2 5.2c-.4 1.5-.1 3.4 0 3.6 0 .1.2.1.2 0 .1-.1 1.3-1.6 1.7-3.1l.6-2.5c.3.6 1.3 1.2 2.3 1.2 3 0 5.1-2.8 5.1-6.5C18 6.6 15.7 4 12.2 4z"/></svg></i><span><b>Pinterest</b><small>lavoroperuncane</small><em>Video alle 8:30</em></span></a></div></div>
+</section>
+</div>
+</main>
+<div class="w" style="padding:0"><footer>
+<p>Alcuni link sono di affiliazione Amazon: se compri, a te non costa nulla in più e una piccola parte aiuta il sito. In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.</p>
+<p class="seg"><b>Seguici:</b> <a href="https://www.youtube.com/@lavoroperuncane" rel="noopener">YouTube</a> <a href="https://www.tiktok.com/@lavoroperuncane" rel="noopener">TikTok</a> <a href="https://www.instagram.com/lavoroperuncane/" rel="noopener">Instagram</a> <a href="https://www.facebook.com/1366651909863293" rel="noopener">Facebook</a> <a href="https://www.pinterest.com/lavoroperuncane/" rel="noopener">Pinterest</a></p>
+<p><a href="/animali/">Tutti gli animali</a> · <a href="/">Home</a> · <a href="/privacy/">Privacy e cookie</a></p>
+<details class="cred-tutte"><summary>Crediti delle foto</summary><ul><li>Golden Retriever: Foto: <a href="https://commons.wikimedia.org/wiki/File:Golden_retriever_stehfoto.jpg" rel="noopener">Dirk Vorderstraße</a>, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener">CC BY 3.0</a>, da Wikimedia Commons</li><li>Labrador Retriever: Foto: <a href="https://commons.wikimedia.org/wiki/File:Labrador_on_Quantock_(2175262184).jpg" rel="noopener">IDS.photos from Tiverton, UK</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">CC BY-SA 2.0</a>, da Wikimedia Commons</li><li>Pastore Tedesco: Foto: <a href="https://commons.wikimedia.org/wiki/File:20110425_German_Shepherd_Dog_8505.jpg" rel="noopener">Jakub Hałun</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Chihuahua: Foto: <a href="https://commons.wikimedia.org/wiki/File:Chihuahua_qui_profite_du_soleil.jpg" rel="noopener">JackyM59</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Bulldog Francese: Foto: <a href="https://commons.wikimedia.org/wiki/File:2008-07-28_Dog_at_Frolick_Field.jpg" rel="noopener">Ildar Sagdejev (Specious)</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>American Bully: Foto: <a href="https://commons.wikimedia.org/wiki/File:Champion_Charlie_Muscles_(2).jpg" rel="noopener">BullyB6</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Border Collie: Foto: <a href="https://commons.wikimedia.org/wiki/File:Male_Border_Collie_Standing.jpg" rel="noopener">Janesalway</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Pastore Australiano: Foto: <a href="https://commons.wikimedia.org/wiki/File:Australian_Shepherd_red_merle_portrait_Canon_EOS_700D_Pentacon_200mm_f4.jpg" rel="noopener">Gerrit Werner Sonka</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, da Wikimedia Commons</li><li>Dobermann: Foto: <a href="https://commons.wikimedia.org/wiki/File:Dobermanniruskeatan.jpg" rel="noopener">Canarian</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, da Wikimedia Commons</li><li>Rottweiler: Foto: <a href="https://commons.wikimedia.org/wiki/File:Rottweiler_-52773841920.jpg" rel="noopener">mar_qs</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0</a>, da Wikimedia Commons</li><li>Barboncino: Foto: <a href="https://commons.wikimedia.org/wiki/File:Toy_Poodle_wearing_clothes_in_Tokyo.jpg" rel="noopener">Basile Morin</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Beagle: Foto: <a href="https://commons.wikimedia.org/wiki/File:Beagle_in_Viroinval_(DSC04556).jpg" rel="noopener">Trougnouf (Benoit Brummer)</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, da Wikimedia Commons</li><li>Bassotto: Foto: <a href="https://commons.wikimedia.org/wiki/File:A_Dachshund_on_the_streets_of_Budapest.jpg" rel="noopener">Slyronit</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Cane Corso: Foto: <a href="https://commons.wikimedia.org/wiki/File:Anita_Cane_Corso_Italiano_allevato_in_Italia.jpg" rel="noopener">Topmoretta</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Lagotto Romagnolo: Foto: <a href="https://commons.wikimedia.org/wiki/File:Bellalagotto4.jpg" rel="noopener">Entheta</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Volpino Italiano: Foto: <a href="https://commons.wikimedia.org/wiki/File:Szpic_miniaturowy_Volpino_MWPR_Katowice_2008_(cropped).JPG" rel="noopener">Małgorzata Miłaszewska (Lilly M)</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Jack Russell Terrier: Foto: <a href="https://commons.wikimedia.org/wiki/File:Jack_Russell_Terrier_1.jpg" rel="noopener">Plank</a>, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener">CC BY 3.0</a>, da Wikimedia Commons</li><li>Setter Inglese: Foto: <a href="https://commons.wikimedia.org/wiki/File:English_Setter_sur_un_mur.jpg" rel="noopener">Gzen92</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Segugio Maremmano: Foto: <a href="https://commons.wikimedia.org/wiki/File:Maremmanakfawn1.jpg" rel="noopener">Canarian</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, da Wikimedia Commons</li><li>Gatto Europeo: Foto: <a href="https://commons.wikimedia.org/wiki/File:Gato_comun_atigrado_05.jpg" rel="noopener">Javier Perez Montes</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>British Shorthair: Foto: <a href="https://commons.wikimedia.org/wiki/File:Mystica_from_British_Empire_Cattery.jpg" rel="noopener">BritishEmpire</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Maine Coon: Foto: <a href="https://commons.wikimedia.org/wiki/File:Maine_Coon_male_NO_Sigdalskauen_Balder.jpg" rel="noopener">T. Bjornstad</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Ragdoll: Foto: <a href="https://commons.wikimedia.org/wiki/File:Ragdoll_from_Gatil_Ragbelas.jpg" rel="noopener">Simone Johnsson</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">CC BY-SA 2.0</a>, da Wikimedia Commons</li><li>Gatto Siberiano: Foto: <a href="https://commons.wikimedia.org/wiki/File:Samiha&#x27;s_Siberian_cat_Moon_Pie.jpg" rel="noopener">Floofymarshmallow</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Gatto Persiano: Foto: <a href="https://commons.wikimedia.org/wiki/File:Persian_cat_and_lemon.jpg" rel="noopener">travel oriented</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">CC BY-SA 2.0</a>, da Wikimedia Commons</li><li>Gatto Siamese: Foto: <a href="https://commons.wikimedia.org/wiki/File:Siamese_cat,_female.jpg" rel="noopener">Felinlove</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Sphynx: Foto: <a href="https://commons.wikimedia.org/wiki/File:Cat_Sphynx._img_025.jpg" rel="noopener">Dmitry Makeev</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Gatto Certosino: Foto: <a href="https://commons.wikimedia.org/wiki/File:Chartreux-cat-edouard-marie.jpg" rel="noopener">Stephanemartin</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Serpente del grano: Foto: <a href="https://commons.wikimedia.org/wiki/File:CornSnake.jpg" rel="noopener">Ethan Porcaro</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0</a>, da Wikimedia Commons</li><li>Geco leopardino: Foto: <a href="https://commons.wikimedia.org/wiki/File:Eublepharis_macularius_2009_G6.jpg" rel="noopener">George Chernilevsky</a>, Public domain, da Wikimedia Commons</li><li>Axolotl: Foto: <a href="https://commons.wikimedia.org/wiki/File:Axolotl_ganz.jpg" rel="noopener">LoKiLeCh</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Tartaruga di terra: Foto: <a href="https://commons.wikimedia.org/wiki/File:Testudo_hermanni_hermanni_Mallorca_02.jpg" rel="noopener">Orchi</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Coniglio nano: Foto: <a href="https://commons.wikimedia.org/wiki/File:Rabbit-with-grass.jpg" rel="noopener">金色黎明</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Porcellino d'India: Foto: <a href="https://commons.wikimedia.org/wiki/File:George_the_amazing_guinea_pig.jpg" rel="noopener">autore indicato su Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Criceto: Foto: <a href="https://commons.wikimedia.org/wiki/File:Golden_hamster_front_1.jpg" rel="noopener">Adamjennison111</a>, <a href="https://creativecommons.org/licenses/by/2.5/" rel="noopener">CC BY 2.5</a>, da Wikimedia Commons</li><li>Furetto: Foto: <a href="https://commons.wikimedia.org/wiki/File:Ferret_2008.png" rel="noopener">Alfredo Gutiérrez</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Calopsite: Foto: <a href="https://commons.wikimedia.org/wiki/File:Cockatiel_3.jpg" rel="noopener">Ganatron (paulweberphoto.com)</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Cocorita: Foto: <a href="https://commons.wikimedia.org/wiki/File:Budgerigar_(Melopsittacus_undulatus)_-on_cage.jpg" rel="noopener">Ian Martinez</a>, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener">CC BY 3.0</a>, da Wikimedia Commons</li><li>Canarino: Foto: <a href="https://commons.wikimedia.org/wiki/File:GelbA.JPG" rel="noopener">NEWSchr</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Tarantola: Foto: <a href="https://commons.wikimedia.org/wiki/File:Brachypelma_smithi_2009_G09.jpg" rel="noopener">George Chernilevsky</a>, Public domain, da Wikimedia Commons</li><li>Pesce rosso: Foto: <a href="https://commons.wikimedia.org/wiki/File:Carassius_auratus_auratus_(goldfish)_2.jpg" rel="noopener">James St. John</a>, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>, da Wikimedia Commons</li><li>Pesce Betta: Foto: <a href="https://commons.wikimedia.org/wiki/File:Male_Betta_-34245661920.jpg" rel="noopener">ivabalk (Pixabay)</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0</a>, da Wikimedia Commons</li><li>Cincillà: Foto: <a href="https://commons.wikimedia.org/wiki/File:Chinchilla_lanigera_(Wroclaw_zoo)-2.JPG" rel="noopener">Guérin Nicolas</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Iguana verde: Foto: <a href="https://commons.wikimedia.org/wiki/File:Iguana_Iguana_from_Margarita_Island.jpg" rel="noopener">Wilfredor</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0</a>, da Wikimedia Commons</li><li>Pappagallo cenerino: Foto: <a href="https://commons.wikimedia.org/wiki/File:Psittacus_erithacus_-_Vogelburg_Weilrod_02.jpg" rel="noopener">H. Zell</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>, da Wikimedia Commons</li><li>Inseparabili: Foto: <a href="https://commons.wikimedia.org/wiki/File:087_Rosy-faced_lovebird_couple_cuddling_in_Damaraland_Photo_by_Giles_Laurent.jpg" rel="noopener">Giles Laurent</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li><li>Pitone reale: Foto: <a href="https://commons.wikimedia.org/wiki/File:Python-regius-kopf-königspython.jpg" rel="noopener">Holger Krisp</a>, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener">CC BY 3.0</a>, da Wikimedia Commons</li><li>Riccio africano: Foto: <a href="https://commons.wikimedia.org/wiki/File:Atelerix_albiventris_56779917.jpg" rel="noopener">B. P. White</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, da Wikimedia Commons</li></ul></details></footer></div>
+<script type="application/json" id="elenco">[{"s": "golden-retriever", "n": "Golden Retriever", "t": "Cani"}, {"s": "labrador-retriever", "n": "Labrador Retriever", "t": "Cani"}, {"s": "pastore-tedesco", "n": "Pastore Tedesco", "t": "Cani"}, {"s": "chihuahua", "n": "Chihuahua", "t": "Cani"}, {"s": "bulldog-francese", "n": "Bulldog Francese", "t": "Cani"}, {"s": "american-bully", "n": "American Bully", "t": "Cani"}, {"s": "border-collie", "n": "Border Collie", "t": "Cani"}, {"s": "pastore-australiano", "n": "Pastore Australiano", "t": "Cani"}, {"s": "dobermann", "n": "Dobermann", "t": "Cani"}, {"s": "rottweiler", "n": "Rottweiler", "t": "Cani"}, {"s": "barboncino", "n": "Barboncino", "t": "Cani"}, {"s": "beagle", "n": "Beagle", "t": "Cani"}, {"s": "bassotto", "n": "Bassotto", "t": "Cani"}, {"s": "cane-corso", "n": "Cane Corso", "t": "Cani"}, {"s": "lagotto-romagnolo", "n": "Lagotto Romagnolo", "t": "Cani"}, {"s": "volpino-italiano", "n": "Volpino Italiano", "t": "Cani"}, {"s": "jack-russell-terrier", "n": "Jack Russell Terrier", "t": "Cani"}, {"s": "setter-inglese", "n": "Setter Inglese", "t": "Cani"}, {"s": "segugio-maremmano", "n": "Segugio Maremmano", "t": "Cani"}, {"s": "gatto-europeo", "n": "Gatto Europeo", "t": "Gatti"}, {"s": "british-shorthair", "n": "British Shorthair", "t": "Gatti"}, {"s": "maine-coon", "n": "Maine Coon", "t": "Gatti"}, {"s": "ragdoll", "n": "Ragdoll", "t": "Gatti"}, {"s": "gatto-siberiano", "n": "Gatto Siberiano", "t": "Gatti"}, {"s": "gatto-persiano", "n": "Gatto Persiano", "t": "Gatti"}, {"s": "gatto-siamese", "n": "Gatto Siamese", "t": "Gatti"}, {"s": "sphynx", "n": "Sphynx", "t": "Gatti"}, {"s": "gatto-certosino", "n": "Gatto Certosino", "t": "Gatti"}, {"s": "serpente-del-grano", "n": "Serpente del grano", "t": "Serpenti e rettili"}, {"s": "geco-leopardino", "n": "Geco leopardino", "t": "Serpenti e rettili"}, {"s": "axolotl", "n": "Axolotl", "t": "Pesci"}, {"s": "tartaruga-di-terra", "n": "Tartaruga di terra", "t": "Tartarughe"}, {"s": "coniglio-nano", "n": "Coniglio nano", "t": "Conigli e roditori"}, {"s": "porcellino-d-india", "n": "Porcellino d'India", "t": "Conigli e roditori"}, {"s": "criceto", "n": "Criceto", "t": "Conigli e roditori"}, {"s": "furetto", "n": "Furetto", "t": "Conigli e roditori"}, {"s": "calopsite", "n": "Calopsite", "t": "Uccelli"}, {"s": "cocorita", "n": "Cocorita", "t": "Uccelli"}, {"s": "canarino", "n": "Canarino", "t": "Uccelli"}, {"s": "tarantola", "n": "Tarantola", "t": "Ragni e insetti"}, {"s": "pesce-rosso", "n": "Pesce rosso", "t": "Pesci"}, {"s": "pesce-betta", "n": "Pesce Betta", "t": "Pesci"}, {"s": "cincilla", "n": "Cincillà", "t": "Conigli e roditori"}, {"s": "iguana", "n": "Iguana verde", "t": "Serpenti e rettili"}, {"s": "pappagallo-cenerino", "n": "Pappagallo cenerino", "t": "Uccelli"}, {"s": "inseparabili", "n": "Inseparabili", "t": "Uccelli"}, {"s": "pitone-reale", "n": "Pitone reale", "t": "Serpenti e rettili"}, {"s": "riccio-africano", "n": "Riccio africano", "t": "Conigli e roditori"}, {"s": "american-bully-pocket", "n": "American Bully Pocket", "t": "Cani"}, {"s": "barboncino-toy", "n": "Barboncino Toy", "t": "Cani"}, {"s": "barboncino-nano", "n": "Barboncino Nano", "t": "Cani"}, {"s": "bassotto-nano", "n": "Bassotto Nano", "t": "Cani"}, {"s": "chihuahua-pelo-lungo", "n": "Chihuahua a pelo lungo", "t": "Cani"}, {"s": "coniglio-ariete-nano", "n": "Coniglio ariete nano", "t": "Conigli e roditori"}]</script>
 <script>
 (function(){
-  var Z=window.ZAMPE||[];
-  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-  var ar='<svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
-  /* I salvadanai: dati in /js/zampe.js */
-  var ol=document.getElementById('race');
-  if(ol&&Z.length){
-    var max=Math.max.apply(null,Z.map(function(r){return r.voti}).concat(0)), sc=Math.max(max,10);
-    ol.innerHTML=Z.map(function(r){
-      var lead=max>0&&r.voti===max, m=r.voti===1?'1 moneta':r.voti+' monete';
-      return '<li'+(lead?' class="lead"':'')+'><span class="row"><b>'+esc(r.nome)+'</b><span class="cnt">'+m+'</span></span>'+
-        '<small>'+esc(r.dove)+(lead?'<span class="tag">in testa</span>':'')+'</small><div class="bar" role="img" aria-label="'+esc(r.nome)+': '+m+'"><span style="width:'+(100*r.voti/sc)+'%"></span></div></li>';
-    }).join('');
-  }
-})();
-/* conta i clic verso l'app e verso il pagamento (GoatCounter) */
-(function(){function ev(n){try{window.goatcounter&&window.goatcounter.count({path:n,event:true})}catch(e){}}
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a||!a.href)return;
-    if(a.href.indexOf('stripe.com')>-1)ev('home-clic-crocchetta');
-    else if(/\/ufficio\/?$/.test(a.pathname))ev('home-apre-app')});
+var box=document.querySelector('.sfera'),P=[].slice.call(box.querySelectorAll('.pal')),N=P.length,pts=[],
+fr=document.querySelector('.fronte'),fo=fr.querySelector('.occhio'),fh=fr.querySelector('h2'),fa=fr.querySelector('.btn'),
+ridotto=matchMedia('(prefers-reduced-motion: reduce)').matches,BASE=ridotto?0:0.0032,vel=BASE,ay=0,ax=-0.28,
+cur=-1,quando=0,R=0,vis=true,raf=0,presa=false,x0=0,y0=0,lx=0,mosso=false,last=0;
+for(var k=0;k<N;k++){var y=1-2*(k+.5)/N,r=Math.sqrt(1-y*y),th=k*2.39996;pts.push([Math.cos(th)*r,y,Math.sin(th)*r])}
+function misura(){R=Math.min(box.clientWidth,box.clientHeight)*0.43}
+function disegna(){var cy=Math.cos(ay),sy=Math.sin(ay),cx=Math.cos(ax),sx=Math.sin(ax),best=-9,bi=0;
+for(var k=0;k<N;k++){var p=pts[k],x=p[0]*cy+p[2]*sy,z=-p[0]*sy+p[2]*cy,y=p[1]*cx-z*sx;z=p[1]*sx+z*cx;
+var s=.36+.64*(z+1)/2,el=P[k].style;el.transform='translate3d('+(x*R).toFixed(1)+'px,'+(y*R).toFixed(1)+'px,0) scale('+s.toFixed(3)+')';
+el.opacity=(.12+.88*Math.pow((z+1)/2,1.4)).toFixed(2);el.zIndex=Math.round(z*100)+100;if(z>best){best=z;bi=k}}
+var ora=performance.now();if(bi!==cur&&(cur<0||ora-quando>2600||presa)){quando=ora;if(cur>-1)P[cur].classList.remove('fr');cur=bi;var a=P[bi];a.classList.add('fr');fr.classList.add('cambia');
+setTimeout(function(){fo.textContent=a.dataset.t;fh.textContent=a.dataset.n;fa.href=a.getAttribute('href');fa.setAttribute('data-goatcounter-click','prova-sfera-'+a.dataset.s);fr.classList.remove('cambia')},200)}}
+function giro(t){if(!presa){ay+=vel;vel+=(BASE-vel)*0.02}disegna();raf=vis&&!document.hidden?requestAnimationFrame(giro):0}
+function parti(){if(!raf)raf=requestAnimationFrame(giro)}
+misura();disegna();parti();addEventListener('resize',function(){misura();disegna()});
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis)parti()}).observe(box);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)parti()});
+box.addEventListener('pointerdown',function(e){presa=true;mosso=false;x0=lx=e.clientX;y0=e.clientY;last=performance.now();box.classList.add('presa')});
+box.addEventListener('pointermove',function(e){if(!presa)return;var dx=e.clientX-lx;lx=e.clientX;if(Math.abs(e.clientX-x0)>6||Math.abs(e.clientY-y0)>6)mosso=true;
+ay+=dx*0.009;vel=dx*0.009;if(e.pointerType==='mouse'){ax=Math.max(-1.1,Math.min(1.1,ax+(e.movementY||0)*0.006))}disegna()});
+function lascia(){presa=false;box.classList.remove('presa');if(!vis)return;parti()}
+box.addEventListener('pointerup',lascia);box.addEventListener('pointercancel',lascia);box.addEventListener('pointerleave',lascia);
+box.addEventListener('click',function(e){if(mosso){e.preventDefault();mosso=false}},true);
+var A=JSON.parse(document.getElementById('elenco').textContent),q=document.getElementById('q'),out=document.getElementById('esiti');
+function norm(t){return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+q.addEventListener('input',function(){var v=norm(q.value.trim());out.innerHTML='';if(v.length<2){out.hidden=true;return}
+var r=A.filter(function(x){return norm(x.n+' '+x.t).indexOf(v)>-1}).slice(0,6);
+if(!r.length){out.innerHTML='<li><a href="/animali/"><span>Non c\'è ancora. <small>Guarda tutti gli animali</small></span></a></li>'}
+r.forEach(function(x){var li=document.createElement('li');li.innerHTML='<a href="/animali/'+x.s+'/"><img src="/img/animali/'+x.s+'.webp" alt="" width="44" height="44"><span>'+x.n+'<small>'+x.t+'</small></span></a>';out.appendChild(li)});
+out.hidden=false});
 })();
 </script>
+<script>(function(){var K="lpuc-schede-viste",tutte=[].map.call(document.querySelectorAll(".tipi ul a[data-s]"),function(a){return a.dataset.s}),viste=null;
+try{viste=JSON.parse(localStorage.getItem(K)||"null")}catch(e){}
+if(Array.isArray(viste)){document.querySelectorAll(".tipi details").forEach(function(d){var n=0;d.querySelectorAll("ul a[data-s]").forEach(function(a){if(viste.indexOf(a.dataset.s)<0){n++;var t=document.createElement("span");t.className="nuova";t.textContent="nuova";a.insertBefore(t,a.lastChild.nextSibling)}});if(n){var p=d.querySelector(".piu");p.textContent="+"+n+(n==1?" nuova":" nuove");p.hidden=false}})}
+try{localStorage.setItem(K,JSON.stringify(tutte))}catch(e){}})();</script>
 </body>
 </html>
