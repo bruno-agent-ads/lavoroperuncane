@@ -1,0 +1,71 @@
+/* Tema chiaro di tutto il sito (22/10/2026), stessi colori della home nuova.
+   Le regole partono da "html" per vincere sugli stili scritti dentro le pagine. */
+:root{--ochre-ink:#7E5B12;--ombra:0 1px 2px rgba(60,42,20,.06),0 6px 18px rgba(60,42,20,.08);--ombra2:0 2px 4px rgba(60,42,20,.08),0 12px 28px rgba(60,42,20,.12);color-scheme:light}
+html body{background:#FAF6EE;color:#2B241D}
+html a:hover{color:#7E5B12}
+html a:focus-visible,html button:focus-visible,html input:focus-visible,html select:focus-visible{outline:3px solid #7E5B12;outline-offset:3px}
+
+/* icone */
+html .ic{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;margin-right:.45em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+html .dot{display:inline-block;width:.8em;height:.8em;border-radius:50%;margin-right:.45em;vertical-align:-.05em;box-shadow:0 0 0 3px rgba(0,0,0,.05)}
+html .dot-r{background:#C4473A}html .dot-g{background:#D9A520}html .dot-v{background:#5E9C3A}
+
+/* testa con Bruno */
+html .top{color:#5C5245}
+html .top img{border:2px solid #C9A24E;width:40px;height:40px}
+
+/* bottoni */
+html .btn{background:#FFFFFF;border:1px solid rgba(43,36,29,.16);box-shadow:var(--ombra);display:flex;align-items:center;justify-content:center;gap:.1rem;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+html .btn:hover{transform:translateY(-1px);box-shadow:var(--ombra2);border-color:#C9A24E;color:#2B241D}
+html .btn.call{background:#B23A2E;border-color:#B23A2E;color:#fff}
+html .btn.call:hover{background:#9E3227;color:#fff}
+html .btn.poison{background:#FFF6F4;border-color:#B23A2E;color:#9E3227}
+html .btn.go,html .pk .btn{color:#fff}
+html .btn .ic{margin-right:.5em}
+
+/* riquadri */
+html .card,html .serve,html .box div{background:#FFFDF8;border:1px solid rgba(43,36,29,.12);box-shadow:var(--ombra)}
+html .card.partner{border-color:#C9A24E}
+html .card h3 .ic,html h2 .ic,html h3 .ic{color:#8A6516}
+html .tag{background:#F6EBCF;color:#7E5B12}
+html .warn{position:relative;background:#FFF4F1;border:1px solid rgba(178,58,46,.35);border-left:5px solid #B23A2E;border-radius:14px;box-shadow:var(--ombra)}
+html .warn b{color:#2B241D}
+html .cta,html .paid,html .miss{border:1px solid rgba(43,36,29,.14);border-left:5px solid #C9A24E;border-radius:14px;background:#FFFDF8;box-shadow:var(--ombra)}
+html #nessuno-risponde{border-left:5px solid #5E7A59}
+html #nessuno-risponde>h2:first-child .ic,html #nessuno-risponde h3 .ic{color:#5E7A59}
+html .liv{background:#FFFDF8;box-shadow:var(--ombra)}
+html .liv.rosso{background:#FFF4F1}
+html .breve,html .risposta{border-left-color:#C9A24E}
+html .breve b.t{color:#7E5B12}
+html .vd{border-color:rgba(94,122,89,.45)}
+
+/* le due tessere grandi (Ho perso / Ho trovato) */
+html .big a{position:relative;background:#FFFFFF;border:1px solid rgba(43,36,29,.12);box-shadow:var(--ombra);padding:1.05rem 1rem 1rem;transition:transform .18s ease,box-shadow .18s ease}
+html .big a:hover{transform:translateY(-2px);box-shadow:var(--ombra2);color:#2B241D}
+html .big a .ic{display:flex;width:2.6rem;height:2.6rem;padding:.6rem;margin:0 0 .6rem;border-radius:50%;background:#F6EBCF;color:#7E5B12;box-sizing:border-box}
+html .big a.found .ic{background:#E6EEE2;color:#4F6B4A}
+html .big a.lost,html .big a.found{border-color:rgba(43,36,29,.12)}html .big a.lost{border-top:4px solid #C9A24E}html .big a.found{border-top:4px solid #5E7A59}
+
+/* campi */
+html input,html select,html textarea{background:#FFFFFF;border:1px solid rgba(43,36,29,.22);color:#2B241D}
+html .cities a,html .chips a{background:#FFFFFF;border:1px solid rgba(43,36,29,.14);box-shadow:0 1px 2px rgba(60,42,20,.05)}
+html .cities a:hover,html .chips a:hover{border-color:#C9A24E;color:#2B241D}
+
+/* crocchetta e whatsapp */
+html .kb{background:linear-gradient(160deg,#FFF8E8,#FFFDF8 60%,#F1F5EE);border:1px solid rgba(201,162,78,.55);color:#2B241D;box-shadow:var(--ombra)}
+html .kb p{color:#4A4036}html .kb small{color:#5C5245}
+html .wa{background:#F0FAF3;border:1px solid rgba(37,211,102,.45);box-shadow:var(--ombra)}
+html .wa p{color:#4A4036}
+
+/* schede animali */
+html .hero{background:#F2EADB}
+html .prod a{color:#1A1714}
+html .griglia a,html .simili a{border:1px solid rgba(43,36,29,.10);box-shadow:var(--ombra)}
+
+/* entrata morbida, una volta sola */
+@keyframes lpc-su{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+html .big a,html .warn,html .card,html .cta,html .kb,html .wa{animation:lpc-su .5s ease both}
+html .big a:nth-child(2){animation-delay:.08s}
+html .warn .ic,html .btn.call .ic{animation:lpc-batti 2.4s ease-in-out infinite}
+@keyframes lpc-batti{0%,70%,100%{transform:scale(1)}80%{transform:scale(1.18)}90%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){html .big a,html .warn,html .card,html .cta,html .kb,html .wa,html .warn .ic,html .btn.call .ic{animation:none}html .btn,html .big a{transition:none}}
