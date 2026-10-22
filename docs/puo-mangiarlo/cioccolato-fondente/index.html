@@ -66,6 +66,27 @@ footer{margin-top:2.5rem;font-size:.85rem;color:var(--muted)}
 <h1>Il cane può mangiare il cioccolato fondente?</h1>
 <div class="verd yel">Dipende da quanto ne ha mangiato e da quanto pesa.</div>
 <p>Il cioccolato contiene teobromina, che per i cani è tossica. In cioccolato fondente ce ne sono circa 5,6 mg per grammo. Il manuale veterinario indica sintomi lievi (vomito, diarrea, sete) da 20 mg per kg di peso, problemi al cuore da 40-50 e convulsioni da 60. Per un cane di 10 kg, i primi sintomi possono arrivare con circa <b>36 g</b>.</p>
+<style>.cc{border:1.5px solid var(--sun);border-radius:16px;padding:1rem;margin:1rem 0;background:rgba(214,178,98,.08)}
+.cc h2{margin:0 0 .5rem}.cc .two{display:flex;gap:.6rem;flex-wrap:wrap}.cc .two label{flex:1 1 9rem}
+.cc .res{border-radius:12px;padding:.8rem 1rem;margin:.6rem 0 0;border:1.5px solid var(--line)}
+.cc .res.red{border-color:var(--red);background:rgba(196,71,58,.14)}.cc .res.yel{border-color:var(--sun);background:rgba(214,178,98,.12)}
+.cc .res.grn{border-color:#93AD8E;background:rgba(147,173,142,.10)}.cc .res b.t{display:block;font:600 1.15rem/1.25 var(--display);margin-bottom:.2rem}</style>
+<div class="cc" id="cc"><h2>Quanto è pericoloso per il tuo cane?</h2>
+<div class="two"><label>Peso del cane (kg)<input id="cc-kg" type="number" inputmode="decimal" min="0.5" step="0.5" placeholder="es. 8"></label>
+<label>Quanto ne ha mangiato (g)<input id="cc-g" type="number" inputmode="decimal" min="1" step="1" placeholder="es. 30"></label></div>
+<p class="note">Una tavoletta intera pesa di solito 100 g.</p>
+<button type="button" class="btn go" id="cc-go" data-goatcounter-click="choc-calcola" style="width:100%;cursor:pointer">Calcola</button>
+<div id="cc-out" aria-live="polite"></div></div>
+<script>(function(){var MG=5.6;function n(id){return parseFloat((document.getElementById(id).value||'').replace(',','.'))}
+function f(x){return String(x>=10?Math.round(x):Math.round(x*10)/10).replace('.',',')}
+document.getElementById('cc-go').onclick=function(){var kg=n('cc-kg'),g=n('cc-g'),o=document.getElementById('cc-out');
+if(!(kg>0)||!(g>0)){o.innerHTML='<p class="note">Metti il peso del cane e quanti grammi ha mangiato.</p>';return}
+var d=g*MG/kg,c,t,x='Sono circa <b>'+f(d)+' mg di teobromina per kg</b> di peso. Sintomi lievi da 20 mg/kg, problemi al cuore da 40-50, convulsioni da 60.';
+if(d>=40){c='red';t='Emergenza: chiama subito il veterinario o il Centro Antiveleni'}
+else if(d>=20){c='red';t='Pericoloso: chiama il veterinario adesso'}
+else if(d>=15){c='yel';t='Al limite: chiama il veterinario adesso';x+=' Siete vicini alla prima soglia, e la teobromina cambia da marca a marca.'}
+else{c='grn';t='Sotto la soglia dei primi sintomi';x+=' Tienilo d\'occhio per 24 ore e chiama se vomita, è agitato, trema o beve tantissimo.'}
+o.innerHTML='<div class="res '+c+'"><b class="t">'+t+'</b>'+x+'</div>'}})();</script>
 <a class="btn poison" href="tel:+390266101029">☠️ Centro Antiveleni 02 66101029, giorno e notte</a>
 <a class="btn" href="/veterinari-notte/">🌙 Veterinari aperti di notte</a>
 <p class="note">Il capo l'ha “assaggiato” in una puntata: <a href="https://www.tiktok.com/@lavoroperuncane" target="_blank" rel="noopener">guardala su TikTok</a>.</p>
