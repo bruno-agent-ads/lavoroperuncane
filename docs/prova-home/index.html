@@ -6,41 +6,42 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Lavoro per un cane: ogni animale, una scheda chiara (prova)</title>
 <meta name="description" content="Prova della nuova home di Lavoro per un cane.">
-<meta name="theme-color" content="#1A1714">
+<meta name="theme-color" content="#FAF6EE">
 <link rel="icon" href="/img/icon-192.png" type="image/png">
 <link rel="stylesheet" href="/fonts/caldo.css">
 <style>
-:root{--bg:#1A1714;--bg2:#211D19;--card:#24201B;--card2:#2C2721;--ink:#EFE7D8;--muted:#B9AE9C;--faint:#8F8574;
---line:rgba(239,231,216,.14);--line2:rgba(239,231,216,.28);--ochre:#C9A24E;--sage:#93AD8E;
---display:"Fraunces",Georgia,serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:dark}
+:root{--bg:#FAF6EE;--bg2:#F2EADB;--card:#FFFDF8;--card2:#F6EFE2;--ink:#2B241D;--muted:#5C5245;--faint:#6F6556;
+--line:rgba(43,36,29,.12);--line2:rgba(43,36,29,.26);--ochre:#C9A24E;--ochre-ink:#7E5B12;--sage:#5E7A59;
+--ombra:0 1px 2px rgba(60,42,20,.06),0 6px 18px rgba(60,42,20,.08);
+--display:"Fraunces",Georgia,serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1.06rem/1.6 var(--body);overflow-x:hidden}
 img{display:block;max-width:100%}
-a{color:var(--ink)}a:hover{color:var(--ochre)}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+a{color:var(--ink)}a:hover{color:var(--ochre-ink)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ochre-ink);outline-offset:3px}
 h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;line-height:1.08;text-wrap:balance}
 .w{max-width:1080px;margin:0 auto;padding:0 16px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .bar{position:absolute;inset:0 0 auto;z-index:5;display:flex;align-items:center;gap:.7rem;padding:.8rem 16px;
-background:linear-gradient(rgba(20,17,14,.78),rgba(20,17,14,0))}
+background:none}
 .logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;font:600 1.12rem/1.1 var(--display);color:var(--ink)}
-.logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--ochre);box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--ochre);box-shadow:0 2px 8px rgba(60,42,20,.2)}
 .bar nav{margin-left:auto;display:flex;gap:1rem}
 .bar nav a{text-decoration:none;font-weight:700;font-size:.95rem;white-space:nowrap}
 @media(max-width:479px){.bar nav a+a{display:none}.logo{font-size:1.02rem}}
 /* sfera di animali */
 .bar{position:relative;background:none}
 .globo{position:relative;padding:.2rem 0 0;overflow:hidden;
-background:radial-gradient(60% 55% at 50% 42%,rgba(201,162,78,.20),rgba(201,162,78,0) 70%),var(--bg)}
+background:radial-gradient(62% 55% at 50% 44%,#FFFFFF,rgba(255,255,255,0) 72%),linear-gradient(180deg,var(--bg),#F4EBDA)}
 .sfera{position:relative;height:clamp(330px,92vw,520px);max-width:620px;margin:0 auto;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .sfera.presa{cursor:grabbing}
 .pal{position:absolute;left:50%;top:50%;width:var(--d);height:var(--d);margin:calc(var(--d)/-2) 0 0 calc(var(--d)/-2);border-radius:50%;
-overflow:hidden;border:2px solid rgba(239,231,216,.22);background:var(--card);will-change:transform,opacity;-webkit-tap-highlight-color:transparent}
+overflow:hidden;border:3px solid #fff;background:var(--card2);box-shadow:0 3px 10px rgba(60,42,20,.18);will-change:transform,opacity;-webkit-tap-highlight-color:transparent}
 .sfera{--d:clamp(50px,16vw,92px)}
 .pal img{width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
-.pal.fr{border-color:var(--ochre);box-shadow:0 0 0 3px rgba(201,162,78,.28),0 8px 24px rgba(0,0,0,.5)}
+.pal.fr{border-color:var(--ochre);box-shadow:0 0 0 3px rgba(201,162,78,.35),0 10px 26px rgba(60,42,20,.32)}
 .fronte{text-align:center;padding:.2rem 16px 0;min-height:8.6rem}
-.occhio{display:inline-block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre);font-weight:700}
+.occhio{display:inline-block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre-ink);font-weight:700}
 .fronte h2{font-size:clamp(2rem,9vw,3.4rem);letter-spacing:-.02em;margin:.15rem 0 .7rem;transition:opacity .25s}
 .fronte.cambia h2,.fronte.cambia .occhio{opacity:0}
 .occhio{transition:opacity .25s}
@@ -48,7 +49,7 @@ overflow:hidden;border:2px solid rgba(239,231,216,.22);background:var(--card);wi
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.15rem;border-radius:99px;background:var(--ochre);color:#1A1714;
 text-decoration:none;font-weight:700;border:0;font-family:inherit;font-size:1rem}
 .btn:hover{color:#1A1714;background:#D9B35E}
-.btn.lin{background:transparent;color:var(--ink);border:1px solid var(--line2)}.btn.lin:hover{border-color:var(--ochre);color:var(--ochre)}
+.btn.lin{background:transparent;color:var(--ink);border:1px solid var(--line2)}.btn.lin:hover{border-color:var(--ochre-ink);color:var(--ochre-ink)}
 /* sotto */
 .apri{padding:2.4rem 0 .6rem}
 .apri h1{font-size:clamp(1.9rem,6.5vw,3rem);max-width:22ch}
@@ -66,8 +67,8 @@ text-decoration:none;font-weight:700;border:0;font-family:inherit;font-size:1rem
 .sec h2+.top{margin-top:1.2rem}
 .tre{display:grid;gap:10px;margin-top:1.6rem}
 @media(min-width:760px){.tre{grid-template-columns:repeat(3,1fr)}}
-.tre a{display:block;padding:1rem 1.1rem;border-radius:14px;background:var(--card);text-decoration:none;border:1px solid var(--line)}
-.tre a:hover{border-color:var(--ochre)}
+.tre a{display:block;padding:1rem 1.1rem;border-radius:14px;background:var(--card);text-decoration:none;border:1px solid var(--line);box-shadow:var(--ombra)}
+.tre a:hover{border-color:var(--ochre-ink)}
 .tre b{display:block;font:600 1.15rem/1.2 var(--display)}.tre small{display:block;color:var(--muted);margin-top:.25rem;font-size:.92rem}
 .tipi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 @media(min-width:760px){.tipi{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -78,18 +79,18 @@ text-decoration:none;font-weight:700;border:0;font-family:inherit;font-size:1rem
 .tipi a:hover img{transform:scale(1.05)}
 .tipi a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(18,15,12,.88))}
 .tipi span{position:absolute;left:.85rem;right:.85rem;bottom:.75rem;z-index:1}
-.tipi b{display:block;font:600 1.3rem/1.1 var(--display);color:var(--ink)}
+.tipi b{display:block;font:600 1.3rem/1.1 var(--display);color:#FFF8EC}
 .tipi small{color:#D8CDBA;font-size:.85rem}
 .top{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media(min-width:760px){.top{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.top a{display:block;text-decoration:none;background:var(--card);border-radius:12px;overflow:hidden;height:100%}
+.top a{display:block;text-decoration:none;background:var(--card);border-radius:12px;overflow:hidden;height:100%;border:1px solid var(--line);box-shadow:var(--ombra)}
 .top img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
 .top span{display:block;padding:.6rem .75rem .8rem}
 .top b{display:block;font:600 1.12rem/1.2 var(--display)}
 .top small{display:block;color:var(--muted);font-size:.86rem;margin-top:.2rem;line-height:1.4}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem}
-.chips a{padding:.55rem .95rem;border:1px solid var(--line2);border-radius:99px;text-decoration:none;font-size:.97rem}
-.chips a:hover{border-color:var(--ochre)}
+.chips a{padding:.55rem .95rem;border:1px solid var(--line2);border-radius:99px;text-decoration:none;font-size:.97rem;background:var(--card)}
+.chips a:hover{border-color:var(--ochre-ink)}
 .chips a.notte{background:var(--ochre);color:#1A1714;border-color:var(--ochre);font-weight:700}
 .perso{margin-top:2.6rem;padding:1.4rem 1.2rem;border-radius:16px;background:var(--bg2);border:1px solid var(--ochre);display:grid;gap:1rem}
 @media(min-width:760px){.perso{grid-template-columns:1fr auto;align-items:center}}
@@ -97,19 +98,19 @@ text-decoration:none;font-weight:700;border:0;font-family:inherit;font-size:1rem
 .perso .btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .bruno-testa{display:flex;align-items:center;gap:1rem}
 .bruno-testa img{width:104px;height:104px;flex:none;border-radius:50%;object-fit:cover;object-position:50% 18%;border:3px solid var(--ochre);
-box-shadow:0 0 0 6px rgba(201,162,78,.16)}
+box-shadow:0 0 0 6px rgba(201,162,78,.22)}
 .bruno-testa p{color:var(--muted);margin:.4rem 0 0}
 .nastro{margin:1.3rem -16px 0;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .scorre{display:flex;gap:12px;width:max-content;padding:4px 16px 8px;animation:scorre 32s linear infinite}
 .nastro:hover .scorre,.nastro:focus-within .scorre{animation-play-state:paused}
 @keyframes scorre{to{transform:translateX(calc(-50% - 6px))}}
-.soc{display:flex;align-items:center;gap:.8rem;width:250px;white-space:nowrap;padding:.85rem 1rem;border-radius:16px;background:var(--card);border:1px solid var(--line);text-decoration:none}
-.soc:hover{border-color:var(--ochre)}
+.soc{display:flex;align-items:center;gap:.8rem;width:250px;white-space:nowrap;padding:.85rem 1rem;border-radius:16px;background:var(--card);border:1px solid var(--line);text-decoration:none;box-shadow:var(--ombra)}
+.soc:hover{border-color:var(--ochre-ink)}
 .soc i{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--c)}
 .soc svg{width:24px;height:24px;fill:#fff}
 .soc b{display:block;font:600 1.12rem/1.15 var(--display)}
 .soc small{display:block;color:var(--muted);font-size:.84rem;line-height:1.35}
-.soc em{display:block;font-style:normal;color:var(--ochre);font-size:.84rem;font-weight:700}
+.soc em{display:block;font-style:normal;color:var(--ochre-ink);font-size:.84rem;font-weight:700}
 footer{margin-top:3rem;padding:1.4rem 16px 2.4rem;border-top:1px solid var(--line);font-size:.92rem;color:var(--muted)}
 footer p{margin:0 0 .5rem}footer a{color:var(--muted)}
 .seg{display:flex;flex-wrap:wrap;gap:.4rem .9rem}
@@ -151,7 +152,7 @@ details.cred-tutte{margin-top:.8rem;font-size:.8rem}details.cred-tutte li{margin
 </section>
 
 <section class="sec" aria-labelledby="t-top">
-<h2 id="t-top">I più cercati</h2>
+<h2 id="t-top">I più amati</h2>
 <ul class="top"><li><a href="/animali/pastore-tedesco/" data-goatcounter-click="prova-top-pastore-tedesco"><img src="/img/animali/pastore-tedesco.webp" alt="" loading="lazy" width="1200" height="800" style="object-position:50% 35%"><span><b>Pastore Tedesco</b><small>Intelligente, fedele e instancabile. È un cane da lavoro: rende al massimo con chi ha tempo per allenarlo ogni giorno, con la testa e con le zampe.</small></span></a></li><li><a href="/animali/golden-retriever/" data-goatcounter-click="prova-top-golden-retriever"><img src="/img/animali/golden-retriever.webp" alt="" loading="lazy" width="1200" height="800" style="object-position:20% 30%"><span><b>Golden Retriever</b><small>Il cane di famiglia per eccellenza: buono con tutti, paziente con i bambini, sempre pronto a giocare. Chiede però tanto movimento e perde pelo tutto l'anno.</small></span></a></li><li><a href="/animali/maine-coon/" data-goatcounter-click="prova-top-maine-coon"><img src="/img/animali/maine-coon.webp" alt="" loading="lazy" width="1200" height="800" style="object-position:35% 33%"><span><b>Maine Coon</b><small>Il gatto gigante buono: grande, peloso e socievole come un cane. Ama la famiglia, gioca con l'acqua e chiacchiera con piccoli trilli. Va spazzolato e controllato al cuore.</small></span></a></li><li><a href="/animali/coniglio-nano/" data-goatcounter-click="prova-top-coniglio-nano"><img src="/img/animali/coniglio-nano.webp" alt="" loading="lazy" width="1200" height="800" style="object-position:32% 40%"><span><b>Coniglio nano</b><small>Dolce, curioso e pulito, impara anche a usare la lettiera. Vive molto più di quello che si pensa e ha bisogno di spazio, fieno e compagnia.</small></span></a></li><li><a href="/animali/american-bully/" data-goatcounter-click="prova-top-american-bully"><img src="/img/animali/american-bully.webp" alt="" loading="lazy" width="1200" height="800" style="object-position:60% 25%"><span><b>American Bully</b><small>Cane muscoloso dall'aspetto potente e dal carattere di solito dolce con la famiglia. È una razza giovane, nata negli Stati Uniti: esistono taglie molto diverse e allevamenti di ogni livello.</small></span></a></li><li><a href="/animali/serpente-del-grano/" data-goatcounter-click="prova-top-serpente-del-grano"><img src="/img/animali/serpente-del-grano.webp" alt="" loading="lazy" width="1200" height="800" style="object-position:50% 55%"><span><b>Serpente del grano</b><small>È il serpente più consigliato a chi non ne ha mai avuto uno. Non è velenoso, è tranquillo, si lascia prendere in mano e mangia senza troppi capricci.</small></span></a></li></ul>
 <p style="margin-top:1.2rem"><a class="btn lin" href="/animali/">Vedi tutti gli animali</a></p>
 </section>
