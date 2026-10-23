@@ -1,0 +1,25 @@
+{
+ "giorno": "2026-10-22",
+ "totale": 41,
+ "pagine": {
+  "/gatto-miagola/": 16,
+  "/smarrito/arezzo/": 3,
+  "/": 2,
+  "/smarrito/": 2,
+  "/smarrito/bari/": 2,
+  "/animali/": 2,
+  "/animali/setter-inglese/": 2,
+  "smarrito-chip": 1,
+  "animali-american-bully": 1,
+  "/smarrito/siena/": 1,
+  "/smarrito/avellino/": 1,
+  "/animale-morto/": 1,
+  "/animali/american-bully/": 1,
+  "/animali/jack-russell-terrier/": 1,
+  "/animali/gatto-siberiano/": 1,
+  "/animali/pastore-australiano/": 1,
+  "/animali/tarantola/": 1,
+  "/animali/pappagallo-cenerino/": 1,
+  "/animale-morto/cuneo/": 1
+ }
+}
