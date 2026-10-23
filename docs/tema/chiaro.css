@@ -69,3 +69,11 @@ html .big a:nth-child(2){animation-delay:.08s}
 html .warn .ic,html .btn.call .ic{animation:lpc-batti 2.4s ease-in-out infinite}
 @keyframes lpc-batti{0%,70%,100%{transform:scale(1)}80%{transform:scale(1.18)}90%{transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){html .big a,html .warn,html .card,html .cta,html .kb,html .wa,html .warn .ic,html .btn.call .ic{animation:none}html .btn,html .big a{transition:none}}
+/* 23/10 colore azione unico: tutti i link Amazon (amz-*) verde scuro pieno, testo bianco (7,3:1). L'ocra resta solo decorazione (bordi, linee, icone). */
+:root{--azione:#3F5E3B;--azione2:#34502F;--ochre-chiaro:#F6EBCF}
+html a[data-goatcounter-click^="amz-"]{background:var(--azione);border:1px solid var(--azione);color:#FFFFFF;font-weight:700;text-decoration:none}
+html a[data-goatcounter-click^="amz-"]:hover{background:var(--azione2);border-color:var(--azione2);color:#FFFFFF}
+html a[data-goatcounter-click^="amz-"]:focus-visible{outline:3px solid var(--azione);outline-offset:3px}
+html .kb a.kb-btn,html .chips a.notte,html .chip[aria-pressed=true],html .var .qui,html .nuova{background:var(--ochre-chiaro);border:1px solid var(--ochre-ink);color:#2B241D}
+html a:hover,html .crumb a:hover{color:var(--ochre-ink)}
+html ul.deboli li::marker,html summary::after,html .aiuto a::after{color:var(--ochre-ink)}
