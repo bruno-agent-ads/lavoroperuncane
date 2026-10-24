@@ -3,7 +3,7 @@ name: Visite del giorno (GoatCounter)
 # così Bruno le legge dal repo senza passare da servizi a pagamento.
 on:
   schedule:
-    - cron: '20 4 * * *'
+    - cron: '20 1 * * *'  # 01:20 UTC: dura ~2 ore (700+ pagine, 3 s l'una) e deve finire prima del menù (05:43 UTC) e del riepilogo (06:21 UTC)
   workflow_dispatch:
     inputs:
       giorno:
