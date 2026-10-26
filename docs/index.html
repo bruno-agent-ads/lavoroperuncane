@@ -196,6 +196,11 @@ border:1px solid var(--line);box-shadow:var(--ombra);text-decoration:none;text-a
 .domande{display:flex;flex-wrap:wrap;gap:.35rem 1rem;margin:1rem 0 0;padding:0;list-style:none;font-size:.95rem}
 .domande a{color:var(--muted)}.domande a:hover{color:var(--ochre-ink)}
 .sec.piccola h2{font-size:clamp(1.3rem,4vw,1.7rem)}
+.visti{margin:1.4rem 0 0;padding:1rem 1rem 1.1rem;border-radius:16px;background:var(--ochre-chiaro);border:1px solid rgba(126,91,18,.25)}
+.visti h2{font-size:1.25rem}.visti p{margin:.2rem 0 .7rem;color:var(--muted);font-size:.95rem}
+.visti ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.visti a{display:flex;align-items:center;gap:.75rem;padding:.55rem .7rem;border-radius:12px;background:var(--card);text-decoration:none;border:1px solid var(--line)}
+.visti img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}.visti b{display:block;line-height:1.25}.visti small{color:var(--muted);font-size:.84rem}
 </style>
 </head>
 <body>
@@ -211,6 +216,8 @@ border:1px solid var(--line);box-shadow:var(--ombra);text-decoration:none;text-a
 <ul id="esiti" hidden></ul><template><i data-goatcounter-click="home-cerca"></i></template></div>
 <ul class="porte"><li><a href="/animali/#cani" data-goatcounter-click="home-porta-cani"><img src="/img/animali/tondi/labrador-retriever.webp" alt="" width="200" height="200"><b>Cani</b><small>68 schede</small></a></li><li><a href="/animali/#gatti" data-goatcounter-click="home-porta-gatti"><img src="/img/animali/tondi/british-shorthair.webp" alt="" width="200" height="200"><b>Gatti</b><small>22 schede</small></a></li><li><a href="#altri" data-goatcounter-click="home-porta-altri"><img src="/img/animali/tondi/coniglio-nano.webp" alt="" width="200" height="200"><b>Altri animali</b><small>44 schede</small></a></li></ul>
 </section>
+<section class="visti" aria-labelledby="t-visti"><h2 id="t-visti">Hai visto il video di Bruno?</h2><p>Tocca l'animale del video: trovi la scheda e quello che serve.</p>
+<ul><li><a href="/cane-tossisce/?ref=home-video" data-goatcounter-click="home-video-tosse"><img src="/img/bruno-sedia.jpg" alt="" width="48" height="48"><span><b>Bruno e la tosse</b><small>Il cane tossisce: cosa fare</small></span></a></li><li><a href="/animali/serpente-del-grano/?ref=home-video" data-goatcounter-click="home-video-serpente"><img src="/img/animali/tondi/serpente-del-grano.webp" alt="" width="48" height="48"><span><b>Bruno e il serpente del grano</b><small>Come tenerlo e cosa serve</small></span></a></li><li><a href="/animali/axolotl/?ref=home-video" data-goatcounter-click="home-video-axolotl"><img src="/img/animali/tondi/axolotl.webp" alt="" width="48" height="48"><span><b>Bruno e l'axolotl</b><small>Come tenerlo e cosa serve</small></span></a></li></ul></section>
 </div>
 
 <section class="globo" aria-labelledby="t-globo">
