@@ -4,6 +4,7 @@ name: Visite del giorno (GoatCounter)
 on:
   schedule:
     - cron: '20 1 * * *'  # 01:20 UTC: dura ~2 ore (700+ pagine, 3 s l'una) e deve finire prima del menù (05:43 UTC) e del riepilogo (06:21 UTC)
+    - cron: '7 4 * * *'  # riserva: il 30 e 31/10 GitHub ha saltato o ritardato quella delle 01:20; se il file c'è già non fa niente
   workflow_dispatch:
     inputs:
       giorno:
@@ -11,6 +12,9 @@ on:
         required: false
 permissions:
   contents: write
+concurrency:
+  group: visite
+  cancel-in-progress: false
 jobs:
   visite:
     runs-on: ubuntu-latest
@@ -24,6 +28,8 @@ jobs:
           import datetime, json, os, re, time, urllib.parse, urllib.request
           B = 'https://lavoroperuncane.goatcounter.com/counter/'
           g = os.environ.get('GIORNO') or str(datetime.date.today() - datetime.timedelta(days=1))
+          if not os.environ.get('GIORNO') and os.path.exists(f'dati/visite/{g}.json'):
+              print('già contato', g); raise SystemExit(0)
           d = datetime.date.fromisoformat(g)
           q = f'.json?start={d}&end={d + datetime.timedelta(days=1)}'
           errori = []
