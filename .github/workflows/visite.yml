@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main  # il main di adesso, non quello di quando il run è entrato in coda: serve per vedere se il giorno è già contato
       - name: Leggi il contatore
         env:
           GIORNO: ${{ inputs.giorno }}
